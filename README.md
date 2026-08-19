@@ -86,8 +86,11 @@ Personal developer portfolio and engineering showcase for **Muhammad Arief Satri
    # Resend API Key for contact form delivery (https://resend.com)
    RESEND_API_KEY=re_your_api_key_here
 
-   # Email address to receive inquiries from the contact form
-   CONTACT_RECIPIENT_EMAIL=ariefsatria2409@gmail.com
+   # Private inbox that receives contact inquiries
+   CONTACT_RECIPIENT_EMAIL=your_private_inbox@domain.com
+
+   # Optional: Public direct contact email displayed in UI mailto links
+   NUXT_PUBLIC_CONTACT_EMAIL=your_public_email@domain.com
    ```
 
 4. Start Development Server:

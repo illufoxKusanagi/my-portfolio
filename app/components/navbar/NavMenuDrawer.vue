@@ -165,7 +165,8 @@
                   LinkedIn
                 </a>
                 <a
-                  href="mailto:illuzen1348tcr@gmail.com"
+                  v-if="publicEmail"
+                  :href="`mailto:${publicEmail}`"
                   class="flex-1 py-2 px-3 rounded-full bg-primary-700 hover:bg-primary-600 text-white text-center font-tech text-xs font-bold transition-all shadow-md"
                 >
                   Email &rarr;
@@ -194,6 +195,8 @@ const emit = defineEmits<{
 
 const route = useRoute();
 const { t } = useI18n();
+const config = useRuntimeConfig();
+const publicEmail = config.public.contactEmail as string;
 const isHomePage = computed(() => route.path === "/");
 
 const PAGE_LINKS = computed(() => [

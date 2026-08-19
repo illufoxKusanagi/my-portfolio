@@ -20,21 +20,33 @@
 </template>
 
 <script setup lang="ts">
-const SOCIAL_LINKS = [
-  {
-    name: "GitHub",
-    url: "https://github.com/illufoxKusanagi",
-    icon: "i-lucide-github",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/muhammad-arief-satria-wibawa",
-    icon: "i-lucide-linkedin",
-  },
-  {
-    name: "Email",
-    url: "mailto:ariefsatria2409@gmail.com",
-    icon: "i-lucide-mail",
-  },
-];
+import { computed } from "vue";
+
+const config = useRuntimeConfig();
+const publicEmail = config.public.contactEmail as string;
+
+const SOCIAL_LINKS = computed(() => {
+  const links = [
+    {
+      name: "GitHub",
+      url: "https://github.com/illufoxKusanagi",
+      icon: "i-lucide-github",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://linkedin.com/in/muhammad-arief-satria-wibawa",
+      icon: "i-lucide-linkedin",
+    },
+  ];
+
+  if (publicEmail) {
+    links.push({
+      name: "Email",
+      url: `mailto:${publicEmail}`,
+      icon: "i-lucide-mail",
+    });
+  }
+
+  return links;
+});
 </script>

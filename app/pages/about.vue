@@ -19,7 +19,8 @@
 
         <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-primary-300 dark:border-primary-800">
           <a
-            href="mailto:ariefsatria2409@gmail.com"
+            v-if="publicEmail"
+            :href="`mailto:${publicEmail}`"
             class="px-6 py-2.5 rounded-full bg-secondary-700 hover:bg-secondary-600 text-white font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
           >
             {{ $t('about.directEmail') }}
@@ -221,6 +222,9 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { EXPERIENCE_DATA, type ExperienceItem } from "@/components/experience/experienceData";
+
+const config = useRuntimeConfig();
+const publicEmail = config.public.contactEmail as string;
 
 const { t, te } = useI18n();
 

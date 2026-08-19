@@ -37,39 +37,27 @@ We can configure `server/api/contact.post.ts` to automatically store all incomin
 
 ## Method 3: Direct to your Gmail Inbox via Resend (Recommended for Production)
 
-To receive real emails on your phone and personal inbox (`ariefsatria2409@gmail.com`):
+To receive real emails on your phone and personal inbox:
 
-### 1. Get a Free Resend API Key
-1. Go to [resend.com](https://resend.com) and create a free account (3,000 emails/month free).
-2. Create an API key (`re_123456789...`).
+1. Create a free account at [https://resend.com](https://resend.com).
+2. Generate an API Key (starts with `re_...`).
 3. Add it to your `.env` file:
    ```env
-   RESEND_API_KEY="re_123456789..."
-   CONTACT_RECIPIENT_EMAIL="ariefsatria2409@gmail.com"
+   RESEND_API_KEY="re_your_api_key_here"
+   CONTACT_RECIPIENT_EMAIL="your_email@domain.com"
+   ```
+4. Restart your Nuxt server:
+   ```bash
+   pnpm dev
    ```
 
-### 2. How the Server Code Sends It:
-```ts
-// server/api/contact.post.ts
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-await resend.emails.send({
-  from: "Portfolio Contact <onboarding@resend.dev>",
-  to: process.env.CONTACT_RECIPIENT_EMAIL || "ariefsatria2409@gmail.com",
-  reply_to: sanitizedEmail,
-  subject: `New Inquiry from ${sanitizedName}`,
-  text: `Name: ${sanitizedName}\nEmail: ${sanitizedEmail}\n\nMessage:\n${sanitizedMessage}`,
-});
-```
+Now, every message sent through the website form is dispatched using Resend to the `CONTACT_RECIPIENT_EMAIL` set in your `.env`.
 
 ---
 
-## Comparison Table
+### Summary Table
 
-| Method | Where You Read It | Setup Required | Best For |
-|---|---|---|---|
-| **1. Console Output** | Terminal logs | None (Working now) | Local quick testing |
-| **2. `data/inbox.json`** | File in your IDE | 1 line of server code | Zero-dependency local archiving |
-| **3. Resend Email** | Your Gmail (`ariefsatria2409@gmail.com`) | Free Resend API key | Production portfolio |
+| Method | Where Messages Go | Setup Required | Best For |
+| :--- | :--- | :--- | :--- |
+| **1. Server Console** | Terminal stdout | Zero setup (works right now) | Quick local testing |
+| **2. Resend Email** | Your configured inbox | Free Resend API key | Production portfolio |

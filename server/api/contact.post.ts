@@ -111,8 +111,18 @@ export default defineEventHandler(async (event) => {
   const recipientEmail =
     (config.contactRecipientEmail as string) ||
     process.env.CONTACT_RECIPIENT_EMAIL ||
-    process.env.NUXT_CONTACT_RECIPIENT_EMAIL ||
-    "illuzen1348tcr@gmail.com";
+    process.env.NUXT_CONTACT_RECIPIENT_EMAIL;
+
+  if (!recipientEmail) {
+    console.error("[Contact API] Missing CONTACT_RECIPIENT_EMAIL configuration.");
+    throw createError({
+      statusCode: 503,
+      statusMessage: "Service Unavailable",
+      data: {
+        message: "Contact dispatch is temporarily unconfigured on this server.",
+      },
+    });
+  }
 
   if (!resendApiKey) {
     console.error("[Contact API] Missing RESEND_API_KEY environment variable.");
@@ -120,7 +130,7 @@ export default defineEventHandler(async (event) => {
       statusCode: 503,
       statusMessage: "Service Unavailable",
       data: {
-        message: "Email service is temporarily unconfigured. Please contact directly at illuzen1348tcr@gmail.com.",
+        message: "Email service is temporarily unconfigured on this server.",
       },
     });
   }
@@ -183,7 +193,7 @@ export default defineEventHandler(async (event) => {
       statusCode: 500,
       statusMessage: "Internal Server Error",
       data: {
-        message: "An unexpected error occurred while sending your message. Please try emailing directly at illuzen1348tcr@gmail.com.",
+        message: "An unexpected error occurred while transmitting your message. Please try again later.",
       },
     });
   }

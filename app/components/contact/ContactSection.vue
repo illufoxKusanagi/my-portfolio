@@ -36,17 +36,17 @@
         </div>
 
         <div class="mt-12 space-y-6">
-          <div>
+          <div v-if="publicEmail">
             <p
               class="text-sm font-tech text-foreground/40 dark:text-white/40 transition-colors uppercase tracking-widest mb-2"
             >
               {{ $t('contact.directEmail') }}
             </p>
             <a
-              href="mailto:ariefsatria2409@gmail.com"
-              class="text-xl md:text-2xl font-bold text-foreground dark:text-white transition-colors hover:text-primary-400 transition-colors"
+              :href="`mailto:${publicEmail}`"
+              class="text-xl md:text-2xl font-bold text-foreground dark:text-white transition-colors hover:text-primary-400"
             >
-              ariefsatria2409@gmail.com
+              {{ publicEmail }}
             </a>
           </div>
 
@@ -84,6 +84,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContactForm from "./ContactForm.vue";
 import SocialLinks from "./SocialLinks.vue";
+
+const config = useRuntimeConfig();
+const publicEmail = config.public.contactEmail as string;
 
 const sectionRef = ref<HTMLElement | null>(null);
 const infoRef = ref<HTMLElement | null>(null);

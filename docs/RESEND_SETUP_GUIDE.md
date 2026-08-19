@@ -1,6 +1,6 @@
 # Resend Email Setup Guide
 
-This guide details how to connect **Resend** so contact form submissions are delivered directly to your personal email inbox (`ariefsatria2409@gmail.com`).
+This guide details how to connect **Resend** so contact form submissions are delivered directly to your personal email inbox.
 
 ---
 
@@ -16,7 +16,7 @@ This guide details how to connect **Resend** so contact form submissions are del
 1. Go to [resend.com/api-keys](https://resend.com/api-keys).
 2. Click **"Create API Key"**.
 3. Name it `portfolio` with **Full access** permission and click **Add**.
-4. Copy the generated key (`re_123456789...`).
+4. Copy the generated key (`re_...`).
 
 ---
 
@@ -29,7 +29,7 @@ In the root of this project, create or edit the `.env` file:
 RESEND_API_KEY=re_your_actual_key_here
 
 # Where you want to receive inquiries
-CONTACT_RECIPIENT_EMAIL=ariefsatria2409@gmail.com
+CONTACT_RECIPIENT_EMAIL=your_email@domain.com
 ```
 
 ---
@@ -44,8 +44,8 @@ CONTACT_RECIPIENT_EMAIL=ariefsatria2409@gmail.com
 3. Submit a test inquiry:
    - **Name**: `Test Client`
    - **Email**: `your.other.email@example.com`
-   - **Message**: `Hello Arief, verifying live email delivery from localhost!`
-4. Check your Gmail inbox (`ariefsatria2409@gmail.com`). You will immediately receive the styled HTML email!
+   - **Message**: `Hello, verifying live email delivery from localhost!`
+4. Check your configured inbox. You will immediately receive the styled HTML email!
 
 ---
 

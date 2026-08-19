@@ -35,7 +35,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || "",
-    contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL || "ariefsatria2409@gmail.com",
+    contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL || "",
+    public: {
+      contactEmail: process.env.NUXT_PUBLIC_CONTACT_EMAIL || process.env.CONTACT_EMAIL || "",
+    },
   },
 
   css: ["~/assets/css/main.css"],

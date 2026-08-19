@@ -91,7 +91,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 await resend.emails.send({
   from: 'portfolio@illufox.dev',
-  to: 'ariefsatria2409@gmail.com',
+  to: process.env.CONTACT_RECIPIENT_EMAIL || 'your_email@domain.com',
   subject: `New Inquiry from ${sanitizedName}`,
   text: `From: ${sanitizedName} <${sanitizedEmail}>\n\nMessage:\n${sanitizedMessage}`,
 });
