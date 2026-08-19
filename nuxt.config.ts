@@ -1,0 +1,71 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/content",
+    "@nuxt/ui",
+    "shadcn-nuxt",
+    "@nuxtjs/i18n",
+    "@nuxtjs/color-mode",
+  ],
+  colorMode: {
+    classSuffix: ""
+  },
+
+  i18n: {
+    lazy: true,
+    langDir: "locales",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "id", name: "Bahasa Indonesia", file: "id.json" }
+    ],
+    defaultLocale: "en",
+    strategy: "no_prefix",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      alwaysRedirect: false,
+      fallbackLocale: "en"
+    }
+  },
+
+  devtools: {
+    enabled: true,
+  },
+
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY || "",
+    contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL || "ariefsatria2409@gmail.com",
+  },
+
+  css: ["~/assets/css/main.css"],
+
+  routeRules: {
+    "/": { prerender: true },
+  },
+
+  compatibilityDate: "2026-06-30",
+
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: "never",
+        braceStyle: "1tbs",
+      },
+    },
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component.
+     * @default "Ui"
+     */
+    prefix: "",
+    /**
+     * Directory that the component lives in.
+     * Will respect the Nuxt aliases.
+     * @link https://nuxt.com/docs/api/nuxt-config#alias
+     * @default "@/components/ui"
+     */
+    componentDir: "@/components/ui",
+  },
+});

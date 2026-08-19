@@ -1,0 +1,365 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "home": "Beranda",
+    "projects": "Proyek",
+    "blog": "Blog Teknik",
+    "about": "Tentang & Resume",
+    "systemNav": "NAVIGASI SISTEM // 2026",
+    "sectionDirectory": "Direktori Pintas Bagian",
+    "sections": {
+      "hero": "01 // BERANDA",
+      "frameworks": "02 // KERANGKA KERJA",
+      "tools": "03 // ALAT & SISTEM",
+      "languages": "04 // BAHASA",
+      "projects": "05 // PROYEK",
+      "experience": "06 // PENGALAMAN",
+      "certificates": "07 // SERTIFIKAT",
+      "contact": "08 // KONTAK"
+    }
+  },
+  "hero": {
+    "badge": "Situs Pribadi",
+    "titleLine1": "Muhammad Arief",
+    "titleLine2": "Satria Wibawa",
+    "roleLine1": "Junior Software Engineer /",
+    "roleLine2": "Full-stack Developer",
+    "scrollExplore": "Gulir untuk menjelajah ↓"
+  },
+  "tech": {
+    "title": "KEAHLIAN TEKNIS",
+    "frameworks": "KERANGKA KERJA",
+    "frameworksSub": "Kerangka kerja yang pernah digunakan dalam proyek",
+    "tools": "ALAT & ALUR KERJA",
+    "toolsSub": "Alat dan perangkat lunak yang digunakan sehari-hari",
+    "languages": "BAHASA PEMROGRAMAN",
+    "languagesSub": "Bahasa pemrograman utama",
+    "experienceLabel": "Pengalaman",
+    "yearsExp": "{n} thn",
+    "proficiency": "Kemahiran",
+    "intermediate": "Menengah",
+    "junior": "Pemula",
+    "advanced": "Lanjutan"
+  },
+  "techStack": {
+    "items": {
+      "react": {
+        "title": "React.Js",
+        "description": "Membangun aplikasi web modern yang responsif dengan manajemen state dan rekayasa antarmuka pengguna yang bersih.",
+        "badgeText": "Frontend",
+        "sideTag": "Frontend  |  React.Js"
+      },
+      "qt": {
+        "title": "Qt Framework",
+        "description": "Mengembangkan aplikasi desktop native berkinerja tinggi dengan arsitektur aman memori dan toolkit widget lintas platform.",
+        "badgeText": "Desktop",
+        "sideTag": "Desktop  |  Qt Framework"
+      },
+      "next": {
+        "title": "Next.Js",
+        "description": "Membangun aplikasi web full-stack dengan server-side rendering, file-based routing, API routes, dan generasi statis teroptimasi SEO.",
+        "badgeText": "Fullstack",
+        "sideTag": "Fullstack  |  Next.Js"
+      },
+      "vue": {
+        "title": "Vue.Js",
+        "description": "Membangun aplikasi web responsif menggunakan Vue 3 Composition API, Pinia, Vue Router, dan arsitektur komponen reaktif.",
+        "badgeText": "Frontend",
+        "sideTag": "Frontend  |  Vue.Js"
+      },
+      "nuxt": {
+        "title": "Nuxt.Js",
+        "description": "Membangun aplikasi SSR dan SSG dengan file-based routing dan composables auto-import.",
+        "badgeText": "Fullstack",
+        "sideTag": "Fullstack  |  Nuxt.Js"
+      },
+      "laravel": {
+        "title": "Laravel",
+        "description": "Membangun aplikasi server-side yang skalabel dengan templating Blade, Eloquent ORM, dan arsitektur backend MVC terstruktur.",
+        "badgeText": "Backend",
+        "sideTag": "Backend  |  Laravel"
+      },
+      "elysia": {
+        "title": "Elysia.Js",
+        "description": "Membangun REST API berkecepatan tinggi yang ringan dengan keamanan tipe menyeluruh dan validasi skema untuk prototyping cepat.",
+        "badgeText": "Backend",
+        "sideTag": "Backend  |  Elysia.Js"
+      },
+      "tailwind": {
+        "title": "Tailwind CSS",
+        "description": "Merancang sistem desain utility-first yang skalabel dan token desain kustom.",
+        "badgeText": "Styling",
+        "sideTag": "Styling  |  Tailwind"
+      },
+      "git": {
+        "title": "Git & GitHub",
+        "description": "Mengelola percabangan (branches), alur kerja PR, aksi CI/CD, dan kontrol versi.",
+        "badgeText": "Version Control",
+        "sideTag": "DevOps  |  Git"
+      },
+      "figma": {
+        "title": "Figma",
+        "description": "Merancang mockup UI/UX, prototipe interaktif, dan token sistem desain.",
+        "badgeText": "Desain",
+        "sideTag": "Desain  |  Figma"
+      },
+      "antigravity": {
+        "title": "Antigravity",
+        "description": "Memanfaatkan alur kerja agentic IDE, custom skills, dan protokol pair-programming otonom untuk merekayasa dan memvalidasi aplikasi produksi.",
+        "badgeText": "IDE",
+        "sideTag": "IDE  |  Antigravity"
+      },
+      "docker": {
+        "title": "Docker",
+        "description": "Mewadahi aplikasi (kontainerisasi), membuat microservices terisolasi dengan Docker Compose, dan menyederhanakan build rilis bertahap.",
+        "badgeText": "Kontainerisasi",
+        "sideTag": "DevOps  |  Docker"
+      },
+      "postgresql": {
+        "title": "PostgreSQL",
+        "description": "Merancang skema relasional ternormalisasi, menyusun query SQL optimal, memanfaatkan embedding pgvector untuk pencarian AI RAG, dan mengelola strategi pengindeksan.",
+        "badgeText": "Basis Data",
+        "sideTag": "Basis Data  |  PostgreSQL"
+      },
+      "mysql": {
+        "title": "MySQL",
+        "description": "Merekayasa skema basis data relasional, mengoptimalkan kinerja join multi-tabel, dan menyempurnakan rencana eksekusi query untuk menekan latensi.",
+        "badgeText": "Basis Data",
+        "sideTag": "Basis Data  |  MySQL"
+      },
+      "drizzle": {
+        "title": "Drizzle",
+        "description": "Membangun query basis data type-safe, mengelola migrasi skema deklaratif, dan menangani model relasional secara mulus.",
+        "badgeText": "ORM",
+        "sideTag": "ORM  |  Drizzle"
+      },
+      "opencode": {
+        "title": "Open Code",
+        "description": "Menggunakan agen pemrograman AI berbasis terminal untuk mengotomatisasi tugas rekayasa berulang dan mempercepat rilis fitur.",
+        "badgeText": "Agen AI Coding",
+        "sideTag": "Agen AI Coding  |  Open Code"
+      },
+      "github-actions": {
+        "title": "GitHub Actions",
+        "description": "Merekayasa alur CI/CD otomatis, matriks build multi-platform, pengemasan rilis mandiri dengan windeployqt, dan alur pengujian otomatis.",
+        "badgeText": "CI/CD & DevOps",
+        "sideTag": "DevOps  |  GitHub Actions"
+      },
+      "typescript": {
+        "title": "TypeScript",
+        "description": "Menulis kode klien dan server yang asinkron, modular, dan type-safe.",
+        "badgeText": "Pengembangan Web",
+        "sideTag": "Bahasa  |  TypeScript"
+      },
+      "cpp": {
+        "title": "C++",
+        "description": "Mengembangkan aplikasi desktop native dengan Qt Framework, mengelola keamanan memori tingkat rendah, pointer, dan arsitektur berorientasi objek.",
+        "badgeText": "Pengembangan Desktop",
+        "sideTag": "Pengembangan Desktop  |  C++"
+      },
+      "php": {
+        "title": "PHP",
+        "description": "Membangun backend aplikasi web dan sistem administrasi yang tangguh memanfaatkan ekosistem MVC Laravel.",
+        "badgeText": "Situs Web",
+        "sideTag": "Situs Web  |  PHP"
+      }
+    }
+  },
+  "projects": {
+    "title": "PROYEK",
+    "subtitle": "Koleksi Karya & Sistem Terpilih",
+    "viewDemo": "Lihat Demo →",
+    "viewRepo": "Kode Sumber",
+    "archiveTitle": "ARSIP PROYEK",
+    "archiveSubtitle": "Katalog Rekayasa Terkurasi // Sistem, WebGL & Aplikasi Full-Stack",
+    "allFilter": "SEMUA",
+    "noProjects": "Tidak ada proyek yang sesuai dengan kueri filter Anda.",
+    "projectLabel": "PROYEK",
+    "items": {
+      "train-simulation-app": {
+        "title": "APLIKASI SIMULASI KERETA",
+        "subtitle": "Simulasi Dinamika Kereta Api untuk Observasi Variabel dan Optimasi Menggunakan Fuzzy Logic",
+        "description": "Platform simulasi desktop hybrid dan optimasi multi-objektif yang mengeksekusi dinamika longitudinal kereta api—mengintegrasikan kurva gaya traksi multi-regim, hambatan Davis dan geometri jalur, serta aliran daya listrik bertingkat—dikombinasikan dengan inferensi Mamdani Fuzzy adaptif untuk menyelesaikan trade-off non-linear antara waktu tempuh, konsumsi energi, dan lonjakan daya.",
+        "demoLabel": "BACA BUKU TEKNIS"
+      },
+      "horizon-canvas": {
+        "title": "HORIZON CANVAS",
+        "subtitle": "Konversi gambar raster Anda menjadi livery Forza Horizon 6",
+        "description": "Aplikasi utilitas desktop berbasis akselerasi GPU yang mengonversi gambar raster menjadi susunan primitif geometris dan menyuntikkan koordinat bentuk langsung ke lapisan livery Forza Horizon 6. Dibangun dengan C++ dan Qt, loop evaluasi dieksekusi pada compute kernel OpenCL dengan kecepatan jutaan kandidat per detik.",
+        "demoLabel": "UNDUH APLIKASI"
+      },
+      "my-okane": {
+        "title": "MY OKANE",
+        "subtitle": "Aplikasi manajemen anggaran pribadi Anda",
+        "description": "Aplikasi pelacak keuangan dan anggaran pribadi yang komprehensif. Dibangun dengan Nuxt untuk performa SSR tinggi, Drizzle ORM dan SQLite untuk persistensi data type-safe, serta Sentry untuk pemantauan error produksi."
+      },
+      "my-cars": {
+        "title": "MY CARS",
+        "subtitle": "Aplikasi Web 3D Interaktif Showroom Model Mobil GT-R",
+        "description": "Showroom otomotif 3D interaktif khusus lini Nissan GT-R yang dibangun dengan Three.js, WebGL, dan Vue 3. Dilengkapi material physically-based rendering (PBR) realistis, kontrol orbit kamera dinamis, pemilih cat pabrikan, dan pencahayaan lingkungan HDRI."
+      },
+      "sate-itik": {
+        "title": "SATE ITIK",
+        "subtitle": "Sistem Akses Terpadu Infrastruktur Jaringan TIK",
+        "description": "Sistem pemantauan infrastruktur jaringan terpadu untuk Dinas Kominfo Kabupaten Madiun yang dibangun dengan Next.js dan MySQL. Dilengkapi dashboard peta interaktif Mapbox GL, sistem helpdesk e-ticketing komprehensif, kalender kegiatan, inventaris server rak, dan kontrol akses aman via Next Auth."
+      },
+      "my-quran": {
+        "title": "MY QURAN",
+        "subtitle": "Aplikasi Al-Quran pribadi dengan tampilan buku interaktif",
+        "description": "Aplikasi baca Al-Quran full-stack dengan antarmuka animasi membalik halaman interaktif seperti buku fisik. Mendukung navigasi surah, penanda ayat, dan audio murottal. Dibangun dengan Vue, backend Elysia.js API, PostgreSQL, dan Docker."
+      },
+      "my-library": {
+        "title": "MY LIBRARY",
+        "subtitle": "Aplikasi manajemen buku interaktif untuk pustakawan",
+        "description": "Sistem manajemen perpustakaan berbasis web yang mengotomatisasi pencatatan manual. Peminjam dapat menjelajahi buku dan mengajukan pinjaman; pustakawan dapat memproses permohonan melalui dashboard admin berbasis peran. Dibangun dengan Laravel, MySQL, dan Docker."
+      },
+      "image-converter": {
+        "title": "PENGONVERSI GAMBAR",
+        "subtitle": "Konversi format dan kompresi gambar offline secara instan",
+        "description": "Utilitas desktop offline portabel untuk konversi format gambar batch dan reduksi ukuran berkas. Bekerja seperti iLoveIMG namun berjalan sepenuhnya lokal tanpa internet dan tanpa instalasi, mendukung pengaturan kualitas persentase.",
+        "demoLabel": "UNDUH APLIKASI"
+      },
+      "laras": {
+        "title": "LARAS",
+        "subtitle": "Aplikasi Pendamping Perawatan Diri & Kesehatan Mental",
+        "description": "Aplikasi self-care yang dirancang untuk membantu Anda menjadi lebih tenang, sadar (mindful), dan seimbang. Menampilkan panduan meditasi terarah, audio relaksasi, dan jurnal pribadi untuk mendukung kesehatan mental Anda."
+      },
+      "excel-formatter": {
+        "title": "EXCEL FORMATTER",
+        "subtitle": "Format angka Excel Anda berantakan? Rapikan dengan aplikasi ini!",
+        "description": "Utilitas desktop portabel yang memperbaiki inkonsistensi pemisah desimal titik dan koma pada berkas spreadsheet Excel. Mendukung pemrosesan massal multi-sheet dengan antarmuka drag-and-drop tanpa instalasi.",
+        "demoLabel": "UNDUH APLIKASI"
+      }
+    }
+  },
+  "experience": {
+    "title": "PENGALAMAN",
+    "subtitle": "Pengalaman Kerja & Proyek",
+    "internship": "MAGANG",
+    "academic": "AKADEMIS",
+    "productLearning": "PEMBELAJARAN PRODUK",
+    "items": {
+      "inka": {
+        "role": "PENGEMBANG APLIKASI DESKTOP",
+        "company": "PT INKA",
+        "period": "Jan 2025 - Jun 2025",
+        "type": "MAGANG",
+        "bullets": [
+          "Merekayasa aplikasi simulasi kereta api desktop performa tinggi menggunakan C++17 dan Qt 6 Framework (QWidgets, QChart, QFile), dikemas sebagai berkas executable portabel siap pakai untuk Windows melalui windeployqt.",
+          "Menerapkan keamanan memori ketat menggunakan arsitektur single-source-of-truth terpusat dengan AppContext singleton, mengeliminasi konflik data race antar-modul pengontrol simulasi.",
+          "Menyusun struktur kode ke dalam modul handler berlapis — ElectricalDataHandler, TrainDataHandler, TrackDataHandler, MovingHandler, EnergyHandler, ResistanceHandler, TractiveEffortHandler — yang terisolasi sesuai domain fisika.",
+          "Mengimplementasikan logika simulasi mencakup kurva gaya traksi, hambatan Davis, kelengkungan dan kelandaian jalur, kalkulus pengereman real-time, dan inersia massa multi-rangkaian dengan konvensi variabel berprefix (f_, v_, p_, e_, mass_).",
+          "Menyajikan visualisasi grafik real-time dengan QChart, ekspor data CSV via QFile, dan UI parameter terproteksi login sebagai berkas portabel tanpa instalasi.",
+          "Mengonfigurasi pipeline CI/CD GitHub Actions otomatis untuk validasi build berkelanjutan pada toolchain MinGW-64."
+        ]
+      },
+      "diskominfo": {
+        "role": "PENGEMBANG FULL-STACK",
+        "company": "KOMINFO KABUPATEN MADIUN",
+        "period": "Agu 2025 - Des 2025",
+        "type": "MAGANG",
+        "bullets": [
+          "Membangun SATE-ITIK (Sistem Akses Terpadu Infrastruktur Jaringan TIK) — platform web skala pemerintahan untuk Dinas Kominfo Kabupaten Madiun yang memusatkan monitoring infrastruktur internet, kepegawaian, aset server, dan tiket bantuan di seluruh OPD.",
+          "Mengembangkan dashboard peta interaktif Mapbox GL JS yang menampilkan lokasi geografis, ISP penyedia, jenis koneksi, dan status real-time (aktif/tidak aktif/pemeliharaan) dari setiap titik jaringan pemerintah di seluruh kecamatan.",
+          "Merekayasa modul manajemen visual rak server dengan tampilan ganda (visualisasi rak + tabel data) untuk pelacakan status per-unit (online, offline, maintenance, standby), nomor aset, serial number, IP address, dan aplikasi terpasang pada rak A–D.",
+          "Mengimplementasikan sistem helpdesk dan e-ticketing lengkap dengan tingkatan prioritas (rendah/sedang/tinggi/mendesak), pelacakan status (terbuka/proses/menunggu/selesai/ditutup), balasan thread berbasis rich-text TipTap, lampiran berkas, penugasan staf, dan metrik waktu respons via notifikasi Resend dan Nodemailer.",
+          "Merancang dan mengoptimalkan skema basis data relasional MySQL menggunakan Drizzle ORM dan migrasi Drizzle Kit dengan pengindeksan efisien untuk volume data kegiatan dan jaringan pemerintah.",
+          "Membangun endpoint RESTful API aman pada Next.js App Router dengan validasi skema Zod dan kontrol akses berbasis peran (RBAC) menggunakan autentikasi JWT dan enkripsi password bcrypt.",
+          "Menghadirkan kalender kegiatan interaktif (tampilan bulan/minggu/hari/tahun) dengan penjadwalan drag-and-drop dan kode warna OPD — mengemas seluruh stack menggunakan Docker Compose dengan build multi-tahap untuk lingkungan produksi."
+        ]
+      },
+      "laras": {
+        "role": "FRONTEND ENGINEER",
+        "company": "AGILETEKNIK - LARAS",
+        "period": "Mar 2024 - Des 2024",
+        "type": "PEMBELAJARAN PRODUK",
+        "bullets": [
+          "Membuat landing page dan portofolio berpresisi tinggi dengan animasi GSAP kustom dan styling utility Tailwind CSS.",
+          "Mengimplementasikan desain web responsif yang bekerja mulus di seluruh layar desktop, tablet, dan ponsel pintar.",
+          "Mengoptimalkan performa web hingga meraih skor sempurna 95+ pada metrik Google Lighthouse Core Web Vitals.",
+          "Berkolaborasi langsung dengan klien untuk menerjemahkan tujuan bisnis menjadi antarmuka pengguna yang bersih dan interaktif.",
+          "Mengintegrasikan gerbang pembayaran dan platform CMS headless modern (Strapi, Sanity.io)."
+        ]
+      },
+      "train-simulation-optimization": {
+        "role": "LEAD RESEARCHER & SOFTWARE ENGINEER",
+        "company": "PENS",
+        "period": "Agu 2024 - Jul 2025",
+        "type": "SKRIPSI SARJANA TERAPAN",
+        "bullets": [
+          "Membangun platform simulasi desktop hybrid yang memadukan backend komputasi C++17 (Qt 6) dengan antarmuka modern Next.js 14 (TypeScript, Tailwind CSS) via Chromium Qt WebEngine, mengatasi crash virtualisasi sandbox melalui bypass terprogram (QTWEBENGINE_DISABLE_SANDBOX=1).",
+          "Menerapkan arsitektur Data-Oriented Programming (DOP) yang memisahkan struct Plain Old Data (POD) dari kontroler komputasi tanpa state dan menyusun output deret waktu ke dalam Structure of Arrays (SoA) untuk iterasi memori zero-allocation.",
+          "Merekayasa simulasi dinamika longitudinal kereta api dalam C++, memodelkan kurva gaya traksi 3-daerah, hambatan Davis, profil elevasi/kelengkungan lintasan, dan aliran daya listrik bertingkat (output mekanik roda hingga jalur katenari).",
+          "Merumuskan kalkulus jarak pengereman analitis 3-zona pada domain pelemahan medan motor, menjalankan loop simulasi Euler diskrit (langkah waktu 1,0 detik) dengan mesin status 4-notch (Di Stasiun, Akselerasi, Meluncur, Pengereman).",
+          "Mengembangkan Sistem Inferensi Fuzzy Mamdani Jangkauan Dinamis Dua-Tahap (FIS) yang mengalibrasi batas keanggotaan secara mandiri pada 3 sub-engine terpisah (Waktu, Daya, Energi) menggunakan defuzzifikasi Centroid diskrit 100 langkah.",
+          "Mempercepat penyisiran parameter multi-objektif pada 104 konfigurasi kandidat menjadi di bawah 2,0 detik menggunakan multi-threading C++ QtConcurrent dengan pemblokiran sinyal, mengungguli algoritma metaheuristik konvensional (40–80 menit).",
+          "Menyajikan paket analitik operator komprehensif dengan dashboard deret waktu 8-tab (Recharts), dialog ekspor native CSV/Excel via QWebChannel, panduan interaktif orientasi (Driver.js), dan lokalisasi bilingual (EN/ID)."
+        ]
+      }
+    }
+  },
+  "certificates": {
+    "title": "PENGHARGAAN & SERTIFIKAT",
+    "subtitle": "Portofolio Sertifikasi Interaktif & Dokumen Verifikasi",
+    "clickFlip": "Tarik sudut atau klik panah untuk melihat sertifikat",
+    "viewMore": "Lihat detail...",
+    "comingSoon": "Sertifikat lainnya akan segera hadir...",
+    "prev": "← SEBELUMNYA",
+    "next": "BERIKUTNYA →"
+  },
+  "contact": {
+    "title": "HUBUNGI SAYA",
+    "subtitle": "Terbuka untuk kolaborasi proyek, diskusi teknis, dan peluang kerja",
+    "directEmail": "EMAIL LANGSUNG",
+    "findMeOn": "TEMUKAN SAYA DI",
+    "nameLabel": "NAMA ANDA",
+    "namePlaceholder": "Nama Lengkap",
+    "emailLabel": "EMAIL ANDA",
+    "emailPlaceholder": "nama{'@'}example.com",
+    "messageLabel": "PESAN / RINGKASAN PROYEK",
+    "messagePlaceholder": "Tuliskan pesan atau kebutuhan proyek Anda...",
+    "sendButton": "KIRIM PESAN →",
+    "sendingButton": "MENGIRIM...",
+    "successMessage": "Pesan berhasil dikirim. Saya akan segera merespons Anda."
+  },
+  "blog": {
+    "title": "BLOG TEKNIK",
+    "subtitle": "Catatan Teknis // 3D WebGL, Sistem C++ & Arsitektur Modern",
+    "searchPlaceholder": "CARI ARTIKEL BERDASARKAN TOPIK, JUDUL, ATAU KATA KUNCI...",
+    "readCaseStudy": "BACA STUDI KASUS →",
+    "backToArchive": "← KEMBALI KE ARSIP BLOG",
+    "articleNotFound": "Artikel Tidak Ditemukan",
+    "all": "SEMUA",
+    "categories": {
+      "ALL": "SEMUA",
+      "GRAPHICS & 3D": "GRAFIKA & 3D",
+      "SYSTEMS & C++": "SISTEM & C++",
+      "WEB ARCHITECTURE": "ARSITEKTUR WEB",
+      "ENGINEERING STRATEGY": "STRATEGI REKAYASA"
+    }
+  },
+  "about": {
+    "title": "MUHAMMAD ARIEF SATRIA WIBAWA",
+    "subtitle": "Profil Rekayasa • Full-Stack & 3D Interactive Web Developer",
+    "directEmail": "Email Langsung →",
+    "viewProjects": "Lihat Arsip Proyek",
+    "backgroundTitle": "Latar Belakang Rekayasa",
+    "bioP1": "Saya adalah seorang software engineer yang berfokus pada irisan grafika real-time 3D WebGL, sistem simulasi desktop C++, dan arsitektur modern full-stack TypeScript.",
+    "bioP2": "Perjalanan profesional saya mencakup perancangan simulasi kereta api performa tinggi di PT INKA menggunakan C++ dan Qt Framework, pengembangan platform pemantauan infrastruktur jaringan pemerintah dengan Next.js dan Mapbox GL di Diskominfo, serta rekayasa aplikasi web 3D interaktif dengan Three.js dan Nuxt.",
+    "bioP3": "Saya memprioritaskan clean code, keamanan tipe data, manajemen memori, dan presisi token desain 1:1 untuk membangun aplikasi yang memukau secara visual sekaligus tangguh secara teknis.",
+    "metricProjects": "Proyek Dirilis",
+    "metricFps": "Target Frame WebGL",
+    "metricTypesafe": "Keamanan Tipe",
+    "telemetryTitle": "Telemetri",
+    "location": "Lokasi",
+    "locationVal": "INDONESIA (GMT+7)",
+    "status": "Status",
+    "statusVal": "TERSEDIA UNTUK BEKERJA",
+    "focus": "Fokus Utama",
+    "focusVal": "3D WEB & FULL-STACK",
+    "timelineTitle": "GARIS WAKTU KARIER & PENGALAMAN",
+    "timelineSubtitle": "Riwayat Kronologis Pekerjaan & Rekayasa Proyek",
+    "matrixTitle": "MATRIKS KEMAHIRAN TEKNIS",
+    "matrixSubtitle": "Kerangka Kerja, Bahasa, Sistem & Alat Pengembangan"
+  }
+}
