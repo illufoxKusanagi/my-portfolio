@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-24 pb-24 px-6 sm:px-12 md:px-20 lg:px-32">
+  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32">
     <!-- Header Block -->
-    <div class="max-w-6xl mx-auto mb-12">
-      <div class="flex items-start gap-4 mb-4">
+    <div class="max-w-6xl mx-auto mb-8 sm:mb-12">
+      <div class="flex items-start gap-3 sm:gap-4 mb-4">
         <!-- Vertical Accent Bar -->
-        <div class="w-2.5 h-16 sm:h-20 bg-tertiary-700 shrink-0 mt-1" />
+        <div class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1" />
 
-        <div class="space-y-1">
-          <h1 class="font-sans font-bold text-4xl sm:text-5xl md:text-6xl text-foreground dark:text-white transition-colors tracking-tight uppercase leading-none">
+        <div class="space-y-0.5 sm:space-y-1">
+          <h1 class="font-sans font-bold text-3xl sm:text-5xl md:text-6xl text-foreground dark:text-white transition-colors tracking-tight uppercase leading-none">
             {{ $t('blog.title') }}
           </h1>
-          <p class="font-tech text-sm sm:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light">
+          <p class="font-tech text-xs sm:text-sm md:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light">
             {{ $t('blog.subtitle') }}
           </p>
         </div>
@@ -27,7 +27,7 @@
             v-model="searchQuery"
             type="text"
             :placeholder="$t('blog.searchPlaceholder')"
-            class="w-full pl-8 pr-4 py-2.5 rounded-full bg-primary-100/90 dark:bg-secondary-950/90 border border-primary-300 dark:border-primary-700 text-foreground dark:text-white text-xs font-tech tracking-wider focus:outline-none focus:ring-2 focus:ring-primary-600 transition-all placeholder:text-foreground/40 dark:placeholder:text-white/40"
+            class="w-full pl-8 pr-4 py-2.5 rounded-[8px] bg-primary-100/90 dark:bg-secondary-950/90 border border-primary-300 dark:border-primary-700 text-foreground dark:text-white text-xs font-tech tracking-wider focus:outline-none focus:ring-2 focus:ring-primary-600 transition-all placeholder:text-foreground/40 dark:placeholder:text-white/40"
           >
         </div>
 
@@ -36,7 +36,7 @@
           <button
             v-for="cat in CATEGORY_KEYS"
             :key="cat.key"
-            class="px-4 py-2 rounded-full text-xs font-tech font-bold transition-all duration-200 whitespace-nowrap cursor-pointer uppercase tracking-wider"
+            class="px-4 py-2 rounded-[6px] text-xs font-tech font-bold transition-all duration-200 whitespace-nowrap cursor-pointer uppercase tracking-wider"
             :class="selectedCategory === cat.key
               ? 'bg-primary-700 text-white shadow-md'
               : 'bg-primary-100 dark:bg-secondary-950 border border-primary-300 dark:border-primary-700 text-foreground/75 dark:text-white/75 hover:bg-primary-200 dark:hover:bg-secondary-800'"
@@ -74,7 +74,7 @@
                   </div>
 
                   <!-- Read time badge -->
-                  <div class="px-3 py-1 rounded-full border border-primary-400 dark:border-primary-700 bg-primary-100/90 dark:bg-secondary-950/90 font-tech text-[11px] font-semibold text-foreground dark:text-white">
+                  <div class="px-3 py-1 rounded-[4px] border border-primary-400 dark:border-primary-700 bg-primary-100/90 dark:bg-secondary-950/90 font-tech text-[11px] font-semibold text-foreground dark:text-white">
                     {{ post.readTime }}
                   </div>
                 </div>
@@ -105,7 +105,7 @@
                   <span
                     v-for="tag in post.tags"
                     :key="tag"
-                    class="px-2.5 py-1 rounded-full bg-primary-100 dark:bg-secondary-950 border border-primary-300 dark:border-primary-700 text-xs font-tech text-foreground/80 dark:text-white/80"
+                    class="px-2.5 py-1 rounded-[4px] bg-primary-100 dark:bg-secondary-950 border border-primary-300 dark:border-primary-700 text-xs font-tech text-foreground/80 dark:text-white/80"
                   >
                     #{{ tag }}
                   </span>
@@ -127,11 +127,12 @@
                 ARTICLE // 0{{ index + 1 }}
               </div>
 
-              <div class="flex flex-col items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-white"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-white/70"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-white/40"></div>
-              </div>
+              <!-- SVG Icon (Figma Node 22:176) -->
+              <img
+                src="~/assets/images/side_section_icon.svg"
+                alt="side icon"
+                class="w-[28px] h-[8px]"
+              />
             </div>
           </div>
         </NuxtLink>
@@ -142,7 +143,7 @@
         <h3 class="text-xl font-bold font-sans uppercase text-foreground dark:text-white mb-2">{{ $t('blog.articleNotFound') }}</h3>
         <p class="font-tech text-xs text-foreground/60 dark:text-white/60 mb-6 uppercase tracking-wider">Try searching for other terms or resetting the category filter.</p>
         <button
-          class="px-6 py-2.5 rounded-full bg-primary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-primary-600 transition-colors"
+          class="px-6 py-2.5 rounded-[8px] bg-primary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-primary-600 transition-colors"
           @click="resetFilters"
         >
           {{ $t('blog.all') }}

@@ -12,7 +12,7 @@ const loadingManager = new THREE.LoadingManager();
 let isSimulating = false;
 
 const startProgress = () => {
-  if (isSimulating || import.meta.server) return;
+  if (isSimulating || isLoaded.value || import.meta.server) return;
   isSimulating = true;
 
   // Immediate progressive counter for smooth visual feedback
@@ -40,8 +40,8 @@ const startProgress = () => {
 };
 
 loadingManager.onStart = (url, itemsLoaded, itemsTotal) => {
+  if (isLoaded.value) return;
   isLoading.value = true;
-  isLoaded.value = false;
   const cleanName = url.split("/").pop() || url;
   currentItem.value = `FETCHING // ${cleanName.toUpperCase()}`;
   progress.value = Math.max(progress.value, Math.round((itemsLoaded / Math.max(itemsTotal, 1)) * 100));

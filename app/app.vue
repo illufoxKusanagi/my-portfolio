@@ -15,12 +15,14 @@
         <NuxtPage />
       </NuxtLayout>
     </UMain>
+    <AppFooter />
   </UApp>
 </template>
 
 <script setup lang="ts">
 import { watch } from "vue";
 import NavBar from "@/components/navbar/NavBar.vue";
+import AppFooter from "@/components/footer/AppFooter.vue";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar.vue";
 import CyberPreloader from "@/components/three/CyberPreloader.vue";
 import CyberToastContainer from "@/components/toast/CyberToastContainer.vue";

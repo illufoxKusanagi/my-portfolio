@@ -4,18 +4,22 @@
     ref="sectionRef"
     class="relative w-full h-screen bg-tertiary-200 dark:bg-secondary-950 transition-colors duration-500 overflow-hidden font-sans select-none flex"
   >
-    <!-- Left Sidebar (Secondary 100 / 700 background matching Experience section) -->
+    <!-- Left Sidebar (Secondary 100 / 700 background matching Experience section, visible on large screens) -->
     <div
-      class="w-[120px] md:w-[160px] h-full bg-secondary-100 dark:bg-secondary-700 transition-colors duration-500 flex flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
+      class="hidden lg:flex w-[140px] xl:w-[160px] h-full bg-secondary-100 dark:bg-secondary-700 transition-colors duration-500 flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
     >
       <!-- Rotated Labels Group -->
       <div class="flex flex-col items-center gap-6">
         <!-- Active Project Title (vertical text) -->
         <span
-          class="text-[20px] md:text-[26px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors tracking-wider"
+          class="text-[20px] xl:text-[26px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors tracking-wider"
           style="writing-mode: vertical-rl; transform: rotate(180deg)"
         >
-          {{ $te(`projects.items.${activeProject.id}.title`) ? $t(`projects.items.${activeProject.id}.title`) : activeProject.title }}
+          {{
+            $te(`projects.items.${activeProject.id}.title`)
+              ? $t(`projects.items.${activeProject.id}.title`)
+              : activeProject.title
+          }}
         </span>
 
         <!-- Separator dot -->
@@ -45,17 +49,19 @@
 
     <!-- Main Content Area -->
     <div
-      class="flex-1 min-w-0 h-full flex flex-col justify-between p-6 sm:p-10 md:p-12 z-10 overflow-hidden"
+      class="flex-1 min-w-0 h-full flex flex-col justify-between pt-16 sm:pt-20 pb-4 sm:pb-8 px-4 sm:px-8 md:px-12 z-10 overflow-hidden"
     >
       <!-- Section Header -->
       <div class="w-full flex items-center justify-between z-20">
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-3 sm:gap-4">
           <!-- Left Tertiary Accent Bar -->
-          <div class="w-2.5 h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"></div>
+          <div
+            class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+          ></div>
 
-          <div class="space-y-1">
+          <div class="space-y-0.5 sm:space-y-1">
             <h2
-              class="font-sans font-bold text-3xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
+              class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
             >
               {{ $t("projects.title") }}
             </h2>
@@ -73,7 +79,7 @@
         class="w-full flex-1 flex items-center justify-center relative overflow-hidden my-4 lg:my-6 z-10"
       >
         <div
-          class="w-full h-full max-h-[640px] relative overflow-hidden rounded-[16px]"
+          class="w-full h-full max-h-[480px] sm:max-h-[520px] md:max-h-[560px] lg:max-h-[640px] relative overflow-hidden rounded-[16px]"
         >
           <!-- Base Active Card Layer -->
           <div
@@ -111,13 +117,13 @@
 
         <!-- Interactive Arrow Pagination Controls -->
         <div
-          class="flex items-center gap-4 mx-auto sm:mx-0 border border-tertiary-400 dark:border-tertiary-700 bg-tertiary-100/80 dark:bg-secondary-900/90 backdrop-blur px-4 py-2 rounded-full shadow-lg"
+          class="flex items-center gap-4 mx-auto sm:mx-0 border border-tertiary-400 dark:border-tertiary-700 bg-tertiary-100/80 dark:bg-secondary-900/90 backdrop-blur px-4 py-2 rounded-[8px] shadow-lg"
         >
           <!-- Prev Button -->
           <button
             @click="goToPrev"
             :disabled="activeIndex === 0 || isAnimating"
-            class="w-8 h-8 rounded-full border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+            class="w-8 h-8 rounded-[6px] border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Previous project"
           >
             <svg
@@ -144,7 +150,7 @@
           <button
             @click="goToNext"
             :disabled="activeIndex === PROJECTS_DATA.length - 1 || isAnimating"
-            class="w-8 h-8 rounded-full border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+            class="w-8 h-8 rounded-[6px] border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next project"
           >
             <svg

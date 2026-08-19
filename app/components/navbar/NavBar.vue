@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar">
+  <header class="navbar px-3 sm:px-6">
     <!-- Left: Menu button -->
     <button
       class="menu-btn"
@@ -9,49 +9,52 @@
     >
       <UIcon
         name="i-lucide-menu"
-        class="w-6 h-6 text-foreground dark:text-white transition-colors"
+        class="w-5 h-5 sm:w-6 sm:h-6 text-foreground dark:text-white transition-colors"
         aria-hidden="true"
       />
-      <span class="menu-label text-foreground dark:text-white transition-colors">
-        {{ $t('nav.menu') }}
+      <span
+        class="menu-label hidden sm:inline text-foreground dark:text-white transition-colors"
+      >
+        {{ $t("nav.menu") }}
       </span>
     </button>
 
     <!-- Center: Name (clickable link to home) -->
     <NuxtLink
       to="/"
-      class="nav-name text-foreground dark:text-white transition-colors hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer"
+      class="nav-name hidden md:block text-foreground dark:text-white transition-colors hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer"
       @click="handleLogoClick"
     >
       Illufox Kusanagi
     </NuxtLink>
 
     <!-- Right: Controls cluster -->
-    <div class="nav-controls">
+    <div class="nav-controls gap-2 sm:gap-4 md:gap-6">
       <NavLangSwitcher />
-      <NavModelSwitcher v-model="renderMode" />
-      <!-- Theme Switcher (Figma #22:31) -->
+      <NavModelSwitcher v-if="isHomePage" v-model="renderMode" />
       <ThemeSwitcher />
     </div>
 
-    <!-- Slide-in Navigation Drawer -->
-    <NavMenuDrawer v-model:open="isMenuOpen" />
+    <!-- Slide-in Navigation Sidebar -->
+    <NavSidebar v-model:open="isMenuOpen" />
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import { UIcon } from "#components";
 import { useRenderMode } from "@/composables/useRenderMode";
 import NavLangSwitcher from "./NavLangSwitcher.vue";
 import NavModelSwitcher from "./NavModelSwitcher.vue";
 import ThemeSwitcher from "./ThemeSwitcher.vue";
-import NavMenuDrawer from "./NavMenuDrawer.vue";
+import NavSidebar from "./NavSidebar.vue";
 
 const renderMode = useRenderMode();
 const isMenuOpen = ref(false);
 const route = useRoute();
+
+const isHomePage = computed(() => route.path === "/" || route.path === "");
 
 function handleLogoClick(e: MouseEvent) {
   if (route.path === "/" || route.path === "") {
@@ -71,7 +74,6 @@ function handleLogoClick(e: MouseEvent) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
   height: 52px;
 }
 
@@ -109,7 +111,6 @@ function handleLogoClick(e: MouseEvent) {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 24px;
 }
 
 .nav-icon-btn {

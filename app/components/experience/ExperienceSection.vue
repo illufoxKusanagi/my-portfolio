@@ -1,20 +1,24 @@
 <template>
   <section
     id="experience"
-    class="relative w-full h-screen bg-purple-100 dark:bg-purple-800 transition-colors duration-500 overflow-hidden font-sans select-none flex"
+    class="relative w-full min-h-screen md:h-screen bg-purple-100 dark:bg-purple-800 transition-colors duration-500 overflow-y-auto md:overflow-hidden font-sans select-none flex flex-col lg:flex-row"
   >
-    <!-- Left Sidebar (Secondary 700 background) -->
+    <!-- Left Sidebar (Secondary 700 background, visible on large screens) -->
     <div
-      class="w-[160px] h-full bg-secondary-100 dark:bg-secondary-700 transition-colors duration-500 flex flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
+      class="hidden lg:flex w-[140px] xl:w-[160px] h-full bg-secondary-100 dark:bg-secondary-700 transition-colors duration-500 flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
     >
       <!-- Rotated Labels Group -->
       <div class="flex flex-col items-center gap-6">
         <!-- Internship / Contract classification (vertical text) -->
         <span
-          class="text-[30px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors"
+          class="text-[26px] xl:text-[30px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors"
           style="writing-mode: vertical-rl; transform: rotate(180deg)"
         >
-          {{ $te(`experience.items.${activeItem.id}.type`) ? $t(`experience.items.${activeItem.id}.type`) : activeItem.type }}
+          {{
+            $te(`experience.items.${activeItem.id}.type`)
+              ? $t(`experience.items.${activeItem.id}.type`)
+              : activeItem.type
+          }}
         </span>
 
         <!-- Separator dot -->
@@ -45,20 +49,24 @@
     </div>
 
     <!-- Main Content Area (relative document flow, fills remaining width/height) -->
-    <div class="flex-1 h-full flex flex-col justify-between gap-4 p-12 z-10">
+    <div
+      class="flex-1 min-w-0 min-h-full flex flex-col justify-between gap-3 sm:gap-4 pt-16 sm:pt-20 pb-6 sm:pb-8 px-4 sm:px-8 md:px-12 z-10"
+    >
       <!-- Top Header Block -->
-      <div class="flex items-start gap-4">
+      <div class="flex items-start gap-3 sm:gap-4">
         <!-- Left Tertiary Accent Bar -->
-        <div class="w-2.5 h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0" />
+        <div
+          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+        />
 
-        <div class="space-y-1">
+        <div class="space-y-0.5 sm:space-y-1">
           <h2
-            class="font-sans font-bold text-3xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
+            class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
           >
             {{ $t("experience.title") }}
           </h2>
           <p
-            class="font-tech text-sm sm:text-base text-primary-700 dark:text-primary-200 transition-colors mt-1 font-light uppercase tracking-widest"
+            class="font-tech text-xs sm:text-sm md:text-base text-primary-700 dark:text-primary-200 transition-colors mt-1 font-light uppercase tracking-widest"
           >
             {{ $t("experience.subtitle") }}
           </p>
@@ -66,21 +74,30 @@
       </div>
 
       <!-- Middle Info Block (period + company/role) -->
-      <div class="flex flex-col gap-1">
+      <div class="flex flex-col gap-0.5 sm:gap-1">
         <span
-          class="text-desc-regular text-primary-700 dark:text-primary-400 transition-colors font-semibold tracking-wider"
+          class="text-xs sm:text-sm text-primary-700 dark:text-primary-400 transition-colors font-semibold tracking-wider"
         >
-          {{ $te(`experience.items.${activeItem.id}.period`) ? $t(`experience.items.${activeItem.id}.period`) : activeItem.period }}
+          {{
+            $te(`experience.items.${activeItem.id}.period`)
+              ? $t(`experience.items.${activeItem.id}.period`)
+              : activeItem.period
+          }}
         </span>
         <h3
-          class="text-h3 text-foreground dark:text-white uppercase font-bold tracking-tight transition-colors"
+          class="text-lg sm:text-2xl md:text-3xl text-foreground dark:text-white uppercase font-bold tracking-tight transition-colors leading-tight"
         >
-          {{ activeItem.company }} — {{ $te(`experience.items.${activeItem.id}.role`) ? $t(`experience.items.${activeItem.id}.role`) : activeItem.role }}
+          {{ activeItem.company }} —
+          {{
+            $te(`experience.items.${activeItem.id}.role`)
+              ? $t(`experience.items.${activeItem.id}.role`)
+              : activeItem.role
+          }}
         </h3>
       </div>
 
       <!-- Bottom Experience Card Component (fills remaining space) -->
-      <div class="w-full flex-1">
+      <div class="w-full flex-1 min-h-[380px] sm:min-h-[420px] md:min-h-0">
         <ExperienceCard
           :activeItem="activeItem"
           :activeIndex="activeIndex"

@@ -6,7 +6,7 @@
       :href="link.url"
       target="_blank"
       rel="noopener noreferrer"
-      class="group flex items-center justify-center w-12 h-12 rounded-full border border-foreground/10 dark:border-white/10 bg-foreground/5 dark:bg-white/5 transition-all duration-300 hover:bg-primary-700 hover:border-primary-700 hover:scale-110 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-purple-100 dark:focus:ring-offset-purple-800"
+      class="group flex items-center justify-center w-12 h-12 rounded-[10px] border border-foreground/10 dark:border-white/10 bg-foreground/5 dark:bg-white/5 transition-all duration-300 hover:bg-primary-700 hover:border-primary-700 hover:scale-105 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-700 focus:ring-offset-2 focus:ring-offset-purple-100 dark:focus:ring-offset-purple-800"
       :aria-label="link.name"
     >
       <span class="sr-only">{{ link.name }}</span>

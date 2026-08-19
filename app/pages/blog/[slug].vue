@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-24 pb-24 px-6 sm:px-12 md:px-20 lg:px-32">
+  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32">
     <!-- Reading Progress Bar -->
     <div
       class="fixed top-0 left-0 h-1 bg-primary-700 z-[150] transition-all duration-150"
       :style="{ width: `${readingProgress}%` }"
     />
 
-    <div v-if="post" class="max-w-4xl mx-auto space-y-10">
+    <div v-if="post" class="max-w-4xl mx-auto space-y-8 sm:space-y-10">
       <!-- Back Link -->
       <div>
         <NuxtLink
@@ -19,12 +19,12 @@
 
       <!-- Article Header Dossier Block -->
       <header class="space-y-4">
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-3 sm:gap-4">
           <!-- Vertical Accent Bar -->
-          <div class="w-2.5 h-16 sm:h-20 bg-tertiary-700 shrink-0 mt-1" />
+          <div class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1" />
 
           <div class="space-y-1">
-            <div class="flex items-center gap-3">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
               <span class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest">
                 {{ post.category }}
               </span>
@@ -38,7 +38,7 @@
               </span>
             </div>
 
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase leading-tight">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase leading-tight">
               {{ post.title }}
             </h1>
           </div>
@@ -53,7 +53,7 @@
           <span
             v-for="tag in post.tags"
             :key="tag"
-            class="px-3 py-1 rounded-full bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 text-xs font-tech text-foreground/80 dark:text-white/80"
+            class="px-3 py-1 rounded-[4px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 text-xs font-tech text-foreground/80 dark:text-white/80"
           >
             #{{ tag }}
           </span>
@@ -69,7 +69,7 @@
       <footer class="pt-8 border-t border-primary-300 dark:border-primary-800 flex flex-col sm:flex-row items-center justify-between gap-6">
         <NuxtLink
           to="/blog"
-          class="px-6 py-3 rounded-full bg-primary-200 dark:bg-secondary-900 border border-primary-400 dark:border-primary-700 font-tech text-xs font-bold uppercase tracking-wider text-foreground dark:text-white hover:bg-primary-700 hover:text-white transition-all shadow-md"
+          class="px-6 py-3 rounded-[8px] bg-primary-200 dark:bg-secondary-900 border border-primary-400 dark:border-primary-700 font-tech text-xs font-bold uppercase tracking-wider text-foreground dark:text-white hover:bg-primary-700 hover:text-white transition-all shadow-md"
         >
           {{ $t('blog.backToArchive') }}
         </NuxtLink>
@@ -77,7 +77,7 @@
         <!-- Social Share / Action Buttons -->
         <div class="flex items-center gap-3">
           <button
-            class="px-4 py-2.5 rounded-full border border-primary-300 dark:border-primary-700 bg-primary-100 dark:bg-secondary-950 font-tech text-xs uppercase tracking-wider text-foreground dark:text-white hover:border-primary-600 transition-colors"
+            class="px-4 py-2.5 rounded-[8px] border border-primary-300 dark:border-primary-700 bg-primary-100 dark:bg-secondary-950 font-tech text-xs uppercase tracking-wider text-foreground dark:text-white hover:border-primary-600 transition-colors"
             @click="copyArticleLink"
           >
             {{ copied ? 'LINK COPIED! ✓' : 'SHARE ARTICLE' }}
@@ -94,7 +94,7 @@
       </p>
       <NuxtLink
         to="/blog"
-        class="inline-block px-8 py-3 rounded-full bg-primary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-primary-600 transition-colors shadow-lg"
+        class="inline-block px-8 py-3 rounded-[8px] bg-primary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-primary-600 transition-colors shadow-lg"
       >
         {{ $t('blog.backToArchive') }}
       </NuxtLink>

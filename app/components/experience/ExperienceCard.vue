@@ -1,7 +1,7 @@
 <template>
   <!-- Card Container (relative/flex, sized in Figma pixels, auto-scaled by parent) -->
   <div
-    class="relative w-full h-full rounded-xl overflow-hidden border border-primary-300 dark:border-primary-700 bg-gray-900 transition-colors duration-500 shadow-2xl flex flex-col justify-between p-8"
+    class="relative w-full h-full min-h-[360px] md:min-h-0 rounded-xl overflow-hidden border border-primary-300 dark:border-primary-700 bg-gray-900 transition-colors duration-500 shadow-2xl flex flex-col justify-between p-4 sm:p-6 md:p-8"
   >
     <!-- Background Image with Fade Transition -->
     <transition name="fade" mode="out-in">
@@ -15,7 +15,7 @@
 
     <!-- Legibility Gradient overlays (dark gray bottom fade & dark gray left fade) -->
     <div
-      class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent pointer-events-none z-10"
+      class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-transparent pointer-events-none z-10"
     />
     <div
       class="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-transparent pointer-events-none z-10"
@@ -23,26 +23,26 @@
 
     <!-- Achievements List (flowing naturally in document flow at the top) -->
     <div
-      class="relative z-20 flex flex-col gap-3 max-w-3/4 w-full overflow-y-auto"
+      class="relative z-20 flex flex-col gap-2 sm:gap-3 w-full lg:max-w-3/4 flex-1 min-h-0 overflow-y-auto custom-scrollbar pr-1 sm:pr-2 mb-3"
     >
       <transition name="fade" mode="out-in">
-        <div :key="activeItem.id" class="flex flex-col gap-3">
+        <div :key="activeItem.id" class="flex flex-col gap-2 sm:gap-3">
           <div
             v-for="(bullet, i) in displayedBullets"
             :key="i"
-            class="flex items-start gap-4 w-full"
+            class="flex items-start gap-2.5 sm:gap-4 w-full"
           >
             <!-- Blue Right-pointing Play/Triangle Arrow matching Figma -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              class="w-4 h-4 text-primary-500 mt-[6px] shrink-0"
+              class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-500 mt-[5px] shrink-0"
             >
               <path d="M8 5v14l11-7z" />
             </svg>
             <p
-              class="text-medium-regular text-white/90 transition-colors leading-[1.6]"
+              class="text-xs sm:text-sm md:text-base text-white/90 transition-colors leading-relaxed"
             >
               {{ bullet }}
             </p>
@@ -51,8 +51,8 @@
       </transition>
     </div>
 
-    <!-- Bottom Slider / Gallery Controls Container (relative flex positioning at bottom) -->
-    <div class="relative z-20 w-full h-[160px] mt-auto flex items-center">
+    <!-- Desktop: Multi-Slot Sliding Gallery (hidden on mobile, visible on lg) -->
+    <div class="hidden lg:flex relative z-20 w-full h-[160px] mt-auto items-center">
       <!-- Left side: fixed width thumbnails & controls container -->
       <div class="relative w-[737px] h-full shrink-0">
         <!-- Dynamic transitioning thumbnail slots -->
@@ -102,6 +102,7 @@
         <button
           class="absolute left-[217px] top-[108px] w-[42px] h-[36px] bg-primary-700/90 border border-primary-500 rounded-md flex items-center justify-center text-white hover:bg-primary-600 transition-colors shadow-lg z-30"
           @click="$emit('change-active', prevIndex)"
+          aria-label="Previous experience"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +124,7 @@
         <button
           class="absolute left-[478px] top-[108px] w-[42px] h-[36px] bg-primary-700/90 border border-primary-500 rounded-md flex items-center justify-center text-white hover:bg-primary-600 transition-colors shadow-lg z-30"
           @click="$emit('change-active', nextIndex)"
+          aria-label="Next experience"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -163,6 +165,70 @@
 
       <!-- Right side: fluid decorator line (stretches to fill remaining card width) -->
       <div class="flex-1 h-[2px] bg-primary-700/50 shadow-inner ml-6 mb-16" />
+    </div>
+
+    <!-- Mobile / Tablet: Responsive Compact Slider Bar (visible on < lg) -->
+    <div class="flex lg:hidden relative z-20 w-full mt-auto pt-2.5 sm:pt-3 border-t border-white/10 items-center justify-between gap-2">
+      <!-- Prev Button -->
+      <button
+        @click="$emit('change-active', prevIndex)"
+        class="w-8 h-8 sm:w-9 sm:h-9 rounded-[6px] bg-primary-700 hover:bg-primary-600 border border-primary-500 flex items-center justify-center text-white shrink-0 shadow-md transition-all active:scale-95"
+        aria-label="Previous experience"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+      </button>
+
+      <!-- Center Items & Indicators -->
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-1 max-w-[calc(100%-80px)]">
+        <button
+          v-for="(item, idx) in items"
+          :key="item.id"
+          @click="$emit('change-active', idx)"
+          class="px-2 sm:px-3 py-1 rounded-[4px] text-[11px] sm:text-xs font-tech font-bold transition-all whitespace-nowrap"
+          :class="
+            idx === activeIndex
+              ? 'bg-primary-700 text-white border border-primary-400 shadow-sm'
+              : 'bg-black/40 text-white/60 hover:text-white border border-white/10'
+          "
+        >
+          0{{ idx + 1 }} // {{ item.company.split(' ')[0] }}
+        </button>
+      </div>
+
+      <!-- Next Button -->
+      <button
+        @click="$emit('change-active', nextIndex)"
+        class="w-8 h-8 sm:w-9 sm:h-9 rounded-[6px] bg-primary-700 hover:bg-primary-600 border border-primary-500 flex items-center justify-center text-white shrink-0 shadow-md transition-all active:scale-95"
+        aria-label="Next experience"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </template>
@@ -249,6 +315,20 @@ const formatIndex = (val: number): string => {
 <style scoped>
 .clip-polygon {
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary-600);
+  border-radius: 4px;
+}
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary-400);
 }
 
 /* Slide/Fade Animations */

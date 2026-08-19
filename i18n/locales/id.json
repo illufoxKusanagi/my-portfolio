@@ -8,14 +8,14 @@
     "systemNav": "NAVIGASI SISTEM // 2026",
     "sectionDirectory": "Direktori Pintas Bagian",
     "sections": {
-      "hero": "01 // BERANDA",
-      "frameworks": "02 // KERANGKA KERJA",
-      "tools": "03 // ALAT & SISTEM",
-      "languages": "04 // BAHASA",
-      "projects": "05 // PROYEK",
-      "experience": "06 // PENGALAMAN",
-      "certificates": "07 // SERTIFIKAT",
-      "contact": "08 // KONTAK"
+      "hero": "// BERANDA",
+      "frameworks": "// FRAMEWORK",
+      "tools": "// TOOLS & SISTEM",
+      "languages": "// BAHASA PROGR",
+      "projects": "// PROYEK",
+      "experience": "// PENGALAMAN",
+      "certificates": "// SERTIFIKAT",
+      "contact": "// KONTAK"
     }
   },
   "hero": {
@@ -308,19 +308,22 @@
     "next": "BERIKUTNYA →"
   },
   "contact": {
-    "title": "HUBUNGI SAYA",
-    "subtitle": "Terbuka untuk kolaborasi proyek, diskusi teknis, dan peluang kerja",
+    "title": "MULAI KONTAK",
+    "subtitle": "Hubungi saya untuk kolaborasi, proyek, dan peluang kerja sama",
+    "pitchTitle": "MARI MEMBANGUN SESUATU YANG LUAR BIASA",
+    "pitchDesc": "Punya proyek ambisius, pengalaman web 3D interaktif, sistem simulasi, atau pertanyaan teknis? Kirimkan transmisi pesan di bawah ini dan mari wujudkan ide menjadi perangkat lunak yang tangguh.",
+    "responseRate": "WAKTU RESPON BIASA: < 24 JAM",
     "directEmail": "EMAIL LANGSUNG",
     "findMeOn": "TEMUKAN SAYA DI",
     "nameLabel": "NAMA ANDA",
-    "namePlaceholder": "Nama Lengkap",
+    "namePlaceholder": "John Doe",
     "emailLabel": "EMAIL ANDA",
-    "emailPlaceholder": "nama{'@'}example.com",
+    "emailPlaceholder": "john{'@'}example.com",
     "messageLabel": "PESAN / RINGKASAN PROYEK",
-    "messagePlaceholder": "Tuliskan pesan atau kebutuhan proyek Anda...",
+    "messagePlaceholder": "Ceritakan tentang proyek atau kebutuhan Anda...",
     "sendButton": "KIRIM PESAN →",
-    "sendingButton": "MENGIRIM...",
-    "successMessage": "Pesan berhasil dikirim. Saya akan segera merespons Anda."
+    "sendingButton": "MENGIRIMKAN...",
+    "successMessage": "Pesan berhasil dikirim. Saya akan segera menghubungi Anda kembali."
   },
   "blog": {
     "title": "BLOG TEKNIK",
@@ -361,5 +364,16 @@
     "timelineSubtitle": "Riwayat Kronologis Pekerjaan & Rekayasa Proyek",
     "matrixTitle": "MATRIKS KEMAHIRAN TEKNIS",
     "matrixSubtitle": "Kerangka Kerja, Bahasa, Sistem & Alat Pengembangan"
+  },
+  "footer": {
+    "title": "Arief Satria",
+    "subtitle": "Software Engineer & Pengembang Web Kreatif Full-Stack",
+    "status": "TERSEDIA UNTUK BEKERJA",
+    "timezone": "GMT+7 • INDONESIA",
+    "quickLinks": "DIREKTORI",
+    "connect": "HUBUNGI",
+    "rights": "HAK CIPTA DILINDUNGI.",
+    "directEmail": "Email Langsung",
+    "backToTop": "KEMBALI KE ATAS ↑"
   }
 }

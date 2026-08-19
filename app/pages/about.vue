@@ -1,17 +1,17 @@
 <template>
-  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-24 pb-24 px-6 sm:px-12 md:px-20 lg:px-32">
-    <div class="max-w-6xl mx-auto space-y-16">
+  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32">
+    <div class="max-w-6xl mx-auto space-y-10 sm:space-y-16">
       <!-- Header Block -->
       <section>
-        <div class="flex items-start gap-4 mb-4">
+        <div class="flex items-start gap-3 sm:gap-4 mb-4">
           <!-- Vertical Accent Bar -->
-          <div class="w-2.5 h-16 sm:h-20 bg-tertiary-700 shrink-0 mt-1" />
+          <div class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1" />
 
-          <div class="space-y-1">
-            <h1 class="font-sans font-bold text-4xl sm:text-5xl md:text-6xl text-foreground dark:text-white transition-colors tracking-tight uppercase leading-none">
+          <div class="space-y-0.5 sm:space-y-1">
+            <h1 class="font-sans font-bold text-3xl sm:text-5xl md:text-6xl text-foreground dark:text-white transition-colors tracking-tight uppercase leading-none">
               {{ $t('about.title') }}
             </h1>
-            <p class="font-tech text-sm sm:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light">
+            <p class="font-tech text-xs sm:text-sm md:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light">
               {{ $t('about.subtitle') }}
             </p>
           </div>
@@ -21,13 +21,13 @@
           <a
             v-if="publicEmail"
             :href="`mailto:${publicEmail}`"
-            class="px-6 py-2.5 rounded-full bg-secondary-700 hover:bg-secondary-600 text-white font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+            class="px-6 py-2.5 rounded-[8px] bg-secondary-700 hover:bg-secondary-600 text-white font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
           >
             {{ $t('about.directEmail') }}
           </a>
           <NuxtLink
             to="/projects"
-            class="px-6 py-2.5 rounded-full border border-secondary-600 text-foreground dark:text-white hover:bg-secondary-200 dark:hover:bg-secondary-900 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
+            class="px-6 py-2.5 rounded-[8px] border border-secondary-600 text-foreground dark:text-white hover:bg-secondary-200 dark:hover:bg-secondary-900 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
           >
             {{ $t('about.viewProjects') }}
           </NuxtLink>
@@ -109,7 +109,7 @@
               href="https://github.com/illufoxKusanagi"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-full border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
+              class="flex-1 py-2 px-3 rounded-[8px] border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
             >
               GitHub
             </a>
@@ -117,7 +117,7 @@
               href="https://linkedin.com/in/muhammad-arief-satria-wibawa"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-full border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
+              class="flex-1 py-2 px-3 rounded-[8px] border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
             >
               LinkedIn
             </a>
@@ -155,7 +155,7 @@
                 </h3>
               </div>
 
-              <div class="px-4 py-1.5 rounded-full border border-secondary-600 bg-primary-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0">
+              <div class="px-4 py-1.5 rounded-[4px] border border-secondary-600 bg-primary-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0">
                 {{ $te(`experience.items.${exp.id}.period`) ? $t(`experience.items.${exp.id}.period`) : exp.period }}
               </div>
             </div>
@@ -206,7 +206,7 @@
                 <span
                   v-for="skill in group.skills"
                   :key="skill"
-                  class="px-2.5 py-1 rounded-full bg-primary-100 dark:bg-secondary-950 border border-primary-300/80 dark:border-primary-800/80 text-xs font-tech text-foreground/80 dark:text-white/80"
+                  class="px-2.5 py-1 rounded-[4px] bg-primary-100 dark:bg-secondary-950 border border-primary-300/80 dark:border-primary-800/80 text-xs font-tech text-foreground/80 dark:text-white/80"
                 >
                   {{ skill }}
                 </span>

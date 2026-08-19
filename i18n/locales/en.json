@@ -8,14 +8,14 @@
     "systemNav": "SYSTEM NAV // 2026",
     "sectionDirectory": "Quick Jump Directory",
     "sections": {
-      "hero": "01 // HERO",
-      "frameworks": "02 // FRAMEWORKS",
-      "tools": "03 // TOOLS",
-      "languages": "04 // LANGUAGES",
-      "projects": "05 // PROJECTS",
-      "experience": "06 // EXPERIENCE",
-      "certificates": "07 // CERTIFICATES",
-      "contact": "08 // CONTACT"
+      "hero": "// HERO",
+      "frameworks": "// FRAMEWORKS",
+      "tools": "// TOOLS",
+      "languages": "// PROGRAM LANG",
+      "projects": "// PROJECTS",
+      "experience": "// EXPERIENCE",
+      "certificates": "// CERTIFICATES",
+      "contact": "// CONTACT"
     }
   },
   "hero": {
@@ -310,6 +310,9 @@
   "contact": {
     "title": "INITIATE CONTACT",
     "subtitle": "Get in touch for collaborations, projects, and opportunities",
+    "pitchTitle": "LET'S BUILD SOMETHING EXTRAORDINARY",
+    "pitchDesc": "Have an ambitious project, an interactive 3D web experience, a simulation system, or a technical inquiry? Send a transmission below and let's turn ideas into robust software.",
+    "responseRate": "TYPICAL RESPONSE TIME: < 24 HOURS",
     "directEmail": "DIRECT EMAIL",
     "findMeOn": "FIND ME ON",
     "nameLabel": "YOUR NAME",
@@ -361,5 +364,16 @@
     "timelineSubtitle": "Chronological Employment & Project Engineering History",
     "matrixTitle": "TECHNICAL PROFICIENCY MATRIX",
     "matrixSubtitle": "Frameworks, Languages, Systems & Tools Breakdown"
+  },
+  "footer": {
+    "title": "Arief Satria",
+    "subtitle": "Software Engineer & Creative Full-Stack Developer",
+    "status": "AVAILABLE FOR HIRE",
+    "timezone": "GMT+7 • INDONESIA",
+    "quickLinks": "DIRECTORY",
+    "connect": "CONNECT",
+    "rights": "ALL RIGHTS RESERVED.",
+    "directEmail": "Direct Email",
+    "backToTop": "BACK TO TOP ↑"
   }
 }

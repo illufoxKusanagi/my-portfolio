@@ -2,44 +2,44 @@
   <section
     :id="`tech-category-${category.id}`"
     ref="sectionRef"
-    class="w-full h-screen overflow-hidden bg-primary-100 dark:bg-primary-950 transition-colors duration-500 flex flex-col justify-start p-20 px-64"
+    class="w-full h-screen overflow-hidden bg-primary-100 dark:bg-primary-950 transition-colors duration-500 flex flex-col justify-between pt-16 sm:pt-20 pb-4 sm:pb-8 px-4 sm:px-8 md:px-16 lg:px-28 xl:px-44"
   >
     <!-- Section Header (Figma node 22:219) -->
     <div class="w-full mx-auto flex items-center justify-between z-50">
-      <div class="flex items-start gap-4">
+      <div class="flex items-start gap-3 sm:gap-4">
         <!-- Left Tertiary Accent Bar -->
-        <div class="w-2.5 h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0" />
+        <div
+          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+        />
 
-        <div class="space-y-1">
+        <div class="space-y-0.5 sm:space-y-1">
           <h2
-            class="font-sans font-bold text-3xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
+            class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
           >
-            {{ $t('tech.title') }}
+            {{ $t("tech.title") }}
           </h2>
-          <p class="font-tech text-sm sm:text-base text-foreground/80 dark:text-white/80 transition-colors font-light uppercase tracking-widest mt-1">
-            {{ category.id === 'frameworks' ? $t('tech.frameworksSub') : (category.id === 'tools' ? $t('tech.toolsSub') : $t('tech.languagesSub')) }}
+          <p
+            class="font-tech text-xs sm:text-sm md:text-base text-foreground/80 dark:text-white/80 transition-colors font-light uppercase tracking-widest mt-1"
+          >
+            {{
+              category.id === "frameworks"
+                ? $t("tech.frameworksSub")
+                : category.id === "tools"
+                  ? $t("tech.toolsSub")
+                  : $t("tech.languagesSub")
+            }}
           </p>
         </div>
       </div>
-
-      <!-- Current Active Category Badge -->
-      <!-- <div
-        class="hidden sm:flex items-center gap-2 border border-primary-700 bg-secondary-900/80 px-4 py-2 rounded-full"
-      >
-        <span class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></span>
-        <span
-          class="font-tech text-xs md:text-sm text-primary-500 font-medium tracking-wide"
-        >
-          {{ category.title }}
-        </span>
-      </div> -->
     </div>
 
     <!-- Main Card Viewport with Clip-Path Stencil Wipe -->
     <div
-      class="w-full flex-1 flex items-center justify-center relative overflow-hidden my-4 z-10"
+      class="w-full flex-1 flex items-center justify-center relative overflow-hidden my-2 sm:my-4 z-10"
     >
-      <div class="w-full h-[546px] relative overflow-hidden rounded-[16px]">
+      <div
+        class="w-full h-full max-h-[420px] sm:max-h-[460px] md:max-h-[546px] relative overflow-hidden rounded-[16px]"
+      >
         <!-- Base Active Card Layer -->
         <div
           v-for="(item, index) in category.items"
@@ -68,19 +68,19 @@
 
     <!-- Bottom Pagination Controls (Matching Endfield Pagination_button__cVH8L) -->
     <div
-      class="max-w-7xl w-full mx-auto flex items-center justify-between text-xs font-tech text-foreground/70 dark:text-white/70 transition-colors z-50"
+      class="max-w-7xl w-full mx-auto flex items-center justify-between text-xs font-tech text-foreground/70 dark:text-white/70 transition-colors z-50 pt-1"
     >
       <span class="hidden sm:inline-block">SCROLL OR USE ARROWS &darr;</span>
 
       <!-- Interactive Arrow Pagination Controls -->
       <div
-        class="flex items-center gap-4 mx-auto sm:mx-0 border border-primary-700 bg-secondary-900/90 px-4 py-2 rounded-full shadow-lg"
+        class="flex items-center gap-4 mx-auto sm:mx-0 border border-primary-700 bg-secondary-900/90 px-4 py-2 rounded-[8px] shadow-lg"
       >
         <!-- Prev Button -->
         <button
           @click="goToPrev"
           :disabled="activeIndex === 0 || isAnimating"
-          class="w-8 h-8 rounded-full border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
+          class="w-8 h-8 rounded-[6px] border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Previous item"
         >
           <svg
@@ -107,7 +107,7 @@
         <button
           @click="goToNext"
           :disabled="activeIndex === category.items.length - 1 || isAnimating"
-          class="w-8 h-8 rounded-full border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
+          class="w-8 h-8 rounded-[6px] border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Next item"
         >
           <svg
@@ -125,7 +125,12 @@
       </div>
 
       <span class="hidden sm:inline-block tracking-widest uppercase"
-        >{{ category.items.length }} ITEMS // {{ $te(`tech.${category.id}`) ? $t(`tech.${category.id}`) : category.title }}</span
+        >{{ category.items.length }} ITEMS //
+        {{
+          $te(`tech.${category.id}`)
+            ? $t(`tech.${category.id}`)
+            : category.title
+        }}</span
       >
     </div>
   </section>
@@ -250,7 +255,6 @@ const syncScrollToIndex = (idx: number) => {
   const targetScroll = start + targetProgress * (end - start);
   scrollTriggerInstance.scroll(targetScroll);
 };
-
 
 onMounted(() => {
   if (import.meta.server || !sectionRef.value || cardRefs.value.length === 0)
