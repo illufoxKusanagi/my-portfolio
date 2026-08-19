@@ -57,18 +57,23 @@
                   i % 2 === 0 ? 'page-overlay--left' : 'page-overlay--right'
                 "
               >
-                <!-- Prev Button (Disabled on first page) -->
+                <!-- Prev Button -->
                 <button
+                  type="button"
                   class="page-nav-btn page-nav-btn--prev"
                   :class="{
                     'opacity-40 pointer-events-none cursor-not-allowed':
                       i === 0,
                   }"
                   :disabled="i === 0"
+                  @mousedown.stop
+                  @touchstart.stop
+                  @pointerdown.stop
                   @click.stop="flipPrev"
                   aria-label="Previous certificate"
                 >
                   <svg
+                    class="pointer-events-none"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -83,22 +88,34 @@
                 </button>
 
                 <!-- View More Button -->
-                <button class="page-view-btn" @click.stop="openLightbox(i)">
+                <button
+                  type="button"
+                  class="page-view-btn"
+                  @mousedown.stop
+                  @touchstart.stop
+                  @pointerdown.stop
+                  @click.stop="openLightbox(i)"
+                >
                   {{ $t("certificates.viewMore") }}
                 </button>
 
-                <!-- Next Button (Disabled on last page) -->
+                <!-- Next Button -->
                 <button
+                  type="button"
                   class="page-nav-btn page-nav-btn--next"
                   :class="{
                     'opacity-40 pointer-events-none cursor-not-allowed':
                       i === CERTIFICATES.length - 1,
                   }"
                   :disabled="i === CERTIFICATES.length - 1"
+                  @mousedown.stop
+                  @touchstart.stop
+                  @pointerdown.stop
                   @click.stop="flipNext"
                   aria-label="Next certificate"
                 >
                   <svg
+                    class="pointer-events-none"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -326,6 +343,12 @@ function openLightbox(index: number) {
   flex-shrink: 0;
   pointer-events: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.page-nav-btn svg {
+  pointer-events: none;
 }
 
 .page-nav-btn:hover:not(:disabled) {
@@ -353,6 +376,8 @@ function openLightbox(index: number) {
   white-space: nowrap;
   pointer-events: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .page-view-btn:hover {

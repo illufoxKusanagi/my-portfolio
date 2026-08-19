@@ -5,15 +5,15 @@ const BASE_PAGE_WIDTH = 480;
 const BASE_PAGE_HEIGHT = 600;
 const MIN_PAGE_WIDTH = 340; // Threshold for portrait single-page vs landscape 2-page spread
 const MAX_PAGE_WIDTH = 600;
-const FLIP_DURATION_MS = 700;
+const FLIP_DURATION_MS = 600;
+const SPAM_DEBOUNCE_MS = 650; // Guaranteed throttle to prevent pagination spam
 const SHADOW_OPACITY = 0.6;
 
 /**
- * Encapsulates StPageFlip lifecycle according to official documentation:
- * - HTML-based flip book instantiation
- * - Disables hover-triggered page corner lifting (showPageCorners: false)
- * - Orientation tracking synchronized with StPageFlip's internal engine
- * - Clean event delegation and click forwarding
+ * Encapsulates StPageFlip lifecycle:
+ * - Anti-spam debounced pagination controls
+ * - Synchronizes orientation and page indices cleanly across viewports
+ * - Isolates in-page button gestures
  */
 export function usePageFlip(
   bookEl: Ref<HTMLElement | null>,
@@ -22,6 +22,8 @@ export function usePageFlip(
   /* eslint-disable @typescript-eslint/no-explicit-any */
   let instance: any = null;
   const currentOrientation = ref<"portrait" | "landscape">("landscape");
+  const currentPageIndex = ref(0);
+  let lastFlipTimestamp = 0;
 
   async function init() {
     if (!bookEl.value || !bookContainer.value) return;
@@ -46,7 +48,7 @@ export function usePageFlip(
       maxShadowOpacity: SHADOW_OPACITY,
       mobileScrollSupport: true,
       useMouseEvents: true,
-      showPageCorners: false, // Prevents pages from lifting/curling when hovered
+      showPageCorners: false, // Prevents hover lifting
       clickEventForward: true,
       disableFlipByClick: true,
       flippingTime: FLIP_DURATION_MS,
@@ -64,6 +66,9 @@ export function usePageFlip(
       if (e?.data?.mode) {
         currentOrientation.value = e.data.mode;
       }
+      if (e?.data?.page !== undefined) {
+        currentPageIndex.value = e.data.page;
+      }
     });
 
     instance.on("changeOrientation", (e: any) => {
@@ -71,14 +76,26 @@ export function usePageFlip(
         currentOrientation.value = e.data;
       }
     });
+
+    instance.on("flip", (e: any) => {
+      if (typeof e?.data === "number") {
+        currentPageIndex.value = e.data;
+      }
+    });
   }
 
   function flipPrev() {
-    instance?.flipPrev();
+    const now = Date.now();
+    if (!instance || now - lastFlipTimestamp < SPAM_DEBOUNCE_MS) return;
+    lastFlipTimestamp = now;
+    instance.flipPrev();
   }
 
   function flipNext() {
-    instance?.flipNext();
+    const now = Date.now();
+    if (!instance || now - lastFlipTimestamp < SPAM_DEBOUNCE_MS) return;
+    lastFlipTimestamp = now;
+    instance.flipNext();
   }
 
   function destroy() {
@@ -99,5 +116,6 @@ export function usePageFlip(
     flipPrev,
     flipNext,
     currentOrientation,
+    currentPageIndex,
   };
 }
