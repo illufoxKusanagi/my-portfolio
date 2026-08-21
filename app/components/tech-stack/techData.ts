@@ -117,7 +117,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Elysia.Js",
         description:
           "Building lightweight, high-throughput REST APIs with end-to-end type safety and schema validation for rapid backend prototyping.",
-        experienceYears: "0.5 yr",
+        experienceYears: "< 1 yr",
         proficiency: "Junior",
         badgeText: "Backend",
         sideTag: "Backend  |  Elysia.Js",
@@ -180,7 +180,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Antigravity",
         description:
           "Leveraging agentic IDE workflows, custom skills, and autonomous pair-programming protocols to rapidly architect, build, and validate production-ready applications.",
-        experienceYears: "2 yrs",
+        experienceYears: "< 1 yr",
         proficiency: "Intermediate",
         badgeText: "IDE",
         sideTag: "IDE  |  Antigravity",
@@ -250,7 +250,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Open Code",
         description:
           "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
-        experienceYears: "1 yr",
+        experienceYears: "< 1 yr",
         proficiency: "Intermediate",
         badgeText: "AI Coding Agent",
         sideTag: "AI Coding Agent  |  Open Code",
