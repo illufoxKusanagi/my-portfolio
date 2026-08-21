@@ -58,7 +58,7 @@
         <!-- Dynamic transitioning thumbnail slots -->
         <div
           v-for="slot in thumbnailSlots"
-          :key="slot.item ? slot.item.id : slot.index"
+          :key="slot.label + (slot.item ? slot.item.id : slot.index)"
           :class="[
             'absolute rounded-lg overflow-hidden transition-all duration-500 ease-in-out cursor-pointer group shadow-lg',
             slot.isActive ? 'border-2 border-primary-500 z-20' : 'border z-10',

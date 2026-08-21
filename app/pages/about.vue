@@ -174,6 +174,55 @@
         </div>
       </section>
 
+      <!-- Leadership & Organizations Section -->
+      <section class="space-y-8">
+        <div class="flex items-start gap-4">
+          <div class="w-2.5 h-12 bg-tertiary-700 shrink-0 mt-1" />
+          <div>
+            <h2 class="font-sans font-bold text-2xl sm:text-3xl text-foreground dark:text-white tracking-tight uppercase leading-none">
+              {{ $te('about.leadershipTitle') ? $t('about.leadershipTitle') : $t('leadership.title') }}
+            </h2>
+            <p class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light">
+              {{ $te('about.leadershipSubtitle') ? $t('about.leadershipSubtitle') : $t('leadership.subtitle') }}
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div
+            v-for="(lead, index) in LEADERSHIP_DATA"
+            :key="lead.id"
+            class="p-8 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-xl transition-all duration-300"
+          >
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-primary-300/80 dark:border-primary-800/80">
+              <div>
+                <span class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block">
+                  0{{ index + 1 }} // {{ $te(`leadership.items.${lead.id}.type`) ? $t(`leadership.items.${lead.id}.type`) : lead.type }}
+                </span>
+                <h3 class="text-xl sm:text-2xl font-bold font-sans uppercase text-foreground dark:text-white mt-1">
+                  {{ $te(`leadership.items.${lead.id}.role`) ? $t(`leadership.items.${lead.id}.role`) : lead.role }} &bull; {{ lead.organization }}
+                </h3>
+              </div>
+
+              <div class="px-4 py-1.5 rounded-[4px] border border-secondary-600 bg-primary-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0">
+                {{ $te(`leadership.items.${lead.id}.period`) ? $t(`leadership.items.${lead.id}.period`) : lead.period }}
+              </div>
+            </div>
+
+            <ul class="space-y-2.5">
+              <li
+                v-for="(bullet, bIdx) in getLeadBullets(lead)"
+                :key="bIdx"
+                class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-sans"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary-600 shrink-0 mt-2" />
+                <span>{{ bullet }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- Technical Stack Matrix -->
       <section class="space-y-8">
         <div class="flex items-start gap-4">
@@ -222,6 +271,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { EXPERIENCE_DATA, type ExperienceItem } from "@/components/experience/experienceData";
+import { LEADERSHIP_DATA, type LeadershipItem } from "@/components/leadership/leadershipData";
 
 const config = useRuntimeConfig();
 const publicEmail = config.public.contactEmail as string;
@@ -232,6 +282,14 @@ const getExpBullets = (exp: ExperienceItem) => {
   const bullets = exp.bullets || [];
   return bullets.map((fallback, i) => {
     const key = `experience.items.${exp.id}.bullets.${i}`;
+    return te(key) ? t(key) : fallback;
+  });
+};
+
+const getLeadBullets = (lead: LeadershipItem) => {
+  const bullets = lead.bullets || [];
+  return bullets.map((fallback, i) => {
+    const key = `leadership.items.${lead.id}.bullets.${i}`;
     return te(key) ? t(key) : fallback;
   });
 };

@@ -8,14 +8,15 @@
     "systemNav": "SYSTEM NAV // 2026",
     "sectionDirectory": "Quick Jump Directory",
     "sections": {
-      "hero": "// HERO",
-      "frameworks": "// FRAMEWORKS",
-      "tools": "// TOOLS",
-      "languages": "// PROGRAM LANG",
-      "projects": "// PROJECTS",
-      "experience": "// EXPERIENCE",
-      "certificates": "// CERTIFICATES",
-      "contact": "// CONTACT"
+      "hero": "01 // HERO",
+      "frameworks": "02 // FRAMEWORKS",
+      "tools": "03 // TOOLS",
+      "languages": "04 // LANGUAGES",
+      "projects": "05 // PROJECTS",
+      "experience": "06 // EXPERIENCE",
+      "leadership": "07 // ORGANIZATIONS",
+      "certificates": "08 // CERTIFICATES",
+      "contact": "09 // CONTACT"
     }
   },
   "hero": {
@@ -131,19 +132,45 @@
         "title": "Drizzle",
         "description": "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
         "badgeText": "ORM",
-        "sideTag": "ORM  |  Drizzle"
+        "description": "Architecting relational database structures, designing foreign keys, indexing frequently queried fields, and maintaining data integrity.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  MySQL"
       },
-      "opencode": {
-        "title": "Open Code",
-        "description": "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
-        "badgeText": "AI Coding Agent",
-        "sideTag": "AI Coding Agent  |  Open Code"
+      "postgresql": {
+        "title": "PostgreSQL",
+        "description": "Managing robust relational databases with advanced indexing, JSONB data types, complex joins, and transactional operations.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  PostgreSQL"
       },
-      "github-actions": {
-        "title": "GitHub Actions",
-        "description": "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
-        "badgeText": "CI/CD & DevOps",
-        "sideTag": "DevOps  |  GitHub Actions"
+      "sqlite": {
+        "title": "SQLite",
+        "description": "Deploying lightweight, zero-configuration embedded database engines for edge computing and single-tenant applications.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  SQLite"
+      },
+      "next-auth": {
+        "title": "Next Auth",
+        "description": "Implementing secure session management, JWT token handling, OAuth providers, and role-based access control.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  Next Auth"
+      },
+      "mapbox": {
+        "title": "Mapbox GL",
+        "description": "Building interactive vector map visualizations, custom GeoJSON data layers, and real-time geospatial telemetry tracking.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  Mapbox GL"
+      },
+      "sentry": {
+        "title": "Sentry",
+        "description": "Integrating real-time application error tracking, crash reporting, session replays, and performance tracing.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  Sentry"
+      },
+      "vercel": {
+        "title": "Vercel",
+        "description": "Deploying and managing edge-rendered serverless web applications with automated preview branches and analytics.",
+        "badgeText": "Tool",
+        "sideTag": "Tool  |  Vercel"
       },
       "typescript": {
         "title": "TypeScript",
@@ -155,13 +182,13 @@
         "title": "C++",
         "description": "Developing native desktop applications using Qt Framework, managing low-level memory safety, pointers, and object-oriented architectures.",
         "badgeText": "Desktop Dev",
-        "sideTag": "Desktop Dev  |  C++"
+        "sideTag": "Language  |  C++"
       },
       "php": {
         "title": "PHP",
         "description": "Building robust web application backends and administrative systems leveraging Laravel's MVC ecosystem.",
         "badgeText": "Website",
-        "sideTag": "Website  |  PHP"
+        "sideTag": "Language  |  PHP"
       }
     }
   },
@@ -222,7 +249,7 @@
       "laras": {
         "title": "LARAS",
         "subtitle": "Your Self-Care App",
-        "description": "A self-care application designed to help you become more mindful, calm, and grounded. Featuring guided meditation, relaxation audio, and personal journaling, Laras serves as a dedicated companion for supporting your mental well-being."
+        "description": "Frontend developer on a 8-person team shipping a new feature every month over an 8-month agile cycle, incorporating feedback from underclassmen, seniors, and the program's third-party stakeholder. Published on Google Play and web (laras.agileteknik.com)."
       },
       "excel-formatter": {
         "title": "EXCEL FORMATTER",
@@ -234,7 +261,7 @@
   },
   "experience": {
     "title": "EXPERIENCE",
-    "subtitle": "Work & Project Experience",
+    "subtitle": "Professional Employment & Real-World Internships",
     "internship": "INTERNSHIP",
     "academic": "ACADEMIC",
     "productLearning": "PRODUCT LEARNING",
@@ -267,33 +294,44 @@
           "Built secure RESTful API endpoints under Next.js App Router, enforcing Zod schema validation and role-based access control (RBAC) with JWT authentication and bcrypt password encryption.",
           "Delivered an interactive activity calendar with month/week/day/year views, drag-and-drop rescheduling, OPD-categorized color-coded events — containerized the full stack using Docker Compose with multi-stage production builds."
         ]
-      },
-      "laras": {
-        "role": "FRONTEND ENGINEER",
-        "company": "AGILETEKNIK - LARAS",
-        "period": "March 2024 - Dec 2024",
-        "type": "PRODUCT LEARNING",
+      }
+    }
+  },
+  "leadership": {
+    "title": "ORGANIZATIONS & ACTIVITIES",
+    "subtitle": "Campus UKM, Student Associations & Leadership Training",
+    "items": {
+      "ukki-pens": {
+        "role": "HEAD OF BPM DIVISION",
+        "organization": "UKKI PENS",
+        "period": "Sep 2024 - Present",
+        "type": "CAMPUS ORGANIZATION (UKM)",
         "bullets": [
-          "Created high-fidelity landing pages and portfolios featuring custom GSAP animations and Tailwind styling.",
-          "Implemented responsive web designs that work seamlessly across desktop, tablet, and mobile layouts.",
-          "Optimized web performance, achieving near-perfect 95+ scores on Google Lighthouse Core Web Vitals.",
-          "Collaborated directly with clients to translate business goals into clean, interactive user interfaces.",
-          "Integrated payment gateways and modern headless CMS platforms (Strapi, Sanity.io)."
+          "Led the BPM (Badan Perwakilan Majelis) division within UKKI PENS, directing organizational stewardship, policy oversight, and community outreach programs.",
+          "Coordinated public service initiatives and religious social programs serving both campus students and surrounding local communities in Surabaya.",
+          "Facilitated cross-division coordination, event evaluation meetings, and strategic planning across major annual student events."
         ]
       },
-      "train-simulation-optimization": {
-        "role": "LEAD RESEARCHER & SOFTWARE ENGINEER",
-        "company": "PENS",
-        "period": "Aug 2024 - Jul 2025",
-        "type": "APPLIED BACHELOR THESIS",
+      "opp-himit-pens": {
+        "role": "EQUIPMENT & LOGISTICS COMMITTEE",
+        "organization": "OPP HIMIT PENS",
+        "period": "2023",
+        "type": "STUDENT ASSOCIATION (HIMPUNAN)",
         "bullets": [
-          "Built a hybrid desktop simulation platform combining a C++17 (Qt 6) backend with a Next.js 14 (TypeScript, Tailwind CSS) UI rendered via Chromium Qt WebEngine, resolving desktop packaging virtualization crashes through programmatic sandbox bypasses (QTWEBENGINE_DISABLE_SANDBOX=1).",
-          "Implemented a Data-Oriented Programming (DOP) architecture, isolating Plain Old Data (POD) structs from stateless computational controllers and organizing time-series outputs into Structure of Arrays (SoA) for zero-allocation memory sweeps.",
-          "Engineered a longitudinal train dynamics simulation in C++, modeling piecewise 3-region tractive effort curves, Davis running resistance, track elevation/curvature profiles, and multi-stage power flow (wheel mechanical output to catenary line).",
-          "Formulated analytical 3-zone braking distance calculus across motor field-weakening regimes, driving a discrete forward Euler simulation loop (1.0-second time steps) with a 4-state notch machine (AtStation, Accelerating, Coasting, Braking).",
-          "Developed a Two-Pass Dynamic Range Mamdani Fuzzy Inference System (FIS) that dynamically self-calibrates membership boundaries across 3 decoupled sub-engines (TimeEngine, PowerEngine, EnergyEngine) using 100-step discrete Centroid defuzzification.",
-          "Accelerated multi-objective parameter sweeps across 104 candidate configurations to under 2.0 seconds using C++ QtConcurrent multi-threading with signal-blocking, outperforming traditional metaheuristic algorithms (40–80 minutes).",
-          "Delivered a comprehensive operator analytics suite featuring an 8-tab time-series dashboard (Recharts), native CSV/Excel export dialogs via QWebChannel, guided onboarding tours (Driver.js), and bilingual (EN/ID) localization."
+          "Served as Equipment & Logistics committee member for OPP HIMIT (Informatics Student Association Orientation Program) at PENS.",
+          "Managed event hardware, stage setups, technical infrastructure, and logistical operational workflows across orientation sessions.",
+          "Guided freshmen in adapting to the Informatics department culture, code of conduct, academic habits, and campus environment."
+        ]
+      },
+      "lkmm-pens": {
+        "role": "LEADERSHIP & MANAGEMENT TRAINEE",
+        "organization": "LKMM PENS",
+        "period": "2022 - 2023",
+        "type": "LEADERSHIP TRAINING",
+        "bullets": [
+          "Completed Latihan Keterampilan Manajemen Mahasiswa (LKMM PRA-TD & TD) at PENS to cultivate self-management, team leadership, and problem-solving skills.",
+          "Participated in structured workshops on organizational ethics, team dynamics, communication strategies, and project management.",
+          "Applied structured decision-making and project planning frameworks in collaborative student group simulations."
         ]
       }
     }
@@ -311,8 +349,8 @@
     "title": "INITIATE CONTACT",
     "subtitle": "Get in touch for collaborations, projects, and opportunities",
     "pitchTitle": "LET'S BUILD SOMETHING EXTRAORDINARY",
-    "pitchDesc": "Have an ambitious project, an interactive 3D web experience, a simulation system, or a technical inquiry? Send a transmission below and let's turn ideas into robust software.",
-    "responseRate": "TYPICAL RESPONSE TIME: < 24 HOURS",
+    "pitchDesc": "Whether you have an ambitious web project, a desktop software challenge, a 3D graphics experience, or an engineering role, my transmission lines are open.",
+    "responseRate": "TRANSMISSION CHANNELS ACTIVE // FAST RESPONSE",
     "directEmail": "DIRECT EMAIL",
     "findMeOn": "FIND ME ON",
     "nameLabel": "YOUR NAME",
@@ -320,15 +358,26 @@
     "emailLabel": "YOUR EMAIL",
     "emailPlaceholder": "john{'@'}example.com",
     "messageLabel": "MESSAGE / PROJECT BRIEF",
-    "messagePlaceholder": "Tell me about your project or inquiry...",
-    "sendButton": "TRANSMIT MESSAGE →",
+    "messagePlaceholder": "Describe your project or inquiry...",
+    "sendButton": "SEND TRANSMISSION →",
     "sendingButton": "TRANSMITTING...",
-    "successMessage": "Message successfully transmitted. I will get back to you shortly."
+    "successMessage": "Transmission received. I will establish communication shortly."
+  },
+  "footer": {
+    "title": "ARIEF SATRIA // 2026",
+    "subtitle": "Software Engineer • Full-Stack & 3D Interactive Web Developer",
+    "status": "AVAILABLE FOR WORK",
+    "timezone": "INDONESIA (GMT+7)",
+    "quickLinks": "DIRECTORY",
+    "connect": "TRANSMISSION",
+    "directEmail": "DIRECT INQUIRY",
+    "rights": "All rights reserved.",
+    "backToTop": "BACK TO TOP ↑"
   },
   "blog": {
     "title": "ENGINEERING BLOG",
     "subtitle": "Technical Logs // 3D WebGL, C++ Systems & Modern Architecture",
-    "searchPlaceholder": "SEARCH ARTICLES BY TOPIC, TITLE, OR KEYWORD...",
+    "searchPlaceholder": "SEARCH ARTICLES BY TOPIC, TITLE, OR KEYWORDS...",
     "readCaseStudy": "READ CASE STUDY →",
     "backToArchive": "← BACK TO BLOG ARCHIVE",
     "articleNotFound": "Article Not Found",
@@ -362,18 +411,9 @@
     "focusVal": "3D WEB & FULL-STACK",
     "timelineTitle": "CAREER & EXPERIENCE TIMELINE",
     "timelineSubtitle": "Chronological Employment & Project Engineering History",
+    "leadershipTitle": "ORGANIZATIONS & ACTIVITIES",
+    "leadershipSubtitle": "Chronological History of Campus UKM, Student Associations & Leadership Training",
     "matrixTitle": "TECHNICAL PROFICIENCY MATRIX",
     "matrixSubtitle": "Frameworks, Languages, Systems & Tools Breakdown"
-  },
-  "footer": {
-    "title": "Arief Satria",
-    "subtitle": "Software Engineer & Creative Full-Stack Developer",
-    "status": "AVAILABLE FOR HIRE",
-    "timezone": "GMT+7 • INDONESIA",
-    "quickLinks": "DIRECTORY",
-    "connect": "CONNECT",
-    "rights": "ALL RIGHTS RESERVED.",
-    "directEmail": "Direct Email",
-    "backToTop": "BACK TO TOP ↑"
   }
 }

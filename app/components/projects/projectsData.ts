@@ -187,7 +187,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     title: "LARAS",
     subtitle: "Your Self-Care App",
     description:
-      "A self-care application designed to help you become more mindful, calm, and grounded. Featuring guided meditation, relaxation audio, and personal journaling, Laras serves as a dedicated companion for supporting your mental well-being.",
+      "Frontend developer on a 8-person team shipping a new feature every month over an 8-month agile cycle, incorporating feedback from underclassmen, seniors, and the program's third-party stakeholder. Published on Google Play and web (laras.agileteknik.com).",
     previewImage: "/images/projects/laras_preview.png",
     cutoutImage: "/images/gtr_car_cutout.png",
     demoUrl: "https://laras.agileteknik.com/home",

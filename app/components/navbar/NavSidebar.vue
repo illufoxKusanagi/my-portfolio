@@ -257,6 +257,7 @@ const SHOWCASE_SECTIONS = computed(() => [
   { label: t("nav.sections.languages"), target: "#tech-category-languages" },
   { label: t("nav.sections.projects"), target: "#projects" },
   { label: t("nav.sections.experience"), target: "#experience" },
+  { label: t("nav.sections.leadership"), target: "#leadership" },
   { label: t("nav.sections.certificates"), target: "#certificates" },
   { label: t("nav.sections.contact"), target: "#contact" },
 ]);

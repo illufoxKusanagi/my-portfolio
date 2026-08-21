@@ -21,36 +21,44 @@
       <div ref="infoRef" class="flex flex-col space-y-6 sm:space-y-8">
         <div class="flex items-start gap-3 sm:gap-4">
           <!-- Left Tertiary Accent Bar -->
-          <div class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 mt-1 shrink-0" />
+          <div
+            class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 mt-1 shrink-0"
+          />
 
           <div class="space-y-1 sm:space-y-2">
             <h2
               class="font-sans font-bold text-3xl sm:text-5xl md:text-6xl text-foreground dark:text-white transition-colors tracking-tight uppercase leading-none"
             >
-              {{ $t('contact.title') }}
+              {{ $t("contact.title") }}
             </h2>
-            <p class="font-tech text-xs sm:text-sm md:text-base text-foreground/70 dark:text-white/70 font-light uppercase tracking-widest mt-1">
-              {{ $t('contact.subtitle') }}
+            <p
+              class="font-tech text-xs sm:text-sm md:text-base text-foreground/70 dark:text-white/70 font-light uppercase tracking-widest mt-1"
+            >
+              {{ $t("contact.subtitle") }}
             </p>
           </div>
         </div>
 
         <div class="space-y-4 max-w-xl">
-          <h3 class="font-sans font-bold text-lg sm:text-xl md:text-2xl text-foreground dark:text-white uppercase tracking-tight">
-            {{ $t('contact.pitchTitle') }}
+          <h3
+            class="font-sans font-bold text-lg sm:text-xl md:text-2xl text-foreground dark:text-white uppercase tracking-tight"
+          >
+            {{ $t("contact.pitchTitle") }}
           </h3>
-          <p class="font-sans text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed">
-            {{ $t('contact.pitchDesc') }}
+          <p
+            class="font-sans text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed"
+          >
+            {{ $t("contact.pitchDesc") }}
           </p>
         </div>
 
         <!-- Telemetry & Response Guarantee -->
-        <div class="flex items-center gap-3 pt-2">
+        <!-- <div class="flex items-center gap-3 pt-2">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[6px] bg-purple-200/90 dark:bg-purple-700/80 border border-primary-400 dark:border-primary-600 text-xs font-tech text-foreground dark:text-white">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span class="font-semibold tracking-wider uppercase">{{ $t('contact.responseRate') }}</span>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Right Column: Form -->
@@ -63,7 +71,11 @@
           class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
         />
 
-        <h3 class="text-2xl font-bold text-foreground dark:text-white transition-colors mb-8">{{ $t('contact.title') }}</h3>
+        <h3
+          class="text-2xl font-bold text-foreground dark:text-white transition-colors mb-8"
+        >
+          {{ $t("contact.title") }}
+        </h3>
         <ContactForm />
       </div>
     </div>

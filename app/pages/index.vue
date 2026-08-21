@@ -29,6 +29,9 @@
     <!-- Experience Section (Figma Node 29:3) -->
     <ExperienceSection />
 
+    <!-- Leadership & Organizations Section -->
+    <LeadershipSection />
+
     <!-- Awards and Certificates Section (Figma Node 32:26) -->
     <CertificatesSection />
 
@@ -49,6 +52,7 @@ import { TECH_CATEGORIES } from "@/components/tech-stack/techData";
 import TechSection from "@/components/tech-stack/TechSection.vue";
 import ProjectsSection from "@/components/projects/ProjectsSection.vue";
 import ExperienceSection from "@/components/experience/ExperienceSection.vue";
+import LeadershipSection from "@/components/leadership/LeadershipSection.vue";
 import CertificatesSection from "@/components/certificates/CertificatesSection.vue";
 import ContactSection from "@/components/contact/ContactSection.vue";
 

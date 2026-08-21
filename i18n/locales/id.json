@@ -8,14 +8,15 @@
     "systemNav": "NAVIGASI SISTEM // 2026",
     "sectionDirectory": "Direktori Pintas Bagian",
     "sections": {
-      "hero": "// BERANDA",
-      "frameworks": "// FRAMEWORK",
-      "tools": "// TOOLS & SISTEM",
-      "languages": "// BAHASA PROGR",
-      "projects": "// PROYEK",
-      "experience": "// PENGALAMAN",
-      "certificates": "// SERTIFIKAT",
-      "contact": "// KONTAK"
+      "hero": "01 // BERANDA",
+      "frameworks": "02 // KERANGKA KERJA",
+      "tools": "03 // ALAT & SISTEM",
+      "languages": "04 // BAHASA",
+      "projects": "05 // PROYEK",
+      "experience": "06 // PENGALAMAN",
+      "leadership": "07 // ORGANISASI",
+      "certificates": "08 // SERTIFIKAT",
+      "contact": "09 // KONTAK"
     }
   },
   "hero": {
@@ -222,7 +223,7 @@
       "laras": {
         "title": "LARAS",
         "subtitle": "Aplikasi Pendamping Perawatan Diri & Kesehatan Mental",
-        "description": "Aplikasi self-care yang dirancang untuk membantu Anda menjadi lebih tenang, sadar (mindful), dan seimbang. Menampilkan panduan meditasi terarah, audio relaksasi, dan jurnal pribadi untuk mendukung kesehatan mental Anda."
+        "description": "Frontend developer dalam tim 8 orang yang merilis fitur baru setiap bulan selama siklus agile 8 bulan, mengintegrasikan masukan dari adik tingkat, senior, dan stakeholder pihak ketiga program. Diterbitkan di Google Play dan web (laras.agileteknik.com)."
       },
       "excel-formatter": {
         "title": "EXCEL FORMATTER",
@@ -234,7 +235,7 @@
   },
   "experience": {
     "title": "PENGALAMAN",
-    "subtitle": "Pengalaman Kerja & Proyek",
+    "subtitle": "Pengalaman Kerja & Magang Industri",
     "internship": "MAGANG",
     "academic": "AKADEMIS",
     "productLearning": "PEMBELAJARAN PRODUK",
@@ -267,33 +268,44 @@
           "Membangun endpoint RESTful API aman pada Next.js App Router dengan validasi skema Zod dan kontrol akses berbasis peran (RBAC) menggunakan autentikasi JWT dan enkripsi password bcrypt.",
           "Menghadirkan kalender kegiatan interaktif (tampilan bulan/minggu/hari/tahun) dengan penjadwalan drag-and-drop dan kode warna OPD — mengemas seluruh stack menggunakan Docker Compose dengan build multi-tahap untuk lingkungan produksi."
         ]
-      },
-      "laras": {
-        "role": "FRONTEND ENGINEER",
-        "company": "AGILETEKNIK - LARAS",
-        "period": "Mar 2024 - Des 2024",
-        "type": "PEMBELAJARAN PRODUK",
+      }
+    }
+  },
+  "leadership": {
+    "title": "ORGANISASI & KOMUNITAS",
+    "subtitle": "Himpunan Mahasiswa, UKM Kampus & Pelatihan Manajemen Diri",
+    "items": {
+      "ukki-pens": {
+        "role": "KETUA DIVISI BPM",
+        "organization": "UKKI PENS",
+        "period": "Sep 2024 - Sekarang",
+        "type": "ORGANISASI KAMPUS (UKM)",
         "bullets": [
-          "Membuat landing page dan portofolio berpresisi tinggi dengan animasi GSAP kustom dan styling utility Tailwind CSS.",
-          "Mengimplementasikan desain web responsif yang bekerja mulus di seluruh layar desktop, tablet, dan ponsel pintar.",
-          "Mengoptimalkan performa web hingga meraih skor sempurna 95+ pada metrik Google Lighthouse Core Web Vitals.",
-          "Berkolaborasi langsung dengan klien untuk menerjemahkan tujuan bisnis menjadi antarmuka pengguna yang bersih dan interaktif.",
-          "Mengintegrasikan gerbang pembayaran dan platform CMS headless modern (Strapi, Sanity.io)."
+          "Memimpin divisi BPM (Badan Perwakilan Majelis) dalam Unit Kegiatan Kerohanian Islam PENS, mengarahkan tata kelola organisasi, pengawasan kebijakan, dan program pengabdian masyarakat.",
+          "Mengoordinasikan inisiatif pelayanan masyarakat dan program sosial keagamaan yang melayani mahasiswa kampus maupun masyarakat sekitar di Surabaya.",
+          "Memfasilitasi koordinasi lintas divisi, evaluasi program kerja berkala, dan perencanaan strategis berbagai agenda besar tahunan."
         ]
       },
-      "train-simulation-optimization": {
-        "role": "LEAD RESEARCHER & SOFTWARE ENGINEER",
-        "company": "PENS",
-        "period": "Agu 2024 - Jul 2025",
-        "type": "SKRIPSI SARJANA TERAPAN",
+      "opp-himit-pens": {
+        "role": "PANITIA DIVISI PERLENGKAPAN",
+        "organization": "OPP HIMIT PENS",
+        "period": "2023",
+        "type": "KEPANITIAAN HIMPUNAN",
         "bullets": [
-          "Membangun platform simulasi desktop hybrid yang memadukan backend komputasi C++17 (Qt 6) dengan antarmuka modern Next.js 14 (TypeScript, Tailwind CSS) via Chromium Qt WebEngine, mengatasi crash virtualisasi sandbox melalui bypass terprogram (QTWEBENGINE_DISABLE_SANDBOX=1).",
-          "Menerapkan arsitektur Data-Oriented Programming (DOP) yang memisahkan struct Plain Old Data (POD) dari kontroler komputasi tanpa state dan menyusun output deret waktu ke dalam Structure of Arrays (SoA) untuk iterasi memori zero-allocation.",
-          "Merekayasa simulasi dinamika longitudinal kereta api dalam C++, memodelkan kurva gaya traksi 3-daerah, hambatan Davis, profil elevasi/kelengkungan lintasan, dan aliran daya listrik bertingkat (output mekanik roda hingga jalur katenari).",
-          "Merumuskan kalkulus jarak pengereman analitis 3-zona pada domain pelemahan medan motor, menjalankan loop simulasi Euler diskrit (langkah waktu 1,0 detik) dengan mesin status 4-notch (Di Stasiun, Akselerasi, Meluncur, Pengereman).",
-          "Mengembangkan Sistem Inferensi Fuzzy Mamdani Jangkauan Dinamis Dua-Tahap (FIS) yang mengalibrasi batas keanggotaan secara mandiri pada 3 sub-engine terpisah (Waktu, Daya, Energi) menggunakan defuzzifikasi Centroid diskrit 100 langkah.",
-          "Mempercepat penyisiran parameter multi-objektif pada 104 konfigurasi kandidat menjadi di bawah 2,0 detik menggunakan multi-threading C++ QtConcurrent dengan pemblokiran sinyal, mengungguli algoritma metaheuristik konvensional (40–80 menit).",
-          "Menyajikan paket analitik operator komprehensif dengan dashboard deret waktu 8-tab (Recharts), dialog ekspor native CSV/Excel via QWebChannel, panduan interaktif orientasi (Driver.js), dan lokalisasi bilingual (EN/ID)."
+          "Menjadi panitia divisi perlengkapan dan logistik teknis dalam program orientasi mahasiswa baru jurusan Teknik Informatika (OPP HIMIT) PENS.",
+          "Mengelola kebutuhan perangkat keras, panggung kegiatan, infrastruktur teknis, dan alur operasional logistik selama rangkaian orientasi.",
+          "Membantu mahasiswa baru mengenal dan beradaptasi dengan lingkungan kampus, etika, kebiasaan, serta tata tertib jurusan Teknik Informatika."
+        ]
+      },
+      "lkmm-pens": {
+        "role": "PESERTA PELATIHAN KEPEMIMPINAN & MANAJEMEN",
+        "organization": "LKMM PENS",
+        "period": "2022 - 2023",
+        "type": "PELATIHAN KEPEMIMPINAN",
+        "bullets": [
+          "Menyelesaikan Latihan Keterampilan Manajemen Mahasiswa (LKMM PRA-TD & TD) di PENS untuk mengembangkan soft skill kepemimpinan, manajemen diri, dan pemecahan masalah.",
+          "Mengikuti pelatihan terstruktur mengenai etika organisasi, dinamika kelompok, strategi komunikasi efektif, dan manajemen kegiatan.",
+          "Menerapkan kerangka pengambilan keputusan terstruktur dan perencanaan kegiatan dalam simulasi kerja kelompok mahasiswa."
         ]
       }
     }
@@ -308,22 +320,33 @@
     "next": "BERIKUTNYA →"
   },
   "contact": {
-    "title": "MULAI KONTAK",
-    "subtitle": "Hubungi saya untuk kolaborasi, proyek, dan peluang kerja sama",
-    "pitchTitle": "MARI MEMBANGUN SESUATU YANG LUAR BIASA",
-    "pitchDesc": "Punya proyek ambisius, pengalaman web 3D interaktif, sistem simulasi, atau pertanyaan teknis? Kirimkan transmisi pesan di bawah ini dan mari wujudkan ide menjadi perangkat lunak yang tangguh.",
-    "responseRate": "WAKTU RESPON BIASA: < 24 JAM",
+    "title": "HUBUNGI SAYA",
+    "subtitle": "Terbuka untuk kolaborasi proyek, diskusi teknis, dan peluang kerja",
+    "pitchTitle": "MARI CIPTAKAN KARYA LUAR BIASA",
+    "pitchDesc": "Baik Anda memiliki proyek web ambisius, tantangan perangkat lunak desktop, pengalaman grafis 3D, atau peluang kerja rekayasa perangkat lunak, jalur komunikasi saya selalu terbuka.",
+    "responseRate": "SALURAN TRANSMISI AKTIF // RESPON CEPAT",
     "directEmail": "EMAIL LANGSUNG",
     "findMeOn": "TEMUKAN SAYA DI",
     "nameLabel": "NAMA ANDA",
-    "namePlaceholder": "John Doe",
+    "namePlaceholder": "Nama Lengkap",
     "emailLabel": "EMAIL ANDA",
-    "emailPlaceholder": "john{'@'}example.com",
+    "emailPlaceholder": "nama{'@'}example.com",
     "messageLabel": "PESAN / RINGKASAN PROYEK",
-    "messagePlaceholder": "Ceritakan tentang proyek atau kebutuhan Anda...",
+    "messagePlaceholder": "Tuliskan pesan atau kebutuhan proyek Anda...",
     "sendButton": "KIRIM PESAN →",
-    "sendingButton": "MENGIRIMKAN...",
-    "successMessage": "Pesan berhasil dikirim. Saya akan segera menghubungi Anda kembali."
+    "sendingButton": "MENGIRIM...",
+    "successMessage": "Pesan berhasil dikirim. Saya akan segera merespons Anda."
+  },
+  "footer": {
+    "title": "ARIEF SATRIA // 2026",
+    "subtitle": "Software Engineer • Full-Stack & 3D Interactive Web Developer",
+    "status": "TERSEDIA UNTUK BEKERJA",
+    "timezone": "INDONESIA (GMT+7)",
+    "quickLinks": "DIREKTORI",
+    "connect": "TRANSMISI",
+    "directEmail": "EMAIL LANGSUNG",
+    "rights": "Hak cipta dilindungi.",
+    "backToTop": "KEMBALI KE ATAS ↑"
   },
   "blog": {
     "title": "BLOG TEKNIK",
@@ -362,18 +385,9 @@
     "focusVal": "3D WEB & FULL-STACK",
     "timelineTitle": "GARIS WAKTU KARIER & PENGALAMAN",
     "timelineSubtitle": "Riwayat Kronologis Pekerjaan & Rekayasa Proyek",
+    "leadershipTitle": "ORGANISASI & PENGALAMAN KEGIATAN",
+    "leadershipSubtitle": "Riwayat Kronologis Organisasi UKM, Kepanitiaan Himpunan & Pelatihan Manajemen Diri",
     "matrixTitle": "MATRIKS KEMAHIRAN TEKNIS",
     "matrixSubtitle": "Kerangka Kerja, Bahasa, Sistem & Alat Pengembangan"
-  },
-  "footer": {
-    "title": "Arief Satria",
-    "subtitle": "Software Engineer & Pengembang Web Kreatif Full-Stack",
-    "status": "TERSEDIA UNTUK BEKERJA",
-    "timezone": "GMT+7 • INDONESIA",
-    "quickLinks": "DIREKTORI",
-    "connect": "HUBUNGI",
-    "rights": "HAK CIPTA DILINDUNGI.",
-    "directEmail": "Email Langsung",
-    "backToTop": "KEMBALI KE ATAS ↑"
   }
 }
