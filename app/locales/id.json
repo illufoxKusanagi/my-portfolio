@@ -3,20 +3,20 @@
     "menu": "Menu",
     "home": "Beranda",
     "projects": "Proyek",
-    "blog": "Blog Teknik",
+    "blog": "Blog",
     "about": "Tentang & Resume",
     "systemNav": "NAVIGASI SISTEM // 2026",
     "sectionDirectory": "Direktori Pintas Bagian",
     "sections": {
-      "hero": "01 // BERANDA",
-      "frameworks": "02 // KERANGKA KERJA",
-      "tools": "03 // ALAT & SISTEM",
-      "languages": "04 // BAHASA",
-      "projects": "05 // PROYEK",
-      "experience": "06 // PENGALAMAN",
-      "leadership": "07 // ORGANISASI",
-      "certificates": "08 // SERTIFIKAT",
-      "contact": "09 // KONTAK"
+      "hero": "BERANDA",
+      "frameworks": "KERANGKA KERJA",
+      "tools": "ALAT & SISTEM",
+      "languages": "BAHASA",
+      "projects": "PROYEK",
+      "experience": "PENGALAMAN",
+      "leadership": "ORGANISASI",
+      "certificates": "SERTIFIKAT",
+      "contact": "KONTAK"
     }
   },
   "hero": {
