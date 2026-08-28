@@ -3,20 +3,20 @@
     "menu": "Menu",
     "home": "Home",
     "projects": "Projects",
-    "blog": "Engineering Blog",
+    "blog": "Blog",
     "about": "About & Resume",
     "systemNav": "SYSTEM NAV // 2026",
     "sectionDirectory": "Quick Jump Directory",
     "sections": {
-      "hero": "01 // HERO",
-      "frameworks": "02 // FRAMEWORKS",
-      "tools": "03 // TOOLS",
-      "languages": "04 // LANGUAGES",
-      "projects": "05 // PROJECTS",
-      "experience": "06 // EXPERIENCE",
-      "leadership": "07 // ORGANIZATIONS",
-      "certificates": "08 // CERTIFICATES",
-      "contact": "09 // CONTACT"
+      "hero": "HERO",
+      "frameworks": "FRAMEWORKS",
+      "tools": "TOOLS",
+      "languages": "LANGUAGES",
+      "projects": "PROJECTS",
+      "experience": "EXPERIENCE",
+      "leadership": "ORGANIZATIONS",
+      "certificates": "CERTIFICATES",
+      "contact": "CONTACT"
     }
   },
   "hero": {
@@ -207,7 +207,7 @@
         "title": "TRAIN SIMULATION APP",
         "subtitle": "Simulate Train Details to Observe Various Variables and Optimize Using Fuzzy Logic",
         "description": "A hybrid desktop simulation and multi-objective optimization platform that executes longitudinal train dynamics—integrating piecewise tractive effort curves, multi-component Davis and track resistances, and multi-stage electrical power flow integration—coupled with a self-calibrating dynamic Mamdani fuzzy inference engine to automatically resolve non-linear parameter trade-offs between operational travel time, peak electrical power demand, and cumulative energy consumption.",
-        "demoLabel": "READ TECHNICAL BOOK"
+        "demoLabel": "READ THESIS BOOK"
       },
       "horizon-canvas": {
         "title": "HORIZON CANVAS",
@@ -375,7 +375,7 @@
     "backToTop": "BACK TO TOP ↑"
   },
   "blog": {
-    "title": "ENGINEERING BLOG",
+    "title": "BLOG",
     "subtitle": "Technical Logs // 3D WebGL, C++ Systems & Modern Architecture",
     "searchPlaceholder": "SEARCH ARTICLES BY TOPIC, TITLE, OR KEYWORDS...",
     "readCaseStudy": "READ CASE STUDY →",

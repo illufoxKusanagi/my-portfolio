@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-const { locale, setLocale } = useI18n();
+const { locale, setLocale } = useI18n({ useScope: 'global' });
 
 const setLanguage = async (lang: "en" | "id") => {
   if (locale.value === lang) return;
