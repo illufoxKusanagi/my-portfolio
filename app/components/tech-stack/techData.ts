@@ -148,7 +148,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "git",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "01 / 09",
+        index: "01 / 11",
         title: "Git & GitHub",
         description:
           "Managing branches, PR workflows, CI/CD actions, and versioning.",
@@ -162,7 +162,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "figma",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "02 / 09",
+        index: "02 / 11",
         title: "Figma",
         description:
           "Crafting UI/UX mockups, interactive prototypes, and design system tokens.",
@@ -176,7 +176,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "antigravity",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "03 / 09",
+        index: "03 / 11",
         title: "Antigravity",
         description:
           "Leveraging agentic IDE workflows, custom skills, and autonomous pair-programming protocols to rapidly architect, build, and validate production-ready applications.",
@@ -190,7 +190,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "docker",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "04 / 09",
+        index: "04 / 11",
         title: "Docker",
         description:
           "Containerizing applications, creating environment-isolated microservices with Docker Compose, and streamlining multi-stage deployment builds.",
@@ -204,7 +204,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "postgresql",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "05 / 09",
+        index: "05 / 11",
         title: "PostgreSQL",
         description:
           "Designing normalized relational schemas, crafting optimized SQL queries, leveraging pgvector embeddings for RAG-powered AI search, and managing index strategies.",
@@ -218,7 +218,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "mysql",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "06 / 09",
+        index: "06 / 11",
         title: "MySQL",
         description:
           "Architecting relational database schemas, tuning multi-table join performance, and optimizing query execution plans to reduce latency.",
@@ -232,7 +232,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "drizzle",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "07 / 09",
+        index: "07 / 11",
         title: "Drizzle",
         description:
           "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
@@ -246,7 +246,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "opencode",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "08 / 09",
+        index: "08 / 11",
         title: "Open Code",
         description:
           "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
@@ -257,10 +257,38 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         imageUrl: "/images/tools/opencode_tools.png",
       },
       {
+        id: "coderabbit",
+        category: "TOOLS & WORKFLOW",
+        categoryDesc: "Tools and software used daily",
+        index: "09 / 11",
+        title: "CodeRabbit",
+        description:
+          "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
+        experienceYears: "< 1 yr",
+        proficiency: "Intermediate",
+        badgeText: "AI Code Review",
+        sideTag: "DevOps  |  CodeRabbit",
+        imageUrl: "/images/tools/coderabbit_tools.png",
+      },
+      {
+        id: "sentry",
+        category: "TOOLS & WORKFLOW",
+        categoryDesc: "Tools and software used daily",
+        index: "10 / 11",
+        title: "Sentry",
+        description:
+          "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
+        experienceYears: "1 yr",
+        proficiency: "Intermediate",
+        badgeText: "Monitoring",
+        sideTag: "DevOps  |  Sentry",
+        imageUrl: "/images/tools/sentry_tools.webp",
+      },
+      {
         id: "github-actions",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "09 / 09",
+        index: "11 / 11",
         title: "GitHub Actions",
         description:
           "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",

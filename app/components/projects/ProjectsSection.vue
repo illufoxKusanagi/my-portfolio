@@ -2,11 +2,11 @@
   <section
     id="projects"
     ref="sectionRef"
-    class="relative w-full h-screen bg-tertiary-200 dark:bg-secondary-950 transition-colors duration-500 overflow-hidden font-sans select-none flex"
+    class="relative w-full h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 overflow-hidden font-sans select-none flex"
   >
-    <!-- Left Sidebar (Secondary 100 / 700 background matching Experience section, visible on large screens) -->
+    <!-- Left Sidebar (Purple 200 / Secondary 700 background matching section theme, visible on large screens) -->
     <div
-      class="hidden lg:flex w-[140px] xl:w-[160px] h-full bg-secondary-100 dark:bg-secondary-700 transition-colors duration-500 flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
+      class="hidden lg:flex w-[140px] xl:w-[160px] h-full bg-purple-200 dark:bg-secondary-700 transition-colors duration-500 flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
     >
       <!-- Rotated Labels Group -->
       <div class="flex flex-col items-center gap-6">
@@ -23,7 +23,7 @@
         </span>
 
         <!-- Separator dot -->
-        <div class="w-[8px] h-[8px] rounded-full bg-primary-200" />
+        <div class="w-[8px] h-[8px] rounded-full bg-purple-400 dark:bg-primary-200" />
 
         <!-- PROJECTS rotated vertical title -->
         <span
@@ -54,9 +54,9 @@
       <!-- Section Header -->
       <div class="w-full flex items-center justify-between z-20">
         <div class="flex items-start gap-3 sm:gap-4">
-          <!-- Left Tertiary Accent Bar -->
+          <!-- Left Purple Accent Bar -->
           <div
-            class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+            class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-purple-600 dark:bg-tertiary-700 mt-1 shrink-0"
           ></div>
 
           <div class="space-y-0.5 sm:space-y-1">
@@ -66,7 +66,7 @@
               {{ $t("projects.title") }}
             </h2>
             <p
-              class="font-tech text-sm sm:text-base text-tertiary-600 dark:text-tertiary-400 transition-colors font-light uppercase tracking-widest"
+              class="font-tech text-sm sm:text-base text-purple-700 dark:text-tertiary-400 transition-colors font-light uppercase tracking-widest"
             >
               {{ $t("projects.subtitle") }}
             </p>
@@ -101,76 +101,24 @@
           <!-- High-Contrast Accent Wipe Curtain -->
           <div
             ref="curtainRef"
-            class="absolute inset-0 w-full h-full bg-tertiary-700 pointer-events-none z-30 opacity-0"
+            class="absolute inset-0 w-full h-full bg-purple-600 dark:bg-tertiary-700 pointer-events-none z-30 opacity-0"
             style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
           ></div>
         </div>
       </div>
 
-      <!-- Bottom Pagination Controls -->
-      <div
-        class="w-full flex items-center justify-between text-xs font-tech text-foreground/70 dark:text-white/70 transition-colors z-20"
-      >
-        <span class="hidden sm:inline-block tracking-widest uppercase"
-          >Scroll or use arrows &darr;</span
-        >
-
-        <!-- Interactive Arrow Pagination Controls -->
-        <div
-          class="flex items-center gap-4 mx-auto sm:mx-0 border border-tertiary-400 dark:border-tertiary-700 bg-tertiary-100/80 dark:bg-secondary-900/90 backdrop-blur px-4 py-2 rounded-[8px] shadow-lg"
-        >
-          <!-- Prev Button -->
-          <button
-            @click="goToPrev"
-            :disabled="activeIndex === 0 || isAnimating"
-            class="w-8 h-8 rounded-[6px] border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Previous project"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 18 27"
-              class="w-3 h-3 text-current transition-colors"
-            >
-              <path
-                fill-rule="evenodd"
-                fill="currentColor"
-                d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z"
-              ></path>
-            </svg>
-          </button>
-
-          <!-- Index Display -->
-          <span
-            class="font-tech text-sm text-tertiary-600 dark:text-tertiary-400 font-bold tracking-wider px-2"
-          >
-            0{{ activeIndex + 1 }} / 0{{ PROJECTS_DATA.length }}
-          </span>
-
-          <!-- Next Button -->
-          <button
-            @click="goToNext"
-            :disabled="activeIndex === PROJECTS_DATA.length - 1 || isAnimating"
-            class="w-8 h-8 rounded-[6px] border border-tertiary-400/50 dark:border-tertiary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-tertiary-700 hover:border-tertiary-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
-            aria-label="Next project"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 18 27"
-              class="w-3 h-3 text-current transition-colors rotate-180"
-            >
-              <path
-                fill-rule="evenodd"
-                fill="currentColor"
-                d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-
-        <span class="hidden sm:inline-block tracking-widest uppercase"
-          >{{ PROJECTS_DATA.length }} Projects Available</span
-        >
-      </div>
+      <!-- Bottom Pagination Controls (Generic SectionPagination component) -->
+      <SectionPagination
+        :current-index="activeIndex"
+        :total-items="PROJECTS_DATA.length"
+        :is-animating="isAnimating"
+        variant="purple"
+        :summary-text="
+          $t('projects.availableCount', { count: PROJECTS_DATA.length })
+        "
+        @prev="goToPrev"
+        @next="goToNext"
+      />
     </div>
   </section>
 </template>
@@ -187,6 +135,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS_DATA } from "./projectsData";
 import ProjectCard from "./ProjectCard.vue";
+import SectionPagination from "~/components/common/SectionPagination.vue";
 
 const sectionRef = ref<HTMLElement | null>(null);
 const curtainRef = ref<HTMLElement | null>(null);
