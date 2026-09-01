@@ -38,6 +38,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "TypeScript", iconUrl: "/images/languages/ts_language.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
       { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },
   {
@@ -180,6 +181,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "Qt", iconUrl: "/images/frameworks/qt_framework.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
       { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },
   {
@@ -218,6 +220,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "Qt", iconUrl: "/images/frameworks/qt_framework.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
       { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },
 ];

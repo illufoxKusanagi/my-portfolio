@@ -7,9 +7,9 @@
     <!-- Section Header (Figma node 22:219) -->
     <div class="w-full mx-auto flex items-center justify-between z-50">
       <div class="flex items-start gap-3 sm:gap-4">
-        <!-- Left Tertiary Accent Bar -->
+        <!-- Left Primary Accent Bar -->
         <div
-          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-primary-700 mt-1 shrink-0"
         />
 
         <div class="space-y-0.5 sm:space-y-1">
@@ -19,7 +19,7 @@
             {{ $t("tech.title") }}
           </h2>
           <p
-            class="font-tech text-xs sm:text-sm md:text-base text-foreground/80 dark:text-white/80 transition-colors font-light uppercase tracking-widest mt-1"
+            class="font-tech text-xs sm:text-sm md:text-base text-foreground dark:text-white transition-colors font-light uppercase tracking-widest mt-1"
           >
             {{
               category.id === "frameworks"
@@ -66,73 +66,23 @@
       </div>
     </div>
 
-    <!-- Bottom Pagination Controls (Matching Endfield Pagination_button__cVH8L) -->
-    <div
-      class="max-w-7xl w-full mx-auto flex items-center justify-between text-xs font-tech text-foreground/70 dark:text-white/70 transition-colors z-50 pt-1"
-    >
-      <span class="hidden sm:inline-block">SCROLL OR USE ARROWS &darr;</span>
-
-      <!-- Interactive Arrow Pagination Controls -->
-      <div
-        class="flex items-center gap-4 mx-auto sm:mx-0 border border-primary-700 bg-secondary-900/90 px-4 py-2 rounded-[8px] shadow-lg"
-      >
-        <!-- Prev Button -->
-        <button
-          @click="goToPrev"
-          :disabled="activeIndex === 0 || isAnimating"
-          class="w-8 h-8 rounded-[6px] border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
-          aria-label="Previous item"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 18 27"
-            class="w-3 h-3 text-foreground dark:text-white transition-colors"
-          >
-            <path
-              fill-rule="evenodd"
-              fill="currentColor"
-              d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z"
-            ></path>
-          </svg>
-        </button>
-
-        <!-- Index Display -->
-        <span
-          class="font-tech text-sm text-primary-500 font-bold tracking-wider px-2"
-        >
-          0{{ activeIndex + 1 }} / 0{{ category.items.length }}
-        </span>
-
-        <!-- Next Button -->
-        <button
-          @click="goToNext"
-          :disabled="activeIndex === category.items.length - 1 || isAnimating"
-          class="w-8 h-8 rounded-[6px] border border-primary-600/50 flex items-center justify-center transition-all duration-200 hover:bg-primary-700 hover:border-primary-500 disabled:opacity-30 disabled:cursor-not-allowed"
-          aria-label="Next item"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 18 27"
-            class="w-3 h-3 text-foreground dark:text-white transition-colors rotate-180"
-          >
-            <path
-              fill-rule="evenodd"
-              fill="currentColor"
-              d="M14.142,0.127 L17.753,3.737 L7.963,13.527 L17.753,23.318 L14.142,26.928 L0.743,13.527 L14.142,0.127 Z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-
-      <span class="hidden sm:inline-block tracking-widest uppercase"
-        >{{ category.items.length }} ITEMS //
-        {{
-          $te(`tech.${category.id}`)
+    <!-- Bottom Pagination Controls (Generic SectionPagination component) -->
+    <SectionPagination
+      :current-index="activeIndex"
+      :total-items="category.items.length"
+      :is-animating="isAnimating"
+      variant="primary"
+      :summary-text="
+        $t('tech.itemsCount', {
+          count: category.items.length,
+          category: $te(`tech.${category.id}`)
             ? $t(`tech.${category.id}`)
-            : category.title
-        }}</span
-      >
-    </div>
+            : category.title,
+        })
+      "
+      @prev="goToPrev"
+      @next="goToNext"
+    />
   </section>
 </template>
 
@@ -147,6 +97,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { TechCategoryGroup } from "./techData";
 import TechCard from "./TechCard.vue";
+import SectionPagination from "~/components/common/SectionPagination.vue";
 
 const props = defineProps<{
   category: TechCategoryGroup;

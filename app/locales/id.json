@@ -1,4 +1,11 @@
 {
+  "common": {
+    "pagination": {
+      "hint": "GULIR ATAU GUNAKAN PANAH ↓",
+      "prev": "Item sebelumnya",
+      "next": "Item berikutnya"
+    }
+  },
   "nav": {
     "menu": "Menu",
     "home": "Beranda",
@@ -40,7 +47,8 @@
     "proficiency": "Kemahiran",
     "intermediate": "Menengah",
     "junior": "Pemula",
-    "advanced": "Lanjutan"
+    "advanced": "Lanjutan",
+    "itemsCount": "{count} ITEM // {category}"
   },
   "techStack": {
     "items": {
@@ -140,6 +148,18 @@
         "badgeText": "Agen AI Coding",
         "sideTag": "Agen AI Coding  |  Open Code"
       },
+      "coderabbit": {
+        "title": "CodeRabbit",
+        "description": "Mengotomatisasi peninjauan kode pada pull request secara mendalam, mendeteksi potensi bug, dan mempercepat siklus umpan balik kualitas kode.",
+        "badgeText": "AI Code Review",
+        "sideTag": "DevOps  |  CodeRabbit"
+      },
+      "sentry": {
+        "title": "Sentry",
+        "description": "Memantau error aplikasi secara real-time, melacak bottleneck performa, dan mengonfigurasi pelaporan crash secara proaktif di lingkungan produksi.",
+        "badgeText": "Monitoring",
+        "sideTag": "DevOps  |  Sentry"
+      },
       "github-actions": {
         "title": "GitHub Actions",
         "description": "Merekayasa alur CI/CD otomatis, matriks build multi-platform, pengemasan rilis mandiri dengan windeployqt, dan alur pengujian otomatis.",
@@ -176,6 +196,7 @@
     "allFilter": "SEMUA",
     "noProjects": "Tidak ada proyek yang sesuai dengan kueri filter Anda.",
     "projectLabel": "PROYEK",
+    "availableCount": "{count} Proyek Tersedia",
     "items": {
       "train-simulation-app": {
         "title": "APLIKASI SIMULASI KERETA",

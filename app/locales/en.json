@@ -1,4 +1,11 @@
 {
+  "common": {
+    "pagination": {
+      "hint": "SCROLL OR USE ARROWS ↓",
+      "prev": "Previous item",
+      "next": "Next item"
+    }
+  },
   "nav": {
     "menu": "Menu",
     "home": "Home",
@@ -40,7 +47,8 @@
     "proficiency": "Proficiency",
     "intermediate": "Intermediate",
     "junior": "Junior",
-    "advanced": "Advanced"
+    "advanced": "Advanced",
+    "itemsCount": "{count} ITEMS // {category}"
   },
   "techStack": {
     "items": {
@@ -132,45 +140,31 @@
         "title": "Drizzle",
         "description": "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
         "badgeText": "ORM",
-        "description": "Architecting relational database structures, designing foreign keys, indexing frequently queried fields, and maintaining data integrity.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  MySQL"
+        "sideTag": "ORM  |  Drizzle"
       },
-      "postgresql": {
-        "title": "PostgreSQL",
-        "description": "Managing robust relational databases with advanced indexing, JSONB data types, complex joins, and transactional operations.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  PostgreSQL"
+      "opencode": {
+        "title": "Open Code",
+        "description": "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
+        "badgeText": "AI Coding Agent",
+        "sideTag": "AI Coding Agent  |  Open Code"
       },
-      "sqlite": {
-        "title": "SQLite",
-        "description": "Deploying lightweight, zero-configuration embedded database engines for edge computing and single-tenant applications.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  SQLite"
-      },
-      "next-auth": {
-        "title": "Next Auth",
-        "description": "Implementing secure session management, JWT token handling, OAuth providers, and role-based access control.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  Next Auth"
-      },
-      "mapbox": {
-        "title": "Mapbox GL",
-        "description": "Building interactive vector map visualizations, custom GeoJSON data layers, and real-time geospatial telemetry tracking.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  Mapbox GL"
+      "coderabbit": {
+        "title": "CodeRabbit",
+        "description": "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
+        "badgeText": "AI Code Review",
+        "sideTag": "DevOps  |  CodeRabbit"
       },
       "sentry": {
         "title": "Sentry",
-        "description": "Integrating real-time application error tracking, crash reporting, session replays, and performance tracing.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  Sentry"
+        "description": "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
+        "badgeText": "Monitoring",
+        "sideTag": "DevOps  |  Sentry"
       },
-      "vercel": {
-        "title": "Vercel",
-        "description": "Deploying and managing edge-rendered serverless web applications with automated preview branches and analytics.",
-        "badgeText": "Tool",
-        "sideTag": "Tool  |  Vercel"
+      "github-actions": {
+        "title": "GitHub Actions",
+        "description": "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
+        "badgeText": "CI/CD & DevOps",
+        "sideTag": "DevOps  |  GitHub Actions"
       },
       "typescript": {
         "title": "TypeScript",
@@ -202,6 +196,7 @@
     "allFilter": "ALL",
     "noProjects": "No projects match your filter query.",
     "projectLabel": "PROJECT",
+    "availableCount": "{count} Projects Available",
     "items": {
       "train-simulation-app": {
         "title": "TRAIN SIMULATION APP",

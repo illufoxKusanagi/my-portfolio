@@ -1,14 +1,14 @@
 <template>
   <section
     id="certificates"
-    class="relative w-full min-h-screen bg-purple-200 dark:bg-purple-800 transition-colors duration-500 overflow-hidden font-sans select-none flex flex-col justify-between"
+    class="relative w-full min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 overflow-hidden font-sans select-none flex flex-col justify-between"
   >
     <!-- Heading Block -->
     <div class="pt-16 sm:pt-20 px-4 sm:px-8 md:px-12 shrink-0">
       <div class="flex items-start gap-3 sm:gap-4">
-        <!-- Left Tertiary Accent Bar -->
+        <!-- Left Primary Accent Bar -->
         <div
-          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-tertiary-700 mt-1 shrink-0"
+          class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-primary-700 mt-1 shrink-0"
         />
 
         <div class="space-y-0.5 sm:space-y-1">
@@ -18,7 +18,7 @@
             {{ $t("certificates.title") }}
           </h2>
           <p
-            class="font-tech text-xs sm:text-sm md:text-base text-foreground/70 dark:text-white/70 transition-colors mt-1 font-light uppercase tracking-widest"
+            class="font-tech text-xs sm:text-sm md:text-base text-primary-700 dark:text-primary-300 transition-colors mt-1 font-light uppercase tracking-widest"
           >
             {{ $t("certificates.subtitle") }}
           </p>
@@ -140,7 +140,7 @@
 
     <!-- Bottom Status Bar -->
     <div
-      class="w-full h-12 sm:h-16 md:h-[80px] bg-secondary-200 dark:bg-secondary-700 transition-colors duration-500 flex items-center px-4 sm:px-8 md:px-[72px] shrink-0"
+      class="w-full h-12 sm:h-16 md:h-[80px] bg-primary-200 dark:bg-primary-800 transition-colors duration-500 flex items-center px-4 sm:px-8 md:px-[72px] shrink-0"
     >
       <div class="flex items-center gap-3 sm:gap-6">
         <span
@@ -149,7 +149,7 @@
           {{ $t("certificates.title") }}
         </span>
         <div
-          class="w-[6px] h-[6px] sm:w-[8px] sm:h-[8px] rounded-full bg-primary-300 dark:bg-primary-200"
+          class="w-[6px] h-[6px] sm:w-[8px] sm:h-[8px] rounded-full bg-primary-600 dark:bg-primary-300"
         />
         <span
           class="font-tech text-sm sm:text-lg md:text-[24px] md:leading-[30px] text-foreground dark:text-white font-normal transition-colors"

@@ -40,7 +40,6 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
       "Implemented a full-cycle helpdesk and e-ticketing system with priority tiers (low/medium/high/urgent), status tracking (open/in-progress/awaiting/resolved/closed), TipTap rich-text threaded replies, file attachments, staff assignment, and first-response/resolution time metrics — integrated with Resend and Nodemailer for email notifications.",
       "Designed and optimized relational database schemas in MySQL using Drizzle ORM with Drizzle Kit migrations; implemented efficient indexing and structured queries for high-volume government event and infrastructure records.",
       "Built secure RESTful API endpoints under Next.js App Router, enforcing Zod schema validation and role-based access control (RBAC) with JWT authentication and bcrypt password encryption.",
-      "Delivered an interactive activity calendar with month/week/day/year views, drag-and-drop rescheduling, OPD-categorized color-coded events — containerized the full stack using Docker Compose with multi-stage production builds.",
     ],
     bgImage: "/images/experiences/experience_sate_itik.png",
     thumbnail: "/images/experiences/experience_sate_itik.png",

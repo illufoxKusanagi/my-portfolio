@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full min-w-0 shrink-0 bg-primary-200 dark:bg-secondary-900 transition-colors duration-500 border border-primary-300 dark:border-primary-700 rounded-[16px] overflow-hidden flex flex-col md:flex-row shadow-2xl relative"
+    class="w-full h-full min-w-0 shrink-0 bg-primary-200 dark:bg-primary-950 transition-colors duration-500 border border-primary-300 dark:border-primary-700 rounded-[16px] overflow-hidden flex flex-col md:flex-row shadow-2xl relative"
   >
     <!-- 1. Top Strip on Mobile / Right Panel on Desktop (Order: 1 on Mobile, 3 on Desktop) -->
     <div
@@ -23,7 +23,7 @@
 
     <!-- 2. Middle Visual on Mobile / Center Panel on Desktop (Order: 2 on Mobile, 2 on Desktop) -->
     <div
-      class="order-2 md:order-2 w-full md:w-11/32 h-42 md:h-full bg-secondary-400 dark:bg-tertiary-700 transition-colors duration-500 border-b md:border-b-0 md:border-l md:border-r border-primary-300 dark:border-primary-600 p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden shrink-0"
+      class="order-2 md:order-2 w-full md:w-11/32 h-42 md:h-full bg-primary-500 transition-colors duration-500 border-b md:border-b-0 md:border-l md:border-r border-primary-600 dark:border-primary-600 p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden shrink-0"
     >
       <!-- Center Downloaded Figma Image -->
       <div
