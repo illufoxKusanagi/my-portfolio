@@ -1,5 +1,4 @@
 import { defineEventHandler, readBody, createError, getRequestIP } from "h3";
-import { Resend } from "resend";
 
 interface ContactRequestBody {
   name?: unknown;
@@ -14,7 +13,8 @@ const RATE_LIMIT_WINDOW_MS = 2 * 60 * 1000; // 2 minutes
 const MAX_REQUESTS_PER_WINDOW = 5;
 
 // Strict email RFC 5322 regex
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
 const sanitizeHtml = (input: string): string => {
   return input
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
   const clientIp = getRequestIP(event, { xForwardedFor: true }) || "127.0.0.1";
   const now = Date.now();
   const timestamps = (rateLimitMap.get(clientIp) || []).filter(
-    (time) => now - time < RATE_LIMIT_WINDOW_MS
+    (time) => now - time < RATE_LIMIT_WINDOW_MS,
   );
 
   if (timestamps.length >= MAX_REQUESTS_PER_WINDOW) {
@@ -38,7 +38,8 @@ export default defineEventHandler(async (event) => {
       statusCode: 429,
       statusMessage: "Too Many Requests",
       data: {
-        message: "You have exceeded the submission limit. Please wait 2 minutes before trying again.",
+        message:
+          "You have exceeded the submission limit. Please wait 2 minutes before trying again.",
       },
     });
   }
@@ -47,7 +48,10 @@ export default defineEventHandler(async (event) => {
   const body = (await readBody<ContactRequestBody>(event)) || {};
 
   // 3. Spam Honeypot Guard (Silently trap automated bots)
-  if (typeof body.company_url === "string" && body.company_url.trim().length > 0) {
+  if (
+    typeof body.company_url === "string" &&
+    body.company_url.trim().length > 0
+  ) {
     return {
       success: true,
       message: "Transmission received.",
@@ -114,7 +118,9 @@ export default defineEventHandler(async (event) => {
     process.env.NUXT_CONTACT_RECIPIENT_EMAIL;
 
   if (!recipientEmail) {
-    console.error("[Contact API] Missing CONTACT_RECIPIENT_EMAIL configuration.");
+    console.error(
+      "[Contact API] Missing CONTACT_RECIPIENT_EMAIL configuration.",
+    );
     throw createError({
       statusCode: 503,
       statusMessage: "Service Unavailable",
@@ -135,15 +141,19 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const resend = new Resend(resendApiKey);
-
   try {
-    const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: [recipientEmail],
-      replyTo: email,
-      subject: `[Portfolio Inquiry] from ${sanitizedName}`,
-      html: `
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Portfolio Contact <onboarding@resend.dev>",
+        to: [recipientEmail],
+        reply_to: email,
+        subject: `[Portfolio Inquiry] from ${sanitizedName}`,
+        html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 32px 24px; background-color: #ffffff; color: #0f172a; border-radius: 8px; border: 1px solid #e2e8f0;">
           <h2 style="margin: 0 0 16px 0; font-size: 20px; font-weight: 600; color: #0f172a; line-height: 1.3;">New Message from ${sanitizedName}</h2>
           
@@ -167,33 +177,47 @@ export default defineEventHandler(async (event) => {
           </div>
         </div>
       `,
+      }),
     });
 
-    if (error) {
-      console.error("[Contact API] Resend dispatch error:", error);
+    const resendResult = (await resendResponse.json().catch(() => null)) as {
+      id?: string;
+      message?: string;
+      statusCode?: number;
+      name?: string;
+    } | null;
+
+    if (!resendResponse.ok) {
+      console.error("[Contact API] Resend dispatch error:", resendResult);
       throw createError({
         statusCode: 502,
         statusMessage: "Bad Gateway",
         data: {
-          message: error.message || "Failed to dispatch email through Resend.",
+          message:
+            resendResult?.message || "Failed to dispatch email through Resend.",
         },
       });
     }
 
     return {
       success: true,
-      message: "Thank you! Your message has been transmitted directly to my inbox.",
-      messageId: data?.id,
+      message:
+        "Thank you! Your message has been transmitted directly to my inbox.",
+      messageId: resendResult?.id,
       timestamp: new Date().toISOString(),
     };
   } catch (err: any) {
     if (err.statusCode) throw err;
-    console.error("[Contact API] Unexpected error during Resend dispatch:", err);
+    console.error(
+      "[Contact API] Unexpected error during Resend dispatch:",
+      err,
+    );
     throw createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",
       data: {
-        message: "An unexpected error occurred while transmitting your message. Please try again later.",
+        message:
+          "An unexpected error occurred while transmitting your message. Please try again later.",
       },
     });
   }
