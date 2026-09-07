@@ -9,11 +9,11 @@
     >
       <span>En</span>
       <img
-        src="/images/flag_en.png"
+        src="/images/flag_en.svg"
         alt=""
         aria-hidden="true"
         class="flag-icon"
-      >
+      />
     </button>
 
     <button
@@ -24,16 +24,18 @@
       @click="setLanguage('id')"
     >
       <span>Id</span>
-      <div class="flag-icon flag-id" aria-hidden="true">
-        <div class="flag-id-red" />
-        <div class="flag-id-white" />
-      </div>
+      <img
+        src="/images/flag_id.svg"
+        alt=""
+        aria-hidden="true"
+        class="flag-icon"
+      />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-const { locale, setLocale } = useI18n({ useScope: 'global' });
+const { locale, setLocale } = useI18n({ useScope: "global" });
 
 const setLanguage = async (lang: "en" | "id") => {
   if (locale.value === lang) return;
@@ -56,7 +58,9 @@ const setLanguage = async (lang: "en" | "id") => {
   background: var(--color-muted);
   border: none;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   user-select: none;
 }
 
@@ -84,23 +88,5 @@ const setLanguage = async (lang: "en" | "id") => {
   object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
-.flag-id {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.flag-id-red {
-  width: 100%;
-  height: 50%;
-  background: #e11d48;
-}
-
-.flag-id-white {
-  width: 100%;
-  height: 50%;
-  background: #ffffff;
 }
 </style>
