@@ -45,6 +45,7 @@
     "experienceLabel": "Pengalaman",
     "yearsExp": "{n} thn",
     "proficiency": "Kemahiran",
+    "beginner": "Pemula",
     "intermediate": "Menengah",
     "junior": "Pemula",
     "advanced": "Lanjutan",
@@ -171,6 +172,12 @@
         "description": "Menulis kode klien dan server yang asinkron, modular, dan type-safe.",
         "badgeText": "Pengembangan Web",
         "sideTag": "Bahasa  |  TypeScript"
+      },
+      "javascript": {
+        "title": "JavaScript",
+        "description": "Merancang logika sisi klien yang dinamis dan responsif, alur event asinkron, dan antarmuka web interaktif.",
+        "badgeText": "Pengembangan Web",
+        "sideTag": "Bahasa  |  JavaScript"
       },
       "cpp": {
         "title": "C++",
