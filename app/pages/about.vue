@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
+    class="min-h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
   >
     <div class="max-w-6xl mx-auto space-y-10 sm:space-y-16">
       <!-- Header Block -->
@@ -8,7 +8,7 @@
         <div class="flex items-start gap-3 sm:gap-4 mb-4">
           <!-- Vertical Accent Bar -->
           <div
-            class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1"
+            class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-purple-600 dark:bg-tertiary-700 shrink-0 mt-1"
           />
 
           <div class="space-y-0.5 sm:space-y-1">
@@ -18,7 +18,7 @@
               {{ $t("about.title") }}
             </h1>
             <p
-              class="font-tech text-xs sm:text-sm md:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light"
+              class="font-tech text-xs sm:text-sm md:text-base text-purple-700 dark:text-tertiary-400 uppercase tracking-widest font-light"
             >
               {{ $t("about.subtitle") }}
             </p>
@@ -26,18 +26,18 @@
         </div>
 
         <div
-          class="flex flex-wrap items-center gap-4 pt-4 border-t border-primary-300 dark:border-primary-800"
+          class="flex flex-wrap items-center gap-4 pt-4 border-t border-purple-200 dark:border-secondary-800"
         >
           <a
             v-if="publicEmail"
             :href="`mailto:${publicEmail}`"
-            class="px-6 py-2.5 rounded-[8px] bg-secondary-700 hover:bg-secondary-600 text-white font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+            class="px-6 py-2.5 rounded-[8px] bg-purple-600 hover:bg-purple-700 dark:bg-tertiary-700 dark:hover:bg-tertiary-600 text-white font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
           >
             {{ $t("about.directEmail") }}
           </a>
           <NuxtLink
             to="/projects"
-            class="px-6 py-2.5 rounded-[8px] border border-secondary-600 text-foreground dark:text-white hover:bg-secondary-200 dark:hover:bg-secondary-900 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
+            class="px-6 py-2.5 rounded-[8px] border border-purple-400 dark:border-tertiary-600 text-foreground dark:text-white hover:bg-purple-100 dark:hover:bg-tertiary-900/50 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
           >
             {{ $t("about.viewProjects") }}
           </NuxtLink>
@@ -48,10 +48,12 @@
       <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left 2 Cols: Detailed Dossier -->
         <div
-          class="lg:col-span-2 p-8 sm:p-10 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-xl space-y-6"
+          class="lg:col-span-2 p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl space-y-6"
         >
           <div class="flex items-center gap-3">
-            <div class="w-1.5 h-8 bg-secondary-700 rounded-full" />
+            <div
+              class="w-1.5 h-8 bg-purple-600 dark:bg-tertiary-600 rounded-full"
+            />
             <h2
               class="text-xl sm:text-2xl font-bold font-sans uppercase tracking-tight text-foreground dark:text-white"
             >
@@ -75,13 +77,13 @@
 
           <!-- Key Metrics -->
           <div
-            class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-primary-300/80 dark:border-primary-800/80"
+            class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-purple-200/80 dark:border-secondary-800/80"
           >
             <div
-              class="p-4 rounded-xl bg-primary-100/70 dark:bg-secondary-950/70 border border-primary-300/60 dark:border-primary-800/60"
+              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60"
             >
               <span
-                class="font-tech text-2xl sm:text-3xl font-extrabold text-secondary-700 dark:text-secondary-400 block"
+                class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
                 >10+</span
               >
               <span
@@ -90,10 +92,10 @@
               >
             </div>
             <div
-              class="p-4 rounded-xl bg-primary-100/70 dark:bg-secondary-950/70 border border-primary-300/60 dark:border-primary-800/60"
+              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60"
             >
               <span
-                class="font-tech text-2xl sm:text-3xl font-extrabold text-secondary-700 dark:text-secondary-400 block"
+                class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
                 >60 FPS</span
               >
               <span
@@ -102,10 +104,10 @@
               >
             </div>
             <div
-              class="p-4 rounded-xl bg-primary-100/70 dark:bg-secondary-950/70 border border-primary-300/60 dark:border-primary-800/60 col-span-2 sm:col-span-1"
+              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60 col-span-2 sm:col-span-1"
             >
               <span
-                class="font-tech text-2xl sm:text-3xl font-extrabold text-secondary-700 dark:text-secondary-400 block"
+                class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
                 >100%</span
               >
               <span
@@ -118,11 +120,13 @@
 
         <!-- Right Col: Telemetry Quick Facts -->
         <div
-          class="p-8 sm:p-10 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-xl flex flex-col justify-between"
+          class="p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl flex flex-col justify-between"
         >
           <div class="space-y-6">
             <div class="flex items-center gap-3">
-              <div class="w-1.5 h-8 bg-secondary-700 rounded-full" />
+              <div
+                class="w-1.5 h-8 bg-purple-600 dark:bg-tertiary-600 rounded-full"
+              />
               <h2
                 class="text-xl font-bold font-sans uppercase tracking-tight text-foreground dark:text-white"
               >
@@ -132,7 +136,7 @@
 
             <div class="space-y-3 font-tech text-xs">
               <div
-                class="flex justify-between py-2 border-b border-primary-300/60 dark:border-primary-800/60"
+                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
               >
                 <span class="text-foreground/60 dark:text-white/60 uppercase">{{
                   $t("about.location")
@@ -142,7 +146,7 @@
                 }}</span>
               </div>
               <div
-                class="flex justify-between py-2 border-b border-primary-300/60 dark:border-primary-800/60"
+                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
               >
                 <span class="text-foreground/60 dark:text-white/60 uppercase">{{
                   $t("about.status")
@@ -152,7 +156,7 @@
                 }}</span>
               </div>
               <div
-                class="flex justify-between py-2 border-b border-primary-300/60 dark:border-primary-800/60"
+                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
               >
                 <span class="text-foreground/60 dark:text-white/60 uppercase">{{
                   $t("about.focus")
@@ -163,7 +167,7 @@
                 >
               </div>
               <div
-                class="flex justify-between py-2 border-b border-primary-300/60 dark:border-primary-800/60"
+                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
               >
                 <span class="text-foreground/60 dark:text-white/60 uppercase"
                   >LANGUAGES</span
@@ -181,7 +185,7 @@
               href="https://github.com/illufoxKusanagi"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-[8px] border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
+              class="flex-1 py-2 px-3 rounded-[8px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
             >
               GitHub
             </a>
@@ -189,7 +193,7 @@
               href="https://linkedin.com/in/muhammad-arief-satria-wibawa"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-[8px] border border-primary-400 dark:border-primary-700 bg-primary-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-secondary-700 hover:text-white transition-colors"
+              class="flex-1 py-2 px-3 rounded-[8px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
             >
               LinkedIn
             </a>
@@ -200,7 +204,9 @@
       <!-- Experience Timeline Section -->
       <section class="space-y-8">
         <div class="flex items-start gap-4">
-          <div class="w-2.5 h-12 bg-tertiary-700 shrink-0 mt-1" />
+          <div
+            class="w-2.5 h-12 bg-purple-600 dark:bg-tertiary-700 shrink-0 mt-1"
+          />
           <div>
             <h2
               class="font-sans font-bold text-2xl sm:text-3xl text-foreground dark:text-white tracking-tight uppercase leading-none"
@@ -208,7 +214,7 @@
               {{ $t("about.timelineTitle") }}
             </h2>
             <p
-              class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
+              class="font-tech text-xs text-purple-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
             >
               {{ $t("about.timelineSubtitle") }}
             </p>
@@ -219,14 +225,14 @@
           <div
             v-for="(exp, index) in EXPERIENCE_DATA"
             :key="exp.id"
-            class="p-8 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-xl transition-all duration-300"
+            class="p-8 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl transition-all duration-300"
           >
             <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-primary-300/80 dark:border-primary-800/80"
+              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200/80 dark:border-secondary-800/80"
             >
               <div>
                 <span
-                  class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
+                  class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
                 >
                   0{{ index + 1 }} //
                   {{
@@ -248,7 +254,7 @@
               </div>
 
               <div
-                class="px-4 py-1.5 rounded-[4px] border border-secondary-600 bg-primary-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
+                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
               >
                 {{
                   $te(`experience.items.${exp.id}.period`)
@@ -265,7 +271,7 @@
                 class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-sans"
               >
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-secondary-600 shrink-0 mt-2"
+                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-600 shrink-0 mt-2"
                 />
                 <span>{{ bullet }}</span>
               </li>
@@ -277,7 +283,9 @@
       <!-- Leadership & Organizations Section -->
       <section class="space-y-8">
         <div class="flex items-start gap-4">
-          <div class="w-2.5 h-12 bg-tertiary-700 shrink-0 mt-1" />
+          <div
+            class="w-2.5 h-12 bg-purple-600 dark:bg-tertiary-700 shrink-0 mt-1"
+          />
           <div>
             <h2
               class="font-sans font-bold text-2xl sm:text-3xl text-foreground dark:text-white tracking-tight uppercase leading-none"
@@ -289,7 +297,7 @@
               }}
             </h2>
             <p
-              class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
+              class="font-tech text-xs text-purple-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
             >
               {{
                 $te("about.leadershipSubtitle")
@@ -304,14 +312,14 @@
           <div
             v-for="(lead, index) in LEADERSHIP_DATA"
             :key="lead.id"
-            class="p-8 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-xl transition-all duration-300"
+            class="p-8 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl transition-all duration-300"
           >
             <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-primary-300/80 dark:border-primary-800/80"
+              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200/80 dark:border-secondary-800/80"
             >
               <div>
                 <span
-                  class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
+                  class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
                 >
                   0{{ index + 1 }} //
                   {{
@@ -333,7 +341,7 @@
               </div>
 
               <div
-                class="px-4 py-1.5 rounded-[4px] border border-secondary-600 bg-primary-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
+                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
               >
                 {{
                   $te(`leadership.items.${lead.id}.period`)
@@ -350,7 +358,7 @@
                 class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-sans"
               >
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-secondary-600 shrink-0 mt-2"
+                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-600 shrink-0 mt-2"
                 />
                 <span>{{ bullet }}</span>
               </li>
@@ -362,7 +370,9 @@
       <!-- Technical Stack Matrix -->
       <section class="space-y-8">
         <div class="flex items-start gap-4">
-          <div class="w-2.5 h-12 bg-tertiary-700 shrink-0 mt-1" />
+          <div
+            class="w-2.5 h-12 bg-purple-600 dark:bg-tertiary-700 shrink-0 mt-1"
+          />
           <div>
             <h2
               class="font-sans font-bold text-2xl sm:text-3xl text-foreground dark:text-white tracking-tight uppercase leading-none"
@@ -370,7 +380,7 @@
               {{ $t("about.matrixTitle") }}
             </h2>
             <p
-              class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
+              class="font-tech text-xs text-purple-700 dark:text-tertiary-400 uppercase tracking-widest mt-1 font-light"
             >
               {{ $t("about.matrixSubtitle") }}
             </p>
@@ -381,11 +391,11 @@
           <div
             v-for="group in SKILL_GROUPS"
             :key="group.title"
-            class="p-6 rounded-[16px] bg-primary-200 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-lg flex flex-col justify-between space-y-4"
+            class="p-6 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-lg flex flex-col justify-between space-y-4"
           >
             <div>
               <span
-                class="font-tech text-xs text-secondary-700 dark:text-secondary-400 font-extrabold uppercase tracking-widest block mb-2"
+                class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block mb-2"
               >
                 {{ group.category }}
               </span>
@@ -399,7 +409,7 @@
                 <span
                   v-for="skill in group.skills"
                   :key="skill"
-                  class="px-2.5 py-1 rounded-[4px] bg-primary-100 dark:bg-secondary-950 border border-primary-300/80 dark:border-primary-800/80 text-xs font-tech text-foreground/80 dark:text-white/80"
+                  class="px-2.5 py-1 rounded-[4px] bg-purple-100 dark:bg-secondary-950 border border-purple-200/80 dark:border-secondary-800/80 text-xs font-tech text-foreground/80 dark:text-white/80"
                 >
                   {{ skill }}
                 </span>
