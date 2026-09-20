@@ -111,7 +111,7 @@
           <span
             class="font-tech text-xs sm:text-[14px] text-primary-500 font-light block uppercase"
           >
-            {{ $t("tech.experienceLabel") }}: {{ item.experienceYears }}
+            {{ $t("tech.experienceLabel") }}: {{ itemExperience }}
           </span>
           <span
             class="hidden sm:inline font-tech text-[14px] text-primary-500 font-light"
@@ -143,6 +143,13 @@ const props = defineProps<{
 }>();
 
 const { t, te, locale } = useI18n();
+
+const itemExperience = computed(() => {
+  if (locale.value === "id") {
+    return props.item.experienceYears.replace(/\byrs?\b/g, "thn");
+  }
+  return props.item.experienceYears;
+});
 
 const itemTitle = computed(() => {
   const k = `techStack.items.${props.item.id}.title`;

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
+    class="min-h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
   >
     <!-- Header Block (Matching TechSection / ProjectsSection style) -->
     <div class="max-w-7xl mx-auto mb-8 sm:mb-12">
       <div class="flex items-start gap-3 sm:gap-4 mb-4">
         <!-- Vertical Accent Bar -->
         <div
-          class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1"
+          class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-purple-600 dark:bg-tertiary-700 shrink-0 mt-1"
         />
 
         <div class="space-y-0.5 sm:space-y-1">
@@ -17,7 +17,7 @@
             {{ $t("projects.archiveTitle") }}
           </h1>
           <p
-            class="font-tech text-xs sm:text-sm md:text-base text-tertiary-700 dark:text-tertiary-400 uppercase tracking-widest font-light"
+            class="font-tech text-xs sm:text-sm md:text-base text-purple-700 dark:text-tertiary-400 uppercase tracking-widest font-light"
           >
             {{ $t("projects.archiveSubtitle") }}
           </p>
@@ -26,12 +26,12 @@
 
       <!-- Search & Pill Filter Bar -->
       <div
-        class="mt-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4 rounded-[16px] bg-primary-200/80 dark:bg-secondary-900/90 border border-tertiary-300 dark:border-tertiary-700 shadow-xl backdrop-blur-md"
+        class="mt-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4 rounded-[16px] bg-purple-200/60 dark:bg-secondary-900/90 border border-purple-200 dark:border-tertiary-700 shadow-xl backdrop-blur-md"
       >
         <!-- Search Input with Cyber Tech styling -->
         <div class="relative flex-1">
           <div
-            class="absolute left-3.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5 text-tertiary-700 dark:text-tertiary-400 pointer-events-none"
+            class="absolute left-3.5 top-1/2 -translate-y-1/2 flex items-center gap-1.5 text-purple-700 dark:text-tertiary-400 pointer-events-none"
           >
             <span class="font-tech font-extrabold text-xs">&gt;</span>
           </div>
@@ -39,7 +39,7 @@
             v-model="searchQuery"
             type="text"
             placeholder="SEARCH BY TECH, TITLE, OR KEYWORD..."
-            class="w-full pl-8 pr-4 py-2.5 rounded-[8px] bg-primary-100/90 dark:bg-secondary-950/90 border border-tertiary-300 dark:border-tertiary-700 text-foreground dark:text-white text-xs font-tech tracking-wider focus:outline-none focus:ring-2 focus:ring-tertiary-600 transition-all placeholder:text-foreground/40 dark:placeholder:text-white/40"
+            class="w-full pl-8 pr-4 py-2.5 rounded-[8px] bg-purple-50/90 dark:bg-secondary-950/90 border border-purple-200 dark:border-tertiary-700 text-foreground dark:text-white text-xs font-tech tracking-wider focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-tertiary-600 transition-all placeholder:text-foreground/40 dark:placeholder:text-white/40"
           />
         </div>
 
@@ -53,8 +53,8 @@
             class="px-4 py-2 rounded-[6px] text-xs font-tech font-bold transition-all duration-200 whitespace-nowrap cursor-pointer uppercase tracking-wider"
             :class="
               selectedTag === tag
-                ? 'bg-tertiary-700 text-white shadow-md'
-                : 'bg-primary-100 dark:bg-secondary-950 border border-tertiary-300 dark:border-tertiary-700 text-foreground/75 dark:text-white/75 hover:bg-tertiary-200 dark:hover:bg-secondary-800'
+                ? 'bg-purple-600 dark:bg-tertiary-700 text-white shadow-md'
+                : 'bg-purple-50 dark:bg-secondary-950 border border-purple-200 dark:border-tertiary-700 text-foreground/75 dark:text-white/75 hover:bg-purple-200 dark:hover:bg-secondary-800'
             "
             @click="selectedTag = tag"
           >
@@ -70,7 +70,7 @@
         <div
           v-for="(project, index) in filteredProjects"
           :key="project.id"
-          class="w-full bg-tertiary-100 dark:bg-secondary-900 border border-tertiary-300 dark:border-tertiary-700 rounded-[16px] overflow-hidden flex flex-col lg:flex-row shadow-2xl transition-all duration-300 hover:shadow-3xl hover:border-tertiary-500 relative"
+          class="w-full bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 rounded-[16px] overflow-hidden flex flex-col lg:flex-row shadow-2xl transition-all duration-300 hover:shadow-3xl hover:border-purple-400 dark:hover:border-tertiary-500 relative"
         >
           <!-- 1. Left Panel: Image Preview (Large responsive block) -->
           <div
@@ -105,9 +105,11 @@
 
                 <!-- Sub-description Tag Box (Signature Figma Node) -->
                 <div class="flex items-center gap-3 mt-2">
-                  <div class="w-1 h-8 bg-tertiary-600 rounded-full" />
+                  <div
+                    class="w-1 h-8 bg-purple-600 dark:bg-tertiary-600 rounded-full"
+                  />
                   <p
-                    class="font-tech text-xs text-tertiary-600 dark:text-tertiary-400 font-light uppercase tracking-widest"
+                    class="font-tech text-xs text-purple-700 dark:text-tertiary-400 font-light uppercase tracking-widest"
                   >
                     {{
                       $te(`projects.items.${project.id}.subtitle`)
@@ -132,12 +134,12 @@
 
             <!-- Footer: Tech Stack & Actions -->
             <div
-              class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pt-6 mt-6 border-t border-tertiary-200 dark:border-secondary-700"
+              class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pt-6 mt-6 border-t border-purple-200 dark:border-secondary-700"
             >
               <!-- Tech Stack Circular Icon Slots (Signature Figma Style) -->
               <div>
                 <span
-                  class="font-tech text-xs text-tertiary-600 dark:text-tertiary-400 font-light block uppercase tracking-widest mb-3"
+                  class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-light block uppercase tracking-widest mb-3"
                 >
                   TECHNOLOGIES
                 </span>
@@ -145,7 +147,7 @@
                   <div
                     v-for="(tech, tIdx) in project.techIcons"
                     :key="tIdx"
-                    class="flex items-center justify-center w-10 h-10 rounded-full bg-secondary-200 dark:bg-secondary-800 border border-tertiary-300 dark:border-tertiary-700 p-2 shadow-sm transition-colors"
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 dark:bg-secondary-950 border border-purple-300 dark:border-tertiary-700 p-2 shadow-sm transition-colors duration-300"
                     :title="tech.name"
                   >
                     <img
@@ -157,8 +159,9 @@
                     <span
                       v-else
                       class="text-[9px] font-bold text-foreground/70 dark:text-white/70"
-                      >{{ tech.name.substring(0, 2).toUpperCase() }}</span
                     >
+                      {{ tech.name.substring(0, 2).toUpperCase() }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -170,7 +173,7 @@
                   :href="project.demoUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="px-6 py-2.5 bg-tertiary-700 hover:bg-tertiary-600 text-white font-tech font-bold text-xs uppercase tracking-wider rounded-[8px] transition-colors shadow-md"
+                  class="px-6 py-2.5 bg-purple-600 hover:bg-purple-700 dark:bg-tertiary-700 dark:hover:bg-tertiary-600 text-white font-tech font-bold text-xs uppercase tracking-wider rounded-[8px] transition-colors shadow-md"
                 >
                   {{
                     $te(`projects.items.${project.id}.demoLabel`)
@@ -183,7 +186,7 @@
                   :href="project.repoUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="px-6 py-2.5 border border-tertiary-400 dark:border-tertiary-600 text-foreground dark:text-white hover:bg-tertiary-200 dark:hover:bg-secondary-800 font-tech font-semibold text-xs uppercase tracking-wider rounded-[8px] transition-colors"
+                  class="px-6 py-2.5 border border-purple-400 dark:border-tertiary-600 text-foreground dark:text-white hover:bg-purple-100 dark:hover:bg-tertiary-900/50 font-tech font-semibold text-xs uppercase tracking-wider rounded-[8px] transition-colors"
                 >
                   {{
                     $te(`projects.items.${project.id}.repoLabel`)
@@ -197,7 +200,7 @@
 
           <!-- 3. Right Side Accent Strip with Rotated Vertical Text -->
           <div
-            class="hidden lg:flex w-12 bg-tertiary-300 dark:bg-tertiary-800 transition-colors duration-500 flex-col items-center justify-between py-8 shrink-0 select-none"
+            class="hidden lg:flex w-12 bg-purple-200 dark:bg-secondary-600 transition-colors duration-500 flex-col items-center justify-between py-8 shrink-0 select-none"
           >
             <div
               class="writing-vertical font-sans font-bold text-[16px] leading-[22px] text-foreground/70 dark:text-white/70 tracking-wider uppercase rotate-180"
@@ -218,7 +221,7 @@
       <!-- No Results Found State -->
       <div
         v-else
-        class="text-center py-20 bg-primary-200/50 dark:bg-secondary-900/50 rounded-[16px] border border-dashed border-tertiary-400 dark:border-tertiary-700 p-8"
+        class="text-center py-20 bg-purple-50/50 dark:bg-secondary-900/50 rounded-[16px] border border-dashed border-purple-300 dark:border-tertiary-700 p-8"
       >
         <h3
           class="text-xl font-bold font-sans uppercase text-foreground dark:text-white mb-2"
@@ -231,7 +234,7 @@
           Try clearing search query or selecting another technology tag.
         </p>
         <button
-          class="px-6 py-2.5 rounded-[8px] bg-tertiary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-tertiary-600 transition-colors"
+          class="px-6 py-2.5 rounded-[8px] bg-purple-600 hover:bg-purple-700 dark:bg-tertiary-700 dark:hover:bg-tertiary-600 text-white font-tech text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
           @click="resetFilters"
         >
           Reset Filters
@@ -307,7 +310,7 @@ const resetFilters = () => {
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--color-tertiary-400);
+  background: var(--color-purple-400);
   border-radius: 4px;
 }
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {

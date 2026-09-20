@@ -45,6 +45,7 @@
     "experienceLabel": "Experience",
     "yearsExp": "{n} yrs",
     "proficiency": "Proficiency",
+    "beginner": "Beginner",
     "intermediate": "Intermediate",
     "junior": "Junior",
     "advanced": "Advanced",
@@ -171,6 +172,12 @@
         "description": "Writing type-safe, modular, and asynchronous client and server code.",
         "badgeText": "Website Dev",
         "sideTag": "Language  |  TypeScript"
+      },
+      "javascript": {
+        "title": "JavaScript",
+        "description": "Crafting dynamic, responsive client-side logic, asynchronous event pipelines, and interactive web experiences.",
+        "badgeText": "Website Dev",
+        "sideTag": "Language  |  JavaScript"
       },
       "cpp": {
         "title": "C++",

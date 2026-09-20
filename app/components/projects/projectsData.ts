@@ -37,7 +37,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "Next.js", iconUrl: "/images/frameworks/next_framework.png" },
       { name: "TypeScript", iconUrl: "/images/languages/ts_language.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
-      { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      {
+        name: "GitHub Actions",
+        iconUrl: "/images/tools/github_actions_tools.png",
+      },
       { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },
@@ -58,7 +61,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "C++", iconUrl: "/images/languages/cpp_language.png" },
       { name: "Qt", iconUrl: "/images/frameworks/qt_framework.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
-      { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      {
+        name: "GitHub Actions",
+        iconUrl: "/images/tools/github_actions_tools.png",
+      },
     ],
   },
   {
@@ -69,7 +75,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "A comprehensive budget management application for seamless personal finance tracking. Built with Nuxt for SSR performance, Drizzle ORM and SQLite for type-safe data persistence, and Sentry for error monitoring.",
     previewImage: "/images/projects/myokane_preview.png",
     cutoutImage: "/images/gtr_car_cutout.png",
-    demoUrl: "https://my-okane-tau.vercel.app",
+    demoUrl: "https://myokane.ariefsatria.my.id",
     repoUrl: undefined,
     isPrivateRepo: true,
     techIcons: [
@@ -131,7 +137,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
       "A full-stack Quran reading application with an interactive page-flip book interface. Features surah navigation, ayah bookmarking, and audio recitation. Built with Vue on the frontend, backed by an Elysia.js API, PostgreSQL, and containerized with Docker for consistent deployments.",
     previewImage: "/images/projects/my_quran_preview.png",
     cutoutImage: "/images/gtr_car_cutout.png",
-    demoUrl: "https://my-quran-fe.vercel.app",
+    demoUrl: "https://myquran.ariefsatria.my.id",
     repoUrl: undefined,
     isPrivateRepo: true,
     techIcons: [
@@ -180,7 +186,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "C++", iconUrl: "/images/languages/cpp_language.png" },
       { name: "Qt", iconUrl: "/images/frameworks/qt_framework.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
-      { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      {
+        name: "GitHub Actions",
+        iconUrl: "/images/tools/github_actions_tools.png",
+      },
       { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },
@@ -219,7 +228,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
       { name: "C++", iconUrl: "/images/languages/cpp_language.png" },
       { name: "Qt", iconUrl: "/images/frameworks/qt_framework.png" },
       { name: "Git", iconUrl: "/images/tools/git_tool.png" },
-      { name: "GitHub Actions", iconUrl: "/images/tools/github_actions_tools.png" },
+      {
+        name: "GitHub Actions",
+        iconUrl: "/images/tools/github_actions_tools.png",
+      },
       { name: "CodeRabbit", iconUrl: "/images/tools/coderabbit_tools.png" },
     ],
   },

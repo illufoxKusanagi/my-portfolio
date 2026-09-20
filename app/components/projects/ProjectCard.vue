@@ -95,7 +95,7 @@
             <div
               v-for="(tech, i) in project.techIcons"
               :key="i"
-              class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-purple-100 dark:bg-primary-500 border border-purple-300 dark:border-tertiary-700 p-1.5 shadow-sm transition-colors duration-300"
+              class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-purple-100 dark:bg-secondary-950 border border-purple-300 dark:border-tertiary-700 p-1.5 shadow-sm transition-colors duration-300"
               :title="tech.name"
             >
               <img
@@ -107,8 +107,9 @@
               <span
                 v-else
                 class="text-[9px] font-bold text-foreground/70 dark:text-white/70"
-                >{{ tech.name.substring(0, 2).toUpperCase() }}</span
               >
+                {{ tech.name.substring(0, 2).toUpperCase() }}
+              </span>
             </div>
           </div>
         </div>
