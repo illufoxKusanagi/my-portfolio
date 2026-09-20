@@ -47,8 +47,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Qt Framework",
         description:
           "Developing high-performance native desktop applications with memory-safe architectures and cross-platform widget toolkits.",
-        experienceYears: "2 yrs",
-        proficiency: "Intermediate",
         experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "Desktop",
@@ -133,7 +131,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Tailwind CSS",
         description:
           "Designing scalable utility-first design systems and custom design tokens.",
-        experienceYears: "3 yrs",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Styling",
@@ -197,8 +194,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Docker",
         description:
           "Containerizing applications, creating environment-isolated microservices with Docker Compose, and streamlining multi-stage deployment builds.",
-        experienceYears: "3 yrs",
-        proficiency: "Intermediate",
         experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "Containerization",
@@ -227,7 +222,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "MySQL",
         description:
           "Architecting relational database schemas, tuning multi-table join performance, and optimizing query execution plans to reduce latency.",
-        experienceYears: "2 yrs",
         experienceYears: "3 yrs",
         proficiency: "Intermediate",
         badgeText: "Database",
@@ -270,8 +264,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "CodeRabbit",
         description:
           "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
-        experienceYears: "< 1 yr",
-        proficiency: "Intermediate",
         experienceYears: "> 1 yr",
         proficiency: "Beginner",
         badgeText: "AI Code Review",
@@ -286,8 +278,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "Sentry",
         description:
           "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
-        experienceYears: "1 yr",
-        proficiency: "Intermediate",
         experienceYears: "< 1 yr",
         proficiency: "Beginner",
         badgeText: "Monitoring",
@@ -302,8 +292,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         title: "GitHub Actions",
         description:
           "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
-        experienceYears: "2 yrs",
-        proficiency: "Intermediate",
         experienceYears: "> 1 yr",
         proficiency: "Beginner",
         badgeText: "CI/CD & DevOps",
@@ -321,12 +309,10 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "typescript",
         category: "LANGUAGES",
         categoryDesc: "Core programming languages",
-        index: "01 / 03",
         index: "01 / 04",
         title: "TypeScript",
         description:
           "Writing type-safe, modular, and asynchronous client and server code.",
-        experienceYears: "3 yrs",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Website Dev",
@@ -351,7 +337,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "cpp",
         category: "LANGUAGES",
         categoryDesc: "Core programming languages",
-        index: "02 / 03",
         index: "03 / 04",
         title: "C++",
         description:
@@ -366,7 +351,6 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "php",
         category: "LANGUAGES",
         categoryDesc: "Core programming languages",
-        index: "03 / 03",
         index: "04 / 04",
         title: "PHP",
         description:

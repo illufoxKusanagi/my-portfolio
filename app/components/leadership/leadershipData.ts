@@ -8,6 +8,8 @@ export interface OrganizationItem {
   bullets: string[];
 }
 
+export type LeadershipItem = OrganizationItem;
+
 export const LEADERSHIP_DATA: OrganizationItem[] = [
   {
     id: "ukki-pens",

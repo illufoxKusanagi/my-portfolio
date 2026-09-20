@@ -84,36 +84,42 @@
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
-                >10+</span
               >
+                10+
+              </span>
               <span
                 class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
-                >{{ $t("about.metricProjects") }}</span
               >
+                {{ $t("about.metricProjects") }}
+              </span>
             </div>
             <div
               class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60"
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
-                >60 FPS</span
               >
+                60 FPS
+              </span>
               <span
                 class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
-                >{{ $t("about.metricFps") }}</span
               >
+                {{ $t("about.metricFps") }}
+              </span>
             </div>
             <div
               class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60 col-span-2 sm:col-span-1"
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
-                >100%</span
               >
+                100%
+              </span>
               <span
                 class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
-                >{{ $t("about.metricTypesafe") }}</span
               >
+                {{ $t("about.metricTypesafe") }}
+              </span>
             </div>
           </div>
         </div>
@@ -163,19 +169,21 @@
                 }}</span>
                 <span
                   class="font-bold text-foreground dark:text-white uppercase"
-                  >{{ $t("about.focusVal") }}</span
                 >
+                  {{ $t("about.focusVal") }}
+                </span>
               </div>
               <div
                 class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
               >
-                <span class="text-foreground/60 dark:text-white/60 uppercase"
-                  >LANGUAGES</span
-                >
+                <span class="text-foreground/60 dark:text-white/60 uppercase">
+                  LANGUAGES
+                </span>
                 <span
                   class="font-bold text-foreground dark:text-white uppercase"
-                  >EN / ID</span
                 >
+                  EN / ID
+                </span>
               </div>
             </div>
           </div>
