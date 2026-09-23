@@ -267,11 +267,18 @@ const FILTER_TAGS = [
   "REACT",
   "VUE",
   "NUXT",
-  "TYPESCRIPT",
   "NEXT.JS",
-  "C++",
-  "THREE.JS",
   "LARAVEL",
+  "LIVEWIRE",
+  "TYPESCRIPT",
+  "PHP",
+  "C++",
+  "QT",
+  "DOCKER",
+  "POSTGRESQL",
+  "MYSQL",
+  "THREE.JS",
+  "SHADCN UI",
 ];
 
 const filteredProjects = computed(() => {
