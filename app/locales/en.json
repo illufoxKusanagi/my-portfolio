@@ -89,6 +89,12 @@
         "badgeText": "Backend",
         "sideTag": "Backend  |  Laravel"
       },
+      "livewire": {
+        "title": "Livewire",
+        "description": "Building modern dynamic, reactive interfaces and real-time frontend components seamlessly in Laravel without leaving PHP.",
+        "badgeText": "Fullstack",
+        "sideTag": "Fullstack  |  Livewire"
+      },
       "elysia": {
         "title": "Elysia.Js",
         "description": "Building lightweight, high-throughput REST APIs with end-to-end type safety and schema validation for rapid backend prototyping.",
@@ -167,6 +173,18 @@
         "badgeText": "CI/CD & DevOps",
         "sideTag": "DevOps  |  GitHub Actions"
       },
+      "shadcn": {
+        "title": "Shadcn UI",
+        "description": "Architecting accessible, customizable, and production-grade component systems built on top of Radix primitives and Tailwind CSS.",
+        "badgeText": "UI System",
+        "sideTag": "Design System  |  Shadcn UI"
+      },
+      "flux": {
+        "title": "Flux UI",
+        "description": "Crafting elegant, accessible UI components and design systems built specifically for Laravel Livewire applications.",
+        "badgeText": "UI System",
+        "sideTag": "Design System  |  Flux UI"
+      },
       "typescript": {
         "title": "TypeScript",
         "description": "Writing type-safe, modular, and asynchronous client and server code.",
@@ -241,6 +259,11 @@
         "title": "MY LIBRARY",
         "subtitle": "Interactive book management app for librarian",
         "description": "A web-based library management system that eliminates manual logging for librarians. Borrowers can browse available books and submit borrow requests; librarians can accept, reject, or block books through a role-based admin interface. Built with Laravel, MySQL, and containerized with Docker."
+      },
+      "my-library-remake": {
+        "title": "MY LIBRARY REMAKE",
+        "subtitle": "Interactive book management app for librarian",
+        "description": "A web-based library management system that eliminates manual logging for librarians. Borrowers can browse available books and submit borrow requests; librarians can accept, reject, or block books through a role-based admin interface. Built with Laravel Livewire and Flux UI, PostgreSQL, and containerized with Docker."
       },
       "image-converter": {
         "title": "IMAGE CONVERTER",

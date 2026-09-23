@@ -29,7 +29,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "react",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "01 / 08",
+        index: "01 / 09",
         title: "React.Js",
         description:
           "Building modern responsive web applications with state management and clean UI engineering.",
@@ -43,7 +43,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "qt",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "02 / 08",
+        index: "02 / 09",
         title: "Qt Framework",
         description:
           "Developing high-performance native desktop applications with memory-safe architectures and cross-platform widget toolkits.",
@@ -57,7 +57,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "next",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "03 / 08",
+        index: "03 / 09",
         title: "Next.Js",
         description:
           "Building full-stack web applications with server-side rendering, file-based routing, API routes, and SEO-optimized static generation.",
@@ -71,7 +71,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "vue",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "04 / 08",
+        index: "04 / 09",
         title: "Vue.Js",
         description:
           "Building responsive web applications using Vue 3 Composition API, Pinia, Vue Router, and reactive component architectures.",
@@ -85,7 +85,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "nuxt",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "05 / 08",
+        index: "05 / 09",
         title: "Nuxt.Js",
         description:
           "Building SSR and SSG applications with file-based routing and auto-imported composables.",
@@ -99,7 +99,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "laravel",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "06 / 08",
+        index: "06 / 09",
         title: "Laravel",
         description:
           "Building scalable server-side applications with Blade templating, Eloquent ORM, and well-structured MVC backend architectures.",
@@ -110,10 +110,24 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         imageUrl: "/images/frameworks/laravel_framework.png",
       },
       {
+        id: "livewire",
+        category: "FRAMEWORKS",
+        categoryDesc: "Frameworks ever used in projects",
+        index: "07 / 09",
+        title: "Livewire",
+        description:
+          "Building modern dynamic, reactive interfaces and real-time frontend components seamlessly in Laravel without leaving PHP.",
+        experienceYears: "1 yr",
+        proficiency: "Junior",
+        badgeText: "Fullstack",
+        sideTag: "Fullstack  |  Livewire",
+        imageUrl: "/images/tools/livewire_tools.png",
+      },
+      {
         id: "elysia",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "07 / 08",
+        index: "08 / 09",
         title: "Elysia.Js",
         description:
           "Building lightweight, high-throughput REST APIs with end-to-end type safety and schema validation for rapid backend prototyping.",
@@ -127,7 +141,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "tailwind",
         category: "FRAMEWORKS",
         categoryDesc: "Frameworks ever used in projects",
-        index: "08 / 08",
+        index: "09 / 09",
         title: "Tailwind CSS",
         description:
           "Designing scalable utility-first design systems and custom design tokens.",
@@ -148,7 +162,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "git",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "01 / 11",
+        index: "01 / 13",
         title: "Git & GitHub",
         description:
           "Managing branches, PR workflows, CI/CD actions, and versioning.",
@@ -162,7 +176,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "figma",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "02 / 11",
+        index: "02 / 13",
         title: "Figma",
         description:
           "Crafting UI/UX mockups, interactive prototypes, and design system tokens.",
@@ -176,7 +190,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "antigravity",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "03 / 11",
+        index: "03 / 13",
         title: "Antigravity",
         description:
           "Leveraging agentic IDE workflows, custom skills, and autonomous pair-programming protocols to rapidly architect, build, and validate production-ready applications.",
@@ -190,7 +204,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "docker",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "04 / 11",
+        index: "04 / 13",
         title: "Docker",
         description:
           "Containerizing applications, creating environment-isolated microservices with Docker Compose, and streamlining multi-stage deployment builds.",
@@ -204,7 +218,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "postgresql",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "05 / 11",
+        index: "05 / 13",
         title: "PostgreSQL",
         description:
           "Designing normalized relational schemas, crafting optimized SQL queries, leveraging pgvector embeddings for RAG-powered AI search, and managing index strategies.",
@@ -218,7 +232,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "mysql",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "06 / 11",
+        index: "06 / 13",
         title: "MySQL",
         description:
           "Architecting relational database schemas, tuning multi-table join performance, and optimizing query execution plans to reduce latency.",
@@ -232,7 +246,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "drizzle",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "07 / 11",
+        index: "07 / 13",
         title: "Drizzle",
         description:
           "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
@@ -246,7 +260,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "opencode",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "08 / 11",
+        index: "08 / 13",
         title: "Open Code",
         description:
           "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
@@ -260,7 +274,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "coderabbit",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "09 / 11",
+        index: "09 / 13",
         title: "CodeRabbit",
         description:
           "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
@@ -274,7 +288,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "sentry",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "10 / 11",
+        index: "10 / 13",
         title: "Sentry",
         description:
           "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
@@ -288,7 +302,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         id: "github-actions",
         category: "TOOLS & WORKFLOW",
         categoryDesc: "Tools and software used daily",
-        index: "11 / 11",
+        index: "11 / 13",
         title: "GitHub Actions",
         description:
           "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
@@ -297,6 +311,34 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         badgeText: "CI/CD & DevOps",
         sideTag: "DevOps  |  GitHub Actions",
         imageUrl: "/images/tools/github_actions_tools.png",
+      },
+      {
+        id: "shadcn",
+        category: "TOOLS & WORKFLOW",
+        categoryDesc: "Tools and software used daily",
+        index: "12 / 13",
+        title: "Shadcn UI",
+        description:
+          "Architecting accessible, customizable, and production-grade component systems built on top of Radix primitives and Tailwind CSS.",
+        experienceYears: "1 yr",
+        proficiency: "Intermediate",
+        badgeText: "UI System",
+        sideTag: "Design System  |  Shadcn UI",
+        imageUrl: "/images/tools/shadcn_ui_tools.png",
+      },
+      {
+        id: "flux",
+        category: "TOOLS & WORKFLOW",
+        categoryDesc: "Tools and software used daily",
+        index: "13 / 13",
+        title: "Flux UI",
+        description:
+          "Crafting elegant, accessible UI components and design systems built specifically for Laravel Livewire applications.",
+        experienceYears: "< 1 yr",
+        proficiency: "Junior",
+        badgeText: "UI System",
+        sideTag: "Design System  |  Flux UI",
+        imageUrl: "/images/tools/flux_ui_tools.png",
       },
     ],
   },

@@ -89,6 +89,12 @@
         "badgeText": "Backend",
         "sideTag": "Backend  |  Laravel"
       },
+      "livewire": {
+        "title": "Livewire",
+        "description": "Membangun antarmuka modern yang dinamis, reaktif, dan komponen frontend real-time di Laravel langsung dari PHP.",
+        "badgeText": "Fullstack",
+        "sideTag": "Fullstack  |  Livewire"
+      },
       "elysia": {
         "title": "Elysia.Js",
         "description": "Membangun REST API berkecepatan tinggi yang ringan dengan keamanan tipe menyeluruh dan validasi skema untuk prototyping cepat.",
@@ -167,6 +173,18 @@
         "badgeText": "CI/CD & DevOps",
         "sideTag": "DevOps  |  GitHub Actions"
       },
+      "shadcn": {
+        "title": "Shadcn UI",
+        "description": "Membangun arsitektur komponen yang aksesibel, dapat dikustomisasi, dan siap produksi menggunakan basis primitif Radix dan Tailwind CSS.",
+        "badgeText": "Sistem UI",
+        "sideTag": "Sistem Desain  |  Shadcn UI"
+      },
+      "flux": {
+        "title": "Flux UI",
+        "description": "Membangun primitif komponen antarmuka yang elegan dan aksesibel, dioptimalkan khusus untuk aplikasi Laravel Livewire.",
+        "badgeText": "Sistem UI",
+        "sideTag": "Sistem Desain  |  Flux UI"
+      },
       "typescript": {
         "title": "TypeScript",
         "description": "Menulis kode klien dan server yang asinkron, modular, dan type-safe.",
@@ -241,6 +259,11 @@
         "title": "MY LIBRARY",
         "subtitle": "Aplikasi manajemen buku interaktif untuk pustakawan",
         "description": "Sistem manajemen perpustakaan berbasis web yang mengotomatisasi pencatatan manual. Peminjam dapat menjelajahi buku dan mengajukan pinjaman; pustakawan dapat memproses permohonan melalui dashboard admin berbasis peran. Dibangun dengan Laravel, MySQL, dan Docker."
+      },
+      "my-library-remake": {
+        "title": "MY LIBRARY REMAKE",
+        "subtitle": "Aplikasi manajemen buku interaktif untuk pustakawan",
+        "description": "Sistem manajemen perpustakaan modern berbasis web yang mengeliminasi pencatatan manual bagi pustakawan. Peminjam dapat menjelajahi buku yang tersedia dan mengajukan permintaan peminjaman; pustakawan dapat menyetujui, menolak, atau memblokir buku melalui antarmuka admin berbasis peran. Dibangun dengan Laravel Livewire, Flux UI, PostgreSQL, dan dikontainerisasi dengan Docker."
       },
       "image-converter": {
         "title": "PENGONVERSI GAMBAR",
