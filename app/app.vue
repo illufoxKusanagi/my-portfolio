@@ -3,9 +3,6 @@
     <!-- Global 3D & Asset Preloader Curtain -->
     <CyberPreloader />
 
-    <!-- Global Cyber Toast Notification System -->
-    <CyberToastContainer />
-
     <!-- Global Scroll Progress Bar -->
     <ScrollProgressBar />
 
@@ -25,7 +22,6 @@ import NavBar from "@/components/navbar/NavBar.vue";
 import AppFooter from "@/components/footer/AppFooter.vue";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar.vue";
 import CyberPreloader from "@/components/three/CyberPreloader.vue";
-import CyberToastContainer from "@/components/toast/CyberToastContainer.vue";
 
 
 const { $lenis } = useNuxtApp();
