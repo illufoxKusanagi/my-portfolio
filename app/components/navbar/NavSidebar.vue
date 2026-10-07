@@ -235,32 +235,7 @@ const config = useRuntimeConfig();
 const publicEmail = config.public.contactEmail as string;
 const isHomePage = computed(() => route.path === "/");
 
-const PAGE_LINKS = computed(() => [
-  {
-    num: "01",
-    title: t("nav.home"),
-    subtitle: "3D interactive vehicle & core highlights",
-    path: "/",
-  },
-  {
-    num: "02",
-    title: t("nav.projects"),
-    subtitle: "Full catalog of software & tools",
-    path: "/projects",
-  },
-  {
-    num: "03",
-    title: t("nav.blog"),
-    subtitle: "Technical write-ups & deep-dives",
-    path: "/blog",
-  },
-  {
-    num: "04",
-    title: t("nav.about"),
-    subtitle: "Experience timeline & skill dossier",
-    path: "/about",
-  },
-]);
+const { pageLinks: PAGE_LINKS } = useNavLinks();
 
 const SHOWCASE_SECTIONS = computed(() => [
   { label: t("nav.sections.hero"), target: "#hero" },
