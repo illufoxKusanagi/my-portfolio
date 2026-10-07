@@ -4,6 +4,12 @@ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { createGtrR33MaterialDetails } from "~/components/three/GtrR33Details";
 import { THREE_SCENE_CONSTANTS } from "./threeSceneConstants";
 import { assignGtrMaterials } from "./assignGtrMaterials";
+import {
+  notifyModelMounted,
+  notifyModelProgress,
+  notifyModelStatus,
+  triggerFallbackTo2D,
+} from "./useThreeLoading";
 
 // Singleton in-memory cache to guarantee the 3D model is downloaded and decoded only once
 let cachedGtrScene: THREE.Group | null = null;
@@ -17,6 +23,7 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
     const instance = cachedGtrScene.clone(true);
     assignGtrMaterials(instance, materials);
     scene.add(instance);
+    notifyModelMounted();
     return;
   }
 
@@ -26,6 +33,7 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
       const instance = loadedModel.clone(true);
       assignGtrMaterials(instance, materials);
       scene.add(instance);
+      notifyModelMounted();
     });
     return;
   }
@@ -40,6 +48,7 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
     gltfLoader.load(
       THREE_SCENE_CONSTANTS.GTR_R33_MODEL_PATH,
       (gltf) => {
+        notifyModelStatus("ATTACHING VEHICLE TELEMETRY");
         const loadedModel = gltf.scene;
 
         // Center model at origin
@@ -53,11 +62,16 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
         const instance = loadedModel.clone(true);
         assignGtrMaterials(instance, materials);
         scene.add(instance);
+        notifyModelMounted();
         resolve(loadedModel);
       },
-      undefined,
+      (event: ProgressEvent) => {
+        notifyModelProgress(event.loaded, event.total);
+      },
       (err) => {
         loadPromise = null;
+        console.error("GTR Model loading failed:", err);
+        triggerFallbackTo2D("Model download failed");
         reject(err);
       }
     );

@@ -78,6 +78,26 @@
               :style="{ width: `${progress}%` }"
             />
           </div>
+
+          <!-- Fallback prompt when network is slow (>8s) -->
+          <Transition name="fade">
+            <div
+              v-if="showFallbackButton"
+              class="flex flex-col items-center gap-1.5 pt-2"
+            >
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs border border-primary-500/40 bg-primary-950/80 hover:bg-primary-900 text-primary-300 hover:text-white font-tech text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer shadow-[0_0_12px_rgba(26,133,255,0.2)] hover:shadow-[0_0_16px_rgba(26,133,255,0.5)] active:scale-95"
+                @click="onSkipTo2D"
+              >
+                <span>SWITCH TO 2D MODE</span>
+                <span class="text-primary-400 font-bold">&gt;&gt;</span>
+              </button>
+              <span class="font-tech text-[10px] text-primary-400/60 tracking-wider">
+                SLOW CONNECTION DETECTED
+              </span>
+            </div>
+          </Transition>
         </div>
       </div>
 
@@ -95,7 +115,39 @@
 import { watch, onMounted, onBeforeUnmount } from "vue";
 import { useThreeLoading } from "./useThreeLoading";
 
-const { isLoading, progress, currentItem } = useThreeLoading();
+const {
+  isLoading,
+  progress,
+  currentItem,
+  hasError,
+  showFallbackButton,
+  triggerFallbackTo2D,
+} = useThreeLoading();
+
+const toast = useToast();
+
+function onSkipTo2D() {
+  triggerFallbackTo2D("Manual user bypass to 2D mode");
+  toast.add({
+    title: "2D Mode Engaged",
+    description: "Switched to optimized 2D mode for maximum performance.",
+    color: "neutral",
+    icon: "i-lucide-zap",
+    duration: 4000,
+  });
+}
+
+watch(hasError, (isErr) => {
+  if (isErr && !import.meta.server) {
+    toast.add({
+      title: "3D Telemetry Timed Out",
+      description: "Switched to optimized 2D mode due to slow network connection.",
+      color: "warning",
+      icon: "i-lucide-alert-triangle",
+      duration: 6000,
+    });
+  }
+});
 
 // Lock scroll while preloader is active
 watch(
@@ -158,6 +210,16 @@ onBeforeUnmount(() => {
 
 .curtain-leave-to {
   transform: translateY(-100%);
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>
