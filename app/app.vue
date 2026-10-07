@@ -1,5 +1,8 @@
 <template>
   <UApp>
+    <!-- Cyber Dual-Shutter Page Navigation Transition -->
+    <CyberPageTransition />
+
     <!-- Global Scroll Progress Bar -->
     <ScrollProgressBar />
 
@@ -18,6 +21,7 @@ import { watch } from "vue";
 import NavBar from "@/components/navbar/NavBar.vue";
 import AppFooter from "@/components/footer/AppFooter.vue";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar.vue";
+import CyberPageTransition from "@/components/common/CyberPageTransition.vue";
 
 const { $lenis } = useNuxtApp();
 const route = useRoute();
