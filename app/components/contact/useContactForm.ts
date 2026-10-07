@@ -1,5 +1,4 @@
 import { ref, computed } from "vue";
-import { useCyberToast } from "~/composables/useCyberToast";
 
 export function useContactForm() {
   const name = ref("");
@@ -11,7 +10,7 @@ export function useContactForm() {
   const errorMessage = ref("");
   const fieldErrors = ref<Record<string, string>>({});
 
-  const { showToast } = useCyberToast();
+  const toast = useToast();
 
   const isFormValid = computed(() => {
     return (
@@ -47,11 +46,11 @@ export function useContactForm() {
       companyUrl.value = "";
       status.value = "success";
 
-      showToast({
-        type: "success",
+      toast.add({
         title: "Transmission Acknowledged",
-        message: response.message || "Message transmitted successfully.",
-        telemetryTag: "TRANSMISSION // 200 OK",
+        description: response.message || "Message transmitted successfully.",
+        color: "success",
+        icon: "i-lucide-check-circle",
         duration: 6000,
       });
 
@@ -76,11 +75,11 @@ export function useContactForm() {
         fieldErrors.value = serverData.errors;
       }
 
-      showToast({
-        type: "error",
+      toast.add({
         title: "Transmission Failed",
-        message: errorMsg,
-        telemetryTag: `ERR // ${err?.statusCode || 400}`,
+        description: errorMsg,
+        color: "error",
+        icon: "i-lucide-alert-circle",
         duration: 7000,
       });
     }

@@ -116,6 +116,10 @@ export default defineEventHandler(async (event) => {
     (config.contactRecipientEmail as string) ||
     process.env.CONTACT_RECIPIENT_EMAIL ||
     process.env.NUXT_CONTACT_RECIPIENT_EMAIL;
+  const fromEmail =
+    (config.resendFromEmail as string) ||
+    process.env.RESEND_FROM_EMAIL ||
+    "Portfolio Contact <contact@ariefsatria.my.id>";
 
   if (!recipientEmail) {
     console.error(
@@ -149,7 +153,7 @@ export default defineEventHandler(async (event) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Portfolio Contact <onboarding@resend.dev>",
+        from: fromEmail,
         to: [recipientEmail],
         reply_to: email,
         subject: `[Portfolio Inquiry] from ${sanitizedName}`,

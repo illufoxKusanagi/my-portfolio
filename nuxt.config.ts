@@ -20,6 +20,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     resendApiKey: process.env.RESEND_API_KEY || "",
+    resendFromEmail:
+      process.env.RESEND_FROM_EMAIL ||
+      "Portfolio Contact <contact@ariefsatria.my.id>",
     contactRecipientEmail: process.env.CONTACT_RECIPIENT_EMAIL || "",
     public: {
       contactEmail:

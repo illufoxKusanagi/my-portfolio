@@ -2,6 +2,8 @@
   <main
     class="relative w-full bg-purple-700 transition-colors duration-500 overflow-hidden"
   >
+    <!-- Global 3D & Asset Preloader Curtain -->
+    <CyberPreloader />
     <!-- Layer 3: WebGL 3D Interactive Canvas -->
     <ThreeCanvas :is-active="isCanvasActive" />
 
@@ -55,6 +57,7 @@ import ExperienceSection from "@/components/experience/ExperienceSection.vue";
 import LeadershipSection from "@/components/leadership/LeadershipSection.vue";
 import CertificatesSection from "@/components/certificates/CertificatesSection.vue";
 import ContactSection from "@/components/contact/ContactSection.vue";
+import CyberPreloader from "@/components/three/CyberPreloader.vue";
 
 const renderMode = useRenderMode();
 const heroContainer = ref<HTMLElement | null>(null);
