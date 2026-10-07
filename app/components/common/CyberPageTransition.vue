@@ -48,19 +48,13 @@
               <span class="tracking-widest uppercase">WEBGL 2.0</span>
             </div>
           </div>
-
-          <!-- Bottom edge laser accent guide -->
-          <div class="h-px w-full bg-gradient-to-r from-transparent via-primary-500/40 to-transparent relative z-10" />
         </div>
 
         <!-- 2. Bottom Shutter Blade (Rises up from floor) -->
         <div
-          class="shutter-blade shutter-bottom absolute bottom-0 left-0 w-full h-1/2 bg-[#050014] border-t border-primary-500/40 flex flex-col justify-between p-6 sm:p-10 pt-4 overflow-hidden z-20 shadow-2xl"
+          class="shutter-blade shutter-bottom absolute bottom-0 left-0 w-full h-1/2 bg-[#050014] border-t border-primary-500/40 flex flex-col justify-end p-6 sm:p-10 pb-4 overflow-hidden z-20 shadow-2xl"
         >
           <div class="absolute inset-0 bg-cyber-scanlines opacity-25 pointer-events-none" />
-
-          <!-- Top edge laser accent guide -->
-          <div class="h-px w-full bg-gradient-to-r from-transparent via-primary-500/40 to-transparent relative z-10" />
 
           <!-- Bottom Telemetry Footer -->
           <div class="w-full max-w-5xl mx-auto flex items-center justify-between border-t border-primary-500/20 pt-3 font-tech text-[10px] sm:text-xs text-primary-400/70 relative z-10">
@@ -75,24 +69,23 @@
           <div class="w-full h-[2px] bg-primary-400 shadow-[0_0_24px_rgba(26,133,255,1),0_0_48px_rgba(26,133,255,0.8)]" />
         </div>
 
-        <!-- 4. Center Targeting Reticle Unit (Independent rotating telemetry) -->
-        <div class="reticle-unit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none flex flex-col items-center justify-center space-y-3">
-          <div class="relative w-28 h-28 flex items-center justify-center">
-            <!-- Outer dashed ring (clockwise) -->
-            <div class="absolute inset-0 rounded-full border border-dashed border-primary-500/70 animate-spin-slow" />
-            <!-- Inner dotted ring (counter-clockwise) -->
-            <div class="absolute inset-3 rounded-full border border-dotted border-secondary-400/60 animate-spin-reverse" />
-            <!-- Center Crosshair brackets -->
-            <div class="absolute inset-7 rounded-full border border-primary-400/30 flex items-center justify-center">
-              <span class="font-tech text-base text-primary-400 font-extrabold animate-pulse">+</span>
-            </div>
+        <!-- 4. Center Targeting Reticle Circle (Locked exactly on 50% horizontal seam) -->
+        <div class="reticle-circle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 pointer-events-none w-28 h-28 flex items-center justify-center">
+          <!-- Outer dashed ring (clockwise) -->
+          <div class="absolute inset-0 rounded-full border border-dashed border-primary-500/70 animate-spin-slow" />
+          <!-- Inner dotted ring (counter-clockwise) -->
+          <div class="absolute inset-3 rounded-full border border-dotted border-secondary-400/60 animate-spin-reverse" />
+          <!-- Center Crosshair brackets -->
+          <div class="absolute inset-7 rounded-full border border-primary-400/30 flex items-center justify-center">
+            <span class="font-tech text-base text-primary-400 font-extrabold animate-pulse">+</span>
           </div>
+        </div>
 
-          <div class="px-3.5 py-1 bg-[#050014]/95 border border-primary-500/60 rounded-xs shadow-[0_0_20px_rgba(26,133,255,0.4)]">
-            <span class="font-tech text-[10px] sm:text-xs tracking-widest text-primary-300 uppercase font-semibold">
-              // TELEMETRY LOCK //
-            </span>
-          </div>
+        <!-- 5. Center Telemetry Badge (Positioned below the reticle circle without pulling it off-center) -->
+        <div class="reticle-badge absolute top-[calc(50%+4.25rem)] left-1/2 -translate-x-1/2 z-40 pointer-events-none px-3.5 py-1 bg-[#050014]/95 border border-primary-500/60 rounded-xs shadow-[0_0_20px_rgba(26,133,255,0.4)]">
+          <span class="font-tech text-[10px] sm:text-xs tracking-widest text-primary-300 uppercase font-semibold">
+            // TELEMETRY LOCK //
+          </span>
         </div>
       </template>
 
@@ -347,28 +340,53 @@ const currentLink = computed(() => {
   opacity: 0;
 }
 
-/* Center Reticle Badge (Pops in with scale and fades on leave) */
-.cyber-shutter-enter-from .reticle-unit {
+/* Center Reticle Circle (Locked on 50% horizontal seam) */
+.cyber-shutter-enter-from .reticle-circle {
   transform: translate(-50%, -50%) scale(0.7);
   opacity: 0;
 }
-.cyber-shutter-enter-active .reticle-unit {
+.cyber-shutter-enter-active .reticle-circle {
   transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1) 240ms, opacity 280ms ease 220ms;
 }
-.cyber-shutter-enter-to .reticle-unit {
+.cyber-shutter-enter-to .reticle-circle {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
 
-.cyber-shutter-leave-from .reticle-unit {
+.cyber-shutter-leave-from .reticle-circle {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
-.cyber-shutter-leave-active .reticle-unit {
+.cyber-shutter-leave-active .reticle-circle {
   transition: transform 260ms ease, opacity 220ms ease;
 }
-.cyber-shutter-leave-to .reticle-unit {
+.cyber-shutter-leave-to .reticle-circle {
   transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+}
+
+/* Center Reticle Badge (Pops in along with circle) */
+.cyber-shutter-enter-from .reticle-badge {
+  transform: translateX(-50%) scale(0.85);
+  opacity: 0;
+}
+.cyber-shutter-enter-active .reticle-badge {
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1) 260ms, opacity 280ms ease 240ms;
+}
+.cyber-shutter-enter-to .reticle-badge {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.cyber-shutter-leave-from .reticle-badge {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+.cyber-shutter-leave-active .reticle-badge {
+  transition: transform 260ms ease, opacity 220ms ease;
+}
+.cyber-shutter-leave-to .reticle-badge {
+  transform: translateX(-50%) scale(0.85);
   opacity: 0;
 }
 
@@ -421,7 +439,8 @@ const currentLink = computed(() => {
   .shutter-top,
   .shutter-bottom,
   .laser-beam,
-  .reticle-unit,
+  .reticle-circle,
+  .reticle-badge,
   .sector-accent,
   .sector-panel {
     transform: none !important;
