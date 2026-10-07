@@ -2,42 +2,14 @@ import { ref } from "vue";
 
 export type TransitionPhase = "idle" | "covering" | "covered" | "revealing";
 
-/** Motion timings (ms). Also exposed to CSS as custom properties so JS and CSS never drift. */
-const MOTION = {
-  cover: 480,
-  reveal: 560,
-  stagger: 70,
-  minHold: 260,
-} as const;
-
-const REDUCED_MOTION = {
-  cover: 160,
-  reveal: 180,
-  stagger: 0,
-  minHold: 0,
-} as const;
-
-/** Only for genuine failures (stalled chunk, router never settling). Never the normal path. */
-const WATCHDOG_MS = 6000;
-
 const phase = ref<TransitionPhase>("idle");
+const isOpen = ref(false);
 const targetPath = ref("/");
 
 let coveredAt = 0;
-let coverPromise: Promise<void> | null = null;
-let phaseTimer: ReturnType<typeof setTimeout> | null = null;
+let resolveCover: (() => void) | null = null;
 let watchdog: ReturnType<typeof setTimeout> | null = null;
-
-function prefersReducedMotion(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  );
-}
-
-function timings() {
-  return prefersReducedMotion() ? REDUCED_MOTION : MOTION;
-}
+let holdTimer: ReturnType<typeof setTimeout> | null = null;
 
 function clearTimer(timer: ReturnType<typeof setTimeout> | null) {
   if (timer) clearTimeout(timer);
@@ -45,69 +17,83 @@ function clearTimer(timer: ReturnType<typeof setTimeout> | null) {
 }
 
 /**
- * Slides the cover in and resolves once the screen is fully masked.
- * Re-entrant: a navigation fired mid-transition retargets the label
- * and reuses the cover instead of restarting the animation.
+ * Initiates the curtain cover.
+ * Returns a Promise that only resolves once Vue's native <Transition>
+ * has physically finished entering and covering the screen.
  */
 function cover(toPath: string): Promise<void> {
   targetPath.value = toPath;
 
   watchdog = clearTimer(watchdog);
-  watchdog = setTimeout(() => reveal(), WATCHDOG_MS);
+  watchdog = setTimeout(() => {
+    reveal();
+  }, 6000);
 
-  if (phase.value === "covered") return Promise.resolve();
-  if (phase.value === "covering" && coverPromise) return coverPromise;
+  if (phase.value === "covered" && isOpen.value) return Promise.resolve();
 
-  phaseTimer = clearTimer(phaseTimer);
   phase.value = "covering";
+  isOpen.value = true;
 
-  const { cover: coverMs, stagger } = timings();
-  coverPromise = new Promise<void>((resolve) => {
-    phaseTimer = setTimeout(() => {
-      phase.value = "covered";
-      coveredAt = performance.now();
-      coverPromise = null;
-      resolve();
-    }, coverMs + stagger);
+  return new Promise<void>((resolve) => {
+    resolveCover = resolve;
+
+    // Safety timeout: if Vue @after-enter is delayed, force proceed after 700ms
+    setTimeout(() => {
+      if (resolveCover) {
+        onCoverComplete();
+      }
+    }, 700);
   });
+}
 
-  return coverPromise;
+function onCoverComplete() {
+  phase.value = "covered";
+  coveredAt = performance.now();
+  if (resolveCover) {
+    const cb = resolveCover;
+    resolveCover = null;
+    cb();
+  }
 }
 
 /**
- * Lifts the cover once the destination page is rendered.
- * Holds for a minimum time so the route label is actually readable.
+ * Lifts the curtain once the destination route has rendered.
  */
 function reveal() {
-  if (phase.value === "idle" || phase.value === "revealing") return;
+  if (!isOpen.value || phase.value === "revealing") return;
 
   watchdog = clearTimer(watchdog);
 
-  // Navigation failed/aborted before the cover finished: wait for it, then lift.
-  if (phase.value === "covering" && coverPromise) {
-    coverPromise.then(reveal);
+  // If still covering, wait for cover completion before revealing
+  if (phase.value === "covering") {
+    setTimeout(reveal, 80);
     return;
   }
 
-  const { reveal: revealMs, stagger, minHold } = timings();
-  const remainingHold = Math.max(0, minHold - (performance.now() - coveredAt));
+  const isRoot = targetPath.value === "/" || targetPath.value === "";
+  const minHold = isRoot ? 60 : 260; // Minimal hold on root so curtain reveals smoothly
+  const elapsed = performance.now() - coveredAt;
+  const remainingHold = Math.max(0, minHold - elapsed);
 
-  phaseTimer = clearTimer(phaseTimer);
-  phaseTimer = setTimeout(() => {
+  holdTimer = clearTimer(holdTimer);
+  holdTimer = setTimeout(() => {
     phase.value = "revealing";
-    phaseTimer = setTimeout(() => {
-      phase.value = "idle";
-      phaseTimer = null;
-    }, revealMs + stagger);
+    isOpen.value = false; // Triggers Vue's native leave transition
   }, remainingHold);
+}
+
+function onRevealComplete() {
+  phase.value = "idle";
 }
 
 export function usePageTransition() {
   return {
     phase,
+    isOpen,
     targetPath,
     cover,
     reveal,
-    timings,
+    onCoverComplete,
+    onRevealComplete,
   };
 }
