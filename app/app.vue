@@ -43,10 +43,20 @@ useHead({
 
 useSeoMeta({
   title: "Illufox Kusanagi",
-  description: "Arief Satria's Portfolio website",
-  ogTitle: "Illufox Kusanagi",
-  ogDescription: "Arief Satria's Portfolio website",
-  ogImage: "https://ui.nuxt.com/assets/templates/nuxt/starter-light.png",
+  description:
+    "Muhammad Arief Satria Wibawa - Junior Software Engineer & Full-stack Developer Portfolio",
+  ogTitle: "Illufox Kusanagi | Arief Satria",
+  ogDescription:
+    "Creative Developer portfolio featuring 3D WebGL experiences and frontend engineering.",
+  ogImage: "https://ariefsatria.my.id/og-image.png",
+  ogImageType: "image/png",
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogUrl: "https://ariefsatria.my.id",
   twitterCard: "summary_large_image",
+  twitterTitle: "Illufox Kusanagi | Arief Satria",
+  twitterDescription:
+    "Creative Developer portfolio featuring 3D WebGL experiences and frontend engineering.",
+  twitterImage: "https://ariefsatria.my.id/og-image.png",
 });
 </script>

@@ -5,6 +5,14 @@ export interface Certificate {
 }
 
 export const CERTIFICATES: Certificate[] = [
+  {
+    src: "/images/certificates/cert_icast_paper_presenter.png",
+    alt: "ICAST 2026 - Presenter (International Conference on Applied Science and Technology)",
+  },
+  {
+    src: "/images/certificates/cert_icast_paper_author.png",
+    alt: "ICAST 2026 - Author (International Conference on Applied Science and Technology)",
+  },
   { src: "/images/certificates/cert_ic3.png", alt: "IC3 GS6 Level 1" },
   { src: "/images/certificates/cert_sqa.jpg", alt: "BNSP - Software Quality Control Tester" },
   { src: "/images/certificates/cert_ai.jpg", alt: "Dicoding - Basic AI" },
