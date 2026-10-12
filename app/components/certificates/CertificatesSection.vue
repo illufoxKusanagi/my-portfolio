@@ -67,9 +67,8 @@
                   }"
                   :disabled="i === 0"
                   @mousedown.stop
-                  @touchstart.stop.prevent
+                  @touchstart.stop
                   @pointerdown.stop
-                  @touchend.stop.prevent="flipPrev"
                   @click.stop="flipPrev"
                   aria-label="Previous certificate"
                 >
@@ -93,9 +92,8 @@
                   type="button"
                   class="page-view-btn"
                   @mousedown.stop
-                  @touchstart.stop.prevent
+                  @touchstart.stop
                   @pointerdown.stop
-                  @touchend.stop.prevent="openLightbox(i)"
                   @click.stop="openLightbox(i)"
                 >
                   {{ $t("certificates.viewMore") }}
@@ -111,9 +109,8 @@
                   }"
                   :disabled="i === CERTIFICATES.length - 1"
                   @mousedown.stop
-                  @touchstart.stop.prevent
+                  @touchstart.stop
                   @pointerdown.stop
-                  @touchend.stop.prevent="flipNext"
                   @click.stop="flipNext"
                   aria-label="Next certificate"
                 >

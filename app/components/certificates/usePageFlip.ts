@@ -88,7 +88,31 @@ export function usePageFlip(
     const now = Date.now();
     if (!instance || now - lastFlipTimestamp < SPAM_DEBOUNCE_MS) return;
     lastFlipTimestamp = now;
-    instance.flipPrev();
+
+    let prevDisableClick: boolean | undefined;
+    try {
+      const settings =
+        typeof instance.getSettings === "function"
+          ? instance.getSettings()
+          : null;
+      if (settings) {
+        prevDisableClick = settings.disableFlipByClick;
+        settings.disableFlipByClick = false;
+      }
+      instance.flipPrev();
+    } catch {
+      instance.turnToPrevPage?.();
+    } finally {
+      if (prevDisableClick !== undefined) {
+        const settings =
+          typeof instance.getSettings === "function"
+            ? instance.getSettings()
+            : null;
+        if (settings) {
+          settings.disableFlipByClick = prevDisableClick;
+        }
+      }
+    }
   }
 
   function flipNext() {
