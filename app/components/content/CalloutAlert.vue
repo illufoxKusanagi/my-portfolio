@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="my-6 p-4 rounded-xl border flex items-start gap-3.5 backdrop-blur-sm transition-colors"
+    class="callout-alert my-6 p-4 rounded-xl border flex items-start gap-3.5 backdrop-blur-sm transition-colors"
     :class="variantClasses"
   >
     <!-- Icon Indicator -->
@@ -11,7 +11,9 @@
     </div>
 
     <!-- Callout Text Body -->
-    <div class="font-sans text-sm sm:text-base leading-relaxed text-foreground/90 dark:text-white/90">
+    <div
+      class="callout-body font-sans text-sm sm:text-base leading-relaxed text-foreground/90 dark:text-white/90"
+    >
       <slot />
     </div>
   </aside>
@@ -26,7 +28,7 @@ const props = withDefaults(
   }>(),
   {
     type: "info",
-  }
+  },
 );
 
 const variantClasses = computed(() => {
@@ -41,3 +43,9 @@ const variantClasses = computed(() => {
   }
 });
 </script>
+
+<style scoped>
+.callout-body :deep(p:last-child) {
+  margin-bottom: 0;
+}
+</style>

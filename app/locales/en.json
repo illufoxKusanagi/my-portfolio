@@ -37,9 +37,9 @@
   "tech": {
     "title": "TECH-STACK",
     "frameworks": "FRAMEWORKS",
-    "frameworksSub": "Frameworks ever used in projects",
+    "frameworksSub": "Frameworks used in production & personal systems",
     "tools": "TOOLS & WORKFLOW",
-    "toolsSub": "Tools and software used daily",
+    "toolsSub": "Databases, DevOps, and daily engineering tools",
     "languages": "LANGUAGES",
     "languagesSub": "Core programming languages",
     "experienceLabel": "Experience",
@@ -55,157 +55,157 @@
     "items": {
       "react": {
         "title": "React.Js",
-        "description": "Building modern responsive web applications with state management and clean UI engineering.",
+        "description": "Developing component-driven web interfaces, custom hooks, and interactive client-side state flows.",
         "badgeText": "Frontend",
         "sideTag": "Frontend  |  React.Js"
       },
       "qt": {
         "title": "Qt Framework",
-        "description": "Developing high-performance native desktop applications with memory-safe architectures and cross-platform widget toolkits.",
+        "description": "Building native C++ desktop applications with QWidgets, QChart telemetry plotting, and windeployqt packaging.",
         "badgeText": "Desktop",
         "sideTag": "Desktop  |  Qt Framework"
       },
       "next": {
         "title": "Next.Js",
-        "description": "Building full-stack web applications with server-side rendering, file-based routing, API routes, and SEO-optimized static generation.",
+        "description": "Building full-stack web platforms with App Router, server-side rendering, REST API route handlers, and RBAC middleware.",
         "badgeText": "Fullstack",
         "sideTag": "Fullstack  |  Next.Js"
       },
       "vue": {
         "title": "Vue.Js",
-        "description": "Building responsive web applications using Vue 3 Composition API, Pinia, Vue Router, and reactive component architectures.",
+        "description": "Building reactive single-page and hybrid web interfaces using the Vue 3 Composition API, TypeScript, and modular composables.",
         "badgeText": "Frontend",
         "sideTag": "Frontend  |  Vue.Js"
       },
       "nuxt": {
         "title": "Nuxt.Js",
-        "description": "Building SSR and SSG applications with file-based routing and auto-imported composables.",
+        "description": "Structuring SSR and static web applications with Nuxt 4, Nitro server routes, Nuxt Content collections, and auto-imported composables.",
         "badgeText": "Fullstack",
         "sideTag": "Fullstack  |  Nuxt.Js"
       },
       "laravel": {
         "title": "Laravel",
-        "description": "Building scalable server-side applications with Blade templating, Eloquent ORM, and well-structured MVC backend architectures.",
+        "description": "Developing server-side web applications with Eloquent ORM, role-based authentication, Blade templates, and MVC routing.",
         "badgeText": "Backend",
         "sideTag": "Backend  |  Laravel"
       },
       "livewire": {
         "title": "Livewire",
-        "description": "Building modern dynamic, reactive interfaces and real-time frontend components seamlessly in Laravel without leaving PHP.",
+        "description": "Creating reactive, zero-reload Laravel interfaces and stateful server-rendered components in PHP.",
         "badgeText": "Fullstack",
         "sideTag": "Fullstack  |  Livewire"
       },
       "elysia": {
         "title": "Elysia.Js",
-        "description": "Building lightweight, high-throughput REST APIs with end-to-end type safety and schema validation for rapid backend prototyping.",
+        "description": "Writing Bun-native REST APIs with end-to-end TypeScript inference and strict request/response schema validation.",
         "badgeText": "Backend",
         "sideTag": "Backend  |  Elysia.Js"
       },
       "tailwind": {
         "title": "Tailwind CSS",
-        "description": "Designing scalable utility-first design systems and custom design tokens.",
+        "description": "Translating Figma layouts into responsive utility-first CSS systems, custom color palettes, and dark/light theme tokens.",
         "badgeText": "Styling",
         "sideTag": "Styling  |  Tailwind"
       },
       "git": {
         "title": "Git & GitHub",
-        "description": "Managing branches, PR workflows, CI/CD actions, and versioning.",
+        "description": "Managing feature branches, pull request reviews, release tags, and collaborative version control.",
         "badgeText": "Version Control",
         "sideTag": "DevOps  |  Git"
       },
       "figma": {
         "title": "Figma",
-        "description": "Crafting UI/UX mockups, interactive prototypes, and design system tokens.",
+        "description": "Designing component layouts, typography scales, color tokens, and interactive UI prototypes before implementation.",
         "badgeText": "Design",
         "sideTag": "Design  |  Figma"
       },
       "antigravity": {
         "title": "Antigravity",
-        "description": "Leveraging agentic IDE workflows, custom skills, and autonomous pair-programming protocols to rapidly architect, build, and validate production-ready applications.",
+        "description": "Using AI-assisted IDE workflows and structured task specifications to speed up multi-file implementation and debugging.",
         "badgeText": "IDE",
         "sideTag": "IDE  |  Antigravity"
       },
       "docker": {
         "title": "Docker",
-        "description": "Containerizing applications, creating environment-isolated microservices with Docker Compose, and streamlining multi-stage deployment builds.",
+        "description": "Packaging web applications and database services into reproducible multi-stage Docker Compose containers.",
         "badgeText": "Containerization",
         "sideTag": "DevOps  |  Docker"
       },
       "postgresql": {
         "title": "PostgreSQL",
-        "description": "Designing normalized relational schemas, crafting optimized SQL queries, leveraging pgvector embeddings for RAG-powered AI search, and managing index strategies.",
+        "description": "Designing normalized relational schemas, indexing foreign keys, and writing transactional SQL queries.",
         "badgeText": "Database",
         "sideTag": "Database  |  PostgreSQL"
       },
       "mysql": {
         "title": "MySQL",
-        "description": "Architecting relational database schemas, tuning multi-table join performance, and optimizing query execution plans to reduce latency.",
+        "description": "Structuring relational tables, optimizing multi-table joins, and managing schema migrations for web backends.",
         "badgeText": "Database",
         "sideTag": "Database  |  MySQL"
       },
       "drizzle": {
         "title": "Drizzle",
-        "description": "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
+        "description": "Writing type-safe SQL queries in TypeScript and managing schema migrations with Drizzle Kit across PostgreSQL, MySQL, and SQLite.",
         "badgeText": "ORM",
         "sideTag": "ORM  |  Drizzle"
       },
       "opencode": {
         "title": "Open Code",
-        "description": "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
+        "description": "Running terminal-based AI coding assistants for codebase search, boilerplate generation, and refactoring.",
         "badgeText": "AI Coding Agent",
         "sideTag": "AI Coding Agent  |  Open Code"
       },
       "coderabbit": {
         "title": "CodeRabbit",
-        "description": "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
+        "description": "Running automated pull-request diffs and static analysis checks to catch edge cases before merging.",
         "badgeText": "AI Code Review",
         "sideTag": "DevOps  |  CodeRabbit"
       },
       "sentry": {
         "title": "Sentry",
-        "description": "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
+        "description": "Capturing unhandled runtime exceptions, stack traces, and performance regressions in production web apps.",
         "badgeText": "Monitoring",
         "sideTag": "DevOps  |  Sentry"
       },
       "github-actions": {
         "title": "GitHub Actions",
-        "description": "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
+        "description": "Automating CI/CD build pipelines, TypeScript type-checking, and Windows desktop release packaging with windeployqt.",
         "badgeText": "CI/CD & DevOps",
         "sideTag": "DevOps  |  GitHub Actions"
       },
       "shadcn": {
         "title": "Shadcn UI",
-        "description": "Architecting accessible, customizable, and production-grade component systems built on top of Radix primitives and Tailwind CSS.",
+        "description": "Building accessible dialogs, data tables, and form controls on top of Radix UI primitives and Tailwind CSS.",
         "badgeText": "UI System",
         "sideTag": "Design System  |  Shadcn UI"
       },
       "flux": {
         "title": "Flux UI",
-        "description": "Crafting elegant, accessible UI components and design systems built specifically for Laravel Livewire applications.",
+        "description": "Assembling clean, accessible UI components and form layouts tailored for Laravel Livewire applications.",
         "badgeText": "UI System",
         "sideTag": "Design System  |  Flux UI"
       },
       "typescript": {
         "title": "TypeScript",
-        "description": "Writing type-safe, modular, and asynchronous client and server code.",
+        "description": "Writing strictly typed client and server code with interfaces, generics, and Zod/Drizzle schema inference.",
         "badgeText": "Website Dev",
         "sideTag": "Language  |  TypeScript"
       },
       "javascript": {
         "title": "JavaScript",
-        "description": "Crafting dynamic, responsive client-side logic, asynchronous event pipelines, and interactive web experiences.",
+        "description": "Implementing DOM event handling, asynchronous fetch pipelines, and 2D/3D canvas rendering loops.",
         "badgeText": "Website Dev",
         "sideTag": "Language  |  JavaScript"
       },
       "cpp": {
         "title": "C++",
-        "description": "Developing native desktop applications using Qt Framework, managing low-level memory safety, pointers, and object-oriented architectures.",
+        "description": "Developing native desktop software with C++17, Qt 6, OpenCL GPU kernels, and deterministic memory management.",
         "badgeText": "Desktop Dev",
         "sideTag": "Language  |  C++"
       },
       "php": {
         "title": "PHP",
-        "description": "Building robust web application backends and administrative systems leveraging Laravel's MVC ecosystem.",
+        "description": "Building server-side web backends and role-based administrative portals within the Laravel and Livewire ecosystem.",
         "badgeText": "Website",
         "sideTag": "Language  |  PHP"
       }
@@ -225,68 +225,68 @@
     "items": {
       "train-simulation-app": {
         "title": "TRAIN SIMULATION APP",
-        "subtitle": "Simulate Train Details to Observe Various Variables and Optimize Using Fuzzy Logic",
-        "description": "A hybrid desktop simulation and multi-objective optimization platform that executes longitudinal train dynamics—integrating piecewise tractive effort curves, multi-component Davis and track resistances, and multi-stage electrical power flow integration—coupled with a self-calibrating dynamic Mamdani fuzzy inference engine to automatically resolve non-linear parameter trade-offs between operational travel time, peak electrical power demand, and cumulative energy consumption.",
+        "subtitle": "Longitudinal Train Dynamics Simulator & Mamdani Fuzzy Optimizer",
+        "description": "Desktop simulation and multi-objective optimization platform modeling longitudinal train physics—piecewise tractive effort curves, Davis running and track grade resistances, and multi-stage electrical power flow—paired with a self-calibrating Mamdani fuzzy inference engine to balance travel time, peak power demand, and total energy consumption.",
         "demoLabel": "READ THESIS BOOK"
       },
       "horizon-canvas": {
         "title": "HORIZON CANVAS",
-        "subtitle": "Generate your image to forza horizon 6 livery",
-        "description": "A GPU-accelerated desktop utility that translates any raster image into a sequence of geometric primitives and injects the shape coordinates directly into Forza Horizon 6 livery layers. Built with C++ and the Qt Framework, the scoring loop runs on OpenCL compute kernels, evaluating millions of primitive candidates per second for optimal visual fidelity.",
+        "subtitle": "GPU-Accelerated Raster-to-Vector Livery Generator for Forza Horizon",
+        "description": "Desktop utility built in C++ and Qt that decomposes raster images into geometric primitives and injects their coordinates directly into Forza Horizon livery layers. Offloads the pixel-fitness scoring loop to OpenCL GPU compute kernels, evaluating millions of candidate shapes per second.",
         "demoLabel": "DOWNLOAD APP"
       },
       "my-okane": {
         "title": "MY OKANE",
-        "subtitle": "Your personal budget management app",
-        "description": "A comprehensive budget management application for seamless personal finance tracking. Built with Nuxt for SSR performance, Drizzle ORM and SQLite for type-safe data persistence, and Sentry for error monitoring."
+        "subtitle": "Personal Cash-Flow & Budget Ledger",
+        "description": "Personal finance and expense-tracking web application built with Nuxt for server-side rendering, Drizzle ORM and SQLite for type-safe relational persistence, and Sentry for real-time production error telemetry."
       },
       "my-cars": {
         "title": "MY CARS",
-        "subtitle": "Interactive 3D Web Application To Show GT-R Models",
-        "description": "A high-performance 3D automotive showroom specifically for the GT-R family built with Three.js, WebGL, and Vue 3. Features realistic physically-based rendering (PBR) materials, dynamic camera orbit controls, custom factory paint selector, model picker, and environment lighting selector."
+        "subtitle": "Interactive 3D WebGL Nissan GT-R Showroom",
+        "description": "Real-time 3D automotive configurator dedicated to the Nissan GT-R lineage, built with Three.js, WebGL, and React. Implements physically based clearcoat car paint materials, damped camera orbit controls, factory OEM paint presets, and HDR environment lighting."
       },
       "sate-itik": {
         "title": "SATE ITIK",
-        "subtitle": "Sistem Akses Terpadu Infrastruktur Jaringan TIK",
-        "description": "An integrated government network infrastructure monitoring system built with Next.js and MySQL. Includes a real-time internet infrastructure dashboard with Mapbox GL, a comprehensive e-ticketing support system, an activity calendar, server health tracking, and secure role-based access via Next Auth."
+        "subtitle": "Sistem Akses Terpadu Infrastruktur Jaringan TIK — Kominfo Madiun",
+        "description": "Government network infrastructure platform built with Next.js, Drizzle ORM, and MySQL for Dinas Kominfo Kabupaten Madiun. Combines a live Mapbox GL geospatial node map, visual server-rack inventory (Racks A–D), SLA-tracked helpdesk ticketing, and role-based access via Next Auth."
       },
       "my-quran": {
         "title": "MY QURAN",
-        "subtitle": "Your personal Al-Quran app with interactive book-like view",
-        "description": "A full-stack Quran reading application with an interactive page-flip book interface. Features surah navigation, ayah bookmarking, and audio recitation. Built with Vue on the frontend, backed by an Elysia.js API, PostgreSQL, and containerized with Docker for consistent deployments."
+        "subtitle": "Full-Stack Digital Al-Quran Reader with 3D Page-Flip View",
+        "description": "Digital Al-Quran web application featuring an interactive book page-flip interface, surah/juz indexing, ayah bookmarking, and synchronized audio recitation. Powered by a Vue 3 frontend, an Elysia.js + Drizzle ORM backend over PostgreSQL, and Dockerized deployment."
       },
       "my-library": {
         "title": "MY LIBRARY",
-        "subtitle": "Interactive book management app for librarian",
-        "description": "A web-based library management system that eliminates manual logging for librarians. Borrowers can browse available books and submit borrow requests; librarians can accept, reject, or block books through a role-based admin interface. Built with Laravel, MySQL, and containerized with Docker."
+        "subtitle": "Role-Based Library Circulation & Catalog System (Laravel MVC)",
+        "description": "Web-based library circulation platform that replaces manual borrowing logs. Readers can search catalog stock and submit loan requests, while librarians approve, reject, or suspend loans through a role-based admin panel built with Laravel, MySQL, and Docker."
       },
       "my-library-remake": {
         "title": "MY LIBRARY REMAKE",
-        "subtitle": "Interactive book management app for librarian",
-        "description": "A web-based library management system that eliminates manual logging for librarians. Borrowers can browse available books and submit borrow requests; librarians can accept, reject, or block books through a role-based admin interface. Built with Laravel Livewire and Flux UI, PostgreSQL, and containerized with Docker."
+        "subtitle": "Reactive Library Management System in Livewire, Flux UI & PostgreSQL",
+        "description": "Full architectural rebuild of the My Library platform migrating from traditional blade views and MySQL to reactive Laravel Livewire components, Flux UI design primitives, and PostgreSQL—delivering zero-reload catalog filtering and instant loan-state transitions."
       },
       "image-converter": {
         "title": "IMAGE CONVERTER",
-        "subtitle": "Convert any image format to any image format",
-        "description": "A portable offline desktop utility for batch image format conversion and quality reduction. Works like iLoveIMG but runs entirely locally — no uploads, no internet, no installation required. Supports percentage-based quality control and ships as a single portable executable.",
+        "subtitle": "Offline Native C++ / Qt Batch Image Transcoder & Compressor",
+        "description": "Portable offline desktop utility written in C++ and Qt for batch image format conversion and lossy/lossless size reduction. Runs 100% locally without cloud uploads or installer dependencies, supporting configurable quality thresholds in a single standalone executable.",
         "demoLabel": "DOWNLOAD APP"
       },
       "laras": {
         "title": "LARAS",
-        "subtitle": "Your Self-Care App",
-        "description": "Frontend developer on a 8-person team shipping a new feature every month over an 8-month agile cycle, incorporating feedback from underclassmen, seniors, and the program's third-party stakeholder. Published on Google Play and web (laras.agileteknik.com)."
+        "subtitle": "Agile Self-Care & Mental Wellness Companion Platform",
+        "description": "Served as Frontend Developer on an 8-person cross-functional team shipping monthly production releases over an 8-month agile cycle. Built interactive journaling and wellness-tracking flows informed by iterative user testing, published on Google Play and the web."
       },
       "excel-formatter": {
         "title": "EXCEL FORMATTER",
-        "subtitle": "Your excel numbering format is messed up? Use this app to convert it!",
-        "description": "A portable desktop utility that corrects malformed number formatting in Excel spreadsheets — recognizing both dot and comma as decimal separators. Supports batch processing across multiple sheets in a single file via a simple drag-and-drop interface. No installation required; ships as a single executable.",
+        "subtitle": "Portable C++ / Qt Batch Decimal & Locale Normalizer for Excel",
+        "description": "Standalone desktop utility that repairs inconsistent dot/comma decimal separators and corrupted numeric cells across multi-sheet Excel workbooks. Supports drag-and-drop batch processing and ships as a zero-install portable Windows executable.",
         "demoLabel": "DOWNLOAD APP"
       }
     }
   },
   "experience": {
     "title": "EXPERIENCE",
-    "subtitle": "Professional Employment & Real-World Internships",
+    "subtitle": "Professional Employment & Industry Internships",
     "internship": "INTERNSHIP",
     "academic": "ACADEMIC",
     "productLearning": "PRODUCT LEARNING",
@@ -297,12 +297,12 @@
         "period": "Jan 2025 - Jun 2025",
         "type": "INTERNSHIP",
         "bullets": [
-          "Architected a high-performance desktop train simulation application using C++17 and the Qt 6 Framework (QWidgets, QChart, QFile), packaged as a portable Windows-only executable via windeployqt.",
-          "Enforced strict memory safety using a centralized AppContext singleton as the single source of truth for all shared state, eliminating cross-module data races between simulation controllers.",
-          "Structured the codebase into layered handler modules — ElectricalDataHandler, TrainDataHandler, TrackDataHandler, MovingHandler, EnergyHandler, ResistanceHandler, TractiveEffortHandler — each with isolated responsibilities aligned to the physics domain.",
-          "Implemented simulation logic covering tractive effort curves, Davis running resistance, track gradient/curvature, real-time braking calculus, and multi-car mass inertia using custom prefix-notation variable conventions (f_, v_, p_, e_, mass_).",
-          "Delivered real-time charting with QChart, CSV export via QFile, and a login-protected parameter entry UI, packaged as a zero-install portable executable for operator deployment.",
-          "Configured automated GitHub Actions CI/CD pipelines for continuous build validation across MinGW-64 toolchain."
+          "Built a desktop longitudinal train simulation application in C++17 and Qt 6 (QWidgets, QChart, QFile), packaged as a standalone Windows executable via windeployqt.",
+          "Centralized shared simulation state inside a single AppContext singleton to prevent cross-module pointer races across UI and solver threads.",
+          "Split the physics engine into dedicated domain handlers—ElectricalDataHandler, TrainDataHandler, TrackDataHandler, MovingHandler, EnergyHandler, ResistanceHandler, and TractiveEffortHandler.",
+          "Implemented tractive effort curves, Davis running resistance, track grade/curvature forces, braking distances, and multi-car mass inertia using explicit unit-prefixed variables (f_, v_, p_, e_, mass_).",
+          "Added real-time QChart telemetry plotting, QFile CSV data export, and a password-protected parameter configuration screen for engineering operators.",
+          "Set up GitHub Actions CI/CD workflows to compile and verify MinGW-64 release artifacts on every push."
         ]
       },
       "diskominfo": {
@@ -311,13 +311,13 @@
         "period": "Aug 2025 - Dec 2025",
         "type": "INTERNSHIP",
         "bullets": [
-          "Built SATE-ITIK (Sistem Akses Terpadu Infrastruktur Jaringan TIK) — a government-grade web platform for Dinas Kominfo Kabupaten Madiun, centralizing internet infrastructure monitoring, personnel management, server asset tracking, and helpdesk ticketing across all district OPD offices.",
-          "Developed an interactive Mapbox GL JS map dashboard displaying real-time geolocation, ISP provider, connection type, and status (active/inactive/maintenance) for every government network installation point across sub-districts and public facilities.",
-          "Engineered a visual server rack management module with dual-view (rack visualization + data table) supporting per-unit status tracking (online, offline, maintenance, standby), asset numbers, serial numbers, IP addresses, and installed application inventories across racks A–D.",
-          "Implemented a full-cycle helpdesk and e-ticketing system with priority tiers (low/medium/high/urgent), status tracking (open/in-progress/awaiting/resolved/closed), TipTap rich-text threaded replies, file attachments, staff assignment, and first-response/resolution time metrics — integrated with Resend and Nodemailer for email notifications.",
-          "Designed and optimized relational database schemas in MySQL using Drizzle ORM with Drizzle Kit migrations; implemented efficient indexing and structured queries for high-volume government event and infrastructure records.",
-          "Built secure RESTful API endpoints under Next.js App Router, enforcing Zod schema validation and role-based access control (RBAC) with JWT authentication and bcrypt password encryption.",
-          "Delivered an interactive activity calendar with month/week/day/year views, drag-and-drop rescheduling, OPD-categorized color-coded events — containerized the full stack using Docker Compose with multi-stage production builds."
+          "Built SATE-ITIK (Sistem Akses Terpadu Infrastruktur Jaringan TIK), a district-wide web platform for Dinas Kominfo Kabupaten Madiun uniting network node monitoring, staff records, server rack inventory, and helpdesk ticketing across local government agencies (OPD).",
+          "Created an interactive Mapbox GL JS dashboard plotting live coordinates, ISP providers, link types, and operational status (active, inactive, maintenance) for government network installations across sub-districts.",
+          "Developed a dual-view server rack module (visual rack elevation + tabular inventory) tracking unit status, asset tags, serial numbers, IP assignments, and hosted applications across Racks A–D.",
+          "Built an end-to-end helpdesk ticketing workflow with priority levels, SLA response/resolution timers, TipTap rich-text replies, file attachments, and automated email alerts via Resend and Nodemailer.",
+          "Modeled relational MySQL schemas using Drizzle ORM and Drizzle Kit migrations, indexing high-traffic ticket and network-node tables for fast filtering.",
+          "Secured Next.js App Router API endpoints with Zod request validation, JWT session authentication, bcrypt password hashing, and role-based access control (RBAC).",
+          "Added a multi-view OPD activity calendar (month/week/day/year) with drag-and-drop rescheduling, and containerized the application with multi-stage Docker Compose builds."
         ]
       }
     }
@@ -332,9 +332,9 @@
         "period": "Sep 2024 - Present",
         "type": "CAMPUS ORGANIZATION (UKM)",
         "bullets": [
-          "Led the BPM (Badan Perwakilan Majelis) division within UKKI PENS, directing organizational stewardship, policy oversight, and community outreach programs.",
-          "Coordinated public service initiatives and religious social programs serving both campus students and surrounding local communities in Surabaya.",
-          "Facilitated cross-division coordination, event evaluation meetings, and strategic planning across major annual student events."
+          "Lead the BPM (Badan Perwakilan Majelis) division within UKKI PENS, overseeing organizational governance, internal policy review, and student outreach programs.",
+          "Coordinate campus and community social-religious initiatives in Surabaya.",
+          "Run cross-division evaluation meetings and annual program planning across UKKI divisions."
         ]
       },
       "opp-himit-pens": {
@@ -343,9 +343,9 @@
         "period": "2023",
         "type": "STUDENT ASSOCIATION (HIMPUNAN)",
         "bullets": [
-          "Served as Equipment & Logistics committee member for OPP HIMIT (Informatics Student Association Orientation Program) at PENS.",
-          "Managed event hardware, stage setups, technical infrastructure, and logistical operational workflows across orientation sessions.",
-          "Guided freshmen in adapting to the Informatics department culture, code of conduct, academic habits, and campus environment."
+          "Served on the Equipment & Logistics committee for OPP HIMIT, the Informatics Engineering student orientation program at PENS.",
+          "Managed sound systems, stage hardware, and venue logistics across multi-day orientation sessions.",
+          "Mentored incoming Informatics students on department academic workflows and campus culture."
         ]
       },
       "lkmm-pens": {
@@ -354,9 +354,9 @@
         "period": "2022 - 2023",
         "type": "LEADERSHIP TRAINING",
         "bullets": [
-          "Completed Latihan Keterampilan Manajemen Mahasiswa (LKMM PRA-TD & TD) at PENS to cultivate self-management, team leadership, and problem-solving skills.",
-          "Participated in structured workshops on organizational ethics, team dynamics, communication strategies, and project management.",
-          "Applied structured decision-making and project planning frameworks in collaborative student group simulations."
+          "Completed Latihan Keterampilan Manajemen Mahasiswa (LKMM PRA-TD & TD) at PENS, focusing on time management, team coordination, and structured problem solving.",
+          "Trained in organizational administration, meeting facilitation, and conflict resolution.",
+          "Executed group project simulations from proposal drafting through post-event evaluation."
         ]
       }
     }
@@ -372,9 +372,9 @@
   },
   "contact": {
     "title": "INITIATE CONTACT",
-    "subtitle": "Get in touch for collaborations, projects, and opportunities",
-    "pitchTitle": "LET'S BUILD SOMETHING EXTRAORDINARY",
-    "pitchDesc": "Whether you have an ambitious web project, a desktop software challenge, a 3D graphics experience, or an engineering role, my transmission lines are open.",
+    "subtitle": "Open for software engineering roles, technical collaborations, and project inquiries",
+    "pitchTitle": "LET'S BUILD RELIABLE SOFTWARE TOGETHER",
+    "pitchDesc": "Have a full-stack web platform, a native C++/Qt desktop tool, or an interactive 3D WebGL project in mind? Send a message below and I'll get back to you promptly.",
     "responseRate": "TRANSMISSION CHANNELS ACTIVE // FAST RESPONSE",
     "directEmail": "DIRECT EMAIL",
     "findMeOn": "FIND ME ON",
@@ -386,7 +386,7 @@
     "messagePlaceholder": "Describe your project or inquiry...",
     "sendButton": "SEND TRANSMISSION →",
     "sendingButton": "TRANSMITTING...",
-    "successMessage": "Transmission received. I will establish communication shortly."
+    "successMessage": "Transmission received. I will reply to your inquiry shortly."
   },
   "footer": {
     "title": "ARIEF SATRIA // 2026",
@@ -417,13 +417,13 @@
   },
   "about": {
     "title": "MUHAMMAD ARIEF SATRIA WIBAWA",
-    "subtitle": "Engineering Profile • Full-Stack & 3D Interactive Web Developer",
+    "subtitle": "Software Engineer • Full-Stack Web, C++/Qt Desktop & 3D WebGL",
     "directEmail": "Direct Email →",
     "viewProjects": "View Projects Archive",
     "backgroundTitle": "Engineering Background",
-    "bioP1": "I am a software engineer specializing in the intersection of real-time 3D WebGL graphics, C++ desktop simulation systems, and modern full-stack TypeScript architectures.",
-    "bioP2": "My professional journey includes architecting high-performance train simulations at PT INKA using C++ and the Qt Framework, building government network infrastructure monitoring platforms with Next.js and Mapbox GL at Diskominfo, and engineering responsive 3D web applications with Three.js and Nuxt.",
-    "bioP3": "I prioritize clean code, type safety, memory management, and 1:1 design token fidelity to build applications that are as visually stunning as they are technically robust.",
+    "bioP1": "I am an Informatics Engineering student at Politeknik Elektronika Negeri Surabaya (PENS) and a software engineer focused on full-stack TypeScript/PHP web platforms, native C++/Qt desktop utilities, and real-time 3D WebGL interfaces.",
+    "bioP2": "In industry internships, I engineered a C++17 and Qt 6 longitudinal train dynamics simulator at PT INKA (Persero) and built SATE-ITIK, a district-wide network infrastructure and server-rack monitoring platform using Next.js, Drizzle ORM, and Mapbox GL for Dinas Kominfo Kabupaten Madiun.",
+    "bioP3": "Whether writing OpenCL GPU compute kernels, structuring relational schemas in PostgreSQL and MySQL, or translating Figma systems into 60 FPS Three.js and Nuxt interfaces, I focus on maintainable architecture, strict type safety, and measurable runtime performance.",
     "metricProjects": "Shipped Projects",
     "metricFps": "WebGL Frame Target",
     "metricTypesafe": "Type Safety",
@@ -435,10 +435,10 @@
     "focus": "Primary Focus",
     "focusVal": "3D WEB & FULL-STACK",
     "timelineTitle": "CAREER & EXPERIENCE TIMELINE",
-    "timelineSubtitle": "Chronological Employment & Project Engineering History",
+    "timelineSubtitle": "Chronological Industry Internships & Engineering Roles",
     "leadershipTitle": "ORGANIZATIONS & ACTIVITIES",
-    "leadershipSubtitle": "Chronological History of Campus UKM, Student Associations & Leadership Training",
+    "leadershipSubtitle": "Campus UKM, Student Associations & Leadership Training",
     "matrixTitle": "TECHNICAL PROFICIENCY MATRIX",
-    "matrixSubtitle": "Frameworks, Languages, Systems & Tools Breakdown"
+    "matrixSubtitle": "Frameworks, Languages, Desktop Systems & Databases"
   }
 }

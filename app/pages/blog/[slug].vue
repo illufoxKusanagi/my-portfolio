@@ -1,10 +1,12 @@
 <template>
-  <div class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32">
+  <div
+    class="min-h-screen bg-primary-100 dark:bg-primary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
+  >
     <!-- Reading Progress Bar -->
-    <div
+    <!-- <div
       class="fixed top-0 left-0 h-1 bg-primary-700 z-[150] transition-all duration-150"
       :style="{ width: `${readingProgress}%` }"
-    />
+    /> -->
 
     <div v-if="post" class="max-w-4xl mx-auto space-y-8 sm:space-y-10">
       <!-- Back Link -->
@@ -13,7 +15,7 @@
           to="/blog"
           class="inline-flex items-center gap-2 font-tech text-xs text-primary-700 dark:text-primary-400 font-bold uppercase tracking-wider hover:underline"
         >
-          {{ $t('blog.backToArchive') }}
+          {{ $t("blog.backToArchive") }}
         </NuxtLink>
       </div>
 
@@ -21,35 +23,59 @@
       <header class="space-y-4">
         <div class="flex items-start gap-3 sm:gap-4">
           <!-- Vertical Accent Bar -->
-          <div class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1" />
+          <div
+            class="w-2 sm:w-2.5 h-12 sm:h-16 md:h-20 bg-tertiary-700 shrink-0 mt-1"
+          />
 
           <div class="space-y-1">
             <div class="flex flex-wrap items-center gap-2 sm:gap-3">
-              <span class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest">
+              <span
+                class="font-tech text-xs text-tertiary-700 dark:text-tertiary-400 font-extrabold uppercase tracking-widest"
+              >
                 {{ post.category }}
               </span>
-              <span class="text-xs font-tech text-foreground/40 dark:text-white/40">&bull;</span>
-              <span class="text-xs font-tech text-foreground/60 dark:text-white/60">
+              <span
+                class="text-xs font-tech text-foreground/40 dark:text-white/40"
+              >
+                &bull;
+              </span>
+              <span
+                class="text-xs font-tech text-foreground/60 dark:text-white/60"
+              >
                 {{ post.publishedAt }}
               </span>
-              <span class="text-xs font-tech text-foreground/40 dark:text-white/40">&bull;</span>
-              <span class="text-xs font-tech text-foreground/60 dark:text-white/60">
+              <span
+                class="text-xs font-tech text-foreground/40 dark:text-white/40"
+              >
+                &bull;
+              </span>
+              <span
+                class="text-xs font-tech text-foreground/60 dark:text-white/60"
+              >
                 {{ post.readTime }}
               </span>
             </div>
 
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase leading-tight">
+            <h1
+              class="text-2xl sm:text-4xl md:text-5xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase leading-tight"
+            >
               {{ post.title }}
             </h1>
           </div>
         </div>
 
-        <p v-if="post.subtitle" class="font-tech text-sm sm:text-base text-tertiary-700 dark:text-tertiary-400 font-light uppercase tracking-wider">
+        <p
+          v-if="post.subtitle"
+          class="font-tech text-sm sm:text-base text-tertiary-700 dark:text-tertiary-400 font-light uppercase tracking-wider"
+        >
           {{ post.subtitle }}
         </p>
 
         <!-- Tags Bar -->
-        <div v-if="post.tags && post.tags.length" class="flex flex-wrap items-center gap-2 pt-4 border-t border-primary-300 dark:border-primary-800">
+        <div
+          v-if="post.tags && post.tags.length"
+          class="flex flex-wrap items-center gap-2 pt-4 border-t border-primary-300 dark:border-primary-800"
+        >
           <span
             v-for="tag in post.tags"
             :key="tag"
@@ -61,42 +87,60 @@
       </header>
 
       <!-- Article Content Body rendered via Nuxt Content -->
-      <article class="p-8 sm:p-12 rounded-[16px] bg-primary-200/90 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-2xl space-y-6 text-foreground/90 dark:text-white/90 leading-relaxed text-base sm:text-lg prose-cyber">
+      <article
+        class="p-8 sm:p-12 rounded-[16px] bg-primary-200/90 dark:bg-secondary-900 border border-primary-300 dark:border-primary-700 shadow-2xl space-y-6 text-foreground/90 dark:text-white/90 leading-relaxed text-base sm:text-lg prose-cyber"
+      >
         <ContentRenderer :value="post" />
       </article>
 
       <!-- Footer & Navigation Bar -->
-      <footer class="pt-8 border-t border-primary-300 dark:border-primary-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <footer
+        class="pt-8 border-t border-primary-300 dark:border-primary-800 flex flex-col sm:flex-row items-center justify-between gap-6"
+      >
         <NuxtLink
           to="/blog"
           class="px-6 py-3 rounded-[8px] bg-primary-200 dark:bg-secondary-900 border border-primary-400 dark:border-primary-700 font-tech text-xs font-bold uppercase tracking-wider text-foreground dark:text-white hover:bg-primary-700 hover:text-white transition-all shadow-md"
         >
-          {{ $t('blog.backToArchive') }}
+          {{ $t("blog.backToArchive") }}
         </NuxtLink>
 
         <!-- Social Share / Action Buttons -->
         <div class="flex items-center gap-3">
           <button
-            class="px-4 py-2.5 rounded-[8px] border border-primary-300 dark:border-primary-700 bg-primary-100 dark:bg-secondary-950 font-tech text-xs uppercase tracking-wider text-foreground dark:text-white hover:border-primary-600 transition-colors"
+            type="button"
+            class="px-4 py-2.5 rounded-[8px] border border-primary-300 dark:border-primary-700 bg-primary-100 dark:bg-secondary-950 font-tech text-xs uppercase tracking-wider text-foreground dark:text-white hover:border-primary-600 transition-colors cursor-pointer"
             @click="copyArticleLink"
           >
-            {{ copied ? 'LINK COPIED! ✓' : 'SHARE ARTICLE' }}
+            {{ copied ? "LINK COPIED! ✓" : "SHARE ARTICLE" }}
           </button>
         </div>
       </footer>
     </div>
 
     <!-- Article Not Found -->
-    <div v-else class="max-w-2xl mx-auto text-center py-24 space-y-6 bg-primary-200/50 dark:bg-secondary-900/50 p-12 rounded-[16px] border border-dashed border-primary-400 dark:border-primary-700">
-      <h2 class="text-3xl font-sans font-bold uppercase text-foreground dark:text-white">{{ $t('blog.articleNotFound') }}</h2>
-      <p class="font-tech text-sm text-foreground/70 dark:text-white/70 uppercase tracking-wider">
-        The requested case study or technical article does not exist.
+    <div
+      v-else
+      class="max-w-2xl mx-auto text-center py-24 space-y-6 bg-primary-200/50 dark:bg-secondary-900/50 p-12 rounded-[16px] border border-dashed border-primary-400 dark:border-primary-700"
+    >
+      <h2
+        class="text-3xl font-sans font-bold uppercase text-foreground dark:text-white"
+      >
+        {{ $t("blog.articleNotFound") }}
+      </h2>
+      <p
+        class="font-tech text-sm text-foreground/70 dark:text-white/70 uppercase tracking-wider"
+      >
+        {{
+          locale === "id"
+            ? "Studi kasus atau artikel teknis yang diminta tidak ditemukan."
+            : "The requested case study or technical article does not exist."
+        }}
       </p>
       <NuxtLink
         to="/blog"
         class="inline-block px-8 py-3 rounded-[8px] bg-primary-700 text-white font-tech text-xs font-bold uppercase tracking-wider hover:bg-primary-600 transition-colors shadow-lg"
       >
-        {{ $t('blog.backToArchive') }}
+        {{ $t("blog.backToArchive") }}
       </NuxtLink>
     </div>
   </div>
@@ -122,7 +166,6 @@ const { data: post } = await useAsyncData(
         .first();
       if (target) return target;
 
-      // Fallback to opposite locale if article not yet present in active locale
       const fallbackCol = col === "blogId" ? "blogEn" : "blogId";
       const fallbackLocale = col === "blogId" ? "en" : "id";
       return await queryCollection(fallbackCol as any)
@@ -132,34 +175,39 @@ const { data: post } = await useAsyncData(
       return null;
     }
   },
-  { watch: [locale] }
+  { watch: [locale] },
 );
 
-// Set page title & SEO meta dynamically
-if (post.value) {
-  useHead({
-    title: `${post.value.title} // Illufox Kusanagi`,
-    meta: [
-      {
-        name: "description",
-        content: post.value.summary || post.value.subtitle || "",
-      },
-    ],
-  });
-}
+// Reactive page title & SEO meta when switching EN <-> ID
+useHead({
+  title: () =>
+    post.value?.title
+      ? `${post.value.title} // Illufox Kusanagi`
+      : "Article // Illufox Kusanagi",
+  meta: [
+    {
+      name: "description",
+      content: () => post.value?.summary || post.value?.subtitle || "",
+    },
+  ],
+});
 
-// Reading progress calculation
 const readingProgress = ref(0);
 
 const updateReadingProgress = () => {
   if (typeof window === "undefined") return;
-  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const totalHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
   if (totalHeight > 0) {
-    readingProgress.value = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
+    readingProgress.value = Math.min(
+      100,
+      Math.max(0, (window.scrollY / totalHeight) * 100),
+    );
   }
 };
 
 onMounted(() => {
+  updateReadingProgress();
   window.addEventListener("scroll", updateReadingProgress, { passive: true });
 });
 
@@ -167,7 +215,6 @@ onBeforeUnmount(() => {
   window.removeEventListener("scroll", updateReadingProgress);
 });
 
-// Share action
 const copied = ref(false);
 const copyArticleLink = async () => {
   if (typeof window === "undefined") return;
@@ -217,6 +264,78 @@ const copyArticleLink = async () => {
 :deep(p) {
   margin-bottom: 1.25rem;
   line-height: 1.75;
+}
+
+:deep(ul) {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+:deep(ol) {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+:deep(li) {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+:deep(li::marker) {
+  color: var(--color-primary-700);
+}
+
+.dark :deep(li::marker) {
+  color: var(--color-primary-400);
+}
+
+:deep(blockquote) {
+  margin: 1.5rem 0;
+  padding: 0.875rem 1.25rem;
+  border-left: 4px solid var(--color-primary-700);
+  background: rgba(26, 133, 255, 0.08);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.dark :deep(blockquote) {
+  border-left-color: var(--color-primary-400);
+  background: rgba(126, 186, 255, 0.08);
+}
+
+:deep(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+:deep(hr) {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-primary-300);
+}
+
+.dark :deep(hr) {
+  border-top-color: var(--color-primary-800);
+}
+
+:deep(strong) {
+  font-weight: 700;
+  color: var(--color-foreground);
+}
+
+.dark :deep(strong) {
+  color: #ffffff;
+}
+
+:deep(a) {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.dark :deep(a) {
+  color: var(--color-primary-400);
 }
 
 :deep(pre) {

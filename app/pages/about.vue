@@ -2,8 +2,8 @@
   <div
     class="min-h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 font-sans pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-8 md:px-16 lg:px-32"
   >
-    <div class="max-w-6xl mx-auto space-y-10 sm:space-y-16">
-      <!-- Header Block -->
+    <div class="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+      <!-- Header Block (Matching TechSection / ProjectsSection style) -->
       <section>
         <div class="flex items-start gap-3 sm:gap-4 mb-4">
           <!-- Vertical Accent Bar -->
@@ -26,7 +26,7 @@
         </div>
 
         <div
-          class="flex flex-wrap items-center gap-4 pt-4 border-t border-purple-200 dark:border-secondary-800"
+          class="flex flex-wrap items-center gap-4 pt-4 border-t border-purple-200 dark:border-tertiary-800/60"
         >
           <a
             v-if="publicEmail"
@@ -37,7 +37,7 @@
           </a>
           <NuxtLink
             to="/projects"
-            class="px-6 py-2.5 rounded-[8px] border border-purple-400 dark:border-tertiary-600 text-foreground dark:text-white hover:bg-purple-100 dark:hover:bg-tertiary-900/50 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
+            class="px-6 py-2.5 rounded-[8px] border border-purple-400 dark:border-tertiary-600 text-foreground dark:text-white hover:bg-purple-200 dark:hover:bg-tertiary-900/50 font-tech font-semibold text-xs uppercase tracking-wider transition-colors"
           >
             {{ $t("about.viewProjects") }}
           </NuxtLink>
@@ -48,7 +48,7 @@
       <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <!-- Left 2 Cols: Detailed Dossier -->
         <div
-          class="lg:col-span-2 p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl space-y-6"
+          class="lg:col-span-2 p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-2xl space-y-6"
         >
           <div class="flex items-center gap-3">
             <div
@@ -62,7 +62,7 @@
           </div>
 
           <div
-            class="space-y-4 text-foreground/85 dark:text-white/85 text-sm sm:text-base leading-relaxed"
+            class="space-y-4 text-foreground/80 dark:text-white/80 text-sm sm:text-base leading-relaxed font-medium"
           >
             <p>
               {{ $t("about.bioP1") }}
@@ -77,24 +77,24 @@
 
           <!-- Key Metrics -->
           <div
-            class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-purple-200/80 dark:border-secondary-800/80"
+            class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-purple-200 dark:border-secondary-800"
           >
             <div
-              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60"
+              class="p-4 rounded-[12px] bg-purple-100/60 dark:bg-secondary-950/60 border border-purple-200 dark:border-tertiary-800"
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
               >
-                10+
+                11+
               </span>
               <span
-                class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
+                class="font-tech text-xs text-foreground/70 dark:text-white/70 uppercase tracking-wider"
               >
                 {{ $t("about.metricProjects") }}
               </span>
             </div>
             <div
-              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60"
+              class="p-4 rounded-[12px] bg-purple-100/60 dark:bg-secondary-950/60 border border-purple-200 dark:border-tertiary-800"
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
@@ -102,13 +102,13 @@
                 60 FPS
               </span>
               <span
-                class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
+                class="font-tech text-xs text-foreground/70 dark:text-white/70 uppercase tracking-wider"
               >
                 {{ $t("about.metricFps") }}
               </span>
             </div>
             <div
-              class="p-4 rounded-xl bg-purple-100/70 dark:bg-secondary-950/70 border border-purple-200/60 dark:border-secondary-800/60 col-span-2 sm:col-span-1"
+              class="p-4 rounded-[12px] bg-purple-100/60 dark:bg-secondary-950/60 border border-purple-200 dark:border-tertiary-800 col-span-2 sm:col-span-1"
             >
               <span
                 class="font-tech text-2xl sm:text-3xl font-extrabold text-purple-600 dark:text-tertiary-400 block"
@@ -116,7 +116,7 @@
                 100%
               </span>
               <span
-                class="font-tech text-xs text-foreground/60 dark:text-white/60 uppercase tracking-wider"
+                class="font-tech text-xs text-foreground/70 dark:text-white/70 uppercase tracking-wider"
               >
                 {{ $t("about.metricTypesafe") }}
               </span>
@@ -126,7 +126,7 @@
 
         <!-- Right Col: Telemetry Quick Facts -->
         <div
-          class="p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl flex flex-col justify-between"
+          class="p-8 sm:p-10 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-2xl flex flex-col justify-between"
         >
           <div class="space-y-6">
             <div class="flex items-center gap-3">
@@ -142,31 +142,31 @@
 
             <div class="space-y-3 font-tech text-xs">
               <div
-                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
+                class="flex justify-between py-2.5 border-b border-purple-200 dark:border-secondary-800"
               >
-                <span class="text-foreground/60 dark:text-white/60 uppercase">{{
-                  $t("about.location")
-                }}</span>
-                <span class="font-bold text-foreground dark:text-white">{{
-                  $t("about.locationVal")
-                }}</span>
+                <span class="text-foreground/60 dark:text-white/60 uppercase">
+                  {{ $t("about.location") }}
+                </span>
+                <span class="font-bold text-foreground dark:text-white">
+                  {{ $t("about.locationVal") }}
+                </span>
               </div>
               <div
-                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
+                class="flex justify-between py-2.5 border-b border-purple-200 dark:border-secondary-800"
               >
-                <span class="text-foreground/60 dark:text-white/60 uppercase">{{
-                  $t("about.status")
-                }}</span>
-                <span class="font-bold text-emerald-500 uppercase">{{
-                  $t("about.statusVal")
-                }}</span>
+                <span class="text-foreground/60 dark:text-white/60 uppercase">
+                  {{ $t("about.status") }}
+                </span>
+                <span class="font-bold text-emerald-500 uppercase">
+                  {{ $t("about.statusVal") }}
+                </span>
               </div>
               <div
-                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
+                class="flex justify-between py-2.5 border-b border-purple-200 dark:border-secondary-800"
               >
-                <span class="text-foreground/60 dark:text-white/60 uppercase">{{
-                  $t("about.focus")
-                }}</span>
+                <span class="text-foreground/60 dark:text-white/60 uppercase">
+                  {{ $t("about.focus") }}
+                </span>
                 <span
                   class="font-bold text-foreground dark:text-white uppercase"
                 >
@@ -174,10 +174,10 @@
                 </span>
               </div>
               <div
-                class="flex justify-between py-2 border-b border-purple-200/60 dark:border-secondary-800/60"
+                class="flex justify-between py-2.5 border-b border-purple-200 dark:border-secondary-800"
               >
                 <span class="text-foreground/60 dark:text-white/60 uppercase">
-                  LANGUAGES
+                  {{ locale === "id" ? "BAHASA" : "LANGUAGES" }}
                 </span>
                 <span
                   class="font-bold text-foreground dark:text-white uppercase"
@@ -193,7 +193,7 @@
               href="https://github.com/illufoxKusanagi"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-[8px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
+              class="flex-1 py-2.5 px-3 rounded-[6px] border border-purple-300 dark:border-tertiary-700 bg-purple-100 dark:bg-secondary-950 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
             >
               GitHub
             </a>
@@ -201,7 +201,7 @@
               href="https://linkedin.com/in/muhammad-arief-satria-wibawa"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex-1 py-2 px-3 rounded-[8px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
+              class="flex-1 py-2.5 px-3 rounded-[6px] border border-purple-300 dark:border-tertiary-700 bg-purple-100 dark:bg-secondary-950 text-center font-tech text-xs uppercase tracking-wider font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 transition-colors"
             >
               LinkedIn
             </a>
@@ -236,13 +236,13 @@
             class="p-8 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl transition-all duration-300"
           >
             <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200/80 dark:border-secondary-800/80"
+              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200 dark:border-secondary-800"
             >
               <div>
                 <span
                   class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
                 >
-                  0{{ index + 1 }} //
+                  {{ String(index + 1).padStart(2, "0") }} //
                   {{
                     $te(`experience.items.${exp.id}.type`)
                       ? $t(`experience.items.${exp.id}.type`)
@@ -262,7 +262,7 @@
               </div>
 
               <div
-                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
+                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/90 dark:bg-secondary-950/90 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
               >
                 {{
                   $te(`experience.items.${exp.id}.period`)
@@ -276,10 +276,10 @@
               <li
                 v-for="(bullet, bIdx) in getExpBullets(exp)"
                 :key="bIdx"
-                class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-sans"
+                class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-medium"
               >
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-600 shrink-0 mt-2"
+                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-400 shrink-0 mt-2"
                 />
                 <span>{{ bullet }}</span>
               </li>
@@ -323,13 +323,13 @@
             class="p-8 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-xl transition-all duration-300"
           >
             <div
-              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200/80 dark:border-secondary-800/80"
+              class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 pb-4 border-b border-purple-200 dark:border-secondary-800"
             >
               <div>
                 <span
                   class="font-tech text-xs text-purple-600 dark:text-tertiary-400 font-extrabold uppercase tracking-widest block"
                 >
-                  0{{ index + 1 }} //
+                  {{ String(index + 1).padStart(2, "0") }} //
                   {{
                     $te(`leadership.items.${lead.id}.type`)
                       ? $t(`leadership.items.${lead.id}.type`)
@@ -346,10 +346,16 @@
                   }}
                   &bull; {{ lead.organization }}
                 </h3>
+                <p
+                  v-if="lead.location"
+                  class="font-tech text-xs text-purple-700 dark:text-tertiary-400 uppercase tracking-wider mt-0.5"
+                >
+                  {{ lead.location }}
+                </p>
               </div>
 
               <div
-                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/80 dark:bg-secondary-950/80 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
+                class="px-4 py-1.5 rounded-[4px] border border-purple-300 dark:border-tertiary-700 bg-purple-100/90 dark:bg-secondary-950/90 font-tech text-xs font-semibold text-foreground dark:text-white self-start md:self-auto shrink-0"
               >
                 {{
                   $te(`leadership.items.${lead.id}.period`)
@@ -363,10 +369,10 @@
               <li
                 v-for="(bullet, bIdx) in getLeadBullets(lead)"
                 :key="bIdx"
-                class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-sans"
+                class="flex items-start gap-3 text-sm sm:text-base text-foreground/80 dark:text-white/80 leading-relaxed font-medium"
               >
                 <span
-                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-600 shrink-0 mt-2"
+                  class="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-tertiary-400 shrink-0 mt-2"
                 />
                 <span>{{ bullet }}</span>
               </li>
@@ -397,7 +403,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            v-for="group in SKILL_GROUPS"
+            v-for="group in localizedSkillGroups"
             :key="group.title"
             class="p-6 rounded-[16px] bg-purple-50 dark:bg-secondary-900 border border-purple-200 dark:border-tertiary-700 shadow-lg flex flex-col justify-between space-y-4"
           >
@@ -417,7 +423,7 @@
                 <span
                   v-for="skill in group.skills"
                   :key="skill"
-                  class="px-2.5 py-1 rounded-[4px] bg-purple-100 dark:bg-secondary-950 border border-purple-200/80 dark:border-secondary-800/80 text-xs font-tech text-foreground/80 dark:text-white/80"
+                  class="px-2.5 py-1 rounded-[4px] bg-purple-100 dark:bg-secondary-950 border border-purple-200 dark:border-tertiary-800 text-xs font-tech text-foreground/80 dark:text-white/80"
                 >
                   {{ skill }}
                 </span>
@@ -431,6 +437,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import {
   EXPERIENCE_DATA,
@@ -444,7 +451,7 @@ import {
 const config = useRuntimeConfig();
 const publicEmail = config.public.contactEmail as string;
 
-const { t, te } = useI18n();
+const { locale, t, te } = useI18n();
 
 const getExpBullets = (exp: ExperienceItem) => {
   const bullets = exp.bullets || [];
@@ -468,15 +475,15 @@ useHead({
     {
       name: "description",
       content:
-        "Software engineer dossier, career history, technical stack, and engineering philosophy.",
+        "Software engineer dossier, career history, technical stack, and engineering background of Muhammad Arief Satria Wibawa.",
     },
   ],
 });
 
-const SKILL_GROUPS = [
+const localizedSkillGroups = computed(() => [
   {
-    category: "FRONTEND",
-    title: "Web & UI Systems",
+    category: locale.value === "id" ? "FRONTEND" : "FRONTEND",
+    title: locale.value === "id" ? "Sistem Web & Antarmuka" : "Web & UI Systems",
     skills: [
       "Vue 3",
       "Nuxt 4",
@@ -485,30 +492,49 @@ const SKILL_GROUPS = [
       "TypeScript",
       "JavaScript",
       "Tailwind CSS",
+      "Shadcn UI",
+      "Flux UI",
       "GSAP",
     ],
   },
   {
-    category: "GRAPHICS & 3D",
-    title: "Interactive WebGL",
-    skills: ["Three.js", "WebGL", "GLTF / Draco", "GLSL Shaders", "Physics"],
-  },
-  {
-    category: "SYSTEMS",
-    title: "Desktop & C++",
-    skills: ["C++", "Qt Framework", "OpenCL", "Memory Safety"],
-  },
-  {
-    category: "BACKEND & DATA",
-    title: "Services & Databases",
+    category: locale.value === "id" ? "GRAFIKA & 3D" : "GRAPHICS & 3D",
+    title: locale.value === "id" ? "WebGL Interaktif" : "Interactive WebGL",
     skills: [
-      "Node.js",
-      "Drizzle ORM",
-      "SQLite",
-      "MySQL",
-      "Next Auth",
-      "REST APIs",
+      "Three.js",
+      "WebGL",
+      "GLTF / Draco",
+      "PBR Shaders",
+      "Post-Processing",
+      "Mapbox GL",
     ],
   },
-];
+  {
+    category: locale.value === "id" ? "SISTEM & DESKTOP" : "SYSTEMS & DESKTOP",
+    title: locale.value === "id" ? "Aplikasi Native & C++" : "Native & C++",
+    skills: [
+      "C++17",
+      "Qt 6 Framework",
+      "OpenCL",
+      "windeployqt",
+      "GitHub Actions",
+    ],
+  },
+  {
+    category: locale.value === "id" ? "BACKEND & DATA" : "BACKEND & DATA",
+    title:
+      locale.value === "id" ? "Layanan & Basis Data" : "Services & Databases",
+    skills: [
+      "Laravel",
+      "Livewire",
+      "Elysia.js",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "Docker",
+      "Sentry",
+    ],
+  },
+]);
 </script>
