@@ -32,7 +32,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "01 / 09",
         title: "React.Js",
         description:
-          "Building modern responsive web applications with state management and clean UI engineering.",
+          "Developing component-driven web interfaces, custom hooks, and interactive client-side state flows.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Frontend",
@@ -46,7 +46,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "02 / 09",
         title: "Qt Framework",
         description:
-          "Developing high-performance native desktop applications with memory-safe architectures and cross-platform widget toolkits.",
+          "Building native C++ desktop applications with QWidgets, QChart telemetry plotting, and windeployqt packaging.",
         experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "Desktop",
@@ -60,7 +60,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "03 / 09",
         title: "Next.Js",
         description:
-          "Building full-stack web applications with server-side rendering, file-based routing, API routes, and SEO-optimized static generation.",
+          "Building full-stack web platforms with App Router, server-side rendering, REST API route handlers, and RBAC middleware.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Fullstack",
@@ -74,7 +74,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "04 / 09",
         title: "Vue.Js",
         description:
-          "Building responsive web applications using Vue 3 Composition API, Pinia, Vue Router, and reactive component architectures.",
+          "Building reactive single-page and hybrid web interfaces using the Vue 3 Composition API, TypeScript, and modular composables.",
         experienceYears: "1 yr",
         proficiency: "Junior",
         badgeText: "Frontend",
@@ -88,7 +88,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "05 / 09",
         title: "Nuxt.Js",
         description:
-          "Building SSR and SSG applications with file-based routing and auto-imported composables.",
+          "Structuring SSR and static web applications with Nuxt 4, Nitro server routes, Nuxt Content collections, and auto-imported composables.",
         experienceYears: "1 yr",
         proficiency: "Junior",
         badgeText: "Fullstack",
@@ -102,7 +102,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "06 / 09",
         title: "Laravel",
         description:
-          "Building scalable server-side applications with Blade templating, Eloquent ORM, and well-structured MVC backend architectures.",
+          "Developing server-side web applications with Eloquent ORM, role-based authentication, Blade templates, and MVC routing.",
         experienceYears: "1 yr",
         proficiency: "Junior",
         badgeText: "Backend",
@@ -116,7 +116,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "07 / 09",
         title: "Livewire",
         description:
-          "Building modern dynamic, reactive interfaces and real-time frontend components seamlessly in Laravel without leaving PHP.",
+          "Creating reactive, zero-reload Laravel interfaces and stateful server-rendered components in PHP.",
         experienceYears: "1 yr",
         proficiency: "Junior",
         badgeText: "Fullstack",
@@ -130,7 +130,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "08 / 09",
         title: "Elysia.Js",
         description:
-          "Building lightweight, high-throughput REST APIs with end-to-end type safety and schema validation for rapid backend prototyping.",
+          "Writing Bun-native REST APIs with end-to-end TypeScript inference and strict request/response schema validation.",
         experienceYears: "< 1 yr",
         proficiency: "Junior",
         badgeText: "Backend",
@@ -144,7 +144,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "09 / 09",
         title: "Tailwind CSS",
         description:
-          "Designing scalable utility-first design systems and custom design tokens.",
+          "Translating Figma layouts into responsive utility-first CSS systems, custom color palettes, and dark/light theme tokens.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Styling",
@@ -165,7 +165,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "01 / 13",
         title: "Git & GitHub",
         description:
-          "Managing branches, PR workflows, CI/CD actions, and versioning.",
+          "Managing feature branches, pull request reviews, release tags, and collaborative version control.",
         experienceYears: "3 yrs",
         proficiency: "Intermediate",
         badgeText: "Version Control",
@@ -179,7 +179,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "02 / 13",
         title: "Figma",
         description:
-          "Crafting UI/UX mockups, interactive prototypes, and design system tokens.",
+          "Designing component layouts, typography scales, color tokens, and interactive UI prototypes before implementation.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Design",
@@ -193,7 +193,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "03 / 13",
         title: "Antigravity",
         description:
-          "Leveraging agentic IDE workflows, custom skills, and autonomous pair-programming protocols to rapidly architect, build, and validate production-ready applications.",
+          "Using AI-assisted IDE workflows and structured task specifications to speed up multi-file implementation and debugging.",
         experienceYears: "< 1 yr",
         proficiency: "Intermediate",
         badgeText: "IDE",
@@ -207,7 +207,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "04 / 13",
         title: "Docker",
         description:
-          "Containerizing applications, creating environment-isolated microservices with Docker Compose, and streamlining multi-stage deployment builds.",
+          "Packaging web applications and database services into reproducible multi-stage Docker Compose containers.",
         experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "Containerization",
@@ -221,7 +221,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "05 / 13",
         title: "PostgreSQL",
         description:
-          "Designing normalized relational schemas, crafting optimized SQL queries, leveraging pgvector embeddings for RAG-powered AI search, and managing index strategies.",
+          "Designing normalized relational schemas, indexing foreign keys, and writing transactional SQL queries.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Database",
@@ -235,7 +235,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "06 / 13",
         title: "MySQL",
         description:
-          "Architecting relational database schemas, tuning multi-table join performance, and optimizing query execution plans to reduce latency.",
+          "Structuring relational tables, optimizing multi-table joins, and managing schema migrations for web backends.",
         experienceYears: "3 yrs",
         proficiency: "Intermediate",
         badgeText: "Database",
@@ -249,7 +249,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "07 / 13",
         title: "Drizzle",
         description:
-          "Building type-safe database queries, managing declarative schema migrations, and handling relational models seamlessly.",
+          "Writing type-safe SQL queries in TypeScript and managing schema migrations with Drizzle Kit across PostgreSQL, MySQL, and SQLite.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "ORM",
@@ -263,7 +263,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "08 / 13",
         title: "Open Code",
         description:
-          "Utilizing terminal-driven AI coding agents to automate repetitive engineering tasks, streamline multi-file refactoring, and accelerate feature delivery.",
+          "Running terminal-based AI coding assistants for codebase search, boilerplate generation, and refactoring.",
         experienceYears: "< 1 yr",
         proficiency: "Intermediate",
         badgeText: "AI Coding Agent",
@@ -277,9 +277,9 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "09 / 13",
         title: "CodeRabbit",
         description:
-          "Automating comprehensive pull request code reviews, identifying regression risks, and streamlining peer review feedback loops.",
-        experienceYears: "> 1 yr",
-        proficiency: "Beginner",
+          "Running automated pull-request diffs and static analysis checks to catch edge cases before merging.",
+        experienceYears: "< 1 yr",
+        proficiency: "Intermediate",
         badgeText: "AI Code Review",
         sideTag: "DevOps  |  CodeRabbit",
         imageUrl: "/images/tools/coderabbit_tools.png",
@@ -291,8 +291,8 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "10 / 13",
         title: "Sentry",
         description:
-          "Monitoring real-time application errors, tracing performance bottlenecks, and configuring proactive crash reporting in production.",
-        experienceYears: "< 1 yr",
+          "Capturing unhandled runtime exceptions, stack traces, and performance regressions in production web apps.",
+        experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "Monitoring",
         sideTag: "DevOps  |  Sentry",
@@ -305,8 +305,8 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "11 / 13",
         title: "GitHub Actions",
         description:
-          "Architecting automated CI/CD pipelines, multi-platform matrix builds, release packaging with windeployqt, and automated testing workflows.",
-        experienceYears: "> 1 yr",
+          "Automating CI/CD build pipelines, TypeScript type-checking, and Windows desktop release packaging with windeployqt.",
+        experienceYears: "1 yr",
         proficiency: "Beginner",
         badgeText: "CI/CD & DevOps",
         sideTag: "DevOps  |  GitHub Actions",
@@ -319,7 +319,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "12 / 13",
         title: "Shadcn UI",
         description:
-          "Architecting accessible, customizable, and production-grade component systems built on top of Radix primitives and Tailwind CSS.",
+          "Building accessible dialogs, data tables, and form controls on top of Radix UI primitives and Tailwind CSS.",
         experienceYears: "1 yr",
         proficiency: "Intermediate",
         badgeText: "UI System",
@@ -333,9 +333,9 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "13 / 13",
         title: "Flux UI",
         description:
-          "Crafting elegant, accessible UI components and design systems built specifically for Laravel Livewire applications.",
+          "Assembling clean, accessible UI components and form layouts tailored for Laravel Livewire applications.",
         experienceYears: "< 1 yr",
-        proficiency: "Junior",
+        proficiency: "Beginner",
         badgeText: "UI System",
         sideTag: "Design System  |  Flux UI",
         imageUrl: "/images/tools/flux_ui_tools.png",
@@ -354,7 +354,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "01 / 04",
         title: "TypeScript",
         description:
-          "Writing type-safe, modular, and asynchronous client and server code.",
+          "Writing strictly typed client and server code with interfaces, generics, and Zod/Drizzle schema inference.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Website Dev",
@@ -368,7 +368,7 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "02 / 04",
         title: "JavaScript",
         description:
-          "Crafting dynamic, responsive client-side logic, asynchronous event pipelines, and interactive web experiences.",
+          "Implementing DOM event handling, asynchronous fetch pipelines, and 2D/3D canvas rendering loops.",
         experienceYears: "2 yrs",
         proficiency: "Intermediate",
         badgeText: "Website Dev",
@@ -382,11 +382,11 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "03 / 04",
         title: "C++",
         description:
-          "Developing native desktop applications using Qt Framework, managing low-level memory safety, pointers, and object-oriented architectures.",
-        experienceYears: "2 yrs",
-        proficiency: "Intermediate",
+          "Developing native desktop software with C++17, Qt 6, OpenCL GPU kernels, and deterministic memory management.",
+        experienceYears: "1 yr",
+        proficiency: "Beginner",
         badgeText: "Desktop Dev",
-        sideTag: "Desktop Dev  |  C++",
+        sideTag: "Language  |  C++",
         imageUrl: "/images/languages/cpp_language.png",
       },
       {
@@ -396,11 +396,11 @@ export const TECH_CATEGORIES: TechCategoryGroup[] = [
         index: "04 / 04",
         title: "PHP",
         description:
-          "Building robust web application backends and administrative systems leveraging Laravel's MVC ecosystem.",
-        experienceYears: "2 yrs",
-        proficiency: "Intermediate",
+          "Building server-side web backends and role-based administrative portals within the Laravel and Livewire ecosystem.",
+        experienceYears: "1 yr",
+        proficiency: "Beginner",
         badgeText: "Website",
-        sideTag: "Website  |  PHP",
+        sideTag: "Language  |  PHP",
         imageUrl: "/images/languages/php_language.png",
       },
     ],
