@@ -49,13 +49,6 @@
               {{ $t("footer.timezone") }}
             </span>
           </div>
-
-          <!-- Solaris Font Showcase -->
-          <p
-            class="font-solaris text-sm sm:text-base text-primary-700 dark:text-primary-300 tracking-wide pt-1"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
         </div>
 
         <!-- 2. Middle Column: Quick Directory (3 cols) -->
