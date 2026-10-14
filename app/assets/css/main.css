@@ -1,6 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Solaris-3 Script';
+  src: url('/fonts/Solaris-3-Script.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "@nuxt/ui";
 @import "tw-animate-css";
@@ -10,6 +18,7 @@
 @theme static {
   --font-sans: 'Poppins', sans-serif;
   --font-tech: 'Oxanium', monospace;
+  --font-solaris: 'Solaris-3 Script', sans-serif;
 
   /* Primary Palette */
   --color-primary-50: #fbfdff;

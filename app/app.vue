@@ -5,19 +5,23 @@
 
     <!-- Global Scroll Progress Bar -->
     <ScrollProgressBar />
+    <ScrollProgressBar v-if="!isStandalonePage" />
 
     <NavBar />
+    <NavBar v-if="!isStandalonePage" />
     <UMain>
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
     </UMain>
     <AppFooter />
+    <AppFooter v-if="!isStandalonePage" />
   </UApp>
 </template>
 
 <script setup lang="ts">
 import { watch } from "vue";
+import { watch, computed } from "vue";
 import NavBar from "@/components/navbar/NavBar.vue";
 import AppFooter from "@/components/footer/AppFooter.vue";
 import ScrollProgressBar from "@/components/common/ScrollProgressBar.vue";
@@ -25,6 +29,8 @@ import CyberPageTransition from "@/components/common/CyberPageTransition.vue";
 
 const { $lenis } = useNuxtApp();
 const route = useRoute();
+
+const isStandalonePage = computed(() => route.path === "/font-showcase");
 
 watch(
   () => route.path,
