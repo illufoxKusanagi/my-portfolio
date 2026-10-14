@@ -11,14 +11,15 @@ import {
   triggerFallbackTo2D,
 } from "./useThreeLoading";
 
-// Singleton in-memory cache to guarantee the 3D model is downloaded and decoded only once
 let cachedGtrScene: THREE.Group | null = null;
 let loadPromise: Promise<THREE.Group> | null = null;
 
-export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingManager) {
+export function useGtrModel(
+  scene: THREE.Scene,
+  loadingManager?: THREE.LoadingManager,
+) {
   const materials = createGtrR33MaterialDetails();
 
-  // If already loaded and cached in memory, clone and mount immediately with zero network/Draco cost
   if (cachedGtrScene) {
     const instance = cachedGtrScene.clone(true);
     assignGtrMaterials(instance, materials);
@@ -27,7 +28,6 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
     return;
   }
 
-  // If download/decoding is already in flight, await the existing promise
   if (loadPromise) {
     loadPromise.then((loadedModel) => {
       const instance = loadedModel.clone(true);
@@ -48,14 +48,14 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
     gltfLoader.load(
       THREE_SCENE_CONSTANTS.GTR_R33_MODEL_PATH,
       (gltf) => {
-        notifyModelStatus("ATTACHING VEHICLE TELEMETRY");
+        notifyModelStatus("ATTACHING TELEMETRY");
         const loadedModel = gltf.scene;
 
-        // Center model at origin
+        // Ground all 4 tires flush at y = 0 and center X/Z on turntable
         const box = new THREE.Box3().setFromObject(loadedModel);
         const center = new THREE.Vector3();
         box.getCenter(center);
-        loadedModel.position.sub(center);
+        loadedModel.position.set(-center.x, -box.min.y, -center.z);
 
         cachedGtrScene = loadedModel;
 
@@ -63,6 +63,7 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
         assignGtrMaterials(instance, materials);
         scene.add(instance);
         notifyModelMounted();
+        dracoLoader.dispose();
         resolve(loadedModel);
       },
       (event: ProgressEvent) => {
@@ -70,10 +71,11 @@ export function useGtrModel(scene: THREE.Scene, loadingManager?: THREE.LoadingMa
       },
       (err) => {
         loadPromise = null;
+        dracoLoader.dispose();
         console.error("GTR Model loading failed:", err);
         triggerFallbackTo2D("Model download failed");
         reject(err);
-      }
+      },
     );
   });
 }

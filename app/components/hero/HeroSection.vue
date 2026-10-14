@@ -1,6 +1,6 @@
 <template>
   <section
-    class="absolute inset-0 z-10 flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-40 py-8"
+    class="absolute inset-0 z-10 flex flex-col justify-center px-6 sm:px-12 md:px-20 lg:px-40 py-8 pointer-events-none select-none"
   >
     <div class="w-full mx-auto">
       <!-- Left Content Column -->
@@ -20,7 +20,7 @@
 
         <!-- Title -->
         <h1
-          class="font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white transition-colors tracking-tight leading-[1.12]"
+          class="font-sans font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white transition-colors tracking-tight leading-[1.12] drop-shadow-md"
         >
           {{ $t("hero.titleLine1") }}<br />
           {{ $t("hero.titleLine2") }}
@@ -28,16 +28,17 @@
 
         <!-- Subtitle -->
         <p
-          class="font-tech font-normal text-sm sm:text-base md:text-lg lg:text-xl text-foreground/80 dark:text-white/90 transition-colors leading-relaxed"
+          class="font-tech font-normal text-sm sm:text-base md:text-lg lg:text-xl text-white/90 transition-colors leading-relaxed drop-shadow-sm"
         >
           {{ $t("hero.roleLine1") }}<br />
           {{ $t("hero.roleLine2") }}
         </p>
       </div>
     </div>
+
     <!-- Scroll Indicator -->
     <div
-      class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 font-tech font-normal text-xs sm:text-sm md:text-base text-primary-600 dark:text-primary-300 transition-colors pointer-events-auto animate-bounce text-center"
+      class="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 font-tech font-normal text-xs sm:text-sm md:text-base text-primary-300 transition-colors pointer-events-auto animate-bounce text-center"
     >
       <span>{{ $t("hero.scrollExplore") }}</span>
     </div>
@@ -45,5 +46,5 @@
 </template>
 
 <script setup lang="ts">
-import ThreeCanvas from "../three/ThreeCanvas.vue";
+// Frameless Hero overlay over ThreeCanvas / Hero2DCanvas
 </script>

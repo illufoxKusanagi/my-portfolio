@@ -66,11 +66,11 @@
                       i === 0,
                   }"
                   :disabled="i === 0"
+                  aria-label="Previous certificate"
                   @mousedown.stop
                   @touchstart.stop
                   @pointerdown.stop
                   @click.stop="flipPrev"
-                  aria-label="Previous certificate"
                 >
                   <svg
                     class="pointer-events-none"
@@ -108,11 +108,11 @@
                       i === CERTIFICATES.length - 1,
                   }"
                   :disabled="i === CERTIFICATES.length - 1"
+                  aria-label="Next certificate"
                   @mousedown.stop
                   @touchstart.stop
                   @pointerdown.stop
                   @click.stop="flipNext"
-                  aria-label="Next certificate"
                 >
                   <svg
                     class="pointer-events-none"
@@ -135,9 +135,9 @@
       </div>
     </div>
 
-    <!-- Bottom Status Bar -->
+    <!-- Bottom Status Bar (Preserves exact Figma layout while dynamically showing active issuer) -->
     <div
-      class="w-full h-12 sm:h-16 md:h-[80px] bg-primary-200 dark:bg-primary-800 transition-colors duration-500 flex items-center px-4 sm:px-8 md:px-[72px] shrink-0"
+      class="w-full h-12 sm:h-16 md:h-[80px] bg-primary-200 dark:bg-primary-800 transition-colors duration-500 flex items-center justify-between px-4 sm:px-8 md:px-[72px] shrink-0"
     >
       <div class="flex items-center gap-3 sm:gap-6">
         <span
@@ -152,9 +152,15 @@
           class="font-tech text-sm sm:text-lg md:text-[24px] md:leading-[30px] text-foreground dark:text-white font-normal transition-colors"
           style="letter-spacing: -0.0075em"
         >
-          BNSP
+          {{ currentSpreadCert.issuer }}
         </span>
       </div>
+
+      <span
+        class="font-tech text-xs sm:text-sm text-foreground/70 dark:text-white/70 font-semibold tracking-wider"
+      >
+        {{ String(currentPageIndex + 1).padStart(2, "0") }} / {{ String(CERTIFICATES.length).padStart(2, "0") }}
+      </span>
     </div>
 
     <!-- Lightbox Modal -->
@@ -176,15 +182,19 @@ import CertificateLightbox from "./CertificateLightbox.vue";
 const bookEl = ref<HTMLElement | null>(null);
 const bookContainer = ref<HTMLElement | null>(null);
 
-const { flipPrev, flipNext, currentOrientation } = usePageFlip(
-  bookEl,
-  bookContainer,
-);
+const { flipPrev, flipNext, currentOrientation, currentPageIndex } =
+  usePageFlip(bookEl, bookContainer);
+
+const currentSpreadCert = computed(() => {
+  return CERTIFICATES[currentPageIndex.value] || CERTIFICATES[0]!;
+});
 
 const lightboxOpen = ref(false);
 const lightboxIndex = ref(0);
 const activeCert = computed(() => {
-  return CERTIFICATES[lightboxIndex.value] || { src: "", alt: "" };
+  return (
+    CERTIFICATES[lightboxIndex.value] || { src: "", alt: "", issuer: "BNSP" }
+  );
 });
 
 function openLightbox(index: number) {
@@ -211,7 +221,6 @@ function openLightbox(index: number) {
   height: 100%;
 }
 
-/* ── Page styling ── */
 .book-page {
   background: #ffffff;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
@@ -227,7 +236,6 @@ function openLightbox(index: number) {
   z-index: 2;
 }
 
-/* ── Spine shadow (center crease between left and right pages) ── */
 .book-page:nth-child(odd)::after {
   content: "";
   position: absolute;
@@ -277,7 +285,6 @@ function openLightbox(index: number) {
   background-color: #ffffff;
 }
 
-/* ── Page overlay with controls ── */
 .page-overlay {
   position: absolute;
   bottom: 0;
@@ -292,7 +299,6 @@ function openLightbox(index: number) {
   pointer-events: none;
 }
 
-/* ── Landscape mode (2-Page Spread): Strict Left Page vs Right Page layout ── */
 .book-wrapper--landscape .page-overlay--left,
 :deep(.stf__wrapper.--landscape) .page-overlay--left {
   justify-content: flex-start !important;
@@ -317,7 +323,6 @@ function openLightbox(index: number) {
   display: none !important;
 }
 
-/* ── Portrait mode (Single Page): Spread across width ── */
 .book-wrapper--portrait .page-overlay,
 :deep(.stf__wrapper.--portrait) .page-overlay {
   justify-content: space-between !important;

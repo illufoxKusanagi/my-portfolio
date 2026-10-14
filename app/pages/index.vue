@@ -4,6 +4,7 @@
   >
     <!-- Global 3D & Asset Preloader Curtain -->
     <CyberPreloader />
+
     <!-- Layer 3: WebGL 3D Interactive Canvas -->
     <ThreeCanvas :is-active="isCanvasActive" />
 
@@ -13,8 +14,12 @@
     <!-- Layer 2a: 2D Interactive Cyber Constellation Canvas -->
     <Hero2DCanvas :is-active="is2DCanvasActive" />
 
-    <!-- Hero Section (Observed for scroll-freeze viewport optimization) -->
-    <div ref="heroContainer" class="relative w-full h-screen overflow-hidden">
+    <!-- Hero Section (id="hero" for NavSidebar telemetry jump, pointer-events-none so 3D canvas can be dragged) -->
+    <div
+      id="hero"
+      ref="heroContainer"
+      class="relative w-full h-screen overflow-hidden pointer-events-none"
+    >
       <HeroSection />
     </div>
 
@@ -83,7 +88,7 @@ onMounted(() => {
         });
       },
       {
-        threshold: 0.01, // Pause rendering as soon as Hero leaves viewport
+        threshold: 0.01,
       },
     );
 

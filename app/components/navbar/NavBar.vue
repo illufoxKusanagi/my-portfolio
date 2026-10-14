@@ -1,7 +1,15 @@
 <template>
-  <header class="navbar px-3 sm:px-6">
+  <header
+    class="navbar px-3 sm:px-6 transition-colors duration-300"
+    :class="
+      isScrolled
+        ? 'bg-background/75 dark:bg-primary-950/75 backdrop-blur-md'
+        : 'bg-transparent'
+    "
+  >
     <!-- Left: Menu button -->
     <button
+      type="button"
       class="menu-btn"
       aria-label="Open navigation menu"
       :aria-expanded="isMenuOpen"
@@ -9,11 +17,21 @@
     >
       <UIcon
         name="i-lucide-menu"
-        class="w-5 h-5 sm:w-6 sm:h-6 text-foreground dark:text-white transition-colors"
+        class="w-5 h-5 sm:w-6 sm:h-6 transition-colors"
+        :class="
+          isHomeHero
+            ? 'text-white'
+            : 'text-foreground dark:text-white'
+        "
         aria-hidden="true"
       />
       <span
-        class="menu-label hidden sm:inline text-foreground dark:text-white transition-colors"
+        class="menu-label hidden sm:inline transition-colors"
+        :class="
+          isHomeHero
+            ? 'text-white'
+            : 'text-foreground dark:text-white'
+        "
       >
         {{ $t("nav.menu") }}
       </span>
@@ -22,7 +40,12 @@
     <!-- Center: Name (clickable link to home) -->
     <NuxtLink
       to="/"
-      class="nav-name hidden md:block text-foreground dark:text-white transition-colors hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer"
+      class="nav-name hidden md:block transition-colors hover:text-primary-600 dark:hover:text-primary-400 cursor-pointer"
+      :class="
+        isHomeHero
+          ? 'text-white'
+          : 'text-foreground dark:text-white'
+      "
       @click="handleLogoClick"
     >
       Illufox Kusanagi
@@ -41,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 import { UIcon } from "#components";
 import { useRenderMode } from "@/composables/useRenderMode";
@@ -52,16 +75,39 @@ import NavSidebar from "./NavSidebar.vue";
 
 const renderMode = useRenderMode();
 const isMenuOpen = ref(false);
+const isScrolled = ref(false);
 const route = useRoute();
+const { $lenis } = useNuxtApp();
 
 const isHomePage = computed(() => route.path === "/" || route.path === "");
+const isHomeHero = computed(() => isHomePage.value && !isScrolled.value);
 
 function handleLogoClick(e: MouseEvent) {
-  if (route.path === "/" || route.path === "") {
+  if (isHomePage.value) {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if ($lenis) {
+      ($lenis as any).scrollTo(0, { duration: 1.0 });
+    } else if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }
 }
+
+function updateScroll() {
+  if (typeof window === "undefined") return;
+  isScrolled.value = window.scrollY > 48;
+}
+
+onMounted(() => {
+  updateScroll();
+  window.addEventListener("scroll", updateScroll, { passive: true });
+});
+
+onBeforeUnmount(() => {
+  if (typeof window !== "undefined") {
+    window.removeEventListener("scroll", updateScroll);
+  }
+});
 </script>
 
 <style scoped>
@@ -111,22 +157,5 @@ function handleLogoClick(e: MouseEvent) {
 .nav-controls {
   display: flex;
   align-items: center;
-}
-
-.nav-icon-btn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid currentColor;
-  border-radius: 8px;
-  background: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-
-.nav-icon-btn:hover {
-  background: rgba(128, 128, 128, 0.15);
 }
 </style>
