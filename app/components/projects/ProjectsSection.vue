@@ -12,7 +12,7 @@
       <div class="flex flex-col items-center gap-6">
         <!-- Active Project Title (vertical text) -->
         <span
-          class="text-[20px] xl:text-[26px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors tracking-wider"
+          class="text-[20px] xl:text-[26px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors tracking-wider max-h-[260px] truncate"
           style="writing-mode: vertical-rl; transform: rotate(180deg)"
         >
           {{
@@ -52,12 +52,12 @@
       class="flex-1 min-w-0 h-full flex flex-col justify-between pt-16 sm:pt-20 pb-4 sm:pb-8 px-4 sm:px-8 md:px-12 z-10 overflow-hidden"
     >
       <!-- Section Header -->
-      <div class="w-full flex items-center justify-between z-20">
+      <div class="w-full flex flex-col sm:flex-row sm:items-end justify-between gap-3 z-20">
         <div class="flex items-start gap-3 sm:gap-4">
           <!-- Left Purple Accent Bar -->
           <div
             class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-purple-600 dark:bg-tertiary-700 mt-1 shrink-0"
-          ></div>
+          />
 
           <div class="space-y-0.5 sm:space-y-1">
             <h2
@@ -72,6 +72,13 @@
             </p>
           </div>
         </div>
+
+        <NuxtLink
+          to="/projects"
+          class="self-start sm:self-auto px-4 py-2 rounded-[8px] bg-purple-200/80 dark:bg-secondary-900 border border-purple-300 dark:border-tertiary-700 hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 font-tech text-xs font-bold uppercase tracking-wider text-foreground dark:text-white transition-colors shadow-sm"
+        >
+          {{ $t("projects.archiveTitle") }} &rarr;
+        </NuxtLink>
       </div>
 
       <!-- Main Card Viewport with Clip-Path Stencil Wipe -->
@@ -103,11 +110,11 @@
             ref="curtainRef"
             class="absolute inset-0 w-full h-full bg-purple-600 dark:bg-tertiary-700 pointer-events-none z-30 opacity-0"
             style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-          ></div>
+          />
         </div>
       </div>
 
-      <!-- Bottom Pagination Controls (Generic SectionPagination component) -->
+      <!-- Bottom Pagination Controls -->
       <SectionPagination
         :current-index="activeIndex"
         :total-items="PROJECTS_DATA.length"
@@ -142,6 +149,9 @@ const curtainRef = ref<HTMLElement | null>(null);
 const cardRefs = ref<HTMLElement[]>([]);
 const activeIndex = ref(0);
 const isAnimating = ref(false);
+let isProgrammaticScroll = false;
+
+const { $lenis } = useNuxtApp();
 
 const activeProject = computed(() => {
   return PROJECTS_DATA[activeIndex.value] || PROJECTS_DATA[0]!;
@@ -189,17 +199,14 @@ const transitionToCard = (
       ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
       : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)";
 
-  // Set z-index and prepare elements
   gsap.set(nextCard, { zIndex: 25, clipPath: fullPolygon });
   gsap.set(curtain, { zIndex: 30, opacity: 0.9, clipPath: startPolygon });
 
-  // Sweep curtain
   tl.to(curtain, {
     clipPath: fullPolygon,
     duration: 0.35,
     ease: "power3.inOut",
   })
-    // Switch cards
     .call(() => {
       gsap.set(currentCard, {
         zIndex: 10,
@@ -207,13 +214,31 @@ const transitionToCard = (
       });
       gsap.set(nextCard, { zIndex: 20 });
     })
-    // Wipe curtain off
     .to(curtain, {
       clipPath: endPolygon,
       duration: 0.35,
       ease: "power3.inOut",
     })
     .set(curtain, { opacity: 0 });
+};
+
+const syncScrollToIndex = (idx: number) => {
+  if (!scrollTriggerInstance) return;
+  const cards = cardRefs.value;
+  const targetProgress = (idx + 0.5) / cards.length;
+  const start = scrollTriggerInstance.start;
+  const end = scrollTriggerInstance.end;
+  const targetScroll = start + targetProgress * (end - start);
+
+  isProgrammaticScroll = true;
+  if ($lenis) {
+    ($lenis as any).scrollTo(targetScroll, { immediate: true, force: true });
+  } else {
+    scrollTriggerInstance.scroll(targetScroll);
+  }
+  setTimeout(() => {
+    isProgrammaticScroll = false;
+  }, 600);
 };
 
 const goToNext = () => {
@@ -232,19 +257,6 @@ const goToPrev = () => {
   }
 };
 
-// Seek the ScrollTrigger scroll position to match the button-driven card index
-// so onUpdate doesn't contradict and snap back on the next scroll event
-const syncScrollToIndex = (idx: number) => {
-  if (!scrollTriggerInstance) return;
-  const cards = cardRefs.value;
-  // Target progress: midpoint of this card's slot in the scroll budget
-  const targetProgress = (idx + 0.5) / cards.length;
-  const start = scrollTriggerInstance.start;
-  const end = scrollTriggerInstance.end;
-  const targetScroll = start + targetProgress * (end - start);
-  scrollTriggerInstance.scroll(targetScroll);
-};
-
 onMounted(() => {
   if (import.meta.server || !sectionRef.value || cardRefs.value.length === 0)
     return;
@@ -254,19 +266,19 @@ onMounted(() => {
   const section = sectionRef.value;
   const cards = cardRefs.value;
 
-  // Pin section & trigger step transitions on vertical scroll scrub
   scrollTriggerInstance = ScrollTrigger.create({
     trigger: section,
     pin: true,
     start: "top top",
-    end: () => `+=${cards.length * 100}%`,
+    end: () => `+=${cards.length * 65}%`,
     scrub: 1,
     onUpdate: (self) => {
+      if (isProgrammaticScroll || isAnimating.value) return;
       const step = Math.min(
         cards.length - 1,
         Math.floor(self.progress * cards.length),
       );
-      if (step !== activeIndex.value && !isAnimating.value) {
+      if (step !== activeIndex.value) {
         const dir = step > activeIndex.value ? "next" : "prev";
         transitionToCard(step, dir);
       }

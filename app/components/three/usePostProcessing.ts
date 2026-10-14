@@ -14,10 +14,8 @@ export function usePostProcessing(
   width: number,
   height: number,
 ) {
-  // UnsignedByte + no MSAA — the FXAA pass below handles edge smoothing
-  // at a fraction of the cost of 4x hardware MSAA on a HalfFloat target
   const renderTarget = new THREE.WebGLRenderTarget(width, height, {
-    type: THREE.UnsignedByteType,
+    type: THREE.HalfFloatType,
     samples: 0,
   });
 
@@ -25,16 +23,13 @@ export function usePostProcessing(
   composer.addPass(new RenderPass(scene, camera));
 
   const bloomPass = new UnrealBloomPass(
-    new THREE.Vector2(width / 4, height / 4),
+    new THREE.Vector2(Math.floor(width / 2), Math.floor(height / 2)),
     THREE_SCENE_CONSTANTS.BLOOM_STRENGTH,
     THREE_SCENE_CONSTANTS.BLOOM_RADIUS,
     THREE_SCENE_CONSTANTS.BLOOM_THRESHOLD,
   );
   composer.addPass(bloomPass);
 
-  // FXAA — screen-space anti-aliasing shader pass.
-  // Single fullscreen quad, no MSAA memory overhead, resolves jagged edges on
-  // car body lines, wheels, and particle streaks after the bloom pass.
   const fxaaPass = new ShaderPass(FXAAShader);
   const pixelRatio = renderer.getPixelRatio();
   const resUniform = fxaaPass.material.uniforms?.["resolution"];
@@ -48,7 +43,6 @@ export function usePostProcessing(
 
   function resizeComposer(w: number, h: number): void {
     composer.setSize(w, h);
-    // Keep FXAA resolution uniform in sync on window resize
     const pr = renderer.getPixelRatio();
     const ru = fxaaPass.material.uniforms?.["resolution"];
     if (ru?.value) {
@@ -57,13 +51,8 @@ export function usePostProcessing(
     }
   }
 
-  function disposeComposer(): void {
-    composer.dispose();
-  }
-
   return {
     composer,
     resizeComposer,
-    disposeComposer,
   };
 }

@@ -6,7 +6,6 @@ interface LineParticle {
   speed: number;
   width: number;
   length: number;
-  color: THREE.Color;
   noiseOffset: number;
 }
 
@@ -17,7 +16,7 @@ export function useWindTunnelParticles(scene: THREE.Scene) {
   const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
   const particleMaterial = new THREE.MeshBasicMaterial({
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.6,
     blending: THREE.AdditiveBlending,
     depthWrite: false,
   });
@@ -25,68 +24,76 @@ export function useWindTunnelParticles(scene: THREE.Scene) {
   const instancedMesh = new THREE.InstancedMesh(
     boxGeometry,
     particleMaterial,
-    PARTICLE_COUNT
+    PARTICLE_COUNT,
   );
+  instancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
 
   const colors = PARTICLE_COLORS.map((hex) => new THREE.Color(hex));
   const particlesData: LineParticle[] = [];
+  const tempObject = new THREE.Object3D();
 
   for (let i = 0; i < PARTICLE_COUNT; i++) {
-    const x = (Math.random() - 0.5) * 4.0;
-    const y = Math.random() * 2.5;
-    const z = (Math.random() - 0.5) * 12;
+    const x = (Math.random() - 0.5) * 4.2;
+    const y = 0.05 + Math.random() * 2.2;
+    const z = (Math.random() - 0.5) * 14;
+    const width = 0.012 + Math.random() * 0.015;
+    const length = 0.8 + Math.random() * 1.5;
+    const color = colors[i % colors.length]!;
 
     particlesData.push({
       pos: new THREE.Vector3(x, y, z),
-      speed: PARTICLE_BASE_SPEED * (0.8 + Math.random() * 0.4),
-      width: 0.012 + Math.random() * 0.015,
-      length: 0.8 + Math.random() * 1.5,
-      color: colors[Math.floor(Math.random() * colors.length)]!,
+      speed: PARTICLE_BASE_SPEED * (0.8 + Math.random() * 0.5),
+      width,
+      length,
       noiseOffset: Math.random() * 100,
     });
+
+    tempObject.position.set(x, y, z);
+    tempObject.scale.set(width, width, length);
+    tempObject.updateMatrix();
+    instancedMesh.setMatrixAt(i, tempObject.matrix);
+    instancedMesh.setColorAt(i, color);
+  }
+
+  instancedMesh.instanceMatrix.needsUpdate = true;
+  if (instancedMesh.instanceColor) {
+    instancedMesh.instanceColor.needsUpdate = true;
   }
 
   scene.add(instancedMesh);
 
-  const tempObject = new THREE.Object3D();
+  function updateParticles(
+    time: number,
+    delta: number = 0.016,
+    speedMultiplier: number = 1.0,
+  ): void {
+    const frameScale = Math.min(delta, 0.1) * 60;
 
-  function updateParticles(time: number, speedMultiplier: number = 1.0): void {
-    particlesData.forEach((p, i) => {
-      p.pos.z -= p.speed * speedMultiplier;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const p = particlesData[i]!;
+      p.pos.z -= p.speed * speedMultiplier * frameScale;
 
-      // Reset particle position
       if (p.pos.z < -7) {
         p.pos.z = 7;
-        p.pos.x = (Math.random() - 0.5) * 4.0;
-        p.pos.y = Math.random() * 2.5;
+        p.pos.x = (Math.random() - 0.5) * 4.2;
+        p.pos.y = 0.05 + Math.random() * 2.2;
       }
 
       deflectAroundCarBody(p);
 
-      const waveX = Math.sin(time * 4 + p.noiseOffset) * 0.01;
+      const waveX = Math.sin(time * 4 + p.noiseOffset) * 0.015;
       tempObject.position.set(p.pos.x + waveX, p.pos.y, p.pos.z);
       tempObject.scale.set(p.width, p.width, p.length);
       tempObject.updateMatrix();
 
       instancedMesh.setMatrixAt(i, tempObject.matrix);
-      instancedMesh.setColorAt(i, p.color);
-    });
+    }
 
     instancedMesh.instanceMatrix.needsUpdate = true;
-    if (instancedMesh.instanceColor) {
-      instancedMesh.instanceColor.needsUpdate = true;
-    }
-  }
-
-  function disposeParticles(): void {
-    boxGeometry.dispose();
-    particleMaterial.dispose();
-    scene.remove(instancedMesh);
   }
 
   return {
     updateParticles,
-    disposeParticles,
   };
 }
 
@@ -94,30 +101,22 @@ function deflectAroundCarBody(p: LineParticle): void {
   const absX = Math.abs(p.pos.x);
   const z = p.pos.z;
 
-  if (z <= -2.2 || z >= 2.2) return;
+  if (z <= -2.3 || z >= 2.3) return;
 
-  // Hood deflection
-  if (z > 1.2 && z < 2.0 && p.pos.y < 0.65 && absX < 1.0) {
-    p.pos.y += (0.65 - p.pos.y) * 0.15;
-  }
-  // Windshield deflection
-  else if (z > 0.4 && z <= 1.2 && absX < 0.9) {
-    const targetY = 0.65 + (1.2 - z) * 0.7;
-    if (p.pos.y < targetY) p.pos.y += (targetY - p.pos.y) * 0.15;
-  }
-  // Roof deflection
-  else if (z > -0.8 && z <= 0.4 && p.pos.y < 1.35 && absX < 0.85) {
-    p.pos.y += (1.35 - p.pos.y) * 0.15;
-  }
-  // Spoiler/Rear Window deflection
-  else if (z > -1.8 && z <= -0.8 && absX < 0.9) {
-    const targetY = 1.35 - (z + 0.8) * 0.4;
-    if (p.pos.y < targetY) p.pos.y += (targetY - p.pos.y) * 0.15;
+  if (z > 1.2 && z < 2.1 && p.pos.y < 0.7 && absX < 1.0) {
+    p.pos.y += (0.7 - p.pos.y) * 0.16;
+  } else if (z > 0.4 && z <= 1.2 && absX < 0.92) {
+    const targetY = 0.7 + (1.2 - z) * 0.75;
+    if (p.pos.y < targetY) p.pos.y += (targetY - p.pos.y) * 0.16;
+  } else if (z > -0.8 && z <= 0.4 && p.pos.y < 1.4 && absX < 0.88) {
+    p.pos.y += (1.4 - p.pos.y) * 0.16;
+  } else if (z > -1.9 && z <= -0.8 && absX < 0.92) {
+    const targetY = 1.4 - (z + 0.8) * 0.35;
+    if (p.pos.y < targetY) p.pos.y += (targetY - p.pos.y) * 0.16;
   }
 
-  // Side body deflection
-  if (absX < 1.15 && p.pos.y < 1.3) {
-    const force = (1.15 - absX) * 0.15;
+  if (absX < 1.12 && p.pos.y < 1.3) {
+    const force = (1.12 - absX) * 0.15;
     p.pos.x += p.pos.x >= 0 ? force : -force;
   }
 }

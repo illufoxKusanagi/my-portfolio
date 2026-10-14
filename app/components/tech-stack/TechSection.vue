@@ -57,16 +57,16 @@
           <TechCard :item="item" />
         </div>
 
-        <!-- High-Contrast Accent Color Wipe Curtain (Endfield Yellow / Primary Accent Wipe) -->
+        <!-- High-Contrast Accent Color Wipe Curtain -->
         <div
           ref="curtainRef"
           class="absolute inset-0 w-full h-full bg-primary-700 pointer-events-none z-30 opacity-0"
           style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-        ></div>
+        />
       </div>
     </div>
 
-    <!-- Bottom Pagination Controls (Generic SectionPagination component) -->
+    <!-- Bottom Pagination Controls -->
     <SectionPagination
       :current-index="activeIndex"
       :total-items="category.items.length"
@@ -108,6 +108,9 @@ const curtainRef = ref<HTMLElement | null>(null);
 const cardRefs = ref<HTMLElement[]>([]);
 const activeIndex = ref(0);
 const isAnimating = ref(false);
+let isProgrammaticScroll = false;
+
+const { $lenis } = useNuxtApp();
 
 const setCardRef = (
   el: Element | null | ComponentPublicInstance,
@@ -120,7 +123,6 @@ const setCardRef = (
 
 let scrollTriggerInstance: ScrollTrigger | null = null;
 
-// Execute Endfield Stencil Clip-Path Wipe Transition (Card A -> Curtain Wipe -> Card B)
 const transitionToCard = (
   nextIdx: number,
   direction: "next" | "prev" = "next",
@@ -152,17 +154,14 @@ const transitionToCard = (
       ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
       : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)";
 
-  // Step 1: Set z-index for incoming card & show curtain
   gsap.set(nextCard, { zIndex: 25, clipPath: fullPolygon });
   gsap.set(curtain, { zIndex: 30, opacity: 0.9, clipPath: startPolygon });
 
-  // Step 2: Sweep accent curtain across screen
   tl.to(curtain, {
     clipPath: fullPolygon,
     duration: 0.35,
     ease: "power3.inOut",
   })
-    // Step 3: Switch underlying card display while curtain covers viewport
     .call(() => {
       gsap.set(currentCard, {
         zIndex: 10,
@@ -170,13 +169,31 @@ const transitionToCard = (
       });
       gsap.set(nextCard, { zIndex: 20 });
     })
-    // Step 4: Wipe curtain off to reveal new card content underneath
     .to(curtain, {
       clipPath: endPolygon,
       duration: 0.35,
       ease: "power3.inOut",
     })
     .set(curtain, { opacity: 0 });
+};
+
+const syncScrollToIndex = (idx: number) => {
+  if (!scrollTriggerInstance) return;
+  const cards = cardRefs.value;
+  const targetProgress = (idx + 0.5) / cards.length;
+  const start = scrollTriggerInstance.start;
+  const end = scrollTriggerInstance.end;
+  const targetScroll = start + targetProgress * (end - start);
+
+  isProgrammaticScroll = true;
+  if ($lenis) {
+    ($lenis as any).scrollTo(targetScroll, { immediate: true, force: true });
+  } else {
+    scrollTriggerInstance.scroll(targetScroll);
+  }
+  setTimeout(() => {
+    isProgrammaticScroll = false;
+  }, 600);
 };
 
 const goToNext = () => {
@@ -195,18 +212,6 @@ const goToPrev = () => {
   }
 };
 
-// Seek the ScrollTrigger scroll position to match the button-driven card index
-// so onUpdate doesn't contradict and snap back on the next scroll event
-const syncScrollToIndex = (idx: number) => {
-  if (!scrollTriggerInstance) return;
-  const cards = cardRefs.value;
-  const targetProgress = (idx + 0.5) / cards.length;
-  const start = scrollTriggerInstance.start;
-  const end = scrollTriggerInstance.end;
-  const targetScroll = start + targetProgress * (end - start);
-  scrollTriggerInstance.scroll(targetScroll);
-};
-
 onMounted(() => {
   if (import.meta.server || !sectionRef.value || cardRefs.value.length === 0)
     return;
@@ -216,19 +221,19 @@ onMounted(() => {
   const section = sectionRef.value;
   const cards = cardRefs.value;
 
-  // Pin section & trigger step transitions on vertical scroll scrub
   scrollTriggerInstance = ScrollTrigger.create({
     trigger: section,
     pin: true,
     start: "top top",
-    end: () => `+=${cards.length * 100}%`,
+    end: () => `+=${cards.length * 65}%`,
     scrub: 1,
     onUpdate: (self) => {
+      if (isProgrammaticScroll || isAnimating.value) return;
       const step = Math.min(
         cards.length - 1,
         Math.floor(self.progress * cards.length),
       );
-      if (step !== activeIndex.value && !isAnimating.value) {
+      if (step !== activeIndex.value) {
         const dir = step > activeIndex.value ? "next" : "prev";
         transitionToCard(step, dir);
       }

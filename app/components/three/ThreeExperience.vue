@@ -26,20 +26,21 @@ const props = withDefaults(
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const { loadingManager } = useThreeLoading();
 
-let animFrameId: number;
+let animFrameId: number = 0;
 let handleResize: (() => void) | null = null;
 
 onMounted(() => {
   if (!canvasRef.value) return;
 
-  const { scene, camera, renderer, controls, stats, width, height } =
-    useThreeEngine(canvasRef.value);
+  const { scene, camera, renderer, controls, width, height } = useThreeEngine(
+    canvasRef.value,
+  );
 
-  useThreeEnvironment(scene, loadingManager);
+  useThreeEnvironment(scene, renderer);
   useGtrModel(scene, loadingManager);
 
-  const { updateParticles, disposeParticles } = useWindTunnelParticles(scene);
-  const { composer, resizeComposer, disposeComposer } = usePostProcessing(
+  const { updateParticles } = useWindTunnelParticles(scene);
+  const { composer, resizeComposer } = usePostProcessing(
     renderer,
     scene,
     camera,
@@ -55,22 +56,14 @@ onMounted(() => {
     renderer.setSize(w, h);
     resizeComposer(w, h);
   };
-  window.addEventListener("resize", handleResize);
+  window.addEventListener("resize", handleResize, { passive: true });
 
   const nuxtApp = useNuxtApp();
   const clock = new THREE.Clock();
 
-  // Hide the Stats.js overlay outside of development
-  // if (import.meta.env.MODE !== "development") {
-  //   stats.dom.style.display = "none";
-  // }
-  stats.dom.style.display = "none";
-
-
   const tick = () => {
-    // stats.begin();
-    // getDelta() must be called BEFORE getElapsedTime() — each call advances the clock;
-    // wrong order causes delta=0 on every frame which breaks particle speed
+    if (!props.isActive) return;
+
     const delta = clock.getDelta();
     const time = clock.getElapsedTime();
 
@@ -79,21 +72,19 @@ onMounted(() => {
     const speedMult = 1.0 + Math.min(scrollVelocity * 0.05, 3.0);
 
     controls.update();
-    updateParticles(time, speedMult);
+    updateParticles(time, delta, speedMult);
     composer.render(delta);
-    // stats.end();
 
-    if (props.isActive) {
-      animFrameId = requestAnimationFrame(tick);
-    }
+    animFrameId = requestAnimationFrame(tick);
   };
 
   watch(
     () => props.isActive,
     (active) => {
       if (active) {
-        clock.start();
-        tick();
+        clock.getDelta();
+        cancelAnimationFrame(animFrameId);
+        animFrameId = requestAnimationFrame(tick);
       } else {
         cancelAnimationFrame(animFrameId);
       }
@@ -101,21 +92,13 @@ onMounted(() => {
   );
 
   if (props.isActive) {
-    tick();
+    animFrameId = requestAnimationFrame(tick);
   }
 
   onBeforeUnmount(() => {
     cancelAnimationFrame(animFrameId);
     if (handleResize) window.removeEventListener("resize", handleResize);
     controls.dispose();
-    stats.dom.remove();
-    disposeParticles();
-    disposeComposer();
-
-    scene.traverse((obj) => {
-      if (obj instanceof THREE.Mesh) obj.geometry?.dispose();
-    });
-
     renderer.dispose();
   });
 });
@@ -132,5 +115,10 @@ onMounted(() => {
   height: 100%;
   display: block;
   pointer-events: auto;
+  cursor: grab;
+}
+
+.webgl-canvas:active {
+  cursor: grabbing;
 }
 </style>

@@ -6,20 +6,20 @@ export const THREE_SCENE_CONSTANTS = {
     "https://raw.githubusercontent.com/pmndrs/drei-assets/master/hdri/venice_sunset_1k.hdr",
 
   // Camera & Scene
-  CAMERA_FOV: 45,
+  CAMERA_FOV: 40,
   CAMERA_NEAR: 0.1,
   CAMERA_FAR: 100,
-  INITIAL_CAMERA_POSITION: [5.0, 1.2, 5.5] as const,
-  LOOK_AT_TARGET: [0.0, 0.2, 0.0] as const,
-  FOG_COLOR: 0x08090c,
+  INITIAL_CAMERA_POSITION: [4.2, 1.35, 4.8] as const,
+  LOOK_AT_TARGET: [0, 0.45, 0] as const,
+  FOG_COLOR: 0x050033,
 
-  // Post-Processing
-  BLOOM_STRENGTH: 0.01,
-  BLOOM_RADIUS: 1.0,
-  BLOOM_THRESHOLD: 0.95,
+  // Post-Processing (Calibrated for HalfFloat HDR Target)
+  BLOOM_STRENGTH: 0.32,
+  BLOOM_RADIUS: 0.65,
+  BLOOM_THRESHOLD: 0.85,
 
   // Aerodynamic Particles
-  PARTICLE_COUNT: 100,
-  PARTICLE_BASE_SPEED: 0.2,
-  PARTICLE_COLORS: ["#3b82f6", "#6366f1", "#06b6d4", "#ffffff"] as const,
+  PARTICLE_COUNT: 150,
+  PARTICLE_BASE_SPEED: 0.16,
+  PARTICLE_COLORS: ["#47b3ff", "#7ebaff", "#cb51fb", "#ffffff"] as const,
 } as const;

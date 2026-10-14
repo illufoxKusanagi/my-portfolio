@@ -1,7 +1,7 @@
 <template>
   <section
-    ref="sectionRef"
     id="contact"
+    ref="sectionRef"
     class="relative w-full min-h-screen bg-purple-100 dark:bg-purple-800 transition-colors duration-500 font-sans flex items-center justify-center pt-20 sm:pt-24 pb-12 sm:pb-20 px-4 sm:px-8 md:px-12 lg:px-24"
   >
     <!-- Optional Background Glow -->
@@ -53,12 +53,16 @@
         </div>
 
         <!-- Telemetry & Response Guarantee -->
-        <!-- <div class="flex items-center gap-3 pt-2">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[6px] bg-purple-200/90 dark:bg-purple-700/80 border border-primary-400 dark:border-primary-600 text-xs font-tech text-foreground dark:text-white">
+        <div class="flex items-center gap-3 pt-2">
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[6px] bg-purple-200/90 dark:bg-purple-700/80 border border-primary-400 dark:border-primary-600 text-xs font-tech text-foreground dark:text-white"
+          >
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span class="font-semibold tracking-wider uppercase">{{ $t('contact.responseRate') }}</span>
+            <span class="font-semibold tracking-wider uppercase">
+              {{ $t("contact.responseRate") }}
+            </span>
           </div>
-        </div> -->
+        </div>
       </div>
 
       <!-- Right Column: Form -->
@@ -74,7 +78,7 @@
         <h3
           class="text-2xl font-bold text-foreground dark:text-white transition-colors mb-8"
         >
-          {{ $t("contact.title") }}
+          {{ $t("contact.sendButton") }}
         </h3>
         <ContactForm />
       </div>
