@@ -3,538 +3,347 @@
     class="hidden md:block relative w-full h-full overflow-hidden bg-purple-100 dark:bg-secondary-950 transition-colors duration-500"
   >
     <!-- =================================================================== -->
-    <!-- VIEWPORT-ADAPTIVE 900px-HEIGHT STAGE                                -->
-    <!-- Scales by (viewportHeight / 900) and adapts width to exact aspect   -->
-    <!-- ratio so nothing is ever clipped on browser windows or 2K/4K/UW!    -->
+    <!-- VIEWPORT-ADAPTIVE 900px-HEIGHT FLEX STAGE                           -->
+    <!-- Uses pure Flexbox centering (`flex items-center`) so the Left Hub   -->
+    <!-- and 2x Preview Image are always vertically centered without any     -->
+    <!-- arbitrary top/bottom offsets.                                       -->
     <!-- =================================================================== -->
     <div
-      class="absolute left-0 top-0 h-[900px] origin-top-left overflow-hidden"
+      class="absolute left-0 top-0 h-[900px] origin-top-left overflow-hidden flex items-center"
       :style="{
         width: `${stageWidth}px`,
         transform: `scale(${stageScale})`,
       }"
     >
       <!-- ================================================================= -->
-      <!-- ZONE 1: CLEAN 3-LAYER ENDFIELD BACKGROUND & ROTATING POLAR WHEEL  -->
-      <!-- All circles & wheel SVG share the exact Hub Pivot (215, 605)      -->
+      <!-- LAYER 1 (z-10): CONCENTRIC POLAR FAN & -14deg PROJECT SPINE       -->
+      <!-- Shares the exact same Flex Column + 640x640px Hub box as Layer 2  -->
+      <!-- so the Polar Fan and Spine Pivot are 100% concentric with the     -->
+      <!-- 576x576px Preview Image by pure Flexbox layout.                   -->
       <!-- ================================================================= -->
-      <div class="absolute inset-0 z-0 pointer-events-none">
-        <!-- 1A. Outer Rim Circle Centered at (215, 605) -->
+      <div class="absolute inset-0 flex items-center pointer-events-none z-10">
         <div
-          class="absolute left-[215px] top-[605px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-300/60 dark:bg-secondary-900 border-2 border-purple-500/40 dark:border-tertiary-400/35 transition-colors duration-500"
-          :style="{
-            width: `${fanDiameter + 360}px`,
-            height: `${fanDiameter + 360}px`,
-          }"
-        />
-
-        <!-- 1B. Main Royal-Blue Polar Fan Circle Centered at (215, 605) -->
-        <div
-          class="absolute left-[215px] top-[605px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-200 dark:bg-secondary-700 border-2 border-purple-500/50 dark:border-tertiary-400/50 transition-colors duration-500"
-          :style="{
-            width: `${fanDiameter}px`,
-            height: `${fanDiameter}px`,
-          }"
-        />
-
-        <!-- 1C. Continuous Scroll-Driven Rotating Polar Wheel SVG at (215, 605) -->
-        <svg
-          viewBox="-1400 -1400 2800 2800"
-          class="absolute left-[215px] top-[605px] w-[2800px] h-[2800px] -translate-x-1/2 -translate-y-1/2 overflow-visible"
-        >
-          <!-- Primary Rotating Wheel Spokes & Segmented Caliper Rings -->
-          <g :transform="`rotate(${wheelAngle})`">
-            <!-- 24 Radial Wheel Spokes (every 15deg) that visibly sweep on scroll -->
-            <g
-              class="stroke-purple-600/25 dark:stroke-tertiary-400/25"
-              stroke-width="1.25"
-            >
-              <line
-                v-for="n in 24"
-                :key="'wheel-spoke-' + n"
-                x1="210"
-                y1="0"
-                x2="1320"
-                y2="0"
-                :transform="`rotate(${(n - 1) * 15})`"
-              />
-            </g>
-
-            <!-- 5 Segmented Mechanical Wheel Rings -->
-            <circle
-              cx="0"
-              cy="0"
-              r="340"
-              fill="none"
-              class="stroke-purple-600/45 dark:stroke-tertiary-400/45"
-              stroke-width="2"
-              stroke-dasharray="48 18 12 18"
-            />
-            <circle
-              cx="0"
-              cy="0"
-              r="520"
-              fill="none"
-              class="stroke-purple-600/35 dark:stroke-tertiary-400/35"
-              stroke-width="1.6"
-              stroke-dasharray="90 30 20 30"
-            />
-            <circle
-              cx="0"
-              cy="0"
-              r="740"
-              fill="none"
-              class="stroke-purple-600/30 dark:stroke-tertiary-400/30"
-              stroke-width="1.6"
-              stroke-dasharray="120 40 24 40"
-            />
-            <circle
-              cx="0"
-              cy="0"
-              r="980"
-              fill="none"
-              class="stroke-purple-600/30 dark:stroke-tertiary-400/30"
-              stroke-width="1.8"
-              stroke-dasharray="160 50 30 50"
-            />
-            <circle
-              cx="0"
-              cy="0"
-              r="1210"
-              fill="none"
-              class="stroke-purple-700/45 dark:stroke-tertiary-300/45"
-              stroke-width="2.4"
-              stroke-dasharray="180 40 20 40"
-            />
-          </g>
-
-          <!-- Counter-Rotating Inner Caliper Rings -->
-          <g :transform="`rotate(${-wheelAngle * 0.65})`">
-            <circle
-              cx="0"
-              cy="0"
-              r="430"
-              fill="none"
-              class="stroke-purple-700/25 dark:stroke-white/20"
-              stroke-width="1.5"
-              stroke-dasharray="16 24"
-            />
-            <circle
-              cx="0"
-              cy="0"
-              r="860"
-              fill="none"
-              class="stroke-purple-600/25 dark:stroke-tertiary-400/22"
-              stroke-width="1.5"
-              stroke-dasharray="24 36"
-            />
-          </g>
-        </svg>
-
-        <!-- 1D. Top-Left Angled Mask & Accent Wedge Above the -30deg Spine -->
-        <div
-          class="absolute left-[215px] top-[605px] w-0 h-0 origin-top-left -rotate-[30deg]"
+          class="h-full pl-6 pt-10 flex flex-col items-center justify-center self-center"
         >
           <div
-            class="absolute -left-[1400px] bottom-[134px] w-[4600px] h-[2200px] bg-purple-100 dark:bg-secondary-950 transition-colors duration-500"
-          />
-          <div
-            class="absolute left-[160px] bottom-[134px] w-[680px] h-[1200px] origin-bottom-left skew-x-[30deg] bg-purple-200/85 dark:bg-secondary-800/90 border-r border-purple-500/35 dark:border-tertiary-400/30 transition-colors duration-500"
-          />
-        </div>
-      </div>
-
-      <!-- ================================================================= -->
-      <!-- ZONE 2: DIAGONAL -30deg SPINE (TITLE STRIPE + COMPACT OVERVIEW)   -->
-      <!-- Origin at Hub Pivot (215, 605) — swings like a wheel spoke on     -->
-      <!-- project change!                                                   -->
-      <!-- ================================================================= -->
-      <div
-        ref="spineArmRef"
-        class="absolute left-[215px] top-[605px] w-0 h-0 origin-top-left -rotate-[30deg] z-10 pointer-events-none"
-      >
-        <!-- 2A. Upper Title Band (Strictly above spine line: bottom-0, h-[134px]) -->
-        <div
-          class="absolute left-0 bottom-0 w-[3400px] h-[134px] bg-purple-600 dark:bg-primary-800 border-y-2 border-white/35 dark:border-tertiary-400/55 shadow-2xl transition-colors duration-500"
-        >
-          <!-- Endfield Stage Divider Lines Inside the Stripe -->
-          <div class="absolute inset-0 flex pointer-events-none">
-            <div class="w-[440px] h-full border-r border-white/15" />
-            <div class="w-[220px] h-full border-r border-white/15" />
-            <div class="w-[220px] h-full border-r border-white/15" />
-          </div>
-
-          <!-- Floating Section Tag Above Stripe: [X] PROJECT // 07 OF 11 -->
-          <div class="absolute -top-7 left-[265px] flex items-center gap-2.5">
-            <span
-              class="w-5 h-5 rounded-[2px] bg-purple-950 dark:bg-secondary-950 border border-white/80 flex items-center justify-center font-tech text-[11px] font-extrabold text-white"
-            >
-              X
-            </span>
-            <span
-              class="font-tech text-xs font-bold tracking-[1.5px] text-purple-950 dark:text-white uppercase whitespace-nowrap"
-            >
-              {{ projectLabel }} // {{ formattedActiveIndex }} OF
-              {{ formattedTotal }} &bull;
-              {{
-                activeProject.isPrivateRepo ? "PRIVATE SYSTEM" : "OPEN SOURCE"
-              }}
-            </span>
-          </div>
-
-          <!-- Title, Subtitle & Rank Progress Bar (u = 265..885px) -->
-          <div
-            class="absolute left-[265px] top-0 w-[620px] h-full flex flex-col justify-center px-4 py-2"
+            class="relative w-[640px] h-[640px] flex items-center justify-center self-center"
           >
-            <div class="flex items-center justify-between gap-4">
-              <span
-                class="font-tech text-[11px] font-bold uppercase tracking-[2px] text-purple-200 dark:text-tertiary-300"
-              >
-                ACTIVE NODE // {{ activeTechName }}
-              </span>
-              <span
-                class="font-tech text-[10px] font-bold uppercase tracking-widest text-white/80"
-              >
-                RANK 9/9
-              </span>
-            </div>
-
-            <h3
-              class="font-sans font-extrabold text-[32px] text-white uppercase tracking-tight leading-none truncate mt-1"
-            >
-              {{ activeProjectTitle }}
-            </h3>
-
-            <p
-              class="font-tech font-semibold text-[11px] text-purple-100 dark:text-tertiary-200 uppercase tracking-wider truncate mt-1"
-            >
-              {{ activeProjectSubtitle }}
-            </p>
-
-            <!-- Endfield Segmented White Rank Bar + 2-Diamond Tip -->
-            <div class="flex items-center gap-2.5 mt-2">
-              <div class="flex-1 h-1.5 bg-white/25 relative overflow-hidden">
-                <div
-                  class="h-full bg-white transition-all duration-500"
-                  :style="{ width: `${barFillProgress * 100}%` }"
-                />
-              </div>
-              <div class="flex items-center gap-1 shrink-0">
-                <span class="w-2 h-2 rotate-45 bg-white block" />
-                <span class="w-2 h-2 rotate-45 bg-white/70 block" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2B. Lower System Overview Block (Strictly 18px below spine line) -->
-        <div
-          ref="descContainerRef"
-          class="absolute left-[280px] top-[18px] w-[610px] pointer-events-auto"
-        >
-          <!-- Sub-Header: [▼] System Overview & Specification -->
-          <div class="flex items-center justify-between gap-4 mb-1.5">
-            <div class="flex items-center gap-2">
-              <span
-                class="w-4.5 h-4.5 rounded-[2px] bg-purple-950 dark:bg-secondary-950 border border-white/80 flex items-center justify-center text-[9px] text-white"
-              >
-                &#9660;
-              </span>
-              <span
-                class="font-sans font-bold text-[13.5px] text-purple-950 dark:text-white tracking-wide"
-              >
-                System Overview &amp; Specification
-              </span>
-            </div>
-            <span
-              class="font-tech text-[11px] font-bold text-purple-900/80 dark:text-tertiary-300 uppercase tracking-wider"
-            >
-              STACK: {{ activeProject.techIcons.length }} TECH USED
-            </span>
-          </div>
-
-          <!-- Description Paragraph (Clamped to 3 lines for 100px+ clearance) -->
-          <div
-            class="border-l-[3px] border-purple-700 dark:border-tertiary-400 pl-3.5 py-0.5"
-          >
-            <p
-              class="font-sans text-[13px] text-purple-950/90 dark:text-white/95 leading-relaxed line-clamp-3"
-            >
-              {{ activeProjectDescription }}
-            </p>
-          </div>
-
-          <!-- Action Buttons Row -->
-          <div class="flex flex-wrap items-center justify-between gap-3 mt-2.5">
-            <div class="flex items-center gap-2.5">
-              <a
-                v-if="activeProject.demoUrl"
-                :href="activeProject.demoUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-4 py-1.5 bg-purple-600 hover:bg-purple-500 dark:bg-primary-700 dark:hover:bg-primary-600 text-white font-tech font-bold text-xs uppercase tracking-wider rounded-[6px] border border-white/40 transition-colors shadow-md cursor-pointer"
-              >
-                {{ activeProjectDemoLabel }} &rarr;
-              </a>
-              <a
-                v-if="activeProject.repoUrl && activeProject.repoUrl !== '-'"
-                :href="activeProject.repoUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-3.5 py-1.5 bg-secondary-950/90 hover:bg-secondary-800 text-white border border-tertiary-400/70 font-tech font-semibold text-xs uppercase tracking-wider rounded-[6px] transition-colors cursor-pointer"
-              >
-                {{ viewRepoLabel }}
-              </a>
-            </div>
-
-            <NuxtLink
-              to="/projects"
-              class="px-3 py-1 rounded-[6px] bg-purple-950/15 dark:bg-white/10 hover:bg-purple-950/25 dark:hover:bg-white/20 text-purple-950 dark:text-tertiary-300 dark:hover:text-white font-tech text-xs font-bold uppercase tracking-wider transition-colors"
-            >
-              ALL ({{ totalProjects }}) &rarr;
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-
-      <!-- ================================================================= -->
-      <!-- ZONE 3: 100% CONCENTRIC CIRCULAR HUB & ROTATING WHEEL DIAL (z-30) -->
-      <!-- Outer Circle, Mechanical Wheel Rings, Orbiting Project Nodes, and -->
-      <!-- Inner Preview Image all share the exact center (215, 605)!        -->
-      <!-- ================================================================= -->
-      <div
-        class="absolute left-0 top-0 w-[520px] h-[900px] z-30 pointer-events-none"
-      >
-        <!-- Single Concentric Flex Parent Centered at (215, 605) -->
-        <div
-          class="absolute left-[215px] top-[605px] w-[410px] h-[410px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-        >
-          <!-- 3A. Orbiting Project Selector Wheel Track (r = 234px, 468x468 concentric ring) -->
-          <div
-            class="absolute left-1/2 top-1/2 w-[468px] h-[468px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-purple-500/45 dark:border-tertiary-400/45 pointer-events-none"
-          >
-            <button
-              v-for="node in orbitingProjectNodes"
-              :key="'orbit-proj-' + node.projIdx"
-              type="button"
-              class="absolute -translate-x-1/2 -translate-y-1/2 rounded-full font-tech font-extrabold transition-all duration-300 flex items-center justify-center pointer-events-auto cursor-pointer"
-              :class="
-                node.isActive
-                  ? 'w-[34px] h-[34px] text-[11px] bg-purple-600 dark:bg-primary-700 text-white border-2 border-white shadow-[0_0_16px_rgba(26,133,255,0.9)] z-20 scale-110'
-                  : 'w-[26px] h-[26px] text-[10px] bg-purple-950 dark:bg-secondary-950 text-purple-200 dark:text-tertiary-300 border border-purple-400 dark:border-tertiary-400 hover:scale-110 hover:border-white'
-              "
+            <!-- 1A. Outer Polar Rim Circle (Concentric Flex Child) -->
+            <div
+              class="absolute rounded-full bg-purple-300/60 dark:bg-secondary-900 border border-purple-500/35 dark:border-tertiary-400/30 transition-colors duration-500 shrink-0"
               :style="{
-                left: `calc(50% + ${node.x}px)`,
-                top: `calc(50% + ${node.y}px)`,
-                opacity: node.opacity,
+                width: `${fanDiameter + 360}px`,
+                height: `${fanDiameter + 360}px`,
               }"
-              :title="`Project ${node.label}`"
-              @click="$emit('select', node.projIdx)"
+            ></div>
+
+            <!-- 1B. Main Royal-Blue Polar Fan Circle (Concentric Flex Child) -->
+            <div
+              class="absolute rounded-full bg-purple-200 dark:bg-secondary-700 border border-purple-500/45 dark:border-tertiary-400/45 transition-colors duration-500 shrink-0"
+              :style="{
+                width: `${fanDiameter}px`,
+                height: `${fanDiameter}px`,
+              }"
+            ></div>
+
+            <!-- 1C. Scroll-Driven Rotating Polar Wheel SVG (Concentric Flex Child) -->
+            <svg
+              viewBox="-1400 -1400 2800 2800"
+              class="absolute w-[2800px] h-[2800px] shrink-0 overflow-visible"
+              aria-hidden="true"
             >
-              {{ node.label }}
-            </button>
+              <g :transform="`rotate(${wheelAngle})`">
+                <g
+                  class="stroke-purple-600/20 dark:stroke-tertiary-400/20"
+                  stroke-width="1"
+                >
+                  <line
+                    v-for="n in 24"
+                    :key="'wheel-spoke-' + n"
+                    x1="320"
+                    y1="0"
+                    x2="1320"
+                    y2="0"
+                    :transform="`rotate(${(n - 1) * 15})`"
+                  />
+                </g>
+
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="490"
+                  fill="none"
+                  class="stroke-purple-600/30 dark:stroke-tertiary-400/30"
+                  stroke-width="1.5"
+                  stroke-dasharray="60 24"
+                />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="750"
+                  fill="none"
+                  class="stroke-purple-600/25 dark:stroke-tertiary-400/25"
+                  stroke-width="1.2"
+                  stroke-dasharray="100 36"
+                />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="1030"
+                  fill="none"
+                  class="stroke-purple-600/20 dark:stroke-tertiary-400/22"
+                  stroke-width="1.2"
+                  stroke-dasharray="140 48"
+                />
+                <circle
+                  cx="0"
+                  cy="0"
+                  r="1260"
+                  fill="none"
+                  class="stroke-purple-700/35 dark:stroke-tertiary-300/35"
+                  stroke-width="2"
+                  stroke-dasharray="180 44"
+                />
+              </g>
+            </svg>
+
+            <!-- 1D. Top-Left Angled Mask Above the -14deg Spine -->
+            <!-- <div class="absolute w-0 h-0 -rotate-[14deg]">
+              <div
+                class="absolute -left-[1500px] bottom-[116px] w-[4600px] h-[2200px] bg-purple-100 dark:bg-secondary-950 transition-colors duration-500"
+              ></div>
+              <div
+                class="absolute left-[280px] bottom-[116px] w-[640px] h-[1200px] origin-bottom-left skew-x-[14deg] bg-purple-200/85 dark:bg-secondary-800/85 border-r border-purple-500/30 dark:border-tertiary-400/25 transition-colors duration-500"
+              ></div>
+            </div> -->
+
+            <!-- 1E. Gentle -14deg Spine (Title Band + Description) Anchored to Hub Center -->
+            <div
+              ref="spineArmRef"
+              class="absolute w-0 h-0 -rotate-[11deg] z-20 pointer-events-none"
+            >
+              <!-- Upper Title Band (h-[116px]) -->
+              <div
+                class="absolute left-0 bottom-0 w-[3400px] h-[116px] bg-purple-600 dark:bg-primary-800 border-y border-white/30 dark:border-tertiary-400/50 transition-colors duration-500"
+              >
+                <!-- <div class="absolute inset-0 flex pointer-events-none">
+                  <div class="w-[560px] h-full border-r border-white/10"></div>
+                  <div class="w-[260px] h-full border-r border-white/10"></div>
+                  <div class="w-[260px] h-full border-r border-white/10"></div>
+                </div> -->
+
+                <!-- Project Index Tag Above Band -->
+                <div
+                  class="absolute -top-7 left-[380px] flex items-center gap-2"
+                >
+                  <!-- <span
+                    class="w-4 h-4 bg-purple-950 dark:bg-secondary-950 border border-white/80 flex items-center justify-center font-tech text-[10px] font-bold text-white"
+                  >
+                    X
+                  </span> -->
+                  <span
+                    class="font-tech text-base font-bold tracking-wider text-purple-950 dark:text-tertiary-200 uppercase whitespace-nowrap"
+                  >
+                    {{ projectLabel }} // {{ formattedActiveIndex }} OF
+                    {{ formattedTotal }}
+                  </span>
+                </div>
+
+                <!-- Project Title, Subtitle & Progress Line (u = 380..1060px) -->
+                <div
+                  class="ml-92 w-170 h-full flex flex-col justify-center px-4 py-2"
+                >
+                  <h3
+                    class="font-sans font-extrabold text-3xl text-white uppercase tracking-tight leading-none"
+                  >
+                    {{ activeProjectTitle }}
+                  </h3>
+
+                  <p
+                    class="font-tech font-medium text-xs text-purple-100 dark:text-tertiary-200 tracking-wide mt-1.5"
+                  >
+                    {{ activeProjectSubtitle }}
+                  </p>
+
+                  <div class="flex items-center gap-2 mt-2.5">
+                    <div
+                      class="flex-1 h-1 bg-white/25 relative overflow-hidden"
+                    >
+                      <div
+                        class="h-full bg-white transition-all duration-500"
+                        :style="{ width: `${barFillProgress * 100}%` }"
+                      ></div>
+                    </div>
+                    <span
+                      class="w-1.5 h-1.5 rotate-45 bg-white block shrink-0"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lower Project Description & Action Links (-14deg) -->
+              <div
+                ref="descContainerRef"
+                class="ml-96 mt-28 w-160 pointer-events-auto rotate-6"
+              >
+                <div
+                  class="border-l-2 border-purple-700 dark:border-tertiary-400 pl-3.5 py-0.5"
+                >
+                  <p
+                    class="font-sans text-base text-purple-950/90 dark:text-white/95 leading-relaxed"
+                  >
+                    {{ activeProjectDescription }}
+                  </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 mt-3.5 pl-3.5">
+                  <a
+                    v-if="activeProject.demoUrl"
+                    :href="activeProject.demoUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-1.5 bg-purple-600 hover:bg-purple-500 dark:bg-primary-700 dark:hover:bg-primary-600 text-white font-tech font-bold text-xs uppercase tracking-wider rounded-md border border-white/30 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  >
+                    {{ activeProjectDemoLabel }} &rarr;
+                  </a>
+                  <a
+                    v-if="
+                      activeProject.repoUrl && activeProject.repoUrl !== '-'
+                    "
+                    :href="activeProject.repoUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-3.5 py-1.5 bg-secondary-950/90 hover:bg-secondary-800 text-white border border-tertiary-400/60 font-tech font-semibold text-xs uppercase tracking-wider rounded-md transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary-400"
+                  >
+                    {{ viewRepoLabel }}
+                  </a>
+                  <NuxtLink
+                    to="/projects"
+                    class="px-3.5 py-1.5 rounded-md bg-purple-950/15 dark:bg-secondary-950/80 hover:bg-purple-950/25 dark:hover:bg-secondary-800 border border-purple-500/40 dark:border-tertiary-400/40 text-purple-950 dark:text-tertiary-200 font-tech text-xs font-semibold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary-400"
+                  >
+                    ALL PROJECTS ({{ totalProjects }})
+                  </NuxtLink>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- 3B. Outer Hub Base Circle (410x410px, 100% concentric) -->
+          <!-- Matching 40px spacer so Layer 1 and Layer 2 Flex centers are 100% identical -->
+          <div class="mt-4 h-10"></div>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- LAYER 2 (z-30): PURE-FLEXBOX CENTERED HUB & 2x PREVIEW IMAGE      -->
+      <!-- Zero top/bottom positioning: centered by `flex items-center       -->
+      <!-- justify-center self-center` and `m-auto`!                         -->
+      <!-- ================================================================= -->
+      <div
+        class="relative h-full pl-6 pt-10 flex flex-col items-center justify-center self-center z-30 pointer-events-none"
+      >
+        <!-- 640x640px Concentric Hub Container -->
+        <div
+          class="relative size-160 flex items-center justify-center self-center"
+        >
+          <!-- 2A. True Mechanical Rotating Wheel for Project Indexes (680x680px concentric flex child) -->
+          <!-- Every project sits on a fixed-angle spoke (`inset-0 flex items-center justify-end`)       -->
+          <!-- while the wheel container itself rotates via `wheelRingRotation`. Nodes never fly off!    -->
           <div
-            class="absolute inset-0 rounded-full bg-purple-100 dark:bg-secondary-900 border-2 border-purple-500/75 dark:border-tertiary-500/75 shadow-2xl transition-colors duration-500"
-          />
-
-          <!-- 3C. High-Contrast Rotating Mechanical Caliper & Degree Dial SVG (410x410px) -->
-          <svg
-            viewBox="-205 -205 410 410"
-            class="absolute inset-0 w-full h-full overflow-visible pointer-events-none"
+            class="absolute size-170 rounded-full border border-dashed border-purple-500/40 dark:border-tertiary-400/40 flex items-center justify-center pointer-events-none z-30"
+            :style="{ transform: `rotate(${wheelRingRotation}deg)` }"
           >
-            <!-- Static Cardinal Crosshairs on Outer Rim -->
-            <g
-              class="stroke-purple-600 dark:stroke-tertiary-400"
-              stroke-width="2"
+            <div
+              v-for="spoke in wheelProjectSpokes"
+              :key="'wheel-proj-spoke-' + spoke.projIdx"
+              class="absolute inset-0 flex items-center justify-end pointer-events-none"
+              :style="{ transform: `rotate(${spoke.spokeDeg}deg)` }"
             >
-              <line x1="-198" y1="0" x2="-182" y2="0" />
-              <line x1="182" y1="0" x2="198" y2="0" />
-              <line x1="0" y1="-198" x2="0" y2="-182" />
-              <line x1="0" y1="182" x2="0" y2="198" />
-            </g>
+              <button
+                type="button"
+                class="rounded-full font-tech font-bold flex items-center justify-center transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                :class="[
+                  spoke.isActive
+                    ? 'w-9 h-9 text-xs bg-purple-600 dark:bg-primary-700 text-white border-2 border-white shadow-md'
+                    : 'w-7 h-7 text-[10px] bg-purple-950 dark:bg-secondary-950 text-purple-200 dark:text-tertiary-300 border border-purple-400/75 dark:border-tertiary-400/75 hover:border-white',
+                  spoke.isInteractive
+                    ? 'pointer-events-auto cursor-pointer'
+                    : 'pointer-events-none',
+                ]"
+                :style="{
+                  transform: `translateX(50%) rotate(${spoke.counterRotDeg}deg)`,
+                  opacity: spoke.opacity,
+                }"
+                :aria-label="`Select project ${spoke.label}`"
+                :aria-current="spoke.isActive ? 'true' : undefined"
+                :tabindex="spoke.isInteractive ? 0 : -1"
+                @click="$emit('select', spoke.projIdx)"
+              >
+                {{ spoke.label }}
+              </button>
+            </div>
+          </div>
 
-            <!-- Clockwise Rotating Degree Ring (r = 184 & r = 176) -->
+          <!-- 2B. Outer Hub Base Circle (640x640px concentric flex child) -->
+          <div
+            class="absolute inset-0 rounded-full bg-purple-100 dark:bg-secondary-900 border border-purple-500/65 dark:border-tertiary-400/65 shadow-xl transition-colors duration-500 z-10"
+          ></div>
+
+          <!-- 2C. Rotating Caliper Ring SVG (640x640px concentric flex child) -->
+          <svg
+            viewBox="-320 -320 640 640"
+            class="absolute inset-0 w-full h-full pointer-events-none z-15"
+            aria-hidden="true"
+          >
             <g :transform="`rotate(${wheelAngle})`">
               <circle
                 cx="0"
                 cy="0"
-                r="184"
-                fill="none"
-                class="stroke-purple-500/40 dark:stroke-tertiary-400/40"
-                stroke-width="1.5"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="176"
+                r="304"
                 fill="none"
                 class="stroke-purple-600 dark:stroke-tertiary-400"
-                stroke-opacity="0.85"
-                stroke-width="3.5"
-                stroke-dasharray="55 35 18 35"
+                stroke-opacity="0.7"
+                stroke-width="2.5"
+                stroke-dasharray="72 36 18 36"
               />
-              <!-- 12 Degree Ticks around r=184 -->
               <g
                 class="stroke-purple-700 dark:stroke-tertiary-300"
-                stroke-width="2"
+                stroke-opacity="0.6"
+                stroke-width="1.5"
               >
                 <line
                   v-for="tick in 12"
                   :key="'hub-tick-' + tick"
-                  x1="166"
+                  x1="292"
                   y1="0"
-                  x2="192"
+                  x2="312"
                   y2="0"
                   :transform="`rotate(${(tick - 1) * 30})`"
                 />
               </g>
             </g>
-
-            <!-- Counter-Clockwise Rotating Inner Caliper Ring (r = 158) -->
-            <g :transform="`rotate(${-wheelAngle * 0.85})`">
-              <circle
-                cx="0"
-                cy="0"
-                r="158"
-                fill="none"
-                class="stroke-purple-800/70 dark:stroke-white/70"
-                stroke-width="2"
-                stroke-dasharray="28 18 6 18"
-              />
-              <polygon
-                points="0,-165 -6,-153 6,-153"
-                class="fill-purple-600 dark:fill-tertiary-400"
-              />
-              <polygon
-                points="0,165 -6,153 6,153"
-                class="fill-purple-600 dark:fill-tertiary-400"
-              />
-              <polygon
-                points="-165,0 -153,-6 -153,6"
-                class="fill-purple-600 dark:fill-tertiary-400"
-              />
-              <polygon
-                points="165,0 153,-6 153,6"
-                class="fill-purple-600 dark:fill-tertiary-400"
-              />
-            </g>
           </svg>
 
-          <!-- 3D. Inner Circular Project Preview Screenshot Lens (288x288px, 100% dead-center!) -->
+          <!-- 2D. 2.0x Enlarged Circular Preview Image (576x576px = 2 * 288px!) -->
+          <!-- Centered purely via Flexbox (`m-auto self-center flex items-center justify-center`) -->
           <div
             ref="previewLensRef"
-            class="relative w-[288px] h-[288px] rounded-full cursor-pointer group pointer-events-auto"
-            @click="showPreviewInHub = !showPreviewInHub"
+            class="relative z-20 size-144 m-auto self-center rounded-full overflow-hidden bg-purple-950 dark:bg-secondary-950 border-2 border-purple-500 dark:border-tertiary-400 flex items-center justify-center pointer-events-auto group"
           >
-            <div
-              class="relative w-full h-full rounded-full overflow-hidden bg-purple-950 dark:bg-secondary-950 border-[3px] border-white dark:border-tertiary-400 shadow-[0_0_25px_rgba(71,179,255,0.35)] flex items-center justify-center"
-            >
-              <template v-if="showPreviewInHub">
-                <img
-                  :src="activeProject.previewImage"
-                  :alt="activeProjectTitle"
-                  class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                />
-                <div
-                  class="absolute inset-x-0 bottom-0 h-9.5 bg-secondary-950/90 backdrop-blur-xs border-t border-tertiary-400/50 flex flex-col items-center justify-center"
-                >
-                  <span
-                    class="font-tech font-bold text-[10px] tracking-[2px] text-white uppercase"
-                  >
-                    PREVIEW // {{ formattedActiveIndex }}
-                  </span>
-                </div>
-              </template>
-
-              <template v-else>
-                <div class="flex flex-col items-center justify-center p-6">
-                  <div
-                    class="w-20 h-20 rounded-full bg-white p-3.5 flex items-center justify-center shadow-lg"
-                  >
-                    <img
-                      v-if="activeProject.techIcons[selectedTechIndex]?.iconUrl"
-                      :src="activeProject.techIcons[selectedTechIndex]?.iconUrl"
-                      :alt="activeTechName"
-                      class="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span
-                    class="font-tech font-extrabold text-xs tracking-[2px] text-white uppercase mt-3"
-                  >
-                    {{ activeTechName }}
-                  </span>
-                  <span
-                    class="font-tech text-[9px] tracking-[1.5px] text-tertiary-400 uppercase mt-0.5"
-                  >
-                    CLICK FOR SCREENSHOT
-                  </span>
-                </div>
-              </template>
-            </div>
+            <img
+              :src="activeProject.previewImage"
+              :alt="activeProjectTitle"
+              class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
         </div>
 
-        <!-- 3E. Endfield-Style Readout (Project 07/11 & TECH NODES 05/05) -->
+        <!-- 2E. Prev & Rotate Next Controls in Pure Flex Column Flow (`mt-4 self-center`) -->
         <div
-          class="absolute left-[415px] top-[675px] flex flex-col gap-2 pointer-events-auto"
-        >
-          <div>
-            <div class="grid grid-cols-3 gap-1 w-4 mb-1 opacity-70">
-              <span
-                v-for="d in 6"
-                :key="d"
-                class="w-1 h-1 rounded-full bg-purple-700 dark:bg-tertiary-400"
-              />
-            </div>
-            <div
-              class="font-sans font-semibold text-[11px] text-purple-800 dark:text-tertiary-300 leading-none"
-            >
-              Project
-            </div>
-            <div
-              class="font-tech font-extrabold text-2xl text-foreground dark:text-white leading-tight mt-0.5"
-            >
-              {{ formattedActiveIndex
-              }}<span class="text-sm opacity-60">/{{ formattedTotal }}</span>
-            </div>
-            <div
-              class="text-[9px] text-purple-700 dark:text-tertiary-400 tracking-[2.5px] leading-none"
-            >
-              &#9670;&#9670;&#9670;&#9670;
-            </div>
-          </div>
-
-          <div
-            class="pt-1.5 border-t border-purple-400/40 dark:border-tertiary-400/30"
-          >
-            <div
-              class="font-tech font-bold text-[9px] tracking-[1.5px] text-purple-800 dark:text-tertiary-400 uppercase"
-            >
-              TECH NODES
-            </div>
-            <div
-              class="font-tech font-extrabold text-[22px] text-foreground dark:text-white leading-none mt-0.5"
-            >
-              {{ String(bottomTechNodes.length).padStart(2, "0")
-              }}<span class="text-xs opacity-60"
-                >/{{
-                  String(activeProject.techIcons.length).padStart(2, "0")
-                }}</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- 3F. Bottom-Left Prev & Rotate Next Pill Buttons (Centered at x=215px, top:778px) -->
-        <div
-          class="absolute left-[215px] top-[778px] -translate-x-1/2 flex items-center gap-2.5 pointer-events-auto z-40 whitespace-nowrap"
+          class="mt-4 h-10 flex items-center justify-center self-center gap-2.5 pointer-events-auto z-40 whitespace-nowrap"
         >
           <button
             type="button"
-            class="w-10.5 h-10.5 rounded-full bg-white text-secondary-950 border-2 border-purple-700 dark:border-secondary-950 shadow-xl flex items-center justify-center hover:bg-tertiary-200 transition-transform active:scale-95 cursor-pointer shrink-0"
+            class="w-10 h-10 rounded-full bg-white text-secondary-950 border border-purple-300 dark:border-secondary-800 shadow-md flex items-center justify-center hover:bg-tertiary-100 transition-transform active:scale-95 cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary-400"
             aria-label="Previous project"
             @click="$emit('prev')"
           >
@@ -545,6 +354,7 @@
               stroke="currentColor"
               stroke-width="2.5"
               class="w-4 h-4"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -556,15 +366,15 @@
 
           <button
             type="button"
-            class="h-10.5 px-4 rounded-full bg-white text-secondary-950 border-2 border-purple-700 dark:border-secondary-950 shadow-xl flex items-center gap-2.5 hover:bg-tertiary-200 transition-transform active:scale-95 cursor-pointer"
+            class="h-10 px-4 rounded-full bg-white text-secondary-950 border border-purple-300 dark:border-secondary-800 shadow-md flex items-center gap-2.5 hover:bg-tertiary-100 transition-transform active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary-400"
             @click="$emit('next')"
           >
-            <span class="w-4.5 h-[2px] bg-secondary-950/35" />
-            <span class="font-sans font-bold text-[13.5px] tracking-tight">
+            <span class="font-sans font-bold text-[13px] tracking-tight">
               Rotate Next
             </span>
             <span
-              class="w-5.5 h-5.5 rounded-full bg-secondary-950 text-white flex items-center justify-center text-[9px] font-bold"
+              class="w-5 h-5 rounded-full bg-secondary-950 text-white flex items-center justify-center text-[9px] font-bold"
+              aria-hidden="true"
             >
               &#9650;
             </span>
@@ -573,80 +383,70 @@
       </div>
 
       <!-- ================================================================= -->
-      <!-- ZONE 4: DE-SLOPPED BOTTOM TECH-STACK BAR — STYLE B (z-20)         -->
+      <!-- LAYER 3 (z-25): BOTTOM TECH STACK WITH RESTORED ROTATION          -->
+      <!-- Tilted at `origin-left rotate-[6deg]` along the lower polar spoke -->
+      <!-- and rotates in sync with the wheel when switching projects.       -->
       <!-- ================================================================= -->
       <div
         ref="techBarRef"
-        class="absolute left-[515px] right-[80px] max-w-[1280px] bottom-16 z-20 origin-left rotate-[1.4deg] pointer-events-auto bg-purple-300 dark:bg-primary-500 px-10 py-4 border rounded-xl"
+        class="absolute left-[710px] right-[80px] max-w-[820px] top-[730px] origin-left rotate-[6deg] z-25 pointer-events-auto"
       >
-        <!-- Subtle Track Header Telemetry with Live Wheel Angle -->
         <div
-          class="mb-2 flex items-center justify-between pr-2 font-tech text-[10.5px] font-bold tracking-[2px] text-purple-900 dark:text-tertiary-300 uppercase"
+          class="mb-2.5 flex items-center justify-between font-tech text-[11px] font-bold tracking-wider text-purple-900 dark:text-tertiary-300 uppercase"
         >
-          <span>
-            TECH STACK // {{ activeTechName }} &bull; WHEEL ANGLE
-            {{ displayWheelDegrees }}&deg;
-          </span>
-          <span class="opacity-75">CLICK NODE TO INSPECT</span>
+          <span>TECHNOLOGIES &bull; {{ activeTechName }}</span>
+          <span class="opacity-75"
+            >{{ formattedActiveIndex }} / {{ formattedTotal }}</span
+          >
         </div>
 
-        <!-- Main Endfield Node Track Container -->
         <div class="relative w-full">
-          <!-- Tech Nodes Row (Single-Ring Endfield Circles + Floating Active Label) -->
+          <!-- Thin 1px Connector Line Behind Nodes -->
+          <div
+            v-if="bottomTechNodes.length > 1"
+            class="absolute left-4 right-4 top-[18px] h-px bg-purple-600/35 dark:bg-tertiary-400/35 pointer-events-none"
+          ></div>
+
+          <!-- Tech Nodes Row (w-9 h-9 circle badge with w-4 h-4 [16px] icon inside) -->
           <div class="relative z-10 flex items-center justify-between">
             <button
               v-for="node in bottomTechNodes"
               :key="'tech-node-' + node.index + '-' + node.name"
               type="button"
-              class="group relative flex flex-col items-center cursor-pointer focus:outline-none"
+              class="group flex flex-col items-center gap-1.5 cursor-pointer focus-visible:outline-none"
+              :aria-label="node.name"
               @click="selectedTechIndex = node.index"
             >
-              <!-- Single-Ring Circular Tech Icon Badge -->
               <div
-                class="relative w-12.5 h-12.5 rounded-full bg-white p-2.5 flex items-center justify-center transition-all duration-300"
+                class="tech-wheel-badge w-9 h-9 rounded-full bg-white flex items-center justify-center transition-transform duration-200"
                 :class="
                   node.isSelected
-                    ? 'scale-115 -translate-y-1.5 ring-2 ring-purple-600 dark:ring-tertiary-300 ring-offset-2 ring-offset-purple-200 dark:ring-offset-secondary-800 shadow-[0_0_20px_rgba(71,179,255,0.6)]'
-                    : 'border-2 border-purple-500/70 dark:border-tertiary-400/70 opacity-90 group-hover:opacity-100 group-hover:scale-105 group-hover:-translate-y-0.5 shadow-md'
+                    ? 'scale-110 border-2 border-purple-600 dark:border-tertiary-400 shadow-sm'
+                    : 'border border-purple-400/60 dark:border-tertiary-400/50 opacity-85 group-hover:opacity-100 group-hover:scale-105'
                 "
               >
                 <img
                   v-if="node.iconUrl"
                   :src="node.iconUrl"
                   :alt="node.name"
-                  class="w-full h-full object-contain"
+                  width="16"
+                  height="16"
+                  class="w-4 h-4 object-contain"
                 />
                 <span
                   v-else
-                  class="font-tech font-extrabold text-[10px] text-secondary-950"
+                  class="font-tech font-bold text-[9px] text-secondary-950"
                 >
                   {{ node.name.slice(0, 3).toUpperCase() }}
                 </span>
-
-                <!-- Small Endfield Corner Rank Dots -->
-                <span
-                  class="absolute -right-1 -bottom-0.5 flex items-center gap-[1.5px] pointer-events-none"
-                >
-                  <span
-                    v-for="dot in (node.index % 3) + 1"
-                    :key="dot"
-                    class="w-1.5 h-1.5 rotate-45 border border-secondary-950"
-                    :class="
-                      node.isSelected
-                        ? 'bg-purple-600 dark:bg-tertiary-300'
-                        : 'bg-white/90'
-                    "
-                  />
-                </span>
               </div>
 
-              <!-- Style B: Clean Floating Label (No Boxy Border, Active/Hover Only) -->
               <span
-                class="absolute -bottom-5 font-tech font-extrabold text-[10px] tracking-wider uppercase whitespace-nowrap transition-all duration-200 pointer-events-none drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]"
+                class="font-tech text-[10px] tracking-wider uppercase whitespace-nowrap transition-colors duration-200"
                 :class="
                   node.isSelected
-                    ? 'opacity-100 translate-y-0 text-purple-950 dark:text-tertiary-300'
-                    : 'opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 text-purple-900 dark:text-white'
+                    ? 'font-bold text-purple-950 dark:text-white'
+                    : 'font-medium text-purple-900/75 dark:text-white/75 group-hover:text-purple-950 dark:group-hover:text-white'
                 "
               >
                 {{ node.name }}
@@ -654,51 +454,42 @@
             </button>
           </div>
 
-          <!-- Solid Glowing Endfield Bottom Bar -->
-          <!-- <div
-            class="mt-6 w-full h-2.5 rounded-full bg-purple-600 dark:bg-tertiary-400 shadow-[0_0_18px_rgba(71,179,255,0.5)] transition-colors duration-500"
-          /> -->
+          <!-- Clean 3px Accent Line -->
+          <div
+            class="mt-2.5 w-full h-[3px] rounded-full bg-purple-600 dark:bg-tertiary-400 transition-colors duration-500"
+          ></div>
         </div>
       </div>
     </div>
 
     <!-- =================================================================== -->
-    <!-- TOP-LEFT & TOP-RIGHT MINIMAL HUD OVERLAYS (Pinned below 52px NavBar)-->
+    <!-- TOP-LEFT & TOP-RIGHT SECTION HEADER (Aligned with TechSection)      -->
     <!-- =================================================================== -->
     <div
-      class="absolute left-6 lg:left-8 top-14 lg:top-16 z-40 flex items-center gap-3.5 pointer-events-auto"
+      class="absolute left-6 lg:left-8 top-16 z-40 flex items-start gap-3 pointer-events-auto"
     >
-      <!-- TODO : CHANGE THIS ICON TO OUR USUAL BAR WITH A CERTAIN COLOR -->
       <div
-        class="w-8 h-8 bg-purple-700 dark:bg-secondary-900 border-2 border-purple-500 dark:border-tertiary-400 flex items-center justify-center rotate-45 shrink-0 shadow-md"
-      >
-        <div class="w-3 h-3 bg-white dark:bg-tertiary-400" />
-      </div>
-      <div class="pl-1">
-        <div
-          class="font-tech text-[10px] font-extrabold tracking-widest uppercase text-purple-700 dark:text-tertiary-400"
-        >
-          {{ projectLabel }} // {{ formattedActiveIndex }} OF
-          {{ formattedTotal }}
-        </div>
+        class="w-2 h-16 bg-purple-600 dark:bg-primary-700 shrink-0 mt-0.5"
+      ></div>
+      <div>
         <h2
-          class="font-sans font-bold text-base lg:text-xl text-foreground dark:text-white tracking-tight leading-tight uppercase"
+          class="font-sans font-bold text-xl lg:text-5xl text-foreground dark:text-white tracking-tight leading-none uppercase"
         >
-          {{ activeProjectTitle }}
-          <span
-            class="text-foreground/60 dark:text-white/60 font-medium text-sm lg:text-base"
-          >
-            / {{ sectionTitle }} Matrix
-          </span>
+          {{ sectionTitle }}
         </h2>
+        <p
+          class="font-tech text-base text-purple-700 dark:text-tertiary-400 uppercase tracking-widest mt-1"
+        >
+          SELECTED WORKS AND SYSTEM
+        </p>
       </div>
     </div>
 
     <NuxtLink
       to="/projects"
-      class="absolute right-6 lg:right-8 top-14 lg:top-16 z-40 px-4 py-1.5 rounded-full bg-purple-950/80 dark:bg-secondary-900/90 hover:bg-purple-700 dark:hover:bg-primary-700 text-white border border-purple-400/50 dark:border-tertiary-400/60 font-tech font-bold text-xs uppercase tracking-wider transition-colors shadow-lg"
+      class="absolute right-6 lg:right-8 top-16 z-40 px-4 py-2 rounded-md bg-purple-200/80 dark:bg-secondary-900/90 hover:bg-purple-600 hover:text-white dark:hover:bg-primary-700 text-foreground dark:text-white border border-purple-400/50 dark:border-tertiary-400/50 font-tech font-bold text-xs uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tertiary-400"
     >
-      To Project &rarr;
+      {{ sectionTitle }} Archive &rarr;
     </NuxtLink>
   </div>
 </template>
@@ -741,16 +532,13 @@ const previewLensRef = ref<HTMLElement | null>(null);
 const techBarRef = ref<HTMLElement | null>(null);
 
 const selectedTechIndex = ref(0);
-const showPreviewInHub = ref(true);
 const barFillProgress = ref(1);
-
-// Smoothly animated wheel index (0 .. totalProjects-1) driven by either continuous scrollProgress or activeIndex
 const animatedWheelIndex = ref(0);
 
 const stageScale = ref(1);
 const stageWidth = ref(1600);
 const fanDiameter = computed(() =>
-  Math.max(2480, Math.round(stageWidth.value * 1.48)),
+  Math.max(2560, Math.round(stageWidth.value * 1.52)),
 );
 
 const formattedActiveIndex = computed(() =>
@@ -760,64 +548,62 @@ const formattedTotal = computed(() =>
   String(props.totalProjects).padStart(2, "0"),
 );
 
-// Continuous wheel rotation angle in degrees (36deg per project step)
+// Continuous wheel rotation angle in degrees for decorative caliper/polar rings
 const wheelAngle = computed(() => {
   return -(animatedWheelIndex.value * 36);
 });
 
-const displayWheelDegrees = computed(() => {
-  return Math.round(Math.abs(wheelAngle.value)) % 360;
+// Angular step between consecutive projects around the 360deg index wheel
+const projectStepDeg = computed(() => {
+  return 360 / Math.max(1, props.totalProjects);
 });
 
-// Orbiting project dial nodes along r = 234px around the Hub Center (215, 605)
-// Rotates smoothly with animatedWheelIndex so the active project aligns at -30deg!
-const orbitingProjectNodes = computed(() => {
-  const total = Math.max(1, props.totalProjects);
-  const rOrbit = 234;
-  const currentPos = animatedWheelIndex.value;
-  const nodes: {
-    projIdx: number;
-    label: string;
-    x: number;
-    y: number;
-    isActive: boolean;
-    opacity: number;
-  }[] = [];
+// Master rotation angle of the 680x680px Project Index Wheel container
+// Aligns the active project spoke with the -14deg Project Title Spine
+const wheelRingRotation = computed(() => {
+  return -14 - animatedWheelIndex.value * projectStepDeg.value;
+});
 
-  for (let i = 0; i < total; i++) {
-    let diff = i - currentPos;
+// True rotating wheel spokes: all projects stay mounted at fixed spoke angles
+// around the wheel rim (`i * projectStepDeg`), while the parent wheel container
+// rotates by `wheelRingRotation`. Nodes can never fly off the circle perimeter.
+const wheelProjectSpokes = computed(() => {
+  const total = Math.max(1, props.totalProjects);
+  const step = projectStepDeg.value;
+  const currentPos = animatedWheelIndex.value;
+  const ringRot = wheelRingRotation.value;
+
+  return Array.from({ length: total }, (_, i) => {
+    const spokeDeg = i * step;
+    let diff = (i - currentPos) % total;
     if (diff > total / 2) diff -= total;
     if (diff < -total / 2) diff += total;
 
-    // Show nodes in the upper-right arc (-3.3 <= diff <= +1.3) so they never overlap bottom-right telemetry
-    if (diff < -3.3 || diff > 1.3) continue;
-
-    const angleDeg = -30 + diff * 22;
-    const rad = (angleDeg * Math.PI) / 180;
-    const x = Math.round(rOrbit * Math.cos(rad) * 10) / 10;
-    const y = Math.round(rOrbit * Math.sin(rad) * 10) / 10;
+    const absDiff = Math.abs(diff);
     const isActive = i === props.activeIndex;
-    const opacity = isActive
-      ? 1
-      : Math.max(0.25, Math.min(0.9, 0.92 - Math.abs(diff) * 0.2));
+    const isInteractive = absDiff <= 2.15;
 
-    nodes.push({
+    let opacity = 0;
+    if (absDiff <= 2.15) {
+      opacity = isActive ? 1 : Math.max(0, Math.min(0.9, 1 - absDiff * 0.35));
+    }
+
+    return {
       projIdx: i,
       label: String(i + 1).padStart(2, "0"),
-      x,
-      y,
+      spokeDeg,
+      counterRotDeg: -(spokeDeg + ringRot),
       isActive,
+      isInteractive,
       opacity,
-    });
-  }
-
-  return nodes;
+    };
+  });
 });
 
 const activeTechName = computed(() => {
   const icons = props.activeProject.techIcons || [];
   const chosen = icons[selectedTechIndex.value] || icons[0];
-  return chosen ? chosen.name : "CORE SYSTEM";
+  return chosen ? chosen.name : "";
 });
 
 const bottomTechNodes = computed(() => {
@@ -839,7 +625,6 @@ function updateStageMetrics() {
   stageWidth.value = Math.round(vw / scale);
 }
 
-// Drive continuous wheel rotation whenever scrollProgress updates on scroll
 watch(
   () => props.scrollProgress,
   (prog) => {
@@ -847,7 +632,7 @@ watch(
       const targetIdx = prog * Math.max(1, props.totalProjects - 1);
       gsap.to(animatedWheelIndex, {
         value: targetIdx,
-        duration: 0.18,
+        duration: 0.16,
         ease: "power1.out",
         overwrite: "auto",
       });
@@ -855,78 +640,100 @@ watch(
   },
 );
 
-// Wheel-spoke rotational swing & dial tween when activeIndex changes
 watch(
   () => props.activeIndex,
   (nextIdx, prevIdx) => {
     selectedTechIndex.value = 0;
 
-    // Determine shortest rotational direction (+1 = next, -1 = prev)
     const oldIdx = prevIdx ?? 0;
     let delta = nextIdx - oldIdx;
     if (delta > props.totalProjects / 2) delta -= props.totalProjects;
     if (delta < -props.totalProjects / 2) delta += props.totalProjects;
     const dir = delta >= 0 ? 1 : -1;
 
-    // Tween wheel index smoothly if scrollProgress isn't actively scrubbing
+    // Shortest-path wheel index target so wrapping 11 -> 01 rotates smoothly
+    const currentMod =
+      ((animatedWheelIndex.value % props.totalProjects) + props.totalProjects) %
+      props.totalProjects;
+    let shortestDelta = nextIdx - currentMod;
+    if (shortestDelta > props.totalProjects / 2)
+      shortestDelta -= props.totalProjects;
+    if (shortestDelta < -props.totalProjects / 2)
+      shortestDelta += props.totalProjects;
+
     gsap.to(animatedWheelIndex, {
-      value: nextIdx,
-      duration: 0.65,
+      value: animatedWheelIndex.value + shortestDelta,
+      duration: 0.55,
       ease: "power3.out",
       overwrite: "auto",
     });
 
-    // 1. Swing the -30deg Diagonal Spine Arm around the (215, 605) Hub Pivot like a wheel spoke!
+    // 1. Wheel-spoke swing on the -14deg spine
     if (spineArmRef.value) {
       gsap.fromTo(
         spineArmRef.value,
-        { rotation: -30 + dir * 10, opacity: 0.35 },
+        { rotation: -14 + dir * 4.5, opacity: 0.45 },
         {
-          rotation: -30,
+          rotation: -14,
           opacity: 1,
-          duration: 0.52,
-          ease: "power3.out",
+          duration: 0.45,
+          ease: "power2.out",
           overwrite: "auto",
         },
       );
     }
 
-    // 2. Rotate & focus the centered Circular Preview Image Lens
+    // 2. Dial rotation on the 576x576 preview image
     if (previewLensRef.value) {
       gsap.fromTo(
         previewLensRef.value,
-        { rotation: dir * 24, scale: 0.9, opacity: 0.35 },
+        { rotation: dir * 10, scale: 0.96, opacity: 0.45 },
         {
           rotation: 0,
           scale: 1,
           opacity: 1,
-          duration: 0.55,
-          ease: "back.out(1.4)",
+          duration: 0.45,
+          ease: "power2.out",
           overwrite: "auto",
         },
       );
     }
 
-    // 3. Sweep the Bottom Tech-Stack Bar along the lower wheel arc
+    // 3. Restored radial rotation on the bottom tech stack spoke & node badges
     if (techBarRef.value) {
       gsap.fromTo(
         techBarRef.value,
-        { rotation: 1.4 + dir * 5, x: dir * 26, opacity: 0.35 },
+        { rotation: 6 + dir * 5, opacity: 0.45 },
         {
-          rotation: 1.4,
-          x: 0,
+          rotation: 6,
           opacity: 1,
-          duration: 0.48,
-          ease: "power3.out",
+          duration: 0.45,
+          ease: "power2.out",
           overwrite: "auto",
         },
       );
+
+      const badges = techBarRef.value.querySelectorAll(".tech-wheel-badge");
+      if (badges.length > 0) {
+        gsap.fromTo(
+          badges,
+          { rotation: -dir * 90, scale: 0.85 },
+          {
+            rotation: 0,
+            scale: 1,
+            duration: 0.45,
+            stagger: 0.025,
+            ease: "back.out(1.4)",
+            overwrite: "auto",
+          },
+        );
+      }
     }
 
-    barFillProgress.value = 0.15;
+    barFillProgress.value = 0.2;
     gsap.to(barFillProgress, {
       value: 1,
-      duration: 0.5,
+      duration: 0.45,
       ease: "power2.out",
     });
   },
