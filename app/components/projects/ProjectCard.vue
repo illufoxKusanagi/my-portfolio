@@ -8,7 +8,7 @@
     >
       <!-- Horizontal on Mobile / Vertical on Desktop -->
       <div
-        class="strip-label font-sans font-bold text-xs sm:text-sm md:text-[18px] md:leading-[24px] text-foreground dark:text-white transition-colors tracking-wider uppercase"
+        class="strip-label font-sans font-bold text-base sm:text-sm md:text-[18px] md:leading-[24px] text-foreground dark:text-white transition-colors tracking-wider uppercase"
       >
         {{ $t("projects.projectLabel") }}
       </div>
@@ -37,11 +37,11 @@
 
     <!-- 3. Bottom Content & Specs (Order: 3 on Mobile, 2 on Desktop) -->
     <div
-      class="order-3 md:order-2 w-full md:w-1/2 min-w-0 flex-1 md:h-full p-3 sm:p-5 md:p-10 flex flex-col justify-between relative z-10 overflow-y-auto space-y-2 sm:space-y-3 md:space-y-0"
+      class="order-3 md:order-2 w-full md:w-1/2 min-w-0 flex-1 md:h-full p-3 sm:p-5 md:p-10 flex flex-col justify-between relative z-10 overflow-hidden md:overflow-y-auto space-y-1.5 sm:space-y-2.5 md:space-y-0"
     >
-      <div class="space-y-2 sm:space-y-3 md:space-y-4">
+      <div class="space-y-1.5 sm:space-y-2.5 md:space-y-4">
         <h3
-          class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase"
+          class="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-foreground dark:text-white transition-colors tracking-tight uppercase leading-tight"
         >
           {{
             $te(`projects.items.${project.id}.title`)
@@ -53,11 +53,11 @@
         <!-- Sub-description Tag Box -->
         <div class="flex items-center gap-2.5 sm:gap-3">
           <div
-            class="w-1 h-8 sm:h-10 md:h-12 bg-purple-600 dark:bg-tertiary-600 rounded-full"
+            class="w-1 h-6 sm:h-9 md:h-12 bg-purple-600 dark:bg-tertiary-600 rounded-full shrink-0"
           ></div>
-          <div class="space-y-0.5 sm:space-y-1">
+          <div class="space-y-0.5 sm:space-y-1 min-w-0">
             <p
-              class="font-tech text-[11px] sm:text-xs text-purple-700 dark:text-tertiary-400 font-light max-w-[260px] leading-snug uppercase tracking-widest"
+              class="font-tech text-[11px] sm:text-xs text-purple-700 dark:text-tertiary-400 font-light leading-snug uppercase tracking-widest line-clamp-1 md:line-clamp-none md:max-w-[260px]"
             >
               {{
                 $te(`projects.items.${project.id}.subtitle`)
@@ -71,7 +71,7 @@
 
       <!-- Description -->
       <p
-        class="text-foreground/80 dark:text-white/80 leading-relaxed text-xs sm:text-sm md:text-base max-h-[120px] sm:max-h-[160px] md:max-h-[160px] overflow-y-auto pr-2 custom-scrollbar transition-colors"
+        class="text-foreground/80 dark:text-white/80 leading-relaxed text-xs sm:text-sm md:text-base line-clamp-3 sm:line-clamp-4 md:line-clamp-none md:max-h-[160px] md:overflow-y-auto pr-2 custom-scrollbar transition-colors"
       >
         {{
           $te(`projects.items.${project.id}.description`)

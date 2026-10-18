@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hidden md:block relative w-full h-full overflow-hidden bg-purple-100 dark:bg-secondary-950 transition-colors duration-500"
+    class="hidden lg:block relative w-full h-full overflow-hidden bg-purple-100 dark:bg-secondary-950 transition-colors duration-500"
   >
     <!-- =================================================================== -->
     <!-- VIEWPORT-ADAPTIVE 900px-HEIGHT STAGE                                -->
@@ -234,7 +234,7 @@
               <img
                 :src="activeProject.previewImage"
                 :alt="activeProjectTitle"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="w-full h-full object-cover object-scale-down transition-transform duration-500 group-hover:scale-105"
               />
               <!-- Subtle Top & Bottom Vignette Gradients so Overlaid Header & Buttons Pop Cleanly -->
               <div
