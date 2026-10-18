@@ -1,19 +1,10 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import Stats from "three/addons/libs/stats.module.js";
 import { THREE_SCENE_CONSTANTS } from "./threeSceneConstants";
 
 export function useThreeEngine(canvas: HTMLCanvasElement) {
   const width = window.innerWidth;
   const height = window.innerHeight;
-
-  // Stats Monitor
-  const stats = new Stats();
-  stats.dom.style.position = "absolute";
-  stats.dom.style.top = "10px";
-  stats.dom.style.left = "10px";
-  stats.dom.style.zIndex = "100";
-  canvas.parentElement?.appendChild(stats.dom);
 
   // Scene & Camera
   const scene = new THREE.Scene();
@@ -59,7 +50,6 @@ export function useThreeEngine(canvas: HTMLCanvasElement) {
     camera,
     renderer,
     controls,
-    stats,
     width,
     height,
   };
