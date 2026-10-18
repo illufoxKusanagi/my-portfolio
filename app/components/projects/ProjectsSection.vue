@@ -2,230 +2,214 @@
   <section
     id="projects"
     ref="sectionRef"
-    class="relative w-full h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 overflow-hidden font-sans select-none flex"
+    class="relative w-full h-screen bg-purple-100 dark:bg-secondary-950 transition-colors duration-500 overflow-hidden font-sans select-none"
   >
-    <!-- Left Sidebar (Purple 200 / Secondary 700 background matching section theme, visible on large screens) -->
+    <!-- Desktop / Tablet Endfield Stage (>= md) -->
+    <ProjectsEndfieldStage
+      :active-project="activeProject"
+      :active-index="activeIndex"
+      :total-projects="PROJECTS_DATA.length"
+      :scroll-progress="scrollProgress"
+      :active-project-title="activeProjectTitle"
+      :active-project-subtitle="activeProjectSubtitle"
+      :active-project-description="activeProjectDescription"
+      :active-project-demo-label="activeProjectDemoLabel"
+      :project-label="$t('projects.projectLabel')"
+      :section-title="$t('projects.title')"
+      :view-repo-label="$t('projects.viewRepo')"
+      @next="goToNext"
+      @prev="goToPrev"
+      @select="jumpToProject"
+    />
+
+    <!-- Mobile Fallback (< md) -->
     <div
-      class="hidden lg:flex w-[140px] xl:w-[160px] h-full bg-purple-200 dark:bg-secondary-700 transition-colors duration-500 flex-col items-center justify-end pb-10 gap-10 z-10 shrink-0"
+      class="flex md:hidden w-full h-full flex-col justify-between pt-16 pb-6 px-4 z-20"
     >
-      <!-- Rotated Labels Group -->
-      <div class="flex flex-col items-center gap-6">
-        <!-- Active Project Title (vertical text) -->
-        <span
-          class="text-[20px] xl:text-[26px] font-tech text-foreground/60 dark:text-white/60 uppercase select-none cursor-default transition-colors tracking-wider max-h-[260px] truncate"
-          style="writing-mode: vertical-rl; transform: rotate(180deg)"
-        >
-          {{
-            $te(`projects.items.${activeProject.id}.title`)
-              ? $t(`projects.items.${activeProject.id}.title`)
-              : activeProject.title
-          }}
-        </span>
-
-        <!-- Separator dot -->
-        <div class="w-[8px] h-[8px] rounded-full bg-purple-400 dark:bg-primary-200" />
-
-        <!-- PROJECTS rotated vertical title -->
-        <span
-          class="text-h2 text-foreground dark:text-white select-none cursor-default font-bold transition-colors"
-          style="writing-mode: vertical-rl; transform: rotate(180deg)"
-        >
-          {{ $t("projects.title") }}
-        </span>
-      </div>
-
-      <!-- Bottom bar decoration from Figma -->
-      <div
-        class="flex flex-col justify-between w-[52px] h-[8px] opacity-80 shrink-0"
-      >
-        <div
-          class="h-[2px] bg-foreground dark:bg-white transition-colors w-full"
-        />
-        <div
-          class="h-[2px] bg-foreground dark:bg-white transition-colors w-full"
-        />
-      </div>
-    </div>
-
-    <!-- Main Content Area -->
-    <div
-      class="flex-1 min-w-0 h-full flex flex-col justify-between pt-16 sm:pt-20 pb-4 sm:pb-8 px-4 sm:px-8 md:px-12 z-10 overflow-hidden"
-    >
-      <!-- Section Header -->
-      <div class="w-full flex flex-col sm:flex-row sm:items-end justify-between gap-3 z-20">
-        <div class="flex items-start gap-3 sm:gap-4">
-          <!-- Left Purple Accent Bar -->
-          <div
-            class="w-2 sm:w-2.5 h-10 sm:h-14 md:h-16 bg-purple-600 dark:bg-tertiary-700 mt-1 shrink-0"
-          />
-
-          <div class="space-y-0.5 sm:space-y-1">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="flex items-center gap-2">
+            <span
+              class="w-3.5 h-3.5 rotate-45 bg-purple-600 dark:bg-tertiary-400 inline-block"
+            />
             <h2
-              class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-foreground dark:text-white transition-colors tracking-tight leading-none uppercase"
+              class="font-sans font-extrabold text-2xl text-foreground dark:text-white uppercase leading-none"
             >
               {{ $t("projects.title") }}
             </h2>
-            <p
-              class="font-tech text-sm sm:text-base text-purple-700 dark:text-tertiary-400 transition-colors font-light uppercase tracking-widest"
-            >
-              {{ $t("projects.subtitle") }}
-            </p>
           </div>
+          <p
+            class="font-tech text-xs text-purple-700 dark:text-tertiary-400 pl-5 mt-0.5"
+          >
+            {{ $t("projects.subtitle") }}
+          </p>
         </div>
 
         <NuxtLink
           to="/projects"
-          class="self-start sm:self-auto px-4 py-2 rounded-[8px] bg-purple-200/80 dark:bg-secondary-900 border border-purple-300 dark:border-tertiary-700 hover:bg-purple-600 hover:text-white dark:hover:bg-tertiary-700 font-tech text-xs font-bold uppercase tracking-wider text-foreground dark:text-white transition-colors shadow-sm"
+          class="px-3 py-1.5 rounded-full bg-white text-secondary-950 font-tech text-[11px] font-bold uppercase shadow"
         >
-          {{ $t("projects.archiveTitle") }} &rarr;
+          ALL ({{ PROJECTS_DATA.length }}) &rarr;
         </NuxtLink>
       </div>
 
-      <!-- Main Card Viewport with Clip-Path Stencil Wipe -->
       <div
-        class="w-full flex-1 flex items-center justify-center relative overflow-hidden my-4 lg:my-6 z-10"
+        class="my-auto bg-purple-700 dark:bg-secondary-800 rounded-t-[16px] rounded-b-[36px] overflow-hidden shadow-2xl border border-purple-400/30 dark:border-tertiary-400/30 flex flex-col"
       >
-        <div
-          class="w-full h-full max-h-[480px] sm:max-h-[520px] md:max-h-[560px] lg:max-h-[640px] relative overflow-hidden rounded-[16px]"
-        >
-          <!-- Base Active Card Layer -->
-          <div
-            v-for="(project, index) in PROJECTS_DATA"
-            :key="project.id"
-            :ref="(el: any) => setCardRef(el, index)"
-            class="absolute inset-0 w-full h-full"
-            :style="{
-              zIndex: index === activeIndex ? 20 : 10,
-              clipPath:
-                index === activeIndex
-                  ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
-                  : 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)',
-            }"
-          >
-            <ProjectCard :project="project" />
-          </div>
-
-          <!-- High-Contrast Accent Wipe Curtain -->
-          <div
-            ref="curtainRef"
-            class="absolute inset-0 w-full h-full bg-purple-600 dark:bg-tertiary-700 pointer-events-none z-30 opacity-0"
-            style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+        <div class="relative w-full h-44 bg-secondary-950 overflow-hidden">
+          <img
+            :src="activeProject.previewImage"
+            :alt="activeProjectTitle"
+            class="w-full h-full object-cover"
           />
+          <div
+            class="absolute bottom-2 right-2 px-2.5 py-0.5 bg-secondary-950/90 font-tech text-[10px] font-bold text-tertiary-300 uppercase rounded"
+          >
+            {{ formattedActiveIndex }} / {{ formattedTotal }}
+          </div>
+        </div>
+
+        <div class="p-5 space-y-2.5 text-white">
+          <h3 class="font-sans font-extrabold text-xl uppercase leading-tight">
+            {{ activeProjectTitle }}
+          </h3>
+          <p class="font-tech text-xs text-tertiary-300 uppercase line-clamp-1">
+            {{ activeProjectSubtitle }}
+          </p>
+          <p
+            class="font-sans text-xs text-white/90 leading-relaxed line-clamp-4"
+          >
+            {{ activeProjectDescription }}
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-2">
+            <a
+              v-if="activeProject.demoUrl"
+              :href="activeProject.demoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-1.5 bg-primary-700 text-white font-tech text-xs font-bold uppercase rounded-full"
+            >
+              {{ activeProjectDemoLabel }}
+            </a>
+            <a
+              v-if="activeProject.repoUrl && activeProject.repoUrl !== '-'"
+              :href="activeProject.repoUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-1.5 bg-secondary-950 text-white font-tech text-xs font-bold uppercase rounded-full border border-white/25"
+            >
+              {{ $t("projects.viewRepo") }}
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mx-3 mb-4 px-4 py-2.5 rounded-full bg-purple-950 dark:bg-secondary-950 flex items-center justify-between gap-2"
+        >
+          <span
+            class="font-tech font-bold text-[10px] text-white uppercase tracking-wider shrink-0"
+          >
+            TECH
+          </span>
+          <div class="flex items-center gap-2 overflow-x-auto py-0.5">
+            <div
+              v-for="(tech, tIdx) in activeProject.techIcons"
+              :key="'mob-tech-' + tIdx"
+              class="w-7 h-7 rounded-full bg-white border border-primary-500 p-1.5 shrink-0 flex items-center justify-center"
+            >
+              <img
+                v-if="tech.iconUrl"
+                :src="tech.iconUrl"
+                :alt="tech.name"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Bottom Pagination Controls -->
-      <SectionPagination
-        :current-index="activeIndex"
-        :total-items="PROJECTS_DATA.length"
-        :is-animating="isAnimating"
-        variant="purple"
-        :summary-text="
-          $t('projects.availableCount', { count: PROJECTS_DATA.length })
-        "
-        @prev="goToPrev"
-        @next="goToNext"
-      />
+      <div class="flex items-center justify-between gap-2">
+        <button
+          type="button"
+          class="px-4 py-2.5 rounded-full bg-white text-secondary-950 font-sans font-bold text-xs shadow-md"
+          @click="goToPrev"
+        >
+          &larr; Prev
+        </button>
+        <span
+          class="font-tech text-xs font-bold text-foreground dark:text-white"
+        >
+          {{ formattedActiveIndex }} / {{ formattedTotal }}
+        </span>
+        <button
+          type="button"
+          class="px-5 py-2.5 rounded-full bg-white text-secondary-950 font-sans font-bold text-xs shadow-md"
+          @click="goToNext"
+        >
+          Rotate Next &#9650;
+        </button>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import {
-  ref,
-  computed,
-  onMounted,
-  onBeforeUnmount,
-  type ComponentPublicInstance,
-} from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import { useI18n } from "vue-i18n";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PROJECTS_DATA } from "./projectsData";
-import ProjectCard from "./ProjectCard.vue";
-import SectionPagination from "~/components/common/SectionPagination.vue";
+import ProjectsEndfieldStage from "./ProjectsEndfieldStage.vue";
+
+const { t, te } = useI18n();
+const { $lenis } = useNuxtApp();
 
 const sectionRef = ref<HTMLElement | null>(null);
-const curtainRef = ref<HTMLElement | null>(null);
-const cardRefs = ref<HTMLElement[]>([]);
 const activeIndex = ref(0);
-const isAnimating = ref(false);
+const scrollProgress = ref(0);
 let isProgrammaticScroll = false;
-
-const { $lenis } = useNuxtApp();
+let scrollTriggerInstance: ScrollTrigger | null = null;
 
 const activeProject = computed(() => {
   return PROJECTS_DATA[activeIndex.value] || PROJECTS_DATA[0]!;
 });
 
-const setCardRef = (
-  el: Element | null | ComponentPublicInstance,
-  index: number,
-) => {
-  if (el) {
-    cardRefs.value[index] = el as HTMLElement;
-  }
-};
+const formattedActiveIndex = computed(() =>
+  String(activeIndex.value + 1).padStart(2, "0"),
+);
+const formattedTotal = computed(() =>
+  String(PROJECTS_DATA.length).padStart(2, "0"),
+);
 
-let scrollTriggerInstance: ScrollTrigger | null = null;
+const activeProjectTitle = computed(() => {
+  const key = `projects.items.${activeProject.value.id}.title`;
+  return te(key) ? t(key) : activeProject.value.title;
+});
 
-const transitionToCard = (
-  nextIdx: number,
-  direction: "next" | "prev" = "next",
-) => {
-  if (nextIdx === activeIndex.value || isAnimating.value) return;
+const activeProjectSubtitle = computed(() => {
+  const key = `projects.items.${activeProject.value.id}.subtitle`;
+  return te(key) ? t(key) : activeProject.value.subtitle;
+});
 
-  isAnimating.value = true;
+const activeProjectDescription = computed(() => {
+  const key = `projects.items.${activeProject.value.id}.description`;
+  return te(key) ? t(key) : activeProject.value.description;
+});
 
-  const currentCard = cardRefs.value[activeIndex.value]!;
-  const nextCard = cardRefs.value[nextIdx]!;
-  const curtain = curtainRef.value;
+const activeProjectDemoLabel = computed(() => {
+  const key = `projects.items.${activeProject.value.id}.demoLabel`;
+  return te(key)
+    ? t(key)
+    : activeProject.value.demoLabel || t("projects.viewDemo");
+});
 
-  const tl = gsap.timeline({
-    onComplete: () => {
-      activeIndex.value = nextIdx;
-      isAnimating.value = false;
-    },
-  });
+function syncScrollToIndex(idx: number) {
+  const total = PROJECTS_DATA.length;
+  scrollProgress.value = idx / Math.max(1, total - 1);
 
-  const startPolygon =
-    direction === "next"
-      ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
-      : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)";
-
-  const fullPolygon = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
-
-  const endPolygon =
-    direction === "next"
-      ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
-      : "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)";
-
-  gsap.set(nextCard, { zIndex: 25, clipPath: fullPolygon });
-  gsap.set(curtain, { zIndex: 30, opacity: 0.9, clipPath: startPolygon });
-
-  tl.to(curtain, {
-    clipPath: fullPolygon,
-    duration: 0.35,
-    ease: "power3.inOut",
-  })
-    .call(() => {
-      gsap.set(currentCard, {
-        zIndex: 10,
-        clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
-      });
-      gsap.set(nextCard, { zIndex: 20 });
-    })
-    .to(curtain, {
-      clipPath: endPolygon,
-      duration: 0.35,
-      ease: "power3.inOut",
-    })
-    .set(curtain, { opacity: 0 });
-};
-
-const syncScrollToIndex = (idx: number) => {
   if (!scrollTriggerInstance) return;
-  const cards = cardRefs.value;
-  const targetProgress = (idx + 0.5) / cards.length;
+  const targetProgress = (idx + 0.5) / total;
   const start = scrollTriggerInstance.start;
   const end = scrollTriggerInstance.end;
   const targetScroll = start + targetProgress * (end - start);
@@ -239,48 +223,46 @@ const syncScrollToIndex = (idx: number) => {
   setTimeout(() => {
     isProgrammaticScroll = false;
   }, 600);
-};
+}
 
-const goToNext = () => {
-  if (activeIndex.value < PROJECTS_DATA.length - 1) {
-    const nextIdx = activeIndex.value + 1;
-    transitionToCard(nextIdx, "next");
-    syncScrollToIndex(nextIdx);
-  }
-};
+function jumpToProject(idx: number) {
+  if (idx === activeIndex.value) return;
+  activeIndex.value = idx;
+  syncScrollToIndex(idx);
+}
 
-const goToPrev = () => {
-  if (activeIndex.value > 0) {
-    const nextIdx = activeIndex.value - 1;
-    transitionToCard(nextIdx, "prev");
-    syncScrollToIndex(nextIdx);
-  }
-};
+function goToNext() {
+  const nextIdx = (activeIndex.value + 1) % PROJECTS_DATA.length;
+  activeIndex.value = nextIdx;
+  syncScrollToIndex(nextIdx);
+}
+
+function goToPrev() {
+  const prevIdx =
+    (activeIndex.value - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length;
+  activeIndex.value = prevIdx;
+  syncScrollToIndex(prevIdx);
+}
 
 onMounted(() => {
-  if (import.meta.server || !sectionRef.value || cardRefs.value.length === 0)
-    return;
+  if (import.meta.server || !sectionRef.value) return;
 
   gsap.registerPlugin(ScrollTrigger);
-
-  const section = sectionRef.value;
-  const cards = cardRefs.value;
+  const total = PROJECTS_DATA.length;
 
   scrollTriggerInstance = ScrollTrigger.create({
-    trigger: section,
+    trigger: sectionRef.value,
     pin: true,
     start: "top top",
-    end: () => `+=${cards.length * 65}%`,
+    end: () => `+=${total * 85}%`,
     scrub: 1,
     onUpdate: (self) => {
-      if (isProgrammaticScroll || isAnimating.value) return;
-      const step = Math.min(
-        cards.length - 1,
-        Math.floor(self.progress * cards.length),
-      );
+      // Continuously drive wheel rotation on every pixel of scroll
+      scrollProgress.value = self.progress;
+      if (isProgrammaticScroll) return;
+      const step = Math.min(total - 1, Math.floor(self.progress * total));
       if (step !== activeIndex.value) {
-        const dir = step > activeIndex.value ? "next" : "prev";
-        transitionToCard(step, dir);
+        activeIndex.value = step;
       }
     },
   });
