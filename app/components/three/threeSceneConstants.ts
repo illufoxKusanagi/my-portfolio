@@ -1,6 +1,6 @@
 export const THREE_SCENE_CONSTANTS = {
   DRACO_DECODER_PATH: "https://www.gstatic.com/draco/versioned/decoders/1.5.7/",
-  GTR_R33_MODEL_PATH: "/models/Skyline-GTR-R33.glb",
+  GTR_R33_MODEL_PATH: "/models/Skyline-GTR-R33-V3.glb",
 
   VENICE_SUNSET_HDR_URL:
     "https://raw.githubusercontent.com/pmndrs/drei-assets/master/hdri/venice_sunset_1k.hdr",
