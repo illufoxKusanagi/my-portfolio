@@ -37,7 +37,10 @@ onMounted(() => {
   );
 
   useThreeEnvironment(scene, renderer);
-  useGtrModel(scene, loadingManager);
+  const { updateGtrAnimation, disposeGtrAnimation } = useGtrModel(
+    scene,
+    loadingManager,
+  );
 
   const { updateParticles } = useWindTunnelParticles(scene);
   const { composer, resizeComposer } = usePostProcessing(
@@ -73,6 +76,7 @@ onMounted(() => {
 
     controls.update();
     updateParticles(time, delta, speedMult);
+    updateGtrAnimation(delta, speedMult);
     composer.render(delta);
 
     animFrameId = requestAnimationFrame(tick);
@@ -98,6 +102,7 @@ onMounted(() => {
   onBeforeUnmount(() => {
     cancelAnimationFrame(animFrameId);
     if (handleResize) window.removeEventListener("resize", handleResize);
+    disposeGtrAnimation();
     controls.dispose();
     renderer.dispose();
   });
